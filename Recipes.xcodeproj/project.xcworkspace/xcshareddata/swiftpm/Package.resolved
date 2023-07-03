@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "snapkit?ysclid=ldhh9l9d77943341286#installation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit?ysclid=ldhh9l9d77943341286#installation",
+      "state" : {
+        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
+        "version" : "5.6.0"
+      }
+    }
+  ],
+  "version" : 2
+}
