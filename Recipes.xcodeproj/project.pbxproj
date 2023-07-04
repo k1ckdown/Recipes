@@ -13,7 +13,7 @@
 		4904B3352A52C76600071AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4904B3332A52C76600071AC6 /* LaunchScreen.storyboard */; };
 		49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */; };
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
-		49648FD62A54339400B99DFF /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* CountryCell.swift */; };
+		49648FD62A54339400B99DFF /* CountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* CountryViewCell.swift */; };
 		497F4C602A5336DD0073A86E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 497F4C5F2A5336DD0073A86E /* SnapKit */; };
 		497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C652A53374F0073A86E /* HomeViewController.swift */; };
 		497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C672A5337710073A86E /* HomeInteractor.swift */; };
@@ -31,6 +31,7 @@
 		497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C892A535E290073A86E /* HomeDataSource.swift */; };
 		497F4C8D2A5363A60073A86E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8C2A5363A60073A86E /* HeaderView.swift */; };
 		497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */; };
+		499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499F4C702A544DC300E3446C /* FoodViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		4904B3362A52C76600071AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
-		49648FD52A54339400B99DFF /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		49648FD52A54339400B99DFF /* CountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewCell.swift; sourceTree = "<group>"; };
 		497F4C652A53374F0073A86E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		497F4C672A5337710073A86E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		497F4C692A5337890073A86E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		497F4C892A535E290073A86E /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		497F4C8C2A5363A60073A86E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		499F4C702A544DC300E3446C /* FoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,8 @@
 		49648FCF2A5429B800B99DFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */,
 				49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */,
+				49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -115,7 +117,8 @@
 		49648FD42A54336E00B99DFF /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				49648FD52A54339400B99DFF /* CountryCell.swift */,
+				49B25AD62A546EF900E9AEF6 /* Country */,
+				49B25AD52A546E9A00E9AEF6 /* Food */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -209,8 +212,8 @@
 		497F4C822A5355870073A86E /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				497F4C832A5355A50073A86E /* HomeCompositionalLayout.swift */,
 				497F4C852A53581E0073A86E /* HomeSection.swift */,
+				497F4C832A5355A50073A86E /* HomeCompositionalLayout.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -230,6 +233,22 @@
 				497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49B25AD52A546E9A00E9AEF6 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				499F4C702A544DC300E3446C /* FoodViewCell.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		49B25AD62A546EF900E9AEF6 /* Country */ = {
+			isa = PBXGroup;
+			children = (
+				49648FD52A54339400B99DFF /* CountryViewCell.swift */,
+			);
+			path = Country;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */,
+				499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
-				49648FD62A54339400B99DFF /* CountryCell.swift in Sources */,
+				49648FD62A54339400B99DFF /* CountryViewCell.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,

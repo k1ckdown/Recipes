@@ -8,5 +8,6 @@
 import UIKit
 
 extension UIFont {
+    static let countryName = UIFont.systemFont(ofSize: 20)
     static let sectionHeader = UIFont.systemFont(ofSize: 22, weight: .bold)
 }

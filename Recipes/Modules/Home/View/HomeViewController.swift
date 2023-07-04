@@ -35,13 +35,18 @@ final class HomeViewController: UIViewController {
     }
     
     private func setup() {
+        setupSuperView()
         setupFoodCollectionView()
+    }
+    
+    private func setupSuperView() {
+        view.backgroundColor = .appBackground
     }
     
     private func setupFoodCollectionView() {
         view.addSubview(foodCollectionView)
         
-        foodCollectionView.backgroundColor = .gray
+        foodCollectionView.backgroundColor = .clear
         
         foodCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

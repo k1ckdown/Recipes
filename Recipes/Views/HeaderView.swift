@@ -34,5 +34,6 @@ final class HeaderView: UICollectionReusableView, ReuseIdentifier {
     private func setup() {
         addSubview(label)
         label.font = .sectionHeader
+        label.textColor = .sectionHeader
     }
 }

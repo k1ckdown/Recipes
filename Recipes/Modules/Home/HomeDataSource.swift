@@ -15,8 +15,13 @@ final class HomeDataSource: NSObject {
         collectionView.dataSource = self
         
         collectionView.register(
-            CountryCell.self,
-            forCellWithReuseIdentifier: CountryCell.reuseIdentifier
+            CountryViewCell.self,
+            forCellWithReuseIdentifier: CountryViewCell.reuseIdentifier
+        )
+        
+        collectionView.register(
+            FoodViewCell.self,
+            forCellWithReuseIdentifier: FoodViewCell.reuseIdentifier
         )
         
         collectionView.register(
@@ -40,14 +45,49 @@ extension HomeDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CountryCell.reuseIdentifier,
-                for: indexPath
-            ) as? CountryCell
-        else { return .init() }
+        guard let section = HomeSection(rawValue: indexPath.section) else { return .init() }
         
-        return cell
+        switch section {
+        case .countries:
+            guard
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CountryViewCell.reuseIdentifier,
+                    for: indexPath
+                ) as? CountryViewCell
+            else { return .init() }
+            
+            return cell
+            
+        case .latestMeals:
+            guard
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FoodViewCell.reuseIdentifier,
+                    for: indexPath
+                ) as? FoodViewCell
+            else { return .init() }
+            
+            return cell
+            
+        case .ingredients:
+            guard
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FoodViewCell.reuseIdentifier,
+                    for: indexPath
+                ) as? FoodViewCell
+            else { return .init() }
+            
+            return cell
+            
+        case .randomMeals:
+            guard
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: FoodViewCell.reuseIdentifier,
+                    for: indexPath
+                ) as? FoodViewCell
+            else { return .init() }
+            
+            return cell
+        }
     }
     
     func collectionView(
