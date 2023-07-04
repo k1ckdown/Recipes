@@ -60,7 +60,7 @@ private extension HomeCompositionalLayout {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(0.4),
-                heightDimension: .absolute(55)
+                heightDimension: .fractionalHeight(0.06)
             ),
             subitems: [makeCountryItem()])
         
@@ -124,7 +124,7 @@ private extension HomeCompositionalLayout {
                 heightDimension: .fractionalHeight(0.5)
             )
         )
-        item.contentInsets = .init(top: 0, leading: 15, bottom: 15, trailing: 0)
+        item.contentInsets = .init(top: 0, leading: 15, bottom: 5, trailing: 0)
         
         return item
     }
@@ -133,7 +133,7 @@ private extension HomeCompositionalLayout {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(0.37),
-                heightDimension: .fractionalHeight(0.35)
+                heightDimension: .fractionalHeight(0.37)
             ),
             subitems: [makeIngredientItem()])
         
@@ -158,10 +158,10 @@ private extension HomeCompositionalLayout {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(0.5),
-                heightDimension: .absolute(150)
+                heightDimension: .absolute(200)
             )
         )
-        item.contentInsets = .init(top: 0, leading: 5, bottom: 16, trailing: 16)
+        item.contentInsets = .init(top: 0, leading: 5, bottom: 5, trailing: 16)
         
         return item
     }

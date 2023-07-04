@@ -66,6 +66,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
+            cell.configure(with: .init(foodName: "Chocolate Raspberry Brownies", foodType: .latestMeal))
             return cell
             
         case .ingredients:
@@ -76,6 +77,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
+            cell.configure(with: .init(foodName: "Muscovado Sugar", foodType: .ingredient))
             return cell
             
         case .randomMeals:
@@ -86,6 +88,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
+            cell.configure(with: .init(foodName: "randomMeals", foodType: .randomMeal))
             return cell
         }
     }

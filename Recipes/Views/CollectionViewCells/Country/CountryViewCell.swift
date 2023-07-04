@@ -20,6 +20,10 @@ final class CountryViewCell: UICollectionViewCell, ReuseIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(with model: CountryCellModel) {
+        countryNameLabel.text = model.countryName
+    }
+    
     private func setup() {
         setupSuperView()
         setupCountryNameLabel()

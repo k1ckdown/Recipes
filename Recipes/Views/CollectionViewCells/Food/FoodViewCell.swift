@@ -21,6 +21,44 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.font = nil
+        nameLabel.isHidden = false
+        nameLabel.snp.removeConstraints()
+        foodImageView.snp.removeConstraints()
+    }
+    
+    func configure(with model: FoodCellModel) {
+        nameLabel.text = model.foodName
+        nameLabel.font = model.foodType.font
+        nameLabel.isHidden = !model.foodType.shouldShowName
+        nameLabel.backgroundColor = model.foodType.backgroundColor
+        
+        foodImageView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(model.foodType.imageHeightMultiplier)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(40)
+        }
+        
+        switch model.foodType {
+        case .latestMeal:
+            nameLabel.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-10)
+            }
+        case .ingredient, .randomMeal:
+            nameLabel.snp.makeConstraints { make in
+                make.top.equalTo(foodImageView.snp.bottom)
+            }
+        }
+    }
+    
     private func setup() {
         setupSuperView()
         setupFoodImageView()
@@ -29,7 +67,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     
     private func setupSuperView() {
         clipsToBounds = true
-        layer.cornerRadius = 10
     }
     
     private func setupFoodImageView() {
@@ -37,10 +74,9 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         
         foodImageView.image = UIImage(named: "default")
         foodImageView.contentMode = .scaleToFill
-        
-        foodImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        foodImageView.layer.cornerRadius = 10
+        foodImageView.layer.masksToBounds = false
+        foodImageView.clipsToBounds = true
     }
     
     private func setupNameLabel() {
@@ -52,14 +88,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.layer.cornerRadius = 5
         nameLabel.layer.masksToBounds = true
         nameLabel.backgroundColor = .appBackground
-        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
-        
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalTo(40)
-        }
     }
     
 }
