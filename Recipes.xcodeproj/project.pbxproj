@@ -46,6 +46,8 @@
 		49B4F88F2A55822900E91A3A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F88E2A55822900E91A3A /* NetworkRouter.swift */; };
 		49B4F8922A55B6DA00E91A3A /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8912A55B6DA00E91A3A /* CategoryDTO.swift */; };
 		49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8932A55BEE500E91A3A /* MealDTO.swift */; };
+		49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */; };
+		49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		49B4F88E2A55822900E91A3A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		49B4F8912A55B6DA00E91A3A /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
 		49B4F8932A55BEE500E91A3A /* MealDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDTO.swift; sourceTree = "<group>"; };
+		49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDTO.swift; sourceTree = "<group>"; };
+		49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,8 +339,10 @@
 		49B4F8902A55B69A00E91A3A /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				49B4F8912A55B6DA00E91A3A /* CategoryDTO.swift */,
+				49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */,
 				49B4F8932A55BEE500E91A3A /* MealDTO.swift */,
+				49B4F8912A55B6DA00E91A3A /* CategoryDTO.swift */,
+				49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -419,7 +425,9 @@
 			files = (
 				49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */,
 				49B4F87F2A55634200E91A3A /* NetworkError.swift in Sources */,
+				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
 				499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */,
+				49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */,
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
 				49648FD62A54339400B99DFF /* CountryViewCell.swift in Sources */,

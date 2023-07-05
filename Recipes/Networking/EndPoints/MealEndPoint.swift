@@ -17,6 +17,7 @@ enum MealAPI {
     case searchMeal(name: String)
     case filterByArea(area: String)
     case filterByCategory(category: String)
+    case filterByMainIngredient(ingredient: String)
 }
 
 extension MealAPI: EndPointType {
@@ -45,7 +46,7 @@ extension MealAPI: EndPointType {
             return "randomselection.php"
         case .areaList, .ingredientList:
             return "list.php"
-        case .filterByArea, .filterByCategory:
+        case .filterByArea, .filterByCategory, .filterByMainIngredient:
             return "filter.php"
         }
     }
@@ -80,6 +81,9 @@ extension MealAPI: EndPointType {
         case .filterByCategory(let category):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["c": category])
+        case .filterByMainIngredient(let ingredient):
+            return .requestParameters(bodyEncoding: .urlEncoding,
+                                      urlParameters: ["i": ingredient])
         }
     }
     

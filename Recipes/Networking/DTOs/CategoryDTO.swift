@@ -21,6 +21,6 @@ struct CategoryDTO: Decodable {
     }
 }
 
-struct CategoryResponse: Decodable {
+struct CategoryListResponse: Decodable {
     let categories: [CategoryDTO]
 }
