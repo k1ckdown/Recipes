@@ -8,14 +8,14 @@
 import Foundation
 
 enum HomeSection: Int, CaseIterable {
-    case countries
     case latestMeals
     case ingredients
+    case areas
     case randomMeals
     
     var header: String? {
         switch self {
-        case .countries:
+        case .areas:
             return "Browse Country"
         case .latestMeals:
             return "Latest Meals"

@@ -32,6 +32,7 @@ final class HomeViewController: UIViewController {
         
         setup()
         dataSource.configure(with: foodCollectionView)
+        output.viewDidLoad()
     }
     
     private func setup() {
@@ -55,7 +56,9 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewInput {
-    
+    func refreshCollection() {
+        foodCollectionView.reloadData()
+    }
 }
 
 //struct ContentView_Previews: PreviewProvider {

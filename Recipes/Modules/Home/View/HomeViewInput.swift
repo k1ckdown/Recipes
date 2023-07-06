@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeViewInput: AnyObject {
-    
+    func refreshCollection()
 }

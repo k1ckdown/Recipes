@@ -8,8 +8,8 @@
 import UIKit
 
 extension UIFont {
-    static let countryName = UIFont.systemFont(ofSize: 20)
+    static let areaName = UIFont.systemFont(ofSize: 20)
     static let sectionHeader = UIFont.systemFont(ofSize: 22, weight: .bold)
-    static let mealNameTitle = UIFont.systemFont(ofSize: 15, weight: .heavy)
+    static let mealNameTitle = UIFont.systemFont(ofSize: 14, weight: .heavy)
     static let ingredientNameTitle = UIFont.systemFont(ofSize: 11, weight: .heavy)
 }

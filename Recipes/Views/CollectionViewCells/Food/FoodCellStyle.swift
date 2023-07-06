@@ -35,7 +35,7 @@ enum FoodCellStyle {
     var backgroundColor: UIColor? {
         switch self {
         case .latestMeal:
-            return .appBackground
+            return .appBackground?.withAlphaComponent(0.9)
         case .ingredient:
             return .clear
         case .randomMeal:

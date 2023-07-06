@@ -14,7 +14,7 @@ enum HomeCompositionalLayout {
             let section = HomeSection(rawValue: sectionIndex)
             
             switch section {
-            case .countries:
+            case .areas:
                 return makeCountriesSection()
             case .latestMeals:
                 return makeLatestMealsSection()

@@ -24,6 +24,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        nameLabel.text = nil
         nameLabel.font = nil
         nameLabel.isHidden = false
         nameLabel.snp.removeConstraints()
@@ -82,7 +83,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     private func setupNameLabel() {
         addSubview(nameLabel)
         
-        nameLabel.text = "Chocolate Raspberry Brownies"
         nameLabel.textColor = .appWhite
         nameLabel.textAlignment = .center
         nameLabel.layer.cornerRadius = 5

@@ -15,8 +15,8 @@ final class HomeDataSource: NSObject {
         collectionView.dataSource = self
         
         collectionView.register(
-            CountryViewCell.self,
-            forCellWithReuseIdentifier: CountryViewCell.reuseIdentifier
+            AreaViewCell.self,
+            forCellWithReuseIdentifier: AreaViewCell.reuseIdentifier
         )
         
         collectionView.register(
@@ -37,25 +37,26 @@ final class HomeDataSource: NSObject {
 extension HomeDataSource: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return HomeSection.allCases.count
+        return output.numberOfSections()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16
+        return output.numberOfItems(at: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let section = HomeSection(rawValue: indexPath.section) else { return .init() }
         
         switch section {
-        case .countries:
+        case .areas:
             guard
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: CountryViewCell.reuseIdentifier,
+                    withReuseIdentifier: AreaViewCell.reuseIdentifier,
                     for: indexPath
-                ) as? CountryViewCell
+                ) as? AreaViewCell
             else { return .init() }
             
+            cell.configure(with: output.areaCellModels[indexPath.item])
             return cell
             
         case .latestMeals:
@@ -66,7 +67,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
-            cell.configure(with: .init(foodName: "Chocolate Raspberry Brownies", foodType: .latestMeal))
+            cell.configure(with: output.latestMealCellModels[indexPath.item])
             return cell
             
         case .ingredients:
@@ -77,7 +78,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
-            cell.configure(with: .init(foodName: "Muscovado Sugar", foodType: .ingredient))
+            cell.configure(with: output.ingredientCellModels[indexPath.item])
             return cell
             
         case .randomMeals:
@@ -88,7 +89,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
-            cell.configure(with: .init(foodName: "randomMeals", foodType: .randomMeal))
+            cell.configure(with: output.randomMealCellModels[indexPath.item])
             return cell
         }
     }
@@ -98,7 +99,7 @@ extension HomeDataSource: UICollectionViewDataSource {
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-        guard let section = HomeSection(rawValue: indexPath.section) else { return .init() }
+        let section = output.section(at: indexPath.section)
         
         guard
             let header = collectionView.dequeueReusableSupplementaryView(

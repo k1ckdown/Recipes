@@ -14,10 +14,10 @@ enum MealAPI {
     case randomMeals
     case ingredientList
     case mealById(id: Int)
-    case searchMeal(name: String)
-    case filterByArea(area: String)
-    case filterByCategory(category: String)
-    case filterByMainIngredient(ingredient: String)
+    case mealByName(name: String)
+    case mealsByArea(area: String)
+    case mealsByCategory(category: String)
+    case mealsByMainIngredient(ingredient: String)
 }
 
 extension MealAPI: EndPointType {
@@ -34,7 +34,7 @@ extension MealAPI: EndPointType {
     
     var path: String {
         switch self {
-        case .searchMeal:
+        case .mealByName:
             return "search.php"
         case .mealById:
             return "lookup.php"
@@ -46,7 +46,7 @@ extension MealAPI: EndPointType {
             return "randomselection.php"
         case .areaList, .ingredientList:
             return "list.php"
-        case .filterByArea, .filterByCategory, .filterByMainIngredient:
+        case .mealsByArea, .mealsByCategory, .mealsByMainIngredient:
             return "filter.php"
         }
     }
@@ -72,16 +72,16 @@ extension MealAPI: EndPointType {
         case .mealById(let id):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["i": id])
-        case .searchMeal(let name):
+        case .mealByName(let name):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["s": name])
-        case .filterByArea(let area):
+        case .mealsByArea(let area):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["a": area])
-        case .filterByCategory(let category):
+        case .mealsByCategory(let category):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["c": category])
-        case .filterByMainIngredient(let ingredient):
+        case .mealsByMainIngredient(let ingredient):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["i": ingredient])
         }

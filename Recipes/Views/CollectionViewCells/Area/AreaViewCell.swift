@@ -1,5 +1,5 @@
 //
-//  CountryViewCell.swift
+//  AreaViewCell.swift
 //  Recipes
 //
 //  Created by Ivan Semenov on 04.07.2023.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class CountryViewCell: UICollectionViewCell, ReuseIdentifier {
+final class AreaViewCell: UICollectionViewCell, ReuseIdentifier {
     
-    private let countryNameLabel = UILabel()
+    private let areaNameLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,8 +20,13 @@ final class CountryViewCell: UICollectionViewCell, ReuseIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: CountryCellModel) {
-        countryNameLabel.text = model.countryName
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        areaNameLabel.text = nil
+    }
+    
+    func configure(with model: AreaCellModel) {
+        areaNameLabel.text = model.areaName
     }
     
     private func setup() {
@@ -35,13 +40,12 @@ final class CountryViewCell: UICollectionViewCell, ReuseIdentifier {
     }
     
     private func setupCountryNameLabel() {
-        addSubview(countryNameLabel)
+        addSubview(areaNameLabel)
         
-        countryNameLabel.text = "Italia"
-        countryNameLabel.font = .countryName
-        countryNameLabel.textColor = .appWhite
+        areaNameLabel.font = .areaName
+        areaNameLabel.textColor = .appWhite
         
-        countryNameLabel.snp.makeConstraints { make in
+        areaNameLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
