@@ -70,7 +70,7 @@ private extension HomeCompositionalLayout {
     static func makeCountriesSection() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: makeCountryGroup())
         
-        section.contentInsets.leading = 20
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 15, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [makeSectionHeader()]
         
@@ -106,7 +106,7 @@ private extension HomeCompositionalLayout {
     static func makeLatestMealsSection() -> NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: makeLatestMealGroup())
         
-        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: -20)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 15, trailing: -20)
         section.orthogonalScrollingBehavior = .paging
         section.boundarySupplementaryItems = [makeSectionHeader()]
         
@@ -124,7 +124,7 @@ private extension HomeCompositionalLayout {
                 heightDimension: .fractionalHeight(0.5)
             )
         )
-        item.contentInsets = .init(top: 0, leading: 15, bottom: 5, trailing: 0)
+        item.contentInsets = .init(top: 0, leading: 15, bottom: 15, trailing: 0)
         
         return item
     }

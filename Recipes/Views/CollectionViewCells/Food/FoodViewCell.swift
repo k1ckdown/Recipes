@@ -27,6 +27,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         
         nameLabel.text = nil
         nameLabel.font = nil
+        backgroundColor = nil
         foodImageView.image = nil
         nameLabel.isHidden = false
         nameLabel.backgroundColor = nil
@@ -40,7 +41,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.isHidden = !model.foodType.shouldShowName
         nameLabel.backgroundColor = model.foodType.backgroundColor
         foodImageView.kf.setImage(with: URL(string: model.imageUrl),
-                                  placeholder: UIImage(named: "default"))
+                                  placeholder: UIImage(named: "placeholder"))
         
         foodImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -62,6 +63,11 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
             nameLabel.snp.makeConstraints { make in
                 make.top.equalTo(foodImageView.snp.bottom)
             }
+        }
+        
+        if model.foodType == .ingredient {
+            layer.cornerRadius = 10
+            backgroundColor = .appGray
         }
     }
     
@@ -91,7 +97,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.textAlignment = .center
         nameLabel.layer.cornerRadius = 5
         nameLabel.layer.masksToBounds = true
-        nameLabel.backgroundColor = .appBackground
     }
     
 }

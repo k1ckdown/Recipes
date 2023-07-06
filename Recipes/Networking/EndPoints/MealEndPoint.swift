@@ -22,7 +22,7 @@ enum MealAPI {
 
 extension MealAPI: EndPointType {
     
-    var baseURL: URL {
+    var baseUrl: URL {
         guard
             let url = URL(string: "https://themealdb.com/api/json/v2/\(NetworkManager.mealApiKey)")
         else {

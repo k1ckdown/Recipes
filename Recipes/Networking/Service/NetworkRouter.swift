@@ -38,7 +38,7 @@ final class NetworkRouter<EndPoint: EndPointType>: NetworkRouterProtocol {
     }
     
     private func buildRequest(from route: EndPoint) throws -> URLRequest {
-        var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
+        var request = URLRequest(url: route.baseUrl.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10)
         request.httpMethod = route.httpMethod.rawValue

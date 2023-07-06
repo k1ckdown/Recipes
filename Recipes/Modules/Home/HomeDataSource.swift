@@ -31,8 +31,6 @@ final class HomeDataSource: NSObject {
     }
 }
 
-// MARK: - UICollectionViewDataSource
-
 extension HomeDataSource: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

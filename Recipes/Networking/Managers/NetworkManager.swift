@@ -9,6 +9,8 @@ import Foundation
 
 struct NetworkManager {
     static let mealApiKey = "9973533"
+    static let ingredientImageUrl = "https://www.themealdb.com/images/ingredients/"
+    
     let router = NetworkRouter<MealAPI>()
     
     func fetchMealData<T: Decodable>(mealEndPoint: MealAPI, completion: @escaping (Result<T, NetworkError>) -> Void) {

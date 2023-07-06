@@ -14,11 +14,14 @@ struct IngredientDTO: Decodable {
     let description: String?
     
     func toIngredient() -> Ingredient {
-        .init(id: id,
-              name: name,
-              type: type,
-              description: description,
-              thumbnailLink: "https://www.themealdb.com/images/ingredients/\(name).png")
+        let percentEncodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let thumbnailLink = "\(NetworkManager.ingredientImageUrl)\(percentEncodedName ?? "").png"
+        
+        return .init(id: id,
+                     name: name,
+                     type: type,
+                     description: description,
+                     thumbnailLink: thumbnailLink)
     }
     
     private enum CodingKeys: String, CodingKey {
