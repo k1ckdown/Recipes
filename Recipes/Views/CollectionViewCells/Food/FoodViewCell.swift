@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     
@@ -26,7 +27,9 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         
         nameLabel.text = nil
         nameLabel.font = nil
+        foodImageView.image = nil
         nameLabel.isHidden = false
+        nameLabel.backgroundColor = nil
         nameLabel.snp.removeConstraints()
         foodImageView.snp.removeConstraints()
     }
@@ -36,6 +39,8 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.font = model.foodType.font
         nameLabel.isHidden = !model.foodType.shouldShowName
         nameLabel.backgroundColor = model.foodType.backgroundColor
+        foodImageView.kf.setImage(with: URL(string: model.imageUrl),
+                                  placeholder: UIImage(named: "default"))
         
         foodImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -53,7 +58,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
             nameLabel.snp.makeConstraints { make in
                 make.bottom.equalToSuperview().offset(-10)
             }
-        case .ingredient, .randomMeal:
+        case .ingredient, .popularMeal:
             nameLabel.snp.makeConstraints { make in
                 make.top.equalTo(foodImageView.snp.bottom)
             }
@@ -73,7 +78,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     private func setupFoodImageView() {
         addSubview(foodImageView)
         
-        foodImageView.image = UIImage(named: "default")
         foodImageView.contentMode = .scaleToFill
         foodImageView.layer.cornerRadius = 10
         foodImageView.layer.masksToBounds = false

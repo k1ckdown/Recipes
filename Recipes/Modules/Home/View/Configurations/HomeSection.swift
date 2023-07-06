@@ -11,7 +11,7 @@ enum HomeSection: Int, CaseIterable {
     case latestMeals
     case ingredients
     case areas
-    case randomMeals
+    case popularMeals
     
     var header: String? {
         switch self {
@@ -21,8 +21,8 @@ enum HomeSection: Int, CaseIterable {
             return "Latest Meals"
         case .ingredients:
             return "Ingredients"
-        case .randomMeals:
-            return "Random Meals"
+        case .popularMeals:
+            return "Popular Meals"
         }
     }
 }

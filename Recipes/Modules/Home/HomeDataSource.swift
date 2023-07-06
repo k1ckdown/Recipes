@@ -11,7 +11,6 @@ final class HomeDataSource: NSObject {
     var output: HomeViewOutput!
     
     func configure(with collectionView: UICollectionView) {
-        collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView.register(
@@ -81,7 +80,7 @@ extension HomeDataSource: UICollectionViewDataSource {
             cell.configure(with: output.ingredientCellModels[indexPath.item])
             return cell
             
-        case .randomMeals:
+        case .popularMeals:
             guard
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: FoodViewCell.reuseIdentifier,
@@ -89,7 +88,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
-            cell.configure(with: output.randomMealCellModels[indexPath.item])
+            cell.configure(with: output.popularMealCellModels[indexPath.item])
             return cell
         }
     }
@@ -112,11 +111,5 @@ extension HomeDataSource: UICollectionViewDataSource {
         header.headerText = section.header
         return header
     }
-    
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension HomeDataSource: UICollectionViewDelegate {
     
 }

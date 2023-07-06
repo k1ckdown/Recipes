@@ -47,6 +47,7 @@ final class HomeViewController: UIViewController {
     private func setupFoodCollectionView() {
         view.addSubview(foodCollectionView)
         
+        foodCollectionView.delegate = self
         foodCollectionView.backgroundColor = .clear
         
         foodCollectionView.snp.makeConstraints { make in
@@ -59,6 +60,12 @@ extension HomeViewController: HomeViewInput {
     func refreshCollection() {
         foodCollectionView.reloadData()
     }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension HomeViewController: UICollectionViewDelegate {
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {

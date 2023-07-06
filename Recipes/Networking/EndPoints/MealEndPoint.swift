@@ -11,7 +11,7 @@ enum MealAPI {
     case areaList
     case categories
     case latestMeals
-    case randomMeals
+    case popularMeals
     case ingredientList
     case mealById(id: Int)
     case mealByName(name: String)
@@ -42,8 +42,8 @@ extension MealAPI: EndPointType {
             return "latest.php"
         case .categories:
             return "categories.php"
-        case .randomMeals:
-            return "randomselection.php"
+        case .popularMeals:
+            return "popular.php"
         case .areaList, .ingredientList:
             return "list.php"
         case .mealsByArea, .mealsByCategory, .mealsByMainIngredient:
@@ -61,7 +61,7 @@ extension MealAPI: EndPointType {
             return .request
         case .latestMeals:
             return .request
-        case .randomMeals:
+        case .popularMeals:
             return .request
         case .areaList:
             return .requestParameters(bodyEncoding: .urlEncoding,

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "kingfisher?ysclid=ljr7wrtaaq681777636",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher?ysclid=ljr7wrtaaq681777636",
+      "state" : {
+        "revision" : "c1f60c63f356d364f4284ba82961acbe7de79bcc",
+        "version" : "7.8.1"
+      }
+    },
+    {
       "identity" : "snapkit?ysclid=ldhh9l9d77943341286#installation",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit?ysclid=ldhh9l9d77943341286#installation",

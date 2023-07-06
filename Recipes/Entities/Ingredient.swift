@@ -12,4 +12,5 @@ struct Ingredient {
     let name: String
     let type: String?
     let description: String?
+    let thumbnailLink: String
 }

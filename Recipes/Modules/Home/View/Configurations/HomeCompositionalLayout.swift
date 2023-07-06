@@ -20,8 +20,8 @@ enum HomeCompositionalLayout {
                 return makeLatestMealsSection()
             case .ingredients:
                 return makeIngredientsSection()
-            case .randomMeals:
-                return makeRandomMealsSection()
+            case .popularMeals:
+                return makePopularMealsSection()
             default: return nil
             }
         }
@@ -151,10 +151,10 @@ private extension HomeCompositionalLayout {
     }
 }
 
-// MARK: - Random Meals Section
+// MARK: - Popular Meals Section
 
 private extension HomeCompositionalLayout {
-    static func makeRandomMealItem() -> NSCollectionLayoutItem {
+    static func makePopularMealItem() -> NSCollectionLayoutItem {
         let item = NSCollectionLayoutItem(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(0.5),
@@ -166,20 +166,20 @@ private extension HomeCompositionalLayout {
         return item
     }
     
-    static func makeRandomMealGroup() -> NSCollectionLayoutGroup {
+    static func makePopularMealGroup() -> NSCollectionLayoutGroup {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .estimated(1000)
             ),
-            subitems: [makeRandomMealItem()]
+            subitems: [makePopularMealItem()]
         )
         
         return group
     }
     
-    static func makeRandomMealsSection() -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: makeRandomMealGroup())
+    static func makePopularMealsSection() -> NSCollectionLayoutSection {
+        let section = NSCollectionLayoutSection(group: makePopularMealGroup())
         
         section.contentInsets.leading = 16
         section.boundarySupplementaryItems = [makeSectionHeader(absoluteOffset: .init(x: 4, y: 0))]

@@ -15,7 +15,7 @@ final class HomePresenter {
     
     private(set) var areaCellModels = [AreaCellModel]()
     private(set) var latestMealCellModels = [FoodCellModel]()
-    private(set) var randomMealCellModels = [FoodCellModel]()
+    private(set) var popularMealCellModels = [FoodCellModel]()
     private(set) var ingredientCellModels = [FoodCellModel]()
     
     private let sections = HomeSection.allCases
@@ -30,16 +30,16 @@ final class HomePresenter {
     private var latestMeals = [Meal]() {
         didSet {
             latestMealCellModels = latestMeals.map {
-                .init(foodName: $0.name, foodType: .latestMeal)
+                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .latestMeal)
             }
             view?.refreshCollection()
         }
     }
     
-    private var randomMeals = [Meal]() {
+    private var popularMeals = [Meal]() {
         didSet {
-            randomMealCellModels = randomMeals.map {
-                .init(foodName: $0.name, foodType: .randomMeal)
+            popularMealCellModels = popularMeals.map {
+                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .popularMeal)
             }
             view?.refreshCollection()
         }
@@ -48,7 +48,7 @@ final class HomePresenter {
     private var ingredients = [Ingredient]() {
         didSet {
             ingredientCellModels = ingredients.map {
-                .init(foodName: $0.name, foodType: .ingredient)
+                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .ingredient)
             }
             view?.refreshCollection()
         }
@@ -88,8 +88,8 @@ extension HomePresenter: HomeViewOutput {
             return latestMeals.count
         case .ingredients:
             return ingredients.count
-        case .randomMeals:
-            return randomMeals.count
+        case .popularMeals:
+            return popularMeals.count
         }
     }
     
@@ -104,7 +104,7 @@ private extension HomePresenter {
     func getMealItems() {
         fetchAreas()
         fetchLatestMeals()
-        fetchRandomMeals()
+        fetchPopularMeals()
         fetchIngredients()
     }
     
@@ -130,11 +130,11 @@ private extension HomePresenter {
         }
     }
     
-    func fetchRandomMeals() {
-        interactor.getMealList(.randomMeals) { result in
+    func fetchPopularMeals() {
+        interactor.getMealList(.popularMeals) { result in
             switch result {
-            case .success(let randomMeals):
-                self.randomMeals = randomMeals
+            case .success(let popularMeals):
+                self.popularMeals = popularMeals
             case .failure(let error):
                 print(error.description)
             }

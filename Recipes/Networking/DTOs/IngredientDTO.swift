@@ -17,7 +17,8 @@ struct IngredientDTO: Decodable {
         .init(id: id,
               name: name,
               type: type,
-              description: description)
+              description: description,
+              thumbnailLink: "https://www.themealdb.com/images/ingredients/\(name).png")
     }
     
     private enum CodingKeys: String, CodingKey {
