@@ -55,6 +55,18 @@ struct MealDTO: Decodable {
         ingredients = tempIngredients
     }
     
+    func toMeal() -> Meal {
+        .init(id: id,
+              name: name,
+              category: category,
+              area: area,
+              instructions: instructions,
+              thumbnailLink: thumbnailLink,
+              youtubeLink: youtubeLink,
+              tags: tags,
+              ingredients: ingredients.map { $0.toMealIngredient() })
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case idMeal
         case strMeal
@@ -85,6 +97,10 @@ struct MealDTO: Decodable {
 struct MealIngredientDTO: Decodable {
     let measure: String
     let ingredient: String
+    
+    func toMealIngredient() -> MealIngredient {
+        .init(measure: measure, ingredient: ingredient)
+    }
 }
 
 struct MealListResponse: Decodable {

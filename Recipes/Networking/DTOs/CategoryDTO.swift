@@ -13,6 +13,13 @@ struct CategoryDTO: Decodable {
     let thumbnailLink: String
     let description: String
     
+    func toCategory() -> Category {
+        .init(id: id,
+              name: name,
+              thumbnailLink: thumbnailLink,
+              description: description)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case id = "idCategory"
         case name = "strCategory"

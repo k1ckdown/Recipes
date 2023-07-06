@@ -11,7 +11,7 @@ struct NetworkManager {
     static let mealApiKey = "9973533"
     let router = NetworkRouter<MealAPI>()
     
-    func getMealData<T: Decodable>(mealEndPoint: MealAPI, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    func fetchMealData<T: Decodable>(mealEndPoint: MealAPI, completion: @escaping (Result<T, NetworkError>) -> Void) {
         router.request(mealEndPoint) { data, response, error in
             if let error = error {
                 completion(.failure(.urlSessionError(error.localizedDescription)))

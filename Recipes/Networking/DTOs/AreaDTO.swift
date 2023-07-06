@@ -10,6 +10,10 @@ import Foundation
 struct AreaDTO: Decodable {
     let name: String
     
+    func toArea() -> Area {
+        .init(name: name)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case name = "strArea"
     }

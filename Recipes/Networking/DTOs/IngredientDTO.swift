@@ -13,6 +13,13 @@ struct IngredientDTO: Decodable {
     let type: String?
     let description: String?
     
+    func toIngredient() -> Ingredient {
+        .init(id: id,
+              name: name,
+              type: type,
+              description: description)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case type = "strType"
         case id = "idIngredient"
