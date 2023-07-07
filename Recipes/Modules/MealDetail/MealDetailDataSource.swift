@@ -8,6 +8,7 @@
 import UIKit
 
 final class MealDetailDataSource: NSObject {
+    var output: MealDetailViewOutput!
     
     func configure(with tableView: UITableView) {
         tableView.dataSource = self
@@ -21,7 +22,7 @@ final class MealDetailDataSource: NSObject {
 
 extension MealDetailDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        output.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,6 +33,7 @@ extension MealDetailDataSource: UITableViewDataSource {
             ) as? IngredientViewCell
         else { return .init() }
         
+        cell.configure(with: output.ingredientCellModels[indexPath.row])
         return cell
     }
     

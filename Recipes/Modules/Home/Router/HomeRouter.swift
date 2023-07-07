@@ -19,4 +19,9 @@ final class HomeRouter {
 
 extension HomeRouter: HomeRouterInput {
     
+    func showMealDetail(mealId: String) {
+        let viewController = MealDetailAssembly.assemble(argument: mealId)
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

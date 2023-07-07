@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     
@@ -40,8 +39,11 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.font = model.foodType.font
         nameLabel.isHidden = !model.foodType.shouldShowName
         nameLabel.backgroundColor = model.foodType.backgroundColor
-        foodImageView.kf.setImage(with: URL(string: model.imageUrl),
-                                  placeholder: UIImage(named: "placeholder"))
+        foodImageView.setImage(
+            model.imageUrl,
+            placeholder: UIImage(named: "placeholder"),
+            inset: 7
+        )
         setupConstraints(for: model.foodType)
         
     }

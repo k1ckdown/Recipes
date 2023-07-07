@@ -99,7 +99,12 @@ struct MealIngredientDTO: Decodable {
     let ingredient: String
     
     func toMealIngredient() -> MealIngredient {
-        .init(measure: measure, ingredient: ingredient)
+        let percentEncodedName = ingredient.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let thumbnailLink = "\(NetworkManager.ingredientImageUrl)\(percentEncodedName ?? "").png"
+        
+        return .init(measure: measure,
+                     ingredient: ingredient,
+                     thumbnailLink: thumbnailLink)
     }
 }
 

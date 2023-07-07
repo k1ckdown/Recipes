@@ -59,11 +59,15 @@ final class MealRepository {
     
     func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
         networkManager.fetchMealData(mealEndPoint: type) {
-            (result: Result<MealDTO, NetworkError>) in
+            (result: Result<MealListResponse, NetworkError>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let value):
-                    completion(.success(value.toMeal()))
+                    if let meal = value.meals.first {
+                        completion(.success(meal.toMeal()))
+                    } else {
+                        completion(.failure(.requestFailed))
+                    }
                 case .failure(let error):
                     completion(.failure(error))
                 }

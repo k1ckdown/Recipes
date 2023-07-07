@@ -96,10 +96,27 @@ extension HomePresenter: HomeViewOutput {
 }
 
 extension HomePresenter: HomeInteractorOutput {
-    
+    func didSelectItem(at indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        
+        switch section {
+        case .latestMeals:
+            selectMeal(meal: latestMeals[indexPath.item])
+        case .ingredients:
+            return
+        case .areas:
+            return
+        case .popularMeals:
+            selectMeal(meal: popularMeals[indexPath.item])
+        }
+    }
 }
 
 private extension HomePresenter {
+    
+    func selectMeal(meal: Meal) {
+        router.showMealDetail(mealId: meal.id)
+    }
     
     func getMealItems() {
         fetchAreas()

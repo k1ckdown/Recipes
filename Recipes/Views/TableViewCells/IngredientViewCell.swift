@@ -32,6 +32,24 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         )
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.text = nil
+        measureLabel.text = nil
+        ingredientImageView.image = nil
+    }
+    
+    func configure(with model: IngredientCellModel) {
+        measureLabel.text = model.measure
+        nameLabel.text = model.nameIngredient
+        ingredientImageView.setImage(
+            model.imageUrl,
+            placeholder: UIImage(named: "placeholder"),
+            inset: 10
+        )
+    }
+    
     private func setup() {
         setupSuperView()
         setupContentView()
@@ -56,7 +74,8 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         ingredientImageView.layer.cornerRadius = 20
         ingredientImageView.contentMode = .scaleToFill
         ingredientImageView.backgroundColor = .appBackground
-        ingredientImageView.image = UIImage(named: "test")?.resizableImage(
+//        ingredientImageView.image.
+        ingredientImageView.image?.resizableImage(
             withCapInsets: .init(top: 10, left: 10, bottom: 10, right: 10),
             resizingMode: .stretch
         )
@@ -71,27 +90,27 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     private func setupNameLabel() {
         contentView.addSubview(nameLabel)
         
-        nameLabel.text = "Matcha"
         nameLabel.textColor = .appWhite
         nameLabel.textAlignment = .center
         nameLabel.font = .ingredientDetailName
         
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(ingredientImageView.snp.trailing).offset(20)
+            make.leading.equalTo(ingredientImageView.snp.trailing).offset(15)
+            make.width.equalToSuperview().multipliedBy(0.35)
         }
     }
     
     private func setupMeasureLabel() {
         contentView.addSubview(measureLabel)
         
-        measureLabel.text = "1 teaspoon"
         measureLabel.textColor = .lightGray
         measureLabel.textAlignment = .center
+        measureLabel.font = .measureTitle
         
         measureLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
     

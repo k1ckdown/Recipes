@@ -10,6 +10,12 @@ import SwiftUI
 
 final class MealDetailViewController: UIViewController {
     
+    weak var output: MealDetailViewOutput? {
+        didSet {
+            dataSource.output = output
+        }
+    }
+    
     private let mealImageView = UIImageView()
     private let ingredientsTableView = UITableView(frame: .zero, style: .insetGrouped)
     private let detailsSegmentedControl = UISegmentedControl(items: ["Ingredients", "Recipe"])
@@ -21,6 +27,7 @@ final class MealDetailViewController: UIViewController {
         
         setup()
         dataSource.configure(with: ingredientsTableView)
+        output?.viewDidLoad()
     }
     
     private func setup() {
@@ -76,18 +83,30 @@ final class MealDetailViewController: UIViewController {
     
 }
 
-struct MealDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
+extension MealDetailViewController: MealDetailViewInput {
+    
+    func refreshList() {
+        ingredientsTableView.reloadData()
     }
-
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return MealDetailViewController()
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
+    
+    func updateMealImage(imageUrl: String) {
+        mealImageView.kf.setImage(with: URL(string: imageUrl))
     }
+    
 }
+
+//struct MealDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container: UIViewControllerRepresentable {
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            return MealDetailViewController()
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//    }
+//}

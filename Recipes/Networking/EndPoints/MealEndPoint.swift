@@ -13,7 +13,7 @@ enum MealAPI {
     case latestMeals
     case popularMeals
     case ingredientList
-    case mealById(id: Int)
+    case mealById(id: String)
     case mealByName(name: String)
     case mealsByArea(area: String)
     case mealsByCategory(category: String)

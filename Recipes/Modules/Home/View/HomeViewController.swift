@@ -12,7 +12,7 @@ import SwiftUI
 
 final class HomeViewController: UIViewController {
     
-    var output: HomeViewOutput! {
+    var output: HomeViewOutput? {
         didSet {
             dataSource.output = output
         }
@@ -32,7 +32,7 @@ final class HomeViewController: UIViewController {
         
         setup()
         dataSource.configure(with: foodCollectionView)
-        output.viewDidLoad()
+        output?.viewDidLoad()
     }
     
     private func setup() {
@@ -56,6 +56,8 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - HomeViewInput
+
 extension HomeViewController: HomeViewInput {
     func refreshCollection() {
         foodCollectionView.reloadData()
@@ -65,6 +67,10 @@ extension HomeViewController: HomeViewInput {
 // MARK: - UICollectionViewDelegate
 
 extension HomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output?.didSelectItem(at: indexPath)
+    }
     
 }
 

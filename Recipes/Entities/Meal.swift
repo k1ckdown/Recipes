@@ -22,4 +22,5 @@ struct Meal {
 struct MealIngredient {
     let measure: String
     let ingredient: String
+    let thumbnailLink: String
 }

@@ -17,4 +17,5 @@ protocol HomeViewOutput: AnyObject {
     func numberOfSections() -> Int
     func section(at index: Int) -> HomeSection
     func numberOfItems(at sectionIndex: Int) -> Int
+    func didSelectItem(at indexPath: IndexPath)
 }
