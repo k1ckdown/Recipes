@@ -10,7 +10,7 @@ import SwiftUI
 
 final class MealDetailViewController: UIViewController {
     
-    weak var output: MealDetailViewOutput? {
+    weak var output: MealDetailViewOutput! {
         didSet {
             dataSource.output = output
         }
@@ -18,8 +18,13 @@ final class MealDetailViewController: UIViewController {
     
     private let mealNameLabel = UILabel()
     private let mealImageView = UIImageView()
+    private let recipeTextView = UITextView()
     private let ingredientsTableView = UITableView(frame: .zero, style: .insetGrouped)
-    private let detailsSegmentedControl = UISegmentedControl(items: ["Ingredients", "Recipe"])
+    
+    private lazy var detailsSegmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: output.getSegmentedItems())
+        return segmentedControl
+    }()
     
     private let dataSource: MealDetailDataSource = .init()
     
@@ -28,7 +33,12 @@ final class MealDetailViewController: UIViewController {
         
         setup()
         dataSource.configure(with: ingredientsTableView)
-        output?.viewDidLoad()
+        output.viewDidLoad()
+    }
+    
+    @objc
+    private func handleDetailsSegmentedControl(_ sender: UISegmentedControl) {
+        output.didSelectSegment(at: sender.selectedSegmentIndex)
     }
     
     private func setup() {
@@ -37,6 +47,7 @@ final class MealDetailViewController: UIViewController {
         setupMealImageView()
         setupDetailsSegmentedControl()
         setupIngredientsTableView()
+        setupRecipeTextView()
     }
     
     private func setupSuperView() {
@@ -76,10 +87,12 @@ final class MealDetailViewController: UIViewController {
         
         detailsSegmentedControl.backgroundColor = .appGray
         detailsSegmentedControl.selectedSegmentTintColor = .appBlack
+        detailsSegmentedControl.selectedSegmentIndex = output.getStartSelectedSegment()
         detailsSegmentedControl.setTitleTextAttributes(
             [.font: UIFont.detailSegmentTitle, .foregroundColor: UIColor.appWhite ?? .white],
             for: .normal
         )
+        detailsSegmentedControl.addTarget(self, action: #selector(handleDetailsSegmentedControl), for: .valueChanged)
         
         detailsSegmentedControl.snp.makeConstraints { make in
             make.top.equalTo(mealImageView.snp.bottom).offset(40)
@@ -95,11 +108,32 @@ final class MealDetailViewController: UIViewController {
         ingredientsTableView.backgroundColor = .clear
         ingredientsTableView.separatorStyle = .none
         ingredientsTableView.contentInset.top = -15
+        ingredientsTableView.isHidden = true
         ingredientsTableView.showsVerticalScrollIndicator = false
         
         ingredientsTableView.snp.makeConstraints { make in
             make.top.equalTo(detailsSegmentedControl.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setupRecipeTextView() {
+        view.addSubview(recipeTextView)
+        
+        recipeTextView.font = .recipeText
+        recipeTextView.textColor = .appWhite
+        recipeTextView.tintColor = .lightGray
+        recipeTextView.backgroundColor = .appBlack
+        recipeTextView.isHidden = true
+        recipeTextView.isEditable = false
+        recipeTextView.showsVerticalScrollIndicator = false
+        recipeTextView.layer.cornerRadius = 20
+        recipeTextView.contentInset = . init(top: 15, left: 15, bottom: 15, right: 15)
+        
+        recipeTextView.snp.makeConstraints { make in
+            make.top.equalTo(detailsSegmentedControl.snp.bottom).offset(25)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(25)
         }
     }
     
@@ -111,12 +145,26 @@ extension MealDetailViewController: MealDetailViewInput {
         ingredientsTableView.reloadData()
     }
     
-    func updateMealImage(imageUrl: String) {
-        mealImageView.kf.setImage(with: URL(string: imageUrl))
+    func updateRecipeText(_ text: String?) {
+        recipeTextView.text = text
     }
     
     func updateMealName(_ title: String?) {
         mealNameLabel.text = title
+    }
+    
+    func updateMealImage(imageUrl: String) {
+        mealImageView.kf.setImage(with: URL(string: imageUrl))
+    }
+    
+    func showRecipeText() {
+        recipeTextView.isHidden = false
+        ingredientsTableView.isHidden = true
+    }
+    
+    func showIngredientList() {
+        recipeTextView.isHidden = true
+        ingredientsTableView.isHidden = false
     }
     
 }

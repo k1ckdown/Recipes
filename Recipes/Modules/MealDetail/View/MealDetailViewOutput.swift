@@ -12,4 +12,7 @@ protocol MealDetailViewOutput: AnyObject {
     
     func viewDidLoad()
     func numberOfItems() -> Int
+    func didSelectSegment(at index: Int)
+    func getSegmentedItems() -> [String]
+    func getStartSelectedSegment() -> Int
 }

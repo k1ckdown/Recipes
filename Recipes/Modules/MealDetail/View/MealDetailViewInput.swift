@@ -9,6 +9,11 @@ import Foundation
 
 protocol MealDetailViewInput: AnyObject {
     func refreshList()
-    func updateMealImage(imageUrl: String)
+    
+    func showRecipeText()
+    func showIngredientList()
+    
+    func updateRecipeText(_ text: String?)
     func updateMealName(_ title: String?)
+    func updateMealImage(imageUrl: String)
 }

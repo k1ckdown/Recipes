@@ -10,6 +10,7 @@ import UIKit
 extension UIFont {
     static let areaName = UIFont.systemFont(ofSize: 20)
     static let measureTitle = UIFont.systemFont(ofSize: 13)
+    static let recipeText = UIFont.systemFont(ofSize: 19, weight: .medium)
     static let sectionHeader = UIFont.systemFont(ofSize: 22, weight: .bold)
     static let mealNameTitle = UIFont.systemFont(ofSize: 14, weight: .heavy)
     static let mealDetailTitle = UIFont.systemFont(ofSize: 25, weight: .heavy)
