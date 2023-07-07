@@ -35,6 +35,11 @@ final class HomeViewController: UIViewController {
         output?.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupBackBarButton()
+    }
+    
     private func setup() {
         setupSuperView()
         setupFoodCollectionView()
@@ -53,6 +58,12 @@ final class HomeViewController: UIViewController {
         foodCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    private func setupBackBarButton() {
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ""), style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .appWhite
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
 
@@ -74,7 +85,7 @@ extension HomeViewController: UICollectionViewDelegate {
     
 }
 
-//struct ContentView_Previews: PreviewProvider {
+//struct Home_Previews: PreviewProvider {
 //    static var previews: some View {
 //        Container().edgesIgnoringSafeArea(.all)
 //    }

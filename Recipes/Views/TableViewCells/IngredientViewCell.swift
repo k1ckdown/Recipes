@@ -64,7 +64,7 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     
     private func setupContentView() {
         contentView.layer.cornerRadius = 20
-        contentView.backgroundColor = .listCellBackground
+        contentView.backgroundColor = .appBlack
     }
     
     private func setupIngredientImageView() {
@@ -74,7 +74,6 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         ingredientImageView.layer.cornerRadius = 20
         ingredientImageView.contentMode = .scaleToFill
         ingredientImageView.backgroundColor = .appBackground
-//        ingredientImageView.image.
         ingredientImageView.image?.resizableImage(
             withCapInsets: .init(top: 10, left: 10, bottom: 10, right: 10),
             resizingMode: .stretch
@@ -91,7 +90,7 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         contentView.addSubview(nameLabel)
         
         nameLabel.textColor = .appWhite
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .left
         nameLabel.font = .ingredientDetailName
         
         nameLabel.snp.makeConstraints { make in
@@ -105,12 +104,13 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         contentView.addSubview(measureLabel)
         
         measureLabel.textColor = .lightGray
-        measureLabel.textAlignment = .center
+        measureLabel.textAlignment = .right
         measureLabel.font = .measureTitle
         
         measureLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-15)
+            make.trailing.equalToSuperview().offset(-20)
+            make.width.equalToSuperview().multipliedBy(0.3)
         }
     }
     

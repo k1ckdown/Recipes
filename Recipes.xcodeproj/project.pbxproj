@@ -172,8 +172,8 @@
 				49247E0E2A54A9A400C050FB /* Networking */,
 				497F4C8E2A53647B0073A86E /* Protocols */,
 				49648FCF2A5429B800B99DFF /* Extensions */,
-				497F4C622A5336FE0073A86E /* Resources */,
 				497F4C612A5336EF0073A86E /* Application */,
+				497F4C622A5336FE0073A86E /* Resources */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";

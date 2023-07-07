@@ -11,8 +11,8 @@ extension UIColor {
     static let appBlue = UIColor(named: "app-blue")
     static let appGray = UIColor(named: "app-gray")
     static let appWhite = UIColor(named: "app-white")
+    static let appBlack = UIColor(named: "app-black")
     
     static let sectionHeader = UIColor(named: "section-header")
     static let appBackground = UIColor(named: "app-background")
-    static let listCellBackground = UIColor(named: "list-cell-background")
 }

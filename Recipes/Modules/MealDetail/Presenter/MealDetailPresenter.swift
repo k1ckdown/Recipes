@@ -60,6 +60,7 @@ private extension MealDetailPresenter {
     
     func updateMealDetail() {
         view?.refreshList()
+        view?.updateMealName(meal?.name)
         
         guard let mealImageUrl = meal?.thumbnailLink else { return }
         view?.updateMealImage(imageUrl: mealImageUrl)

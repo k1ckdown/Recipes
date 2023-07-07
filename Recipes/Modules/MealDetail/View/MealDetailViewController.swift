@@ -16,6 +16,7 @@ final class MealDetailViewController: UIViewController {
         }
     }
     
+    private let mealNameLabel = UILabel()
     private let mealImageView = UIImageView()
     private let ingredientsTableView = UITableView(frame: .zero, style: .insetGrouped)
     private let detailsSegmentedControl = UISegmentedControl(items: ["Ingredients", "Recipe"])
@@ -31,6 +32,7 @@ final class MealDetailViewController: UIViewController {
     }
     
     private func setup() {
+        setupMealNameLabel()
         setupSuperView()
         setupMealImageView()
         setupDetailsSegmentedControl()
@@ -39,6 +41,19 @@ final class MealDetailViewController: UIViewController {
     
     private func setupSuperView() {
         view.backgroundColor = .appBackground
+    }
+    
+    private func setupMealNameLabel() {
+        view.addSubview(mealNameLabel)
+        
+        mealNameLabel.textAlignment = .center
+        mealNameLabel.textColor = .appWhite
+        mealNameLabel.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
+        
+        mealNameLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+        }
     }
     
     private func setupMealImageView() {
@@ -50,7 +65,7 @@ final class MealDetailViewController: UIViewController {
         mealImageView.image = UIImage(named: "placeholder")
         
         mealImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            make.top.equalTo(mealNameLabel.snp.bottom).offset(40)
             make.leading.trailing.equalToSuperview().inset(40)
             make.height.equalToSuperview().multipliedBy(0.25)
         }
@@ -59,12 +74,17 @@ final class MealDetailViewController: UIViewController {
     private func setupDetailsSegmentedControl() {
         view.addSubview(detailsSegmentedControl)
         
-        detailsSegmentedControl.setTitleTextAttributes([.font: UIFont.detailTitle], for: .normal)
+        detailsSegmentedControl.backgroundColor = .appGray
+        detailsSegmentedControl.selectedSegmentTintColor = .appBlack
+        detailsSegmentedControl.setTitleTextAttributes(
+            [.font: UIFont.detailSegmentTitle, .foregroundColor: UIColor.appWhite ?? .white],
+            for: .normal
+        )
         
         detailsSegmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(mealImageView.snp.bottom).offset(50)
+            make.top.equalTo(mealImageView.snp.bottom).offset(40)
             make.leading.trailing.equalTo(mealImageView)
-            make.height.equalTo(45)
+            make.height.equalTo(50)
         }
     }
     
@@ -74,9 +94,11 @@ final class MealDetailViewController: UIViewController {
         ingredientsTableView.rowHeight = 100
         ingredientsTableView.backgroundColor = .clear
         ingredientsTableView.separatorStyle = .none
+        ingredientsTableView.contentInset.top = -15
+        ingredientsTableView.showsVerticalScrollIndicator = false
         
         ingredientsTableView.snp.makeConstraints { make in
-            make.top.equalTo(detailsSegmentedControl.snp.bottom).offset(10)
+            make.top.equalTo(detailsSegmentedControl.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -93,6 +115,10 @@ extension MealDetailViewController: MealDetailViewInput {
         mealImageView.kf.setImage(with: URL(string: imageUrl))
     }
     
+    func updateMealName(_ title: String?) {
+        mealNameLabel.text = title
+    }
+    
 }
 
 //struct MealDetail_Previews: PreviewProvider {
@@ -102,7 +128,7 @@ extension MealDetailViewController: MealDetailViewInput {
 //
 //    struct Container: UIViewControllerRepresentable {
 //        func makeUIViewController(context: Context) -> some UIViewController {
-//            return MealDetailViewController()
+//            return UINavigationController(rootViewController: MealDetailAssembly.assemble(argument: "52772"))
 //        }
 //
 //        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
