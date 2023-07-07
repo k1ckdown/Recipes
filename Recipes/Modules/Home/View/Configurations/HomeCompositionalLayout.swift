@@ -132,8 +132,8 @@ private extension HomeCompositionalLayout {
     static func makeIngredientGroup() -> NSCollectionLayoutGroup {
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
-                widthDimension: .fractionalWidth(0.37),
-                heightDimension: .fractionalHeight(0.37)
+                widthDimension: .fractionalWidth(0.35),
+                heightDimension: .fractionalHeight(0.35)
             ),
             subitems: [makeIngredientItem()])
         

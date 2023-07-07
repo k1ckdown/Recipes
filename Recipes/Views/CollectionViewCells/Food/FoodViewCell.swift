@@ -42,33 +42,8 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.backgroundColor = model.foodType.backgroundColor
         foodImageView.kf.setImage(with: URL(string: model.imageUrl),
                                   placeholder: UIImage(named: "placeholder"))
+        setupConstraints(for: model.foodType)
         
-        foodImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(model.foodType.imageHeightMultiplier)
-        }
-        
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalTo(40)
-        }
-        
-        switch model.foodType {
-        case .latestMeal:
-            nameLabel.snp.makeConstraints { make in
-                make.bottom.equalToSuperview().offset(-10)
-            }
-        case .ingredient, .popularMeal:
-            nameLabel.snp.makeConstraints { make in
-                make.top.equalTo(foodImageView.snp.bottom)
-            }
-        }
-        
-        if model.foodType == .ingredient {
-            layer.cornerRadius = 10
-            backgroundColor = .appGray
-        }
     }
     
     private func setup() {
@@ -97,6 +72,35 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.textAlignment = .center
         nameLabel.layer.cornerRadius = 5
         nameLabel.layer.masksToBounds = true
+    }
+    
+    private func setupConstraints(for type: FoodCellStyle) {
+        foodImageView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(type.imageHeightMultiplier)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(10)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalTo(40)
+        }
+        
+        switch type {
+        case .latestMeal:
+            nameLabel.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-10)
+            }
+        case .ingredient, .popularMeal:
+            nameLabel.snp.makeConstraints { make in
+                make.top.equalTo(foodImageView.snp.bottom)
+            }
+            
+            if type == .ingredient {
+                layer.cornerRadius = 10
+                backgroundColor = .appGray
+            }
+        }
     }
     
 }

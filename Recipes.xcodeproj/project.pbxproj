@@ -49,6 +49,9 @@
 		49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */; };
 		49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */; };
 		49BC91E32A57015100575EBF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 49BC91E22A57015100575EBF /* Kingfisher */; };
+		49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E62A575CC300575EBF /* MealDetailViewController.swift */; };
+		49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E82A57624700575EBF /* MealDetailDataSource.swift */; };
+		49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */; };
 		49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D52A56997B007630D0 /* MealRepository.swift */; };
 		49FF07D82A569BD3007630D0 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D72A569BD3007630D0 /* Area.swift */; };
 		49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D92A569BDB007630D0 /* Meal.swift */; };
@@ -99,6 +102,9 @@
 		49B4F8932A55BEE500E91A3A /* MealDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDTO.swift; sourceTree = "<group>"; };
 		49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDTO.swift; sourceTree = "<group>"; };
 		49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDTO.swift; sourceTree = "<group>"; };
+		49BC91E62A575CC300575EBF /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
+		49BC91E82A57624700575EBF /* MealDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataSource.swift; sourceTree = "<group>"; };
+		49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewCell.swift; sourceTree = "<group>"; };
 		49FF07D52A56997B007630D0 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		49FF07D72A569BD3007630D0 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		49FF07D92A569BDB007630D0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -138,12 +144,12 @@
 		4904B3272A52C76400071AC6 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				49247E0E2A54A9A400C050FB /* Networking */,
-				49648FCF2A5429B800B99DFF /* Extensions */,
-				497F4C8E2A53647B0073A86E /* Protocols */,
 				497F4C8B2A5363790073A86E /* Views */,
-				497F4C6B2A5337940073A86E /* Entities */,
 				497F4C632A5337380073A86E /* Modules */,
+				497F4C6B2A5337940073A86E /* Entities */,
+				49247E0E2A54A9A400C050FB /* Networking */,
+				497F4C8E2A53647B0073A86E /* Protocols */,
+				49648FCF2A5429B800B99DFF /* Extensions */,
 				497F4C622A5336FE0073A86E /* Resources */,
 				497F4C612A5336EF0073A86E /* Application */,
 			);
@@ -205,6 +211,7 @@
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
 				497F4C642A5337420073A86E /* Home */,
+				49BC91E42A575CA600575EBF /* MealDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -283,8 +290,9 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49BC91EA2A5762CB00575EBF /* ReusableViews */,
+				49BC91EB2A5762D600575EBF /* TableViewCells */,
 				49648FD42A54336E00B99DFF /* CollectionViewCells */,
-				497F4C8C2A5363A60073A86E /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +370,39 @@
 				49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		49BC91E42A575CA600575EBF /* MealDetail */ = {
+			isa = PBXGroup;
+			children = (
+				49BC91E52A575CB200575EBF /* View */,
+				49BC91E82A57624700575EBF /* MealDetailDataSource.swift */,
+			);
+			path = MealDetail;
+			sourceTree = "<group>";
+		};
+		49BC91E52A575CB200575EBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49BC91E62A575CC300575EBF /* MealDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49BC91EA2A5762CB00575EBF /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				497F4C8C2A5363A60073A86E /* HeaderView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		49BC91EB2A5762D600575EBF /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		49FF07D42A56996E007630D0 /* Repositories */ = {
@@ -455,6 +496,7 @@
 				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
 				499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */,
 				49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */,
+				49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */,
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
@@ -471,11 +513,13 @@
 				49B25AD82A546F4700E9AEF6 /* AreaCellModel.swift in Sources */,
 				49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */,
 				4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */,
+				49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */,
 				49B4F8922A55B6DA00E91A3A /* CategoryDTO.swift in Sources */,
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
 				49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */,
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
+				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,
 				497F4C6D2A5337A40073A86E /* HomeRouter.swift in Sources */,
 				49B4F88D2A5578B000E91A3A /* URLParameterEncoder.swift in Sources */,
