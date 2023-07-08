@@ -9,18 +9,18 @@ import Foundation
 
 enum HomeSection: Int, CaseIterable {
     case latestMeals
-    case ingredients
+    case categories
     case areas
     case popularMeals
     
     var header: String? {
         switch self {
-        case .areas:
-            return "Browse Country"
         case .latestMeals:
             return "Latest Meals"
-        case .ingredients:
-            return "Ingredients"
+        case .categories:
+            return "Categories"
+        case .areas:
+            return "Browse Country"
         case .popularMeals:
             return "Popular Meals"
         }

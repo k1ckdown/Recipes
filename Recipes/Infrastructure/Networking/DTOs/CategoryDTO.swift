@@ -16,8 +16,8 @@ struct CategoryDTO: Decodable {
     func toCategory() -> Category {
         .init(id: id,
               name: name,
-              thumbnailLink: thumbnailLink,
-              description: description)
+              description: description,
+              thumbnailLink: thumbnailLink)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -30,4 +30,12 @@ struct CategoryDTO: Decodable {
 
 struct CategoryListResponse: Decodable {
     let categories: [CategoryDTO]
+    
+    struct CategoryListResponse: Decodable {
+        let categories: [CategoryDTO]
+        
+        private enum CodingKeys: String, CodingKey {
+            case categories = "meals"
+        }
+    }
 }

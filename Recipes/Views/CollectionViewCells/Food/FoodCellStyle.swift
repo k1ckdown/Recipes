@@ -9,14 +9,14 @@ import UIKit
 
 enum FoodCellStyle {
     case latestMeal
-    case ingredient
+    case category
     case popularMeal
 
     var font: UIFont {
         switch self {
         case .latestMeal, .popularMeal:
             return .mealNameTitle
-        case .ingredient:
+        case .category:
             return .ingredientNameTitle
         }
     }
@@ -25,7 +25,7 @@ enum FoodCellStyle {
         switch self {
         case .latestMeal:
             return true
-        case .ingredient:
+        case .category:
             return true
         case .popularMeal:
             return true
@@ -36,7 +36,7 @@ enum FoodCellStyle {
         switch self {
         case .latestMeal:
             return .appBackground?.withAlphaComponent(0.9)
-        case .ingredient:
+        case .category:
             return .clear
         case .popularMeal:
             return .clear
@@ -47,7 +47,7 @@ enum FoodCellStyle {
         switch self {
         case .latestMeal:
             return 1
-        case .ingredient, .popularMeal:
+        case .category, .popularMeal:
             return 0.7
         }
     }

@@ -10,6 +10,6 @@ import Foundation
 struct Category {
     let id: String
     let name: String
-    let thumbnailLink: String
     let description: String
+    let thumbnailLink: String
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-
 import SwiftUI
 
 final class HomeViewController: UIViewController {
@@ -92,7 +91,8 @@ extension HomeViewController: UICollectionViewDelegate {
 //
 //    struct Container: UIViewControllerRepresentable {
 //        func makeUIViewController(context: Context) -> some UIViewController {
-//            return UINavigationController(rootViewController: HomeAssembly.assemble())
+//            let vc: HomeViewController = DIContainer.shared.resolve()
+//            return UINavigationController(rootViewController: vc)
 //        }
 //
 //        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

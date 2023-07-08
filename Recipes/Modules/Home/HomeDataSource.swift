@@ -67,7 +67,7 @@ extension HomeDataSource: UICollectionViewDataSource {
             cell.configure(with: output.latestMealCellModels[indexPath.item])
             return cell
             
-        case .ingredients:
+        case .categories:
             guard
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: FoodViewCell.reuseIdentifier,
@@ -75,7 +75,7 @@ extension HomeDataSource: UICollectionViewDataSource {
                 ) as? FoodViewCell
             else { return .init() }
             
-            cell.configure(with: output.ingredientCellModels[indexPath.item])
+            cell.configure(with: output.categoryCellModels[indexPath.item])
             return cell
             
         case .popularMeals:

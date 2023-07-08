@@ -11,7 +11,7 @@ protocol HomeViewOutput: AnyObject {
     var areaCellModels: [AreaCellModel] { get }
     var latestMealCellModels: [FoodCellModel] { get }
     var popularMealCellModels: [FoodCellModel] { get }
-    var ingredientCellModels: [FoodCellModel] { get }
+    var categoryCellModels: [FoodCellModel] { get }
     
     func viewDidLoad()
     func numberOfSections() -> Int

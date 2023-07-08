@@ -18,6 +18,7 @@ final class AppRouter {
     }
     
     func start() {
+        navigationController.overrideUserInterfaceStyle = .dark
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         

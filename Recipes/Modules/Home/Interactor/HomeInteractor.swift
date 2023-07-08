@@ -25,8 +25,8 @@ extension HomeInteractor: HomeInteractorInput {
         mealRepository.loadAreaList(completion: completion)
     }
     
-    func getIngredients(completion: @escaping (Result<[Ingredient], NetworkError>) -> Void) {
-        mealRepository.loadIngredientList(completion: completion)
+    func getCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void) {
+        mealRepository.loadCategoryList(completion: completion)
     }
     
     func getMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {

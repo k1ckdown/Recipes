@@ -42,7 +42,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         foodImageView.setImage(
             model.imageUrl,
             placeholder: UIImage(named: "placeholder"),
-            inset: 7
+            inset: 5
         )
         setupConstraints(for: model.foodType)
         
@@ -93,12 +93,12 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
             nameLabel.snp.makeConstraints { make in
                 make.bottom.equalToSuperview().offset(-10)
             }
-        case .ingredient, .popularMeal:
+        case .category, .popularMeal:
             nameLabel.snp.makeConstraints { make in
                 make.top.equalTo(foodImageView.snp.bottom)
             }
             
-            if type == .ingredient {
+            if type == .category {
                 layer.cornerRadius = 10
                 backgroundColor = .appGray
             }

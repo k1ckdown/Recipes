@@ -37,6 +37,10 @@
 		49AC62DA2A59A01A00FA50CF /* InfrastructureAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62D92A59A01A00FA50CF /* InfrastructureAssembly.swift */; };
 		49AC62DD2A59A3D400FA50CF /* ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62DC2A59A3D400FA50CF /* ModuleAssembly.swift */; };
 		49AC62DF2A59A42B00FA50CF /* MealDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62DE2A59A42B00FA50CF /* MealDetailAssembly.swift */; };
+		49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E32A59D37300FA50CF /* TabFlow.swift */; };
+		49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */; };
+		49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */; };
+		49AC62ED2A59E8B600FA50CF /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */; };
 		49B25AD82A546F4700E9AEF6 /* AreaCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25AD72A546F4700E9AEF6 /* AreaCellModel.swift */; };
 		49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25AD92A546F5F00E9AEF6 /* FoodCellModel.swift */; };
 		49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25ADB2A54711500E9AEF6 /* FoodCellStyle.swift */; };
@@ -106,6 +110,10 @@
 		49AC62D92A59A01A00FA50CF /* InfrastructureAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureAssembly.swift; sourceTree = "<group>"; };
 		49AC62DC2A59A3D400FA50CF /* ModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAssembly.swift; sourceTree = "<group>"; };
 		49AC62DE2A59A42B00FA50CF /* MealDetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailAssembly.swift; sourceTree = "<group>"; };
+		49AC62E32A59D37300FA50CF /* TabFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlow.swift; sourceTree = "<group>"; };
+		49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
+		49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		49B25AD72A546F4700E9AEF6 /* AreaCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCellModel.swift; sourceTree = "<group>"; };
 		49B25AD92A546F5F00E9AEF6 /* FoodCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellModel.swift; sourceTree = "<group>"; };
 		49B25ADB2A54711500E9AEF6 /* FoodCellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellStyle.swift; sourceTree = "<group>"; };
@@ -252,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
+				49AC62E12A59D35400FA50CF /* TabBar */,
 				497F4C642A5337420073A86E /* Home */,
 				49BC91E42A575CA600575EBF /* MealDetail */,
 			);
@@ -331,6 +340,7 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49AC62EB2A59E8A900FA50CF /* TabBar */,
 				49BC91EA2A5762CB00575EBF /* ReusableViews */,
 				49BC91EB2A5762D600575EBF /* TableViewCells */,
 				49648FD42A54336E00B99DFF /* CollectionViewCells */,
@@ -372,6 +382,32 @@
 				49247E0E2A54A9A400C050FB /* Networking */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		49AC62E12A59D35400FA50CF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				49AC62E22A59D35F00FA50CF /* Configurations */,
+				49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */,
+				49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		49AC62E22A59D35F00FA50CF /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				49AC62E32A59D37300FA50CF /* TabFlow.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		49AC62EB2A59E8A900FA50CF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		49B25AD52A546E9A00E9AEF6 /* Food */ = {
@@ -609,6 +645,7 @@
 				49E1FBD42A58625D00D254C0 /* MealDetailInput.swift in Sources */,
 				49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */,
 				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
+				49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */,
 				499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */,
 				49E1FBC62A58610100D254C0 /* MealDetailInteractorInput.swift in Sources */,
 				49E1FBC82A58610900D254C0 /* MealDetailInteractorOutput.swift in Sources */,
@@ -619,6 +656,7 @@
 				49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */,
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
+				49AC62ED2A59E8B600FA50CF /* CustomTabBar.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
@@ -638,9 +676,11 @@
 				49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */,
 				49B4F8922A55B6DA00E91A3A /* CategoryDTO.swift in Sources */,
 				49E1FBD22A58625700D254C0 /* MealDetailRouter.swift in Sources */,
+				49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */,
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
 				49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */,
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
+				49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */,
 				49E1FBCC2A58616000D254C0 /* MealDetailViewOutput.swift in Sources */,
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,

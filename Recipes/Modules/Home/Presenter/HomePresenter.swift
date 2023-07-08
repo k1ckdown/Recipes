@@ -14,9 +14,9 @@ final class HomePresenter {
     private let router: HomeRouterInput
     
     private(set) var areaCellModels = [AreaCellModel]()
+    private(set) var categoryCellModels = [FoodCellModel]()
     private(set) var latestMealCellModels = [FoodCellModel]()
     private(set) var popularMealCellModels = [FoodCellModel]()
-    private(set) var ingredientCellModels = [FoodCellModel]()
     
     private let sections = HomeSection.allCases
     
@@ -45,10 +45,10 @@ final class HomePresenter {
         }
     }
     
-    private var ingredients = [Ingredient]() {
+    private var categories = [Category]() {
         didSet {
-            ingredientCellModels = ingredients.map {
-                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .ingredient)
+            categoryCellModels = categories.map {
+                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .category)
             }
             view?.refreshCollection()
         }
@@ -86,8 +86,8 @@ extension HomePresenter: HomeViewOutput {
             return areas.count
         case .latestMeals:
             return latestMeals.count
-        case .ingredients:
-            return ingredients.count
+        case .categories:
+            return categories.count
         case .popularMeals:
             return popularMeals.count
         }
@@ -102,7 +102,7 @@ extension HomePresenter: HomeInteractorOutput {
         switch section {
         case .latestMeals:
             selectMeal(meal: latestMeals[indexPath.item])
-        case .ingredients:
+        case .categories:
             return
         case .areas:
             return
@@ -159,10 +159,10 @@ private extension HomePresenter {
     }
     
     func fetchIngredients() {
-        interactor.getIngredients { result in
+        interactor.getCategories { result in
             switch result {
-            case .success(let ingredients):
-                self.ingredients = ingredients
+            case .success(let categories):
+                self.categories = categories
             case .failure(let error):
                 print(error.description)
             }
