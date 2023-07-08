@@ -27,7 +27,7 @@ final class AppRouter {
 
 private extension AppRouter {
     func showHomeScene() {
-        let homeViewController = HomeAssembly.assemble()
+        let homeViewController: HomeViewController = DIContainer.shared.resolve()
         navigationController.setViewControllers([homeViewController], animated: true)
     }
 }

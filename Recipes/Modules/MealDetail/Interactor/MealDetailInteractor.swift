@@ -14,9 +14,9 @@ final class MealDetailInteractor {
     private let mealId: String
     private let mealRepository: MealRepository
     
-    init(mealId: String) {
+    init(mealRepository: MealRepository, mealId: String) {
         self.mealId = mealId
-        self.mealRepository = MealRepository()
+        self.mealRepository = mealRepository
     }
     
 }

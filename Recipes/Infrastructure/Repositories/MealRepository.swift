@@ -11,8 +11,8 @@ final class MealRepository {
     
     private let networkManager: NetworkManager
     
-    init() {
-        self.networkManager = NetworkManager()
+    init(networkManager: NetworkManager) {
+        self.networkManager = networkManager
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {

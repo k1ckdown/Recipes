@@ -20,7 +20,7 @@ final class HomeRouter {
 extension HomeRouter: HomeRouterInput {
     
     func showMealDetail(mealId: String) {
-        let viewController = MealDetailAssembly.assemble(argument: mealId)
+        let viewController: MealDetailViewController = DIContainer.shared.resolve(argument: mealId)
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
     

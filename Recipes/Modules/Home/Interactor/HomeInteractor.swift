@@ -13,8 +13,8 @@ final class HomeInteractor {
     
     private let mealRepository: MealRepository
     
-    init() {
-        self.mealRepository = MealRepository()
+    init(mealRepository: MealRepository) {
+        self.mealRepository = mealRepository
     }
     
 }
