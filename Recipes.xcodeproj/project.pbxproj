@@ -277,7 +277,6 @@
 				49381E642A5AA19B00F8C6C3 /* Presenter */,
 				49381E632A5AA19100F8C6C3 /* Interactor */,
 				49381E652A5AA1A400F8C6C3 /* Router */,
-				49381E682A5AA2D400F8C6C3 /* SearchDataSource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -285,6 +284,7 @@
 		49381E622A5AA18C00F8C6C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49381EA32A5AFCE100F8C6C3 /* DataSources */,
 				49381E662A5AA20600F8C6C3 /* SearchViewController.swift */,
 				49381E722A5AA8AC00F8C6C3 /* SearchViewInput.swift */,
 				49381E742A5AA8B400F8C6C3 /* SearchViewOutput.swift */,
@@ -344,7 +344,6 @@
 				49381E862A5AD73A00F8C6C3 /* Presenter */,
 				49381E872A5AD73F00F8C6C3 /* Interactor */,
 				49381E882A5AD74800F8C6C3 /* Router */,
-				49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */,
 			);
 			path = MealList;
 			sourceTree = "<group>";
@@ -352,6 +351,7 @@
 		49381E852A5AD73500F8C6C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49381EA52A5AFCFD00F8C6C3 /* DataSources */,
 				49381E9D2A5ADBD300F8C6C3 /* Configurations */,
 				49381E892A5AD76400F8C6C3 /* MealListViewController.swift */,
 				49381E8B2A5AD77000F8C6C3 /* MealListViewInput.swift */,
@@ -394,6 +394,38 @@
 				49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		49381EA22A5AFCCA00F8C6C3 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				497F4C892A535E290073A86E /* HomeDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		49381EA32A5AFCE100F8C6C3 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				49381E682A5AA2D400F8C6C3 /* SearchDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		49381EA52A5AFCFD00F8C6C3 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		49381EA62A5AFD1300F8C6C3 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				49BC91E82A57624700575EBF /* MealDetailDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		49648FCF2A5429B800B99DFF /* Extensions */ = {
@@ -454,7 +486,6 @@
 				497F4C7C2A533EFB0073A86E /* Interactor */,
 				497F4C752A533E060073A86E /* Presenter */,
 				497F4C722A533DAF0073A86E /* Router */,
-				497F4C892A535E290073A86E /* HomeDataSource.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -500,6 +531,7 @@
 		497F4C7D2A533F050073A86E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49381EA22A5AFCCA00F8C6C3 /* DataSources */,
 				497F4C822A5355870073A86E /* Configurations */,
 				497F4C652A53374F0073A86E /* HomeViewController.swift */,
 				497F4C7A2A533EDC0073A86E /* HomeViewInput.swift */,
@@ -666,7 +698,6 @@
 				49E1FBC22A5860C500D254C0 /* Interactor */,
 				49E1FBCD2A5861EA00D254C0 /* Presenter */,
 				49E1FBD02A58624900D254C0 /* Router */,
-				49BC91E82A57624700575EBF /* MealDetailDataSource.swift */,
 			);
 			path = MealDetail;
 			sourceTree = "<group>";
@@ -674,6 +705,7 @@
 		49BC91E52A575CB200575EBF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49381EA62A5AFD1300F8C6C3 /* DataSources */,
 				49E1FBD92A58AEC700D254C0 /* Configurations */,
 				49BC91E62A575CC300575EBF /* MealDetailViewController.swift */,
 				49E1FBC92A58615800D254C0 /* MealDetailViewInput.swift */,
