@@ -24,4 +24,9 @@ extension HomeRouter: HomeRouterInput {
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showMealList(mealListType: MealListType) {
+        let viewController: MealListViewController = DIContainer.shared.resolve(argument: mealListType)
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

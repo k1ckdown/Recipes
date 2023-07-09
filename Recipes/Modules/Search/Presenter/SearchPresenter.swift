@@ -60,7 +60,14 @@ extension SearchPresenter: SearchInteractorOutput {
 private extension SearchPresenter {
     
     func fetchMeals() {
-        
+        interactor.getMealList { result in
+            switch result {
+            case .success(let meals):
+                self.meals = meals
+            case .failure(let error):
+                print(error.description)
+            }
+        }
     }
     
 }

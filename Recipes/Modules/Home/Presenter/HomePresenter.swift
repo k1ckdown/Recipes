@@ -39,7 +39,7 @@ final class HomePresenter {
     private var popularMeals = [Meal]() {
         didSet {
             popularMealCellModels = popularMeals.map {
-                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .popularMeal)
+                .init(foodName: $0.name, imageUrl: $0.thumbnailLink, foodType: .defaultMeal)
             }
             view?.refreshCollection()
         }
@@ -103,9 +103,13 @@ extension HomePresenter: HomeInteractorOutput {
         case .latestMeals:
             selectMeal(meal: latestMeals[indexPath.item])
         case .categories:
-            return
+            router.showMealList(
+                mealListType: .byCategory(category: categories[indexPath.item].name)
+            )
         case .areas:
-            return
+            router.showMealList(
+                mealListType: .byArea(area: areas[indexPath.item].name)
+            )
         case .popularMeals:
             selectMeal(meal: popularMeals[indexPath.item])
         }

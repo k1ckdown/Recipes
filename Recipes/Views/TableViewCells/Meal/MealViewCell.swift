@@ -13,6 +13,7 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     private let areaNameLabel = UILabel()
     private let categoryNameLabel = UILabel()
     private let mealImageView = UIImageView()
+    private let detailStackView = UIStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -49,7 +50,21 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     }
     
     private func setup() {
+        setupSuperView()
+        setupContainerView()
         setupMealImageView()
+        setupDetailStackView()
+        setupMealNameLabel()
+        setupCategoryNameLabel()
+    }
+    
+    private func setupSuperView() {
+        backgroundColor = .clear
+    }
+    
+    private func setupContainerView() {
+        contentView.layer.cornerRadius = 15
+        contentView.backgroundColor = .appGray
     }
     
     private func setupMealImageView() {
@@ -57,13 +72,42 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
         
         mealImageView.contentMode = .scaleToFill
         mealImageView.clipsToBounds = true
-        mealImageView.layer.cornerRadius = 10
+        mealImageView.layer.cornerRadius = 30
         
         mealImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
             make.top.bottom.equalToSuperview().inset(10)
             make.width.equalToSuperview().multipliedBy(0.3)
         }
+    }
+    
+    private func setupDetailStackView() {
+        contentView.addSubview(detailStackView)
+        
+        detailStackView.spacing = 10
+        detailStackView.axis = .vertical
+        detailStackView.distribution = .fillEqually
+        detailStackView.backgroundColor = .systemIndigo
+        
+        detailStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalTo(mealImageView.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().inset(10)
+        }
+    }
+    
+    private func setupMealNameLabel() {
+        detailStackView.addArrangedSubview(mealNameLabel)
+        
+        mealNameLabel.textColor = .appWhite
+        mealNameLabel.font = .mealNameSearchList
+    }
+    
+    private func setupCategoryNameLabel() {
+        detailStackView.addArrangedSubview(categoryNameLabel)
+        
+        categoryNameLabel.textColor = .darkGray
+//        categoryNameLabel.font =
     }
     
 }

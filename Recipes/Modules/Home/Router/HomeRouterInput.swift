@@ -9,4 +9,5 @@ import Foundation
 
 protocol HomeRouterInput: AnyObject {
     func showMealDetail(mealId: String)
+    func showMealList(mealListType: MealListType)
 }

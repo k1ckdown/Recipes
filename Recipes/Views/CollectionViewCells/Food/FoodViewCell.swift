@@ -88,7 +88,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
             nameLabel.snp.makeConstraints { make in
                 make.bottom.equalToSuperview().offset(-10)
             }
-        case .category, .popularMeal:
+        case .category, .defaultMeal:
             nameLabel.snp.makeConstraints { make in
                 make.top.equalTo(foodImageView.snp.bottom)
             }

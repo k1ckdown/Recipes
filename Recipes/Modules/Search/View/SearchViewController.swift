@@ -29,11 +29,19 @@ final class SearchViewController: UIViewController {
     }
     
     private func setup() {
+        setupSuperView()
         setupMealTableView()
+    }
+    
+    private func setupSuperView() {
+        view.backgroundColor = .appBackground
     }
     
     private func setupMealTableView() {
         view.addSubview(mealTableView)
+        
+        mealTableView.rowHeight = 150
+        mealTableView.backgroundColor = .clear
         
         mealTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -60,7 +68,8 @@ extension SearchViewController: SearchViewInput {
 //
 //    struct Container: UIViewControllerRepresentable {
 //        func makeUIViewController(context: Context) -> some UIViewController {
-//            return UINavigationController(rootViewController: SearchViewController())
+//            let viewController: SearchViewController = DIContainer.shared.resolve(argument: SearchListType.byArea(area: "American"))
+//            return UINavigationController(rootViewController: viewController)
 //        }
 //
 //        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

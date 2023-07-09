@@ -11,10 +11,19 @@ final class SearchInteractor {
     
     weak var output: SearchInteractorOutput?
     
+    private let mealRepository: MealRepository
+
+    init(mealRepository: MealRepository) {
+        self.mealRepository = mealRepository
+    }
+    
 }
 
 // MARK: - SearchInteractorInput
 
 extension SearchInteractor: SearchInteractorInput {
+    
+    func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+    }
     
 }

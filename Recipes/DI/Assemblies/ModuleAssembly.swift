@@ -13,6 +13,8 @@ final class ModuleAssembly: Assembly {
     func assemble(container: Container) {
         let assemblies: [Assembly] = [
             HomeAssembly(),
+            SearchAssembly(),
+            MealListAssembly(),
             MealDetailAssembly()
         ]
         

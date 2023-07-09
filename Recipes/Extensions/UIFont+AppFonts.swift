@@ -14,6 +14,7 @@ extension UIFont {
     static let sectionHeader = UIFont.systemFont(ofSize: 22, weight: .bold)
     static let mealNameTitle = UIFont.systemFont(ofSize: 14, weight: .heavy)
     static let mealDetailTitle = UIFont.systemFont(ofSize: 25, weight: .heavy)
+    static let mealNameSearchList = UIFont.systemFont(ofSize: 18, weight: .bold)
     static let ingredientNameTitle = UIFont.systemFont(ofSize: 11, weight: .heavy)
     static let detailSegmentTitle = UIFont.systemFont(ofSize: 20, weight: .medium)
     static let ingredientDetailName = UIFont.systemFont(ofSize: 19, weight: .bold)
