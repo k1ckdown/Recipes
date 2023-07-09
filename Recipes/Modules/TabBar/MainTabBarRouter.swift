@@ -32,6 +32,9 @@ final class MainTabBarRouter {
         case .home:
             let home: HomeViewController = DIContainer.shared.resolve()
             navigationController.setViewControllers([home], animated: true)
+        case .search:
+            let searchScene: SearchViewController = DIContainer.shared.resolve()
+            navigationController.setViewControllers([searchScene], animated: true)
         default: break
         }
         

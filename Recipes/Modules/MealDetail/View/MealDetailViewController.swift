@@ -36,6 +36,14 @@ final class MealDetailViewController: UIViewController {
         output.viewDidLoad()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        let tabBarAppearance = UITabBarAppearance()
+//        tabBarAppearance.configureWithOpaqueBackground()
+//        UITabBar.appearance().standardAppearance = tabBarAppearance
+//    }
+    
     @objc
     private func handleDetailsSegmentedControl(_ sender: UISegmentedControl) {
         output.didSelectSegment(at: sender.selectedSegmentIndex)

@@ -11,7 +11,7 @@ final class HomeRouter {
     
     private weak var view: HomeViewController?
     
-    init(view: HomeViewController?) {
+    init(view: HomeViewController) {
         self.view = view
     }
     

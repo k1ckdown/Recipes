@@ -10,28 +10,27 @@ import UIKit
 final class AppRouter {
     
     private let window: UIWindow
-    private let navigationController: UINavigationController
+    private let mainTabBarController: MainTabBarController
     
     init(window: UIWindow) {
         self.window = window
-        self.navigationController = UINavigationController()
+        mainTabBarController = .init()
     }
     
     func start() {
-        navigationController.overrideUserInterfaceStyle = .dark
-        window.rootViewController = navigationController
+        window.overrideUserInterfaceStyle = .dark
+        window.rootViewController = mainTabBarController
         window.makeKeyAndVisible()
         
-        showHomeScene()
+        showMainTabBar()
     }
 }
 
 private extension AppRouter {
     
-    func showHomeScene() {
-        let homeViewController: HomeViewController = DIContainer.shared.resolve()
-        navigationController.setViewControllers([homeViewController], animated: true)
+    func showMainTabBar() {
+        let mainTabBarRouter = MainTabBarRouter(tabBarController: mainTabBarController)
+        mainTabBarRouter.start()
     }
-    
     
 }
