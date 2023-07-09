@@ -24,6 +24,7 @@ final class SearchInteractor {
 extension SearchInteractor: SearchInteractorInput {
     
     func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+        mealRepository.loadMealList(.randomMeals, completion: completion)
     }
     
 }

@@ -44,7 +44,7 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     
     func configure(with model: MealCellModel) {
         mealNameLabel.text = model.mealName
-        areaNameLabel.text = areaNameLabel.text
+        areaNameLabel.text = model.areaName
         categoryNameLabel.text = model.categoryName
         mealImageView.setImage(model.imageUrl, inset: 10)
     }
@@ -56,6 +56,7 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
         setupDetailStackView()
         setupMealNameLabel()
         setupCategoryNameLabel()
+        setupAreaNameLabel()
     }
     
     private func setupSuperView() {
@@ -84,13 +85,14 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     private func setupDetailStackView() {
         contentView.addSubview(detailStackView)
         
-        detailStackView.spacing = 10
+        detailStackView.spacing = 7
         detailStackView.axis = .vertical
-        detailStackView.distribution = .fillEqually
-        detailStackView.backgroundColor = .systemIndigo
+        detailStackView.alignment = .leading
+        detailStackView.distribution = .fill
+        detailStackView.backgroundColor = .clear
         
         detailStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(15)
             make.leading.equalTo(mealImageView.snp.trailing).offset(20)
             make.trailing.equalToSuperview().inset(10)
         }
@@ -98,16 +100,18 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     
     private func setupMealNameLabel() {
         detailStackView.addArrangedSubview(mealNameLabel)
-        
         mealNameLabel.textColor = .appWhite
         mealNameLabel.font = .mealNameSearchList
     }
     
     private func setupCategoryNameLabel() {
         detailStackView.addArrangedSubview(categoryNameLabel)
-        
-        categoryNameLabel.textColor = .darkGray
-//        categoryNameLabel.font =
+        categoryNameLabel.textColor = .lightGray
+    }
+    
+    private func setupAreaNameLabel() {
+        detailStackView.addArrangedSubview(areaNameLabel)
+        areaNameLabel.textColor = .lightGray
     }
     
 }

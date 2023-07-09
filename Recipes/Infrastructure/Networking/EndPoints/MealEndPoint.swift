@@ -10,6 +10,7 @@ import Foundation
 enum MealAPI {
     case areaList
     case categories
+    case randomMeals
     case latestMeals
     case popularMeals
     case ingredientList
@@ -44,6 +45,8 @@ extension MealAPI: EndPointType {
             return "categories.php"
         case .popularMeals:
             return "popular.php"
+        case .randomMeals:
+            return "randomselection.php"
         case .areaList, .ingredientList:
             return "list.php"
         case .mealsByArea, .mealsByCategory, .mealsByMainIngredient:
@@ -57,12 +60,6 @@ extension MealAPI: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .categories:
-            return .request
-        case .latestMeals:
-            return .request
-        case .popularMeals:
-            return .request
         case .areaList:
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["a": "list"])
@@ -84,6 +81,8 @@ extension MealAPI: EndPointType {
         case .mealsByMainIngredient(let ingredient):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["i": ingredient])
+        default:
+            return .request
         }
     }
     

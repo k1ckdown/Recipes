@@ -16,6 +16,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
+    private let mealSearchBar = UISearchBar()
     private let mealTableView = UITableView()
     
     private let dataSource: SearchDataSource = .init()
@@ -30,6 +31,7 @@ final class SearchViewController: UIViewController {
     
     private func setup() {
         setupSuperView()
+        setupMealSearchBar()
         setupMealTableView()
     }
     
@@ -37,17 +39,44 @@ final class SearchViewController: UIViewController {
         view.backgroundColor = .appBackground
     }
     
+    private func setupMealSearchBar() {
+        view.addSubview(mealSearchBar)
+        
+        mealSearchBar.tintColor = .lightGray
+        mealSearchBar.barTintColor = .appBackground
+        mealSearchBar.placeholder = "Search recipes"
+        mealSearchBar.showsSearchResultsButton = true
+        mealSearchBar.searchTextField.textColor = .appWhite
+        mealSearchBar.searchTextField.backgroundColor = .appGray
+        
+        mealSearchBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(60)
+        }
+        
+        mealSearchBar.searchTextField.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.height.equalTo(50)
+        }
+
+    }
+    
     private func setupMealTableView() {
         view.addSubview(mealTableView)
         
         mealTableView.rowHeight = 150
         mealTableView.backgroundColor = .clear
+        mealTableView.separatorStyle = .none
+        mealTableView.contentInset.top = 15
+        mealTableView.showsVerticalScrollIndicator = false
         
         mealTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(mealSearchBar.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
-    
     
 }
 
@@ -61,19 +90,19 @@ extension SearchViewController: SearchViewInput {
     
 }
 
-//struct Search_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let viewController: SearchViewController = DIContainer.shared.resolve(argument: SearchListType.byArea(area: "American"))
-//            return UINavigationController(rootViewController: viewController)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}
+struct Search_Previews: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
+    }
+
+    struct Container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> some UIViewController {
+            let viewController: SearchViewController = DIContainer.shared.resolve()
+            return UINavigationController(rootViewController: viewController)
+        }
+
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
+        }
+    }
+}
