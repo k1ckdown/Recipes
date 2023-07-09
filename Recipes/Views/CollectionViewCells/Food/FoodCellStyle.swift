@@ -32,14 +32,12 @@ enum FoodCellStyle {
         }
     }
     
-    var backgroundColor: UIColor? {
+    var cornerRadius: CGFloat {
         switch self {
-        case .latestMeal:
-            return .appBackground?.withAlphaComponent(0.9)
         case .category:
-            return .clear
-        case .defaultMeal:
-            return .clear
+            return 10
+        case .latestMeal, .defaultMeal:
+            return 0
         }
     }
     
@@ -49,6 +47,26 @@ enum FoodCellStyle {
             return 1
         case .category, .defaultMeal:
             return 0.7
+        }
+    }
+    
+    var backgroundColor: UIColor? {
+        switch self {
+        case .category:
+            return .appGray
+        case .latestMeal, .defaultMeal:
+            return .clear
+        }
+    }
+    
+    var labelBackgroundColor: UIColor? {
+        switch self {
+        case .latestMeal:
+            return .appBackground?.withAlphaComponent(0.9)
+        case .category:
+            return .clear
+        case .defaultMeal:
+            return .clear
         }
     }
 }
