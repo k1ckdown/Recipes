@@ -39,13 +39,8 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.font = model.foodType.font
         nameLabel.isHidden = !model.foodType.shouldShowName
         nameLabel.backgroundColor = model.foodType.backgroundColor
-        foodImageView.setImage(
-            model.imageUrl,
-            placeholder: UIImage(named: "placeholder"),
-            inset: 5
-        )
+        foodImageView.setImage(model.imageUrl, inset: 5)
         setupConstraints(for: model.foodType)
-        
     }
     
     private func setup() {

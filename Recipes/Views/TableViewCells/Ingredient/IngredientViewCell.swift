@@ -26,7 +26,6 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
         contentView.frame = contentView.frame.inset(
             by: .init(top: 10, left: 10, bottom: 10, right: 10)
         )
@@ -43,11 +42,7 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     func configure(with model: IngredientCellModel) {
         measureLabel.text = model.measure
         nameLabel.text = model.nameIngredient
-        ingredientImageView.setImage(
-            model.imageUrl,
-            placeholder: UIImage(named: "placeholder"),
-            inset: 10
-        )
+        ingredientImageView.setImage(model.imageUrl, inset: 10)
     }
     
     private func setup() {

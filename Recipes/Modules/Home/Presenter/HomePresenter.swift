@@ -83,13 +83,13 @@ extension HomePresenter: HomeViewOutput {
         
         switch section {
         case .areas:
-            return areas.count
+            return areaCellModels.count
         case .latestMeals:
-            return latestMeals.count
+            return latestMealCellModels.count
         case .categories:
-            return categories.count
+            return categoryCellModels.count
         case .popularMeals:
-            return popularMeals.count
+            return popularMealCellModels.count
         }
     }
     
@@ -119,10 +119,10 @@ private extension HomePresenter {
     }
     
     func getMealItems() {
-        fetchAreas()
         fetchLatestMeals()
+        fetchCategories()
+        fetchAreas()
         fetchPopularMeals()
-        fetchIngredients()
     }
     
     func fetchAreas() {
@@ -136,8 +136,19 @@ private extension HomePresenter {
         }
     }
     
+    func fetchCategories() {
+        interactor.getCategories { result in
+            switch result {
+            case .success(let categories):
+                self.categories = categories
+            case .failure(let error):
+                print(error.description)
+            }
+        }
+    }
+    
     func fetchLatestMeals() {
-        interactor.getMealList(.latestMeals) { result in
+        interactor.getLatestMealList { result in
             switch result {
             case .success(let latestMeals):
                 self.latestMeals = latestMeals
@@ -148,21 +159,10 @@ private extension HomePresenter {
     }
     
     func fetchPopularMeals() {
-        interactor.getMealList(.popularMeals) { result in
+        interactor.getPopularMealList { result in
             switch result {
             case .success(let popularMeals):
                 self.popularMeals = popularMeals
-            case .failure(let error):
-                print(error.description)
-            }
-        }
-    }
-    
-    func fetchIngredients() {
-        interactor.getCategories { result in
-            switch result {
-            case .success(let categories):
-                self.categories = categories
             case .failure(let error):
                 print(error.description)
             }

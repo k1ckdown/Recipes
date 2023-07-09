@@ -53,6 +53,7 @@ final class HomeViewController: UIViewController {
         
         foodCollectionView.delegate = self
         foodCollectionView.backgroundColor = .clear
+        foodCollectionView.showsVerticalScrollIndicator = false
         
         foodCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

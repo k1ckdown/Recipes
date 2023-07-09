@@ -33,8 +33,12 @@ extension HomeInteractor: HomeInteractorInput {
         mealRepository.loadMeal(type, completion: completion)
     }
     
-    func getMealList(_ type: MealAPI, completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
-        mealRepository.loadMealList(type, completion: completion)
+    func getPopularMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+        mealRepository.loadMealList(.popularMeals, completion: completion)
     }
     
+    func getLatestMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+        mealRepository.loadMealList(.latestMeals, completion: completion)
+    }
+
 }
