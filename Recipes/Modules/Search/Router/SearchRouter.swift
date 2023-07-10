@@ -19,6 +19,11 @@ final class SearchRouter {
 
 extension SearchRouter: SearchRouterInput {
     
+    func showMealDetail(mealId: String) {
+        let viewController: MealDetailViewController = DIContainer.shared.resolve(argument: mealId)
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 

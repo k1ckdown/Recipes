@@ -83,11 +83,12 @@ final class SearchViewController: UIViewController {
     private func setupMealTableView() {
         view.addSubview(mealTableView)
         
-        mealTableView.rowHeight = Constants.MealTableView.rowHeight
-        mealTableView.backgroundColor = .clear
+        mealTableView.delegate = self
         mealTableView.separatorStyle = .none
-        mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
+        mealTableView.backgroundColor = .clear
         mealTableView.showsVerticalScrollIndicator = false
+        mealTableView.rowHeight = Constants.MealTableView.rowHeight
+        mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
         
         mealTableView.snp.makeConstraints { make in
             make.top.equalTo(mealSearchBar.snp.bottom)
@@ -103,6 +104,16 @@ extension SearchViewController: SearchViewInput {
     
     func refreshList() {
         mealTableView.reloadData()
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectRow(at: indexPath)
     }
     
 }

@@ -12,4 +12,5 @@ protocol SearchViewOutput: AnyObject {
     
     func viewDidLoad()
     func numberOfItems() -> Int
+    func didSelectRow(at indexPath: IndexPath)
 }

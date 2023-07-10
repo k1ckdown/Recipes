@@ -42,6 +42,7 @@ final class SearchPresenter {
 // MARK: - SearchViewOutput
 
 extension SearchPresenter: SearchViewOutput {
+    
     func viewDidLoad() {
         fetchMeals()
     }
@@ -49,6 +50,11 @@ extension SearchPresenter: SearchViewOutput {
     func numberOfItems() -> Int {
         mealCellModels.count
     }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        router.showMealDetail(mealId: meals[indexPath.row].id)
+    }
+    
 }
 
 // MARK: - SearchInteractorOutput

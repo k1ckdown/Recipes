@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SearchRouterInput: AnyObject {
-    
+    func showMealDetail(mealId: String)
 }
