@@ -15,7 +15,7 @@ final class MealListViewController: UIViewController {
         }
     }
     
-    private let mealCollectionView: UICollectionView = {
+    private lazy var mealCollectionView: UICollectionView = {
         let layout = MealListCompositionalLayout.createLayout()
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
@@ -56,6 +56,8 @@ final class MealListViewController: UIViewController {
     
 }
 
+// MARK: - MealListViewInput
+
 extension MealListViewController: MealListViewInput {
     
     func refreshList() {
@@ -67,6 +69,8 @@ extension MealListViewController: MealListViewInput {
     }
     
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension MealListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class MealDetailViewController: UIViewController {
     
-    weak var output: MealDetailViewOutput! {
+    var output: MealDetailViewOutput! {
         didSet {
             dataSource.output = output
         }
@@ -28,6 +27,38 @@ final class MealDetailViewController: UIViewController {
     
     private let dataSource: MealDetailDataSource = .init()
     
+    private enum Constants {
+        
+            enum MealNameLabel {
+                static let insetSide = 15
+            }
+            
+            enum MealImageView {
+                static let insetTop = 40
+                static let insetSide = 40
+                static let multiplierHeight = 0.25
+                static let cornerRadius: CGFloat = 20
+            }
+            
+            enum DetailsSegmentedControl {
+                static let height = 50
+                static let insetTop = 40
+            }
+            
+            enum IngredientsTableView {
+                static let rowHeight: CGFloat = 100
+                static let contentInsetTop: CGFloat = -15
+            }
+            
+            enum RecipeTextView {
+                static let insetSide = 20
+                static let insetTopBottom = 18
+                static let cornerRadius: CGFloat = 20
+                static let contentInset: UIEdgeInsets = .init(top: 15, left: 15, bottom: 15, right: 15)
+            }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,14 +66,6 @@ final class MealDetailViewController: UIViewController {
         dataSource.configure(with: ingredientsTableView)
         output.viewDidLoad()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        let tabBarAppearance = UITabBarAppearance()
-//        tabBarAppearance.configureWithOpaqueBackground()
-//        UITabBar.appearance().standardAppearance = tabBarAppearance
-//    }
     
     @objc
     private func handleDetailsSegmentedControl(_ sender: UISegmentedControl) {
@@ -67,11 +90,11 @@ final class MealDetailViewController: UIViewController {
         
         mealNameLabel.textAlignment = .center
         mealNameLabel.textColor = .appWhite
-        mealNameLabel.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
+        mealNameLabel.font = .mealDetailTitle
         
         mealNameLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(15)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            make.leading.trailing.equalToSuperview().inset(Constants.MealNameLabel.insetSide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -79,14 +102,14 @@ final class MealDetailViewController: UIViewController {
         view.addSubview(mealImageView)
         
         mealImageView.clipsToBounds = true
-        mealImageView.layer.cornerRadius = 20
         mealImageView.contentMode = .scaleToFill
         mealImageView.image = UIImage(named: "placeholder")
+        mealImageView.layer.cornerRadius = Constants.MealImageView.cornerRadius
         
         mealImageView.snp.makeConstraints { make in
-            make.top.equalTo(mealNameLabel.snp.bottom).offset(40)
-            make.leading.trailing.equalToSuperview().inset(40)
-            make.height.equalToSuperview().multipliedBy(0.25)
+            make.top.equalTo(mealNameLabel.snp.bottom).offset(Constants.MealImageView.insetTop)
+            make.leading.trailing.equalToSuperview().inset(Constants.MealImageView.insetSide)
+            make.height.equalToSuperview().multipliedBy(Constants.MealImageView.multiplierHeight)
         }
     }
     
@@ -103,19 +126,19 @@ final class MealDetailViewController: UIViewController {
         detailsSegmentedControl.addTarget(self, action: #selector(handleDetailsSegmentedControl), for: .valueChanged)
         
         detailsSegmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(mealImageView.snp.bottom).offset(40)
+            make.top.equalTo(mealImageView.snp.bottom).offset(Constants.DetailsSegmentedControl.insetTop)
             make.leading.trailing.equalTo(mealImageView)
-            make.height.equalTo(50)
+            make.height.equalTo(Constants.DetailsSegmentedControl.height)
         }
     }
     
     private func setupIngredientsTableView() {
         view.addSubview(ingredientsTableView)
         
-        ingredientsTableView.rowHeight = 100
+        ingredientsTableView.rowHeight = Constants.IngredientsTableView.rowHeight
         ingredientsTableView.backgroundColor = .clear
         ingredientsTableView.separatorStyle = .none
-        ingredientsTableView.contentInset.top = -15
+        ingredientsTableView.contentInset.top = Constants.IngredientsTableView.contentInsetTop
         ingredientsTableView.isHidden = true
         ingredientsTableView.showsVerticalScrollIndicator = false
         
@@ -135,17 +158,19 @@ final class MealDetailViewController: UIViewController {
         recipeTextView.isHidden = true
         recipeTextView.isEditable = false
         recipeTextView.showsVerticalScrollIndicator = false
-        recipeTextView.layer.cornerRadius = 20
-        recipeTextView.contentInset = . init(top: 15, left: 15, bottom: 15, right: 15)
+        recipeTextView.layer.cornerRadius = Constants.RecipeTextView.cornerRadius
+        recipeTextView.contentInset = Constants.RecipeTextView.contentInset
         
         recipeTextView.snp.makeConstraints { make in
-            make.top.equalTo(detailsSegmentedControl.snp.bottom).offset(25)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(25)
+            make.top.equalTo(detailsSegmentedControl.snp.bottom).offset(Constants.RecipeTextView.insetTopBottom)
+            make.leading.trailing.equalToSuperview().inset(Constants.RecipeTextView.insetSide)
+            make.bottom.equalToSuperview().inset(Constants.RecipeTextView.insetTopBottom)
         }
     }
     
 }
+
+// MARK: - MealDetailViewInput
 
 extension MealDetailViewController: MealDetailViewInput {
     
@@ -184,7 +209,8 @@ extension MealDetailViewController: MealDetailViewInput {
 //
 //    struct Container: UIViewControllerRepresentable {
 //        func makeUIViewController(context: Context) -> some UIViewController {
-//            return UINavigationController(rootViewController: MealDetailAssembly.assemble(argument: "52772"))
+//            let vc: MealDetailViewController = DIContainer.shared.resolve(argument: "52772")
+//            return UINavigationController(rootViewController: vc)
 //        }
 //
 //        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

@@ -65,6 +65,8 @@ final class HomePresenter {
     }
 }
 
+// MARK: - HomeViewOutput
+
 extension HomePresenter: HomeViewOutput {
     func viewDidLoad() {
         getMealItems()
@@ -94,6 +96,8 @@ extension HomePresenter: HomeViewOutput {
     }
     
 }
+
+// MARK: - HomeInteractorOutput
 
 extension HomePresenter: HomeInteractorOutput {
     func didSelectItem(at indexPath: IndexPath) {

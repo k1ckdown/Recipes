@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import SwiftUI
 
 final class HomeViewController: UIViewController {
     

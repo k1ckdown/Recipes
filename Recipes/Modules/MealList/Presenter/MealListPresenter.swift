@@ -39,7 +39,7 @@ final class MealListPresenter {
     
 }
 
-// MARK: -
+// MARK: - MealListViewOutput
 
 extension MealListPresenter: MealListViewOutput {
     

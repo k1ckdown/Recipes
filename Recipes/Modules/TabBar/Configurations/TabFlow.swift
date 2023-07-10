@@ -13,12 +13,21 @@ enum TabFlow: Int, CaseIterable {
     case favorites
     case profile
     
-    var title: String? {
-        nil
-    }
-    
     var orderNumber: Int {
         return self.rawValue
+    }
+    
+    var title: String? {
+        switch self {
+        case .home:
+            return "Home"
+        case .search:
+            return "Search"
+        case .favorites:
+            return "Favorites"
+        case .profile:
+            return "Profile"
+        }
     }
     
     var image: UIImage? {

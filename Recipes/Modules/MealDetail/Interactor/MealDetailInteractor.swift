@@ -21,6 +21,8 @@ final class MealDetailInteractor {
     
 }
 
+// MARK: - MealDetailInteractorInput
+
 extension MealDetailInteractor: MealDetailInteractorInput {
     func getMeal(completion: @escaping (Result<Meal, NetworkError>) -> Void) {
         mealRepository.loadMeal(.mealById(id: mealId), completion: completion)

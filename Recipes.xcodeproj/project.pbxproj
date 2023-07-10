@@ -66,7 +66,6 @@
 		49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E32A59D37300FA50CF /* TabFlow.swift */; };
 		49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */; };
 		49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */; };
-		49AC62ED2A59E8B600FA50CF /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */; };
 		49B25AD82A546F4700E9AEF6 /* AreaCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25AD72A546F4700E9AEF6 /* AreaCellModel.swift */; };
 		49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25AD92A546F5F00E9AEF6 /* FoodCellModel.swift */; };
 		49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B25ADB2A54711500E9AEF6 /* FoodCellStyle.swift */; };
@@ -165,7 +164,6 @@
 		49AC62E32A59D37300FA50CF /* TabFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlow.swift; sourceTree = "<group>"; };
 		49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
-		49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		49B25AD72A546F4700E9AEF6 /* AreaCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCellModel.swift; sourceTree = "<group>"; };
 		49B25AD92A546F5F00E9AEF6 /* FoodCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellModel.swift; sourceTree = "<group>"; };
 		49B25ADB2A54711500E9AEF6 /* FoodCellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCellStyle.swift; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				49AC62EB2A59E8A900FA50CF /* TabBar */,
 				49BC91EA2A5762CB00575EBF /* ReusableViews */,
 				49BC91EB2A5762D600575EBF /* TableViewCells */,
 				49648FD42A54336E00B99DFF /* CollectionViewCells */,
@@ -614,14 +611,6 @@
 				49AC62E32A59D37300FA50CF /* TabFlow.swift */,
 			);
 			path = Configurations;
-			sourceTree = "<group>";
-		};
-		49AC62EB2A59E8A900FA50CF /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				49AC62EC2A59E8B600FA50CF /* CustomTabBar.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		49B25AD52A546E9A00E9AEF6 /* Food */ = {
@@ -878,7 +867,6 @@
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
 				49381E962A5AD7A500F8C6C3 /* MealListInteractorOutput.swift in Sources */,
 				49381E7F2A5AA94B00F8C6C3 /* SearchRouterInput.swift in Sources */,
-				49AC62ED2A59E8B600FA50CF /* CustomTabBar.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,

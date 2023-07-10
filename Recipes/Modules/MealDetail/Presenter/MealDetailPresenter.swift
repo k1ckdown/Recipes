@@ -43,6 +43,8 @@ final class MealDetailPresenter {
     
 }
 
+// MARK: - MealDetailViewOutput
+
 extension MealDetailPresenter: MealDetailViewOutput {
     
     func viewDidLoad() {
@@ -68,6 +70,8 @@ extension MealDetailPresenter: MealDetailViewOutput {
     }
     
 }
+
+// MARK: - MealDetailInteractorOutput
 
 extension MealDetailPresenter: MealDetailInteractorOutput {
     

@@ -11,17 +11,15 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupTabBar()
     }
     
-    private func setup() {
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithOpaqueBackground()
-        
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        }
+    private func setupTabBar() {
+        self.tabBar.isTranslucent = false
+        self.tabBar.tintColor = .appWhite
+        self.tabBar.barTintColor = .appBackground
+        self.tabBar.backgroundColor = .appBackground
+        self.tabBar.unselectedItemTintColor = .lightGray
     }
     
 }

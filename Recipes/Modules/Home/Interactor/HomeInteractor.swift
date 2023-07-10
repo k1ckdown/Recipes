@@ -19,6 +19,8 @@ final class HomeInteractor {
     
 }
 
+// MARK: - HomeInteractorInput
+
 extension HomeInteractor: HomeInteractorInput {
     
     func getAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {

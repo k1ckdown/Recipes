@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class SearchViewController: UIViewController {
     
@@ -20,6 +19,24 @@ final class SearchViewController: UIViewController {
     private let mealTableView = UITableView()
     
     private let dataSource: SearchDataSource = .init()
+    
+    private enum Constants {
+        
+            enum MealSearchBar {
+                static let height = 60
+                static let insetSide = 20
+            }
+            
+            enum SearchTextField {
+                static let height = 50
+            }
+            
+            enum MealTableView {
+                static let rowHeight: CGFloat = 150
+                static let contentInsetTop: CGFloat = 15
+            }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +68,14 @@ final class SearchViewController: UIViewController {
         
         mealSearchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(60)
+            make.leading.trailing.equalToSuperview().inset(Constants.MealSearchBar.insetSide)
+            make.height.equalTo(Constants.MealSearchBar.height)
         }
         
         mealSearchBar.searchTextField.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(Constants.SearchTextField.height)
         }
 
     }
@@ -66,10 +83,10 @@ final class SearchViewController: UIViewController {
     private func setupMealTableView() {
         view.addSubview(mealTableView)
         
-        mealTableView.rowHeight = 150
+        mealTableView.rowHeight = Constants.MealTableView.rowHeight
         mealTableView.backgroundColor = .clear
         mealTableView.separatorStyle = .none
-        mealTableView.contentInset.top = 15
+        mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
         mealTableView.showsVerticalScrollIndicator = false
         
         mealTableView.snp.makeConstraints { make in
@@ -90,19 +107,19 @@ extension SearchViewController: SearchViewInput {
     
 }
 
-struct Search_Previews: PreviewProvider {
-    static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
-    }
-
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            let viewController: SearchViewController = DIContainer.shared.resolve()
-            return UINavigationController(rootViewController: viewController)
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
-    }
-}
+//struct Search_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container: UIViewControllerRepresentable {
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            let viewController: SearchViewController = DIContainer.shared.resolve()
+//            return UINavigationController(rootViewController: viewController)
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//    }
+//}
