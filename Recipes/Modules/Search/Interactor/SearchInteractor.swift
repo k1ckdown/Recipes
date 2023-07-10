@@ -22,9 +22,13 @@ final class SearchInteractor {
 // MARK: - SearchInteractorInput
 
 extension SearchInteractor: SearchInteractorInput {
-    
-    func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+
+    func getRandomMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
         mealRepository.loadMealList(.randomMeals, completion: completion)
+    }
+    
+    func getMealListByName(_ name: String, completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+        mealRepository.loadMealList(.mealsByName(name: name), completion: completion)
     }
     
 }

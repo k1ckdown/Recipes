@@ -15,7 +15,7 @@ enum MealAPI {
     case popularMeals
     case ingredientList
     case mealById(id: String)
-    case mealByName(name: String)
+    case mealsByName(name: String)
     case mealsByArea(area: String)
     case mealsByCategory(category: String)
     case mealsByMainIngredient(ingredient: String)
@@ -35,7 +35,7 @@ extension MealAPI: EndPointType {
     
     var path: String {
         switch self {
-        case .mealByName:
+        case .mealsByName:
             return "search.php"
         case .mealById:
             return "lookup.php"
@@ -69,7 +69,7 @@ extension MealAPI: EndPointType {
         case .mealById(let id):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["i": id])
-        case .mealByName(let name):
+        case .mealsByName(let name):
             return .requestParameters(bodyEncoding: .urlEncoding,
                                       urlParameters: ["s": name])
         case .mealsByArea(let area):

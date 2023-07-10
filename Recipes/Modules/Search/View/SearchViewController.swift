@@ -46,6 +46,11 @@ final class SearchViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     private func setup() {
         setupSuperView()
         setupMealSearchBar()
@@ -53,16 +58,17 @@ final class SearchViewController: UIViewController {
     }
     
     private func setupSuperView() {
+        view.isUserInteractionEnabled = true
         view.backgroundColor = .appBackground
     }
     
     private func setupMealSearchBar() {
         view.addSubview(mealSearchBar)
         
+        mealSearchBar.delegate = self
         mealSearchBar.tintColor = .lightGray
         mealSearchBar.barTintColor = .appBackground
-        mealSearchBar.placeholder = "Search recipes"
-        mealSearchBar.showsSearchResultsButton = true
+        mealSearchBar.placeholder = output.searchPlaceholder
         mealSearchBar.searchTextField.textColor = .appWhite
         mealSearchBar.searchTextField.backgroundColor = .appGray
         
@@ -86,6 +92,7 @@ final class SearchViewController: UIViewController {
         mealTableView.delegate = self
         mealTableView.separatorStyle = .none
         mealTableView.backgroundColor = .clear
+        mealTableView.keyboardDismissMode = .onDrag
         mealTableView.showsVerticalScrollIndicator = false
         mealTableView.rowHeight = Constants.MealTableView.rowHeight
         mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
@@ -101,11 +108,18 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchViewInput
 
 extension SearchViewController: SearchViewInput {
-    
     func refreshList() {
         mealTableView.reloadData()
     }
-    
+}
+
+// MARK: UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        output.didPerformSearch(searchBar.text)
+    }
 }
 
 // MARK: - UITableViewDelegate

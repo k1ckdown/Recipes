@@ -8,9 +8,11 @@
 import Foundation
 
 protocol SearchViewOutput: AnyObject {
+    var searchPlaceholder: String { get }
     var mealCellModels: [MealCellModel] { get }
     
     func viewDidLoad()
     func numberOfItems() -> Int
+    func didPerformSearch(_ value: String?)
     func didSelectRow(at indexPath: IndexPath)
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol SearchInteractorInput: AnyObject {
-    func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void)
+    func getRandomMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void)
+    func getMealListByName(_ name: String, completion: @escaping (Result<[Meal], NetworkError>) -> Void)
 }
