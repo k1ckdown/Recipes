@@ -13,8 +13,9 @@ final class SearchPresenter {
     private let interactor: SearchInteractorInput
     private let router: SearchRouterInput
     
-    private(set) var mealCellModels = [MealCellModel]()
+    private(set) var sceneTitle = "Search"
     private(set) var searchPlaceholder = "Search recipes"
+    private(set) var mealCellModels = [MealCellModel]()
     
     private var meals = [Meal]() {
         didSet {

@@ -93,20 +93,3 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
 }
-
-//struct Home_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let vc: HomeViewController = DIContainer.shared.resolve()
-//            return UINavigationController(rootViewController: vc)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}

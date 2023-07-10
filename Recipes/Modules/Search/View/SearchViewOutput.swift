@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SearchViewOutput: AnyObject {
+    var sceneTitle: String { get }
     var searchPlaceholder: String { get }
     var mealCellModels: [MealCellModel] { get }
     

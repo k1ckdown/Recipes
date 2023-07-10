@@ -15,7 +15,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    private let mealSearchBar = UISearchBar()
+    private let mealSearchController = UISearchController()
     private let mealTableView = UITableView()
     
     private let dataSource: SearchDataSource = .init()
@@ -23,12 +23,7 @@ final class SearchViewController: UIViewController {
     private enum Constants {
         
             enum MealSearchBar {
-                static let height = 60
-                static let insetSide = 20
-            }
-            
-            enum SearchTextField {
-                static let height = 50
+                static let insetSide = 10
             }
             
             enum MealTableView {
@@ -46,15 +41,40 @@ final class SearchViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = output.sceneTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupBackBarButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationItem.title = nil
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
     private func setup() {
+        setupNavigationItem()
         setupSuperView()
         setupMealSearchBar()
         setupMealTableView()
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.searchController = mealSearchController
+        navigationItem.largeTitleDisplayMode = .automatic
     }
     
     private func setupSuperView() {
@@ -63,27 +83,13 @@ final class SearchViewController: UIViewController {
     }
     
     private func setupMealSearchBar() {
-        view.addSubview(mealSearchBar)
-        
-        mealSearchBar.delegate = self
-        mealSearchBar.tintColor = .lightGray
-        mealSearchBar.barTintColor = .appBackground
-        mealSearchBar.placeholder = output.searchPlaceholder
-        mealSearchBar.searchTextField.textColor = .appWhite
-        mealSearchBar.searchTextField.backgroundColor = .appGray
-        
-        mealSearchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview().inset(Constants.MealSearchBar.insetSide)
-            make.height.equalTo(Constants.MealSearchBar.height)
-        }
-        
-        mealSearchBar.searchTextField.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview()
-            make.height.equalTo(Constants.SearchTextField.height)
-        }
-
+        mealSearchController.searchBar.delegate = self
+        mealSearchController.searchBar.tintColor = .lightGray
+        mealSearchController.searchBar.barTintColor = .appBackground
+        mealSearchController.searchBar.showsCancelButton = true
+        mealSearchController.searchBar.placeholder = output.searchPlaceholder
+        mealSearchController.searchBar.searchTextField.textColor = .appWhite
+        mealSearchController.searchBar.searchTextField.backgroundColor = .appGray
     }
     
     private func setupMealTableView() {
@@ -98,9 +104,15 @@ final class SearchViewController: UIViewController {
         mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
         
         mealTableView.snp.makeConstraints { make in
-            make.top.equalTo(mealSearchBar.snp.bottom)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func setupBackBarButton() {
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButton.tintColor = .appWhite
+        navigationItem.backBarButtonItem = backBarButton
     }
     
 }
@@ -108,18 +120,26 @@ final class SearchViewController: UIViewController {
 // MARK: - SearchViewInput
 
 extension SearchViewController: SearchViewInput {
+    
     func refreshList() {
         mealTableView.reloadData()
     }
+    
 }
 
 // MARK: UISearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         output.didPerformSearch(searchBar.text)
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }
 
 // MARK: - UITableViewDelegate
@@ -131,20 +151,3 @@ extension SearchViewController: UITableViewDelegate {
     }
     
 }
-
-//struct Search_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let viewController: SearchViewController = DIContainer.shared.resolve()
-//            return UINavigationController(rootViewController: viewController)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}

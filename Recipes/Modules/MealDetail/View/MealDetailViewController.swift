@@ -201,20 +201,3 @@ extension MealDetailViewController: MealDetailViewInput {
     }
     
 }
-
-//struct MealDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let vc: MealDetailViewController = DIContainer.shared.resolve(argument: "52772")
-//            return UINavigationController(rootViewController: vc)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}
