@@ -16,6 +16,7 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    private(set) var loadingView = LoadingView()
     private lazy var foodCollectionView: UICollectionView = {
         let layout = HomeCompositionalLayout.createLayout()
         let collectionView = UICollectionView(frame: .zero,
@@ -51,6 +52,7 @@ final class HomeViewController: UIViewController {
     private func setup() {
         setupSuperView()
         setupFoodCollectionView()
+        setupLoadingView()
     }
     
     private func setupSuperView() {
@@ -61,6 +63,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(foodCollectionView)
         
         foodCollectionView.delegate = self
+        foodCollectionView.isHidden = true
         foodCollectionView.backgroundColor = .clear
         foodCollectionView.showsVerticalScrollIndicator = false
         
@@ -79,9 +82,16 @@ final class HomeViewController: UIViewController {
 // MARK: - HomeViewInput
 
 extension HomeViewController: HomeViewInput {
+    
     func refreshCollection() {
         foodCollectionView.reloadData()
     }
+    
+    func hideLoader() {
+        loadingView.stopAnimating()
+        foodCollectionView.isHidden = false
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegate

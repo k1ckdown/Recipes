@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HomeViewInput: AnyObject {
+protocol HomeViewInput: AnyObject, LoadingDisplayable {
     func refreshCollection()
 }

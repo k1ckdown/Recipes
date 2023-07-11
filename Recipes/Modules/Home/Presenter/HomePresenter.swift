@@ -69,6 +69,7 @@ final class HomePresenter {
 
 extension HomePresenter: HomeViewOutput {
     func viewDidLoad() {
+        view?.showLoader()
         getMealItems()
     }
     
@@ -174,6 +175,7 @@ private extension HomePresenter {
             case .failure(let error):
                 print(error.description)
             }
+            self.view?.hideLoader()
         }
     }
     

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SearchViewInput: AnyObject {
+protocol SearchViewInput: AnyObject, LoadingDisplayable {
     func refreshList()
 }

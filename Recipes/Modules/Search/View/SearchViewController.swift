@@ -15,6 +15,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
+    private(set) var loadingView = LoadingView()
     private let mealSearchController = UISearchController()
     private let mealTableView = UITableView()
     
@@ -70,6 +71,7 @@ final class SearchViewController: UIViewController {
         setupSuperView()
         setupMealSearchBar()
         setupMealTableView()
+        setupLoadingView()
     }
     
     private func setupNavigationItem() {

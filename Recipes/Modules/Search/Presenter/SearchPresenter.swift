@@ -46,6 +46,7 @@ final class SearchPresenter {
 extension SearchPresenter: SearchViewOutput {
     
     func viewDidLoad() {
+        view?.showLoader()
         fetchRandomMeals()
     }
     
@@ -80,6 +81,7 @@ private extension SearchPresenter {
             case .failure(let error):
                 print(error.description)
             }
+            self.view?.hideLoader()
         }
     }
     
