@@ -8,5 +8,7 @@
 import Foundation
 
 protocol MealDetailInteractorInput: AnyObject {
+    func addFavoriteMeal(_ meal: Meal)
+    func deleteFavoriteMeal(_ meal: Meal)
     func getMeal(completion: @escaping (Result<Meal, NetworkError>) -> Void)
 }

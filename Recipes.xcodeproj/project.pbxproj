@@ -40,6 +40,16 @@
 		49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */; };
 		49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */; };
 		49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */; };
+		49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */; };
+		49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */; };
+		49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */; };
+		49542D582A5DBC03009D4CC6 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D572A5DBC03009D4CC6 /* FavoritesInteractor.swift */; };
+		49542D5A2A5DBC08009D4CC6 /* FavoritesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D592A5DBC08009D4CC6 /* FavoritesInteractorInput.swift */; };
+		49542D5C2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D5B2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift */; };
+		49542D5F2A5DBC58009D4CC6 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D5E2A5DBC58009D4CC6 /* FavoritesPresenter.swift */; };
+		49542D622A5DBC88009D4CC6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D612A5DBC88009D4CC6 /* FavoritesRouter.swift */; };
+		49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D632A5DBC90009D4CC6 /* FavoritesRouterInput.swift */; };
+		49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */; };
 		49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */; };
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
 		49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* AreaViewCell.swift */; };
@@ -142,6 +152,16 @@
 		49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListDataSource.swift; sourceTree = "<group>"; };
 		49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListCompositionalLayout.swift; sourceTree = "<group>"; };
 		49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListAssembly.swift; sourceTree = "<group>"; };
+		49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewInput.swift; sourceTree = "<group>"; };
+		49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewOutput.swift; sourceTree = "<group>"; };
+		49542D572A5DBC03009D4CC6 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		49542D592A5DBC08009D4CC6 /* FavoritesInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorInput.swift; sourceTree = "<group>"; };
+		49542D5B2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorOutput.swift; sourceTree = "<group>"; };
+		49542D5E2A5DBC58009D4CC6 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		49542D612A5DBC88009D4CC6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		49542D632A5DBC90009D4CC6 /* FavoritesRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouterInput.swift; sourceTree = "<group>"; };
+		49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
 		49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		49648FD52A54339400B99DFF /* AreaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewCell.swift; sourceTree = "<group>"; };
@@ -432,6 +452,54 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		49542D4E2A5DBB95009D4CC6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				49542D4F2A5DBB9B009D4CC6 /* View */,
+				49542D562A5DBBEC009D4CC6 /* Interactor */,
+				49542D5D2A5DBC49009D4CC6 /* Presenter */,
+				49542D602A5DBC7D009D4CC6 /* Router */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		49542D4F2A5DBB9B009D4CC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */,
+				49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */,
+				49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49542D562A5DBBEC009D4CC6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				49542D572A5DBC03009D4CC6 /* FavoritesInteractor.swift */,
+				49542D592A5DBC08009D4CC6 /* FavoritesInteractorInput.swift */,
+				49542D5B2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		49542D5D2A5DBC49009D4CC6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				49542D5E2A5DBC58009D4CC6 /* FavoritesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		49542D602A5DBC7D009D4CC6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				49542D612A5DBC88009D4CC6 /* FavoritesRouter.swift */,
+				49542D632A5DBC90009D4CC6 /* FavoritesRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		49648FCF2A5429B800B99DFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +543,7 @@
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
 				49AC62E12A59D35400FA50CF /* TabBar */,
+				49542D4E2A5DBB95009D4CC6 /* Favorites */,
 				497F4C642A5337420073A86E /* Home */,
 				49381E612A5AA17800F8C6C3 /* Search */,
 				49381E842A5AD6FA00F8C6C3 /* MealList */,
@@ -581,6 +650,7 @@
 				49AC62DE2A59A42B00FA50CF /* MealDetailAssembly.swift */,
 				49381E822A5AB31000F8C6C3 /* SearchAssembly.swift */,
 				49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */,
+				49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -892,7 +962,9 @@
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
 				49381E962A5AD7A500F8C6C3 /* MealListInteractorOutput.swift in Sources */,
 				49381E7F2A5AA94B00F8C6C3 /* SearchRouterInput.swift in Sources */,
+				49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
+				49542D5C2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
@@ -910,6 +982,7 @@
 				49381E7B2A5AA91C00F8C6C3 /* SearchInteractorOutput.swift in Sources */,
 				49381E6D2A5AA34000F8C6C3 /* MealViewCell.swift in Sources */,
 				49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */,
+				49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */,
 				49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */,
 				4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */,
 				49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */,
@@ -919,6 +992,7 @@
 				49381E7D2A5AA94000F8C6C3 /* SearchRouter.swift in Sources */,
 				49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */,
 				49B4F8922A55B6DA00E91A3A /* CategoryDTO.swift in Sources */,
+				49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */,
 				49E1FBD22A58625700D254C0 /* MealDetailRouter.swift in Sources */,
 				49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */,
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
@@ -930,8 +1004,10 @@
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,
+				49542D5A2A5DBC08009D4CC6 /* FavoritesInteractorInput.swift in Sources */,
 				497F4C6D2A5337A40073A86E /* HomeRouter.swift in Sources */,
 				49381E692A5AA2D400F8C6C3 /* SearchDataSource.swift in Sources */,
+				49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */,
 				49B4F88D2A5578B000E91A3A /* URLParameterEncoder.swift in Sources */,
 				4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */,
 				49FF07DE2A569BF3007630D0 /* Ingredient.swift in Sources */,
@@ -944,6 +1020,7 @@
 				49381E8C2A5AD77000F8C6C3 /* MealListViewInput.swift in Sources */,
 				49B4F88B2A55774B00E91A3A /* ParameterEncoding.swift in Sources */,
 				49381E752A5AA8B400F8C6C3 /* SearchViewOutput.swift in Sources */,
+				49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */,
 				49B4F8882A5573CB00E91A3A /* HTTPTask.swift in Sources */,
 				49381E792A5AA91400F8C6C3 /* SearchInteractorInput.swift in Sources */,
 				497F4C812A5348D80073A86E /* AppRouter.swift in Sources */,
@@ -951,14 +1028,17 @@
 				49381E712A5AA89400F8C6C3 /* SearchPresenter.swift in Sources */,
 				497F4C792A533E3E0073A86E /* HomeViewOutput.swift in Sources */,
 				49B4F88F2A55822900E91A3A /* NetworkRouter.swift in Sources */,
+				49542D622A5DBC88009D4CC6 /* FavoritesRouter.swift in Sources */,
 				497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */,
 				49E1FBCF2A5861F900D254C0 /* MealDetailPresenter.swift in Sources */,
+				49542D5F2A5DBC58009D4CC6 /* FavoritesPresenter.swift in Sources */,
 				49381E772A5AA8FF00F8C6C3 /* SearchInteractor.swift in Sources */,
 				49381E6F2A5AA37800F8C6C3 /* MealCellModel.swift in Sources */,
 				49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */,
 				49B4F8862A55691600E91A3A /* MealEndPoint.swift in Sources */,
 				49FF07DC2A569BE7007630D0 /* Category.swift in Sources */,
 				49B7529D2A5D572F0029003E /* FavoriteButton.swift in Sources */,
+				49542D582A5DBC03009D4CC6 /* FavoritesInteractor.swift in Sources */,
 				49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,
 			);

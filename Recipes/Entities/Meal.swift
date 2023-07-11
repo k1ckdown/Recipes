@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Meal {
+struct Meal: Equatable {
     let id: String
     let name: String
     let category: String?
@@ -18,6 +18,10 @@ struct Meal {
     let tags: [String]?
     let ingredients: [MealIngredient]
     var isFavorite = false
+    
+    static func == (lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct MealIngredient {

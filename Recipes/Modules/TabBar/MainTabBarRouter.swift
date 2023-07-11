@@ -35,7 +35,11 @@ final class MainTabBarRouter {
         case .search:
             let searchScene: SearchViewController = DIContainer.shared.resolve()
             navigationController.setViewControllers([searchScene], animated: true)
-        default: break
+        case .favorites:
+            let favoritesScene: FavoritesViewController = DIContainer.shared.resolve()
+            navigationController.setViewControllers([favoritesScene], animated: true)
+        default:
+            break
         }
         
         navigationController.tabBarItem = .init(title: flow.title,

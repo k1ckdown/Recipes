@@ -95,8 +95,16 @@ private extension MealDetailPresenter {
     }
     
     func updateFavoriteState() {
-        guard let value = meal?.isFavorite else { return }
-        value ? view?.applyFavoriteAppearance() : view?.resetFavoriteAppearance()
+        guard let meal = meal else { return }
+        
+        if meal.isFavorite {
+            view?.applyFavoriteAppearance()
+            interactor.addFavoriteMeal(meal)
+        } else {
+            view?.resetFavoriteAppearance()
+            interactor.deleteFavoriteMeal(meal)
+        }
+        
     }
     
     func selectSegment(_ segment: MealDetailSegment) {

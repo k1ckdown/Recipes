@@ -14,6 +14,7 @@ final class ModuleAssembly: Assembly {
         let assemblies: [Assembly] = [
             HomeAssembly(),
             SearchAssembly(),
+            FavoritesAssembly(),
             MealListAssembly(),
             MealDetailAssembly()
         ]

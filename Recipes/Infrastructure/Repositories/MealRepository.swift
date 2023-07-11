@@ -9,10 +9,24 @@ import Foundation
 
 final class MealRepository {
     
+    private var favoriteMeals = [Meal]()
     private let networkManager: NetworkManager
     
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
+    }
+    
+    func getFavoriteMealList() -> [Meal] {
+        favoriteMeals
+    }
+    
+    func removeFavoriteMeal(_ meal: Meal) {
+        favoriteMeals.removeAll(where: { $0 == meal })
+    }
+    
+    func putFavoriteMeal(_ meal: Meal) {
+        guard !favoriteMeals.contains(meal) else { return }
+        favoriteMeals.append(meal)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
