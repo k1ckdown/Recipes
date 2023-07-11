@@ -13,6 +13,9 @@ protocol MealDetailViewInput: AnyObject {
     func showRecipeText()
     func showIngredientList()
     
+    func applyFavoriteAppearance()
+    func resetFavoriteAppearance()
+    
     func updateRecipeText(_ text: String?)
     func updateMealName(_ title: String?)
     func updateMealImage(imageUrl: String)

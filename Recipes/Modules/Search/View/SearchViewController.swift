@@ -86,7 +86,7 @@ final class SearchViewController: UIViewController {
     
     private func setupMealSearchBar() {
         mealSearchController.searchBar.delegate = self
-        mealSearchController.searchBar.tintColor = .lightGray
+        mealSearchController.searchBar.tintColor = .appOrange
         mealSearchController.searchBar.barTintColor = .appBackground
         mealSearchController.searchBar.showsCancelButton = true
         mealSearchController.searchBar.placeholder = output.searchPlaceholder

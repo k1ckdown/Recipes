@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class MealDetailViewController: UIViewController {
     
@@ -18,6 +19,8 @@ final class MealDetailViewController: UIViewController {
     private let mealNameLabel = UILabel()
     private let mealImageView = UIImageView()
     private let recipeTextView = UITextView()
+    private let watchVideoButton = UIButton()
+    private let favoriteBarButton = UIBarButtonItem()
     private let ingredientsTableView = UITableView(frame: .zero, style: .insetGrouped)
     
     private lazy var detailsSegmentedControl: UISegmentedControl = {
@@ -34,7 +37,7 @@ final class MealDetailViewController: UIViewController {
             }
             
             enum MealImageView {
-                static let insetTop = 40
+                static let insetTop = 25
                 static let insetSide = 40
                 static let multiplierHeight = 0.25
                 static let cornerRadius: CGFloat = 20
@@ -42,19 +45,28 @@ final class MealDetailViewController: UIViewController {
             
             enum DetailsSegmentedControl {
                 static let height = 50
-                static let insetTop = 40
+                static let insetTop = 25
             }
             
             enum IngredientsTableView {
                 static let rowHeight: CGFloat = 100
                 static let contentInsetTop: CGFloat = -15
+                static let contentInsetBottom: CGFloat = 15
             }
             
             enum RecipeTextView {
                 static let insetSide = 20
                 static let insetTopBottom = 18
                 static let cornerRadius: CGFloat = 20
-                static let contentInset: UIEdgeInsets = .init(top: 15, left: 15, bottom: 15, right: 15)
+                static let contentInset: UIEdgeInsets = .init(top: 15, left: 15, bottom: 55, right: 15)
+            }
+        
+            enum WatchVideoButton {
+                static let height = 47
+                static let insetBottom = 25
+                static let multiplierWidth = 0.5
+                static let cornerRadius: CGFloat = 15
+                static let titleInsets: UIEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
             }
         
     }
@@ -67,9 +79,40 @@ final class MealDetailViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideTabBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showTabBar()
+    }
+    
     @objc
     private func handleDetailsSegmentedControl(_ sender: UISegmentedControl) {
         output.didSelectSegment(at: sender.selectedSegmentIndex)
+    }
+    
+    @objc
+    private func handleFavoriteButton() {
+        output.didTapOnFavoriteButton()
+    }
+    
+    private func hideTabBar() {
+        guard var frame = tabBarController?.tabBar.frame else { return }
+        frame.origin.y = view.frame.height + (frame.height)
+        UIView.animate(withDuration: 0.3) {
+            self.tabBarController?.tabBar.frame = frame
+        }
+    }
+
+    private func showTabBar() {
+        guard var frame = tabBarController?.tabBar.frame else { return }
+        frame.origin.y = view.frame.height - (frame.height)
+        UIView.animate(withDuration: 0.3) {
+            self.tabBarController?.tabBar.frame = frame
+        }
     }
     
     private func setup() {
@@ -79,6 +122,8 @@ final class MealDetailViewController: UIViewController {
         setupDetailsSegmentedControl()
         setupIngredientsTableView()
         setupRecipeTextView()
+        setupWatchVideoButton()
+        setupFavoriteBarButton()
     }
     
     private func setupSuperView() {
@@ -139,6 +184,7 @@ final class MealDetailViewController: UIViewController {
         ingredientsTableView.backgroundColor = .clear
         ingredientsTableView.separatorStyle = .none
         ingredientsTableView.contentInset.top = Constants.IngredientsTableView.contentInsetTop
+        ingredientsTableView.contentInset.bottom = Constants.IngredientsTableView.contentInsetBottom
         ingredientsTableView.isHidden = true
         ingredientsTableView.showsVerticalScrollIndicator = false
         
@@ -166,6 +212,37 @@ final class MealDetailViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(Constants.RecipeTextView.insetSide)
             make.bottom.equalToSuperview().inset(Constants.RecipeTextView.insetTopBottom)
         }
+    }
+    
+    private func setupWatchVideoButton() {
+        view.addSubview(watchVideoButton)
+    
+        watchVideoButton.tintColor = .appWhite
+        watchVideoButton.layer.cornerRadius = Constants.WatchVideoButton.cornerRadius
+        watchVideoButton.backgroundColor = .appOrange
+        watchVideoButton.setTitle("Watch Video", for: .normal)
+        watchVideoButton.setTitleColor(.appWhite, for: .normal)
+        watchVideoButton.titleEdgeInsets = Constants.WatchVideoButton.titleInsets
+        watchVideoButton.titleLabel?.font = .watchVideoTitle
+        watchVideoButton.setImage(
+            UIImage(systemName: "play.circle")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch),
+            for: .normal
+        )
+        
+        watchVideoButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(Constants.WatchVideoButton.height)
+            make.width.equalToSuperview().multipliedBy(Constants.WatchVideoButton.multiplierWidth)
+            make.bottom.equalToSuperview().inset(Constants.WatchVideoButton.insetBottom)
+            
+        }
+    }
+    
+    private func setupFavoriteBarButton() {
+        favoriteBarButton.target = self
+        favoriteBarButton.action = #selector(handleFavoriteButton)
+        navigationItem.rightBarButtonItem = favoriteBarButton
+        resetFavoriteAppearance()
     }
     
 }
@@ -198,6 +275,16 @@ extension MealDetailViewController: MealDetailViewInput {
     func showIngredientList() {
         recipeTextView.isHidden = true
         ingredientsTableView.isHidden = false
+    }
+    
+    func applyFavoriteAppearance() {
+        favoriteBarButton.tintColor = .systemRed
+        favoriteBarButton.image = UIImage(systemName: "heart.fill")
+    }
+    
+    func resetFavoriteAppearance() {
+        favoriteBarButton.tintColor = .systemGray
+        favoriteBarButton.image = UIImage(systemName: "heart")
     }
     
 }

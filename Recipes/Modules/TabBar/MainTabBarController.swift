@@ -15,8 +15,7 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        self.tabBar.isTranslucent = false
-        self.tabBar.tintColor = .appWhite
+        self.tabBar.tintColor = .appOrange
         self.tabBar.barTintColor = .appBackground
         self.tabBar.backgroundColor = .appBackground
         self.tabBar.unselectedItemTintColor = .lightGray

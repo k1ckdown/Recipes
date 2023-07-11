@@ -69,6 +69,11 @@ extension MealDetailPresenter: MealDetailViewOutput {
         selectSegment(segment)
     }
     
+    func didTapOnFavoriteButton() {
+        meal?.isFavorite.toggle()
+        updateFavoriteState()
+    }
+    
 }
 
 // MARK: - MealDetailInteractorOutput
@@ -83,9 +88,15 @@ private extension MealDetailPresenter {
         view?.refreshList()
         view?.updateMealName(meal?.name)
         view?.updateRecipeText(meal?.instructions)
+        updateFavoriteState()
         
         guard let mealImageUrl = meal?.thumbnailLink else { return }
         view?.updateMealImage(imageUrl: mealImageUrl)
+    }
+    
+    func updateFavoriteState() {
+        guard let value = meal?.isFavorite else { return }
+        value ? view?.applyFavoriteAppearance() : view?.resetFavoriteAppearance()
     }
     
     func selectSegment(_ segment: MealDetailSegment) {

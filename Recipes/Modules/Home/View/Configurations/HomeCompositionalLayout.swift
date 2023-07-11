@@ -59,7 +59,7 @@ private extension HomeCompositionalLayout {
     static func makeLatestMealGroup() -> NSCollectionLayoutGroup {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
-                widthDimension: .fractionalWidth(0.87),
+                widthDimension: .fractionalWidth(0.88),
                 heightDimension: .fractionalHeight(0.25)),
             subitems: [makeLatestMealItem()])
         
@@ -70,7 +70,7 @@ private extension HomeCompositionalLayout {
         let section = NSCollectionLayoutSection(group: makeLatestMealGroup())
         
         section.contentInsets = .init(top: 0, leading: 20, bottom: 15, trailing: 20)
-        section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+        section.orthogonalScrollingBehavior = .groupPagingCentered
         section.boundarySupplementaryItems = [makeSectionHeader()]
         
         return section

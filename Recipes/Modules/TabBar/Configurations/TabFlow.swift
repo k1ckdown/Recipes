@@ -37,9 +37,9 @@ enum TabFlow: Int, CaseIterable {
         case .search:
             return UIImage(systemName: "magnifyingglass")
         case .favorites:
-            return UIImage(systemName: "star")
+            return UIImage(systemName: "heart")
         case .profile:
-            return UIImage(systemName: "person.crop.circle")
+            return UIImage(systemName: "person")
         }
     }
 }

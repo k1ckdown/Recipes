@@ -17,6 +17,7 @@ struct Meal {
     let youtubeLink: String?
     let tags: [String]?
     let ingredients: [MealIngredient]
+    var isFavorite = false
 }
 
 struct MealIngredient {

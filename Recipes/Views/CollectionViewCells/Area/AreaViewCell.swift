@@ -36,7 +36,7 @@ final class AreaViewCell: UICollectionViewCell, ReuseIdentifier {
     
     private func setupSuperView() {
         layer.cornerRadius = 10
-        backgroundColor = .appBlue
+        backgroundColor = .appOrange
     }
     
     private func setupCountryNameLabel() {
