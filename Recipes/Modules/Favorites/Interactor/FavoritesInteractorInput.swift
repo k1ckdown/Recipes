@@ -9,4 +9,5 @@ import Foundation
 
 protocol FavoritesInteractorInput: AnyObject {
     func getFavoriteMeals() -> [Meal]
+    func deleteFavoriteMeal(_ meal: Meal) 
 }

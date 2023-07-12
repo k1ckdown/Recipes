@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FavoritesRouterInput: AnyObject {
-    
+    func showMealDetail(mealId: String)
 }

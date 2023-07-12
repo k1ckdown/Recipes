@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func setImage(_ urlString: String, inset: CGFloat) {
+    func setImage(_ urlString: String, inset: CGFloat = .zero) {
         kf.setImage(with: URL(string: urlString), placeholder: UIImage(named: "placeholder")) { result in
             self.image = try? result.get().image.resizableImage(
                 withCapInsets: .init(top: inset, left: inset, bottom: inset, right: inset),

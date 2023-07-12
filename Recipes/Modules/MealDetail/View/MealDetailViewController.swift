@@ -264,7 +264,7 @@ extension MealDetailViewController: MealDetailViewInput {
     }
     
     func updateMealImage(imageUrl: String) {
-        mealImageView.kf.setImage(with: URL(string: imageUrl))
+        mealImageView.setImage(imageUrl)
     }
     
     func showRecipeText() {

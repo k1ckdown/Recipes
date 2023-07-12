@@ -17,7 +17,7 @@ final class SearchViewController: UIViewController {
     
     private(set) var loadingView = LoadingView()
     private let mealSearchController = UISearchController()
-    private let mealTableView = UITableView()
+    private let mealTableView = MealTableView()
     
     private let dataSource: SearchDataSource = .init()
     
@@ -25,11 +25,6 @@ final class SearchViewController: UIViewController {
         
             enum MealSearchBar {
                 static let insetSide = 10
-            }
-            
-            enum MealTableView {
-                static let rowHeight: CGFloat = 150
-                static let contentInsetTop: CGFloat = 15
             }
         
     }
@@ -98,12 +93,6 @@ final class SearchViewController: UIViewController {
         view.addSubview(mealTableView)
         
         mealTableView.delegate = self
-        mealTableView.separatorStyle = .none
-        mealTableView.backgroundColor = .clear
-        mealTableView.keyboardDismissMode = .onDrag
-        mealTableView.showsVerticalScrollIndicator = false
-        mealTableView.rowHeight = Constants.MealTableView.rowHeight
-        mealTableView.contentInset.top = Constants.MealTableView.contentInsetTop
         
         mealTableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)

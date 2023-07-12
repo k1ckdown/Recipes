@@ -40,6 +40,9 @@
 		49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */; };
 		49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */; };
 		49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */; };
+		494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFD92A5E74A400C80E56 /* MealTableView.swift */; };
+		494DFFDC2A5E76A100C80E56 /* MealTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFDB2A5E76A100C80E56 /* MealTableDataSource.swift */; };
+		494DFFDF2A5E88BF00C80E56 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */; };
 		49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */; };
 		49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */; };
 		49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */; };
@@ -106,7 +109,7 @@
 		49E1FBCC2A58616000D254C0 /* MealDetailViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBCB2A58616000D254C0 /* MealDetailViewOutput.swift */; };
 		49E1FBCF2A5861F900D254C0 /* MealDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBCE2A5861F800D254C0 /* MealDetailPresenter.swift */; };
 		49E1FBD22A58625700D254C0 /* MealDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD12A58625700D254C0 /* MealDetailRouter.swift */; };
-		49E1FBD42A58625D00D254C0 /* MealDetailInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD32A58625D00D254C0 /* MealDetailInput.swift */; };
+		49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD32A58625D00D254C0 /* MealDetailRouterInput.swift */; };
 		49E1FBD82A588B9100D254C0 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */; };
 		49E1FBDB2A58AF2F00D254C0 /* MealDetailSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBDA2A58AF2F00D254C0 /* MealDetailSegment.swift */; };
 		49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6C48A2A5C668D00677D3F /* LoadingView.swift */; };
@@ -152,6 +155,9 @@
 		49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListDataSource.swift; sourceTree = "<group>"; };
 		49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListCompositionalLayout.swift; sourceTree = "<group>"; };
 		49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListAssembly.swift; sourceTree = "<group>"; };
+		494DFFD92A5E74A400C80E56 /* MealTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableView.swift; sourceTree = "<group>"; };
+		494DFFDB2A5E76A100C80E56 /* MealTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableDataSource.swift; sourceTree = "<group>"; };
+		494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewInput.swift; sourceTree = "<group>"; };
 		49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewOutput.swift; sourceTree = "<group>"; };
@@ -216,7 +222,7 @@
 		49E1FBCB2A58616000D254C0 /* MealDetailViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewOutput.swift; sourceTree = "<group>"; };
 		49E1FBCE2A5861F800D254C0 /* MealDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailPresenter.swift; sourceTree = "<group>"; };
 		49E1FBD12A58625700D254C0 /* MealDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailRouter.swift; sourceTree = "<group>"; };
-		49E1FBD32A58625D00D254C0 /* MealDetailInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInput.swift; sourceTree = "<group>"; };
+		49E1FBD32A58625D00D254C0 /* MealDetailRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailRouterInput.swift; sourceTree = "<group>"; };
 		49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		49E1FBDA2A58AF2F00D254C0 /* MealDetailSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSegment.swift; sourceTree = "<group>"; };
 		49F6C48A2A5C668D00677D3F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -452,6 +458,31 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		494DFFD72A5E747D00C80E56 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				494DFFD82A5E749100C80E56 /* Meal */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
+		494DFFD82A5E749100C80E56 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				494DFFD92A5E74A400C80E56 /* MealTableView.swift */,
+				494DFFDB2A5E76A100C80E56 /* MealTableDataSource.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		494DFFDD2A5E88AE00C80E56 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		49542D4E2A5DBB95009D4CC6 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +497,7 @@
 		49542D4F2A5DBB9B009D4CC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				494DFFDD2A5E88AE00C80E56 /* DataSources */,
 				49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */,
 				49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */,
 				49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */,
@@ -625,6 +657,7 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				494DFFD72A5E747D00C80E56 /* TableViews */,
 				49B7529B2A5D56C70029003E /* Buttons */,
 				49B752912A5CE6950029003E /* IndicatorViews */,
 				49BC91EA2A5762CB00575EBF /* ReusableViews */,
@@ -837,7 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				49E1FBD12A58625700D254C0 /* MealDetailRouter.swift */,
-				49E1FBD32A58625D00D254C0 /* MealDetailInput.swift */,
+				49E1FBD32A58625D00D254C0 /* MealDetailRouterInput.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -938,12 +971,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */,
 				49381E9A2A5AD7BA00F8C6C3 /* MealListRouterInput.swift in Sources */,
 				49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */,
 				49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */,
 				49381E8A2A5AD76400F8C6C3 /* MealListViewController.swift in Sources */,
 				49B4F87F2A55634200E91A3A /* NetworkError.swift in Sources */,
-				49E1FBD42A58625D00D254C0 /* MealDetailInput.swift in Sources */,
+				49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */,
 				49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */,
 				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
 				49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */,
@@ -977,6 +1011,7 @@
 				497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */,
 				49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */,
 				49381E942A5AD79900F8C6C3 /* MealListInteractorInput.swift in Sources */,
+				494DFFDF2A5E88BF00C80E56 /* FavoritesDataSource.swift in Sources */,
 				49B4F8822A55668900E91A3A /* NetworkManager.swift in Sources */,
 				49B25AD82A546F4700E9AEF6 /* AreaCellModel.swift in Sources */,
 				49381E7B2A5AA91C00F8C6C3 /* SearchInteractorOutput.swift in Sources */,
@@ -1001,6 +1036,7 @@
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
 				49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */,
 				49E1FBCC2A58616000D254C0 /* MealDetailViewOutput.swift in Sources */,
+				494DFFDC2A5E76A100C80E56 /* MealTableDataSource.swift in Sources */,
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,

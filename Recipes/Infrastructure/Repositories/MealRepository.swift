@@ -71,24 +71,6 @@ final class MealRepository {
         }
     }
     
-    func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
-        networkManager.fetchMealData(mealEndPoint: type) {
-            (result: Result<MealListResponse, NetworkError>) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let value):
-                    if let meal = value.meals.first {
-                        completion(.success(meal.toMeal()))
-                    } else {
-                        completion(.failure(.requestFailed))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    
     func loadMealList(_ type: MealAPI, completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
         networkManager.fetchMealData(mealEndPoint: type) {
             (result: Result<MealListResponse, NetworkError>) in
@@ -102,4 +84,24 @@ final class MealRepository {
             }
         }
     }
+    
+    func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
+        networkManager.fetchMealData(mealEndPoint: type) {
+            (result: Result<MealListResponse, NetworkError>) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let value):
+                    if var meal = value.meals.first?.toMeal() {
+                        meal.isFavorite = self.favoriteMeals.contains(meal)
+                        completion(.success(meal))
+                    } else {
+                        completion(.failure(.requestFailed))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
 }

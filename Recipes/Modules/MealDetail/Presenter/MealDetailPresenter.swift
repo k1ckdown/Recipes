@@ -71,6 +71,9 @@ extension MealDetailPresenter: MealDetailViewOutput {
     
     func didTapOnFavoriteButton() {
         meal?.isFavorite.toggle()
+        
+        guard let meal = meal else { return }
+        meal.isFavorite ? interactor.addFavoriteMeal(meal) : interactor.deleteFavoriteMeal(meal)
         updateFavoriteState()
     }
     
@@ -85,26 +88,18 @@ extension MealDetailPresenter: MealDetailInteractorOutput {
 private extension MealDetailPresenter {
     
     func updateMealDetail() {
-        view?.refreshList()
-        view?.updateMealName(meal?.name)
-        view?.updateRecipeText(meal?.instructions)
-        updateFavoriteState()
+        guard let meal = meal else { return }
         
-        guard let mealImageUrl = meal?.thumbnailLink else { return }
-        view?.updateMealImage(imageUrl: mealImageUrl)
+        view?.refreshList()
+        view?.updateMealName(meal.name)
+        view?.updateRecipeText(meal.instructions)
+        view?.updateMealImage(imageUrl: meal.thumbnailLink)
+        updateFavoriteState()
     }
     
     func updateFavoriteState() {
-        guard let meal = meal else { return }
-        
-        if meal.isFavorite {
-            view?.applyFavoriteAppearance()
-            interactor.addFavoriteMeal(meal)
-        } else {
-            view?.resetFavoriteAppearance()
-            interactor.deleteFavoriteMeal(meal)
-        }
-        
+        guard let value = meal?.isFavorite else { return }
+        value ? view?.applyFavoriteAppearance() : view?.resetFavoriteAppearance()
     }
     
     func selectSegment(_ segment: MealDetailSegment) {

@@ -13,6 +13,7 @@ final class FavoritesPresenter {
     private let interactor: FavoritesInteractorInput
     private let router: FavoritesRouterInput
     
+    private(set) var mealCellModels = [MealCellModel]()
     private var favoriteMeals = [Meal]()
     
     init(
@@ -33,7 +34,21 @@ extension FavoritesPresenter: FavoritesViewOutput {
     
     func viewWillAppear() {
         favoriteMeals = interactor.getFavoriteMeals()
-        print(favoriteMeals)
+        updateMealCellModels()
+    }
+    
+    func numberOfRows() -> Int {
+        mealCellModels.count
+    }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        router.showMealDetail(mealId: favoriteMeals[indexPath.row].id)
+    }
+    
+    func removeFavoriteMeal(at index: Int) {
+        interactor.deleteFavoriteMeal(favoriteMeals[index])
+        favoriteMeals.remove(at: index)
+        mealCellModels.remove(at: index)
     }
     
 }
@@ -42,4 +57,17 @@ extension FavoritesPresenter: FavoritesViewOutput {
 
 extension FavoritesPresenter: FavoritesInteractorOutput {
     
+}
+
+private extension FavoritesPresenter {
+    
+    func updateMealCellModels() {
+        mealCellModels = favoriteMeals.map {
+            .init(mealName: $0.name,
+                  areaName: $0.area ?? "N/A",
+                  imageUrl: $0.thumbnailLink,
+                  categoryName: $0.category ?? "N/A")
+        }
+        view?.refreshList()
+    }
 }
