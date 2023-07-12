@@ -8,6 +8,7 @@
 import Foundation
 
 final class FavoritesInteractor {
+    
     weak var output: FavoritesInteractorOutput?
     
     private let mealRepository: MealRepository

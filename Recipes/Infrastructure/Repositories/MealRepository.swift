@@ -14,6 +14,17 @@ final class MealRepository {
     
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
+        
+        MealLocalDataSource.shared.fetchMealList { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let mealList):
+                    self.favoriteMeals = mealList
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
     func getFavoriteMealList() -> [Meal] {
@@ -22,11 +33,14 @@ final class MealRepository {
     
     func removeFavoriteMeal(_ meal: Meal) {
         favoriteMeals.removeAll(where: { $0 == meal })
+        MealLocalDataSource.shared.delete(meal)
     }
     
     func putFavoriteMeal(_ meal: Meal) {
         guard !favoriteMeals.contains(meal) else { return }
+        
         favoriteMeals.append(meal)
+        MealLocalDataSource.shared.save(meal)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -86,19 +100,27 @@ final class MealRepository {
     }
     
     func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
-        networkManager.fetchMealData(mealEndPoint: type) {
-            (result: Result<MealListResponse, NetworkError>) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let value):
-                    if var meal = value.meals.first?.toMeal() {
-                        meal.isFavorite = self.favoriteMeals.contains(meal)
-                        completion(.success(meal))
-                    } else {
-                        completion(.failure(.requestFailed))
+        switch type {
+        case .mealById(let id):
+            guard let meal = favoriteMeals.first(where: { $0.id == id }) else {
+                fallthrough
+            }
+            completion(.success(meal))
+        default:
+            networkManager.fetchMealData(mealEndPoint: type) {
+                (result: Result<MealListResponse, NetworkError>) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let value):
+                        if var meal = value.meals.first?.toMeal() {
+                            meal.isFavorite = self.favoriteMeals.contains(meal)
+                            completion(.success(meal))
+                        } else {
+                            completion(.failure(.requestFailed))
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
                     }
-                case .failure(let error):
-                    completion(.failure(error))
                 }
             }
         }
