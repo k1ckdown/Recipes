@@ -12,6 +12,7 @@ protocol FavoritesViewOutput: AnyObject {
     
     func viewWillAppear()
     func numberOfRows() -> Int
+    func introTitle() -> String
     func removeFavoriteMeal(at index: Int)
     func didSelectRow(at indexPath: IndexPath)
 }

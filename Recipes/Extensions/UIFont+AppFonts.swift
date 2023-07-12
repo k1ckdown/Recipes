@@ -19,4 +19,5 @@ extension UIFont {
     static let ingredientNameTitle = UIFont.systemFont(ofSize: 11, weight: .heavy)
     static let detailSegmentTitle = UIFont.systemFont(ofSize: 20, weight: .medium)
     static let ingredientDetailName = UIFont.systemFont(ofSize: 19, weight: .bold)
+    static let favoritesIntroTitle = UIFont.systemFont(ofSize: 23, weight: .medium)
 }

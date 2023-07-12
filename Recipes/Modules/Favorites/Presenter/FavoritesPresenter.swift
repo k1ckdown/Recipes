@@ -34,7 +34,12 @@ extension FavoritesPresenter: FavoritesViewOutput {
     
     func viewWillAppear() {
         favoriteMeals = interactor.getFavoriteMeals()
+        updateIntro()
         updateMealCellModels()
+    }
+    
+    func introTitle() -> String {
+        "You don't have favorites"
     }
     
     func numberOfRows() -> Int {
@@ -49,6 +54,7 @@ extension FavoritesPresenter: FavoritesViewOutput {
         interactor.deleteFavoriteMeal(favoriteMeals[index])
         favoriteMeals.remove(at: index)
         mealCellModels.remove(at: index)
+        updateIntro()
     }
     
 }
@@ -60,6 +66,10 @@ extension FavoritesPresenter: FavoritesInteractorOutput {
 }
 
 private extension FavoritesPresenter {
+    
+    func updateIntro() {
+        favoriteMeals.count == 0 ? view?.showIntro() : view?.hideIntro()
+    }
     
     func updateMealCellModels() {
         mealCellModels = favoriteMeals.map {

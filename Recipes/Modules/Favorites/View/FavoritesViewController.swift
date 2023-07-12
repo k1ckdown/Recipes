@@ -18,6 +18,24 @@ final class FavoritesViewController: UIViewController {
     private let mealTableView = MealTableView()
     private let dataSource: FavoritesDataSource = .init()
     
+    private let introView = UIView()
+    private let introImageView = UIImageView()
+    private let introLabel = UILabel()
+    
+    private enum Constants {
+        
+            enum IntroImageView {
+                static let insetTop: CGFloat = 200
+                static let multiplierWidth: CGFloat = 0.7
+                static let multiplierHeight: CGFloat = 0.35
+            }
+            
+            enum IntroLabel {
+                static let insetTop: CGFloat = 22
+            }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +56,9 @@ final class FavoritesViewController: UIViewController {
     private func setup() {
         setupSuperView()
         setupMealTableView()
+        setupIntroView()
+        setupIntroImageView()
+        setupIntroLabel()
     }
     
     private func setupSuperView() {
@@ -48,9 +69,48 @@ final class FavoritesViewController: UIViewController {
         view.addSubview(mealTableView)
         
         mealTableView.delegate = self
+        mealTableView.isHidden = true
         
         mealTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupIntroView() {
+        view.addSubview(introView)
+    
+        introView.backgroundColor = .clear
+        introView.isHidden = true
+        
+        introView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupIntroImageView() {
+        introView.addSubview(introImageView)
+        
+        introImageView.image = UIImage(named: "heart")
+        introImageView.contentMode = .scaleToFill
+        
+        introImageView.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(Constants.IntroImageView.multiplierHeight)
+            make.top.equalToSuperview().offset(Constants.IntroImageView.insetTop)
+            make.width.equalToSuperview().multipliedBy(Constants.IntroImageView.multiplierWidth)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func setupIntroLabel() {
+        introView.addSubview(introLabel)
+        
+        introLabel.textColor = .appWhite
+        introLabel.text = output.introTitle()
+        introLabel.font = .favoritesIntroTitle
+        
+        introLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(introImageView.snp.bottom).offset(Constants.IntroLabel.insetTop)
         }
     }
     
@@ -68,6 +128,16 @@ extension FavoritesViewController: FavoritesViewInput {
     
     func refreshList() {
         mealTableView.reloadData()
+    }
+    
+    func showIntro() {
+        introView.isHidden = false
+        mealTableView.isHidden = true
+    }
+    
+    func hideIntro() {
+        introView.isHidden = true
+        mealTableView.isHidden = false
     }
     
 }
