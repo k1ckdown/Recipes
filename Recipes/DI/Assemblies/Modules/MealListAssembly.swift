@@ -5,15 +5,14 @@
 //  Created by Ivan Semenov on 09.07.2023.
 //
 
-import Foundation
 import Swinject
 
 final class MealListAssembly: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(MealListInteractor.self) { (r, listType: MealListType) in
-            guard let mealRepository = r.resolve(MealRepository.self) else {
+        container.register(MealListInteractor.self) { (resolver, listType: MealListType) in
+            guard let mealRepository = resolver.resolve(MealRepository.self) else {
                 fatalError("MealRepository dependency could not be resolved")
             }
             
@@ -24,12 +23,12 @@ final class MealListAssembly: Assembly {
             return MealListRouter(view: view)
         }
         
-        container.register(MealListPresenter.self) { (r, view: MealListViewController, listType: MealListType) in
-            guard let interactor = r.resolve(MealListInteractor.self, argument: listType) else {
+        container.register(MealListPresenter.self) { (resolver, view: MealListViewController, listType: MealListType) in
+            guard let interactor = resolver.resolve(MealListInteractor.self, argument: listType) else {
                 fatalError("MealListInteractor dependency could not be resolved")
             }
 
-            guard let router = r.resolve(MealListRouter.self, argument: view) else {
+            guard let router = resolver.resolve(MealListRouter.self, argument: view) else {
                 fatalError("MealListRouter dependency could not be resolved")
             }
             
@@ -38,10 +37,10 @@ final class MealListAssembly: Assembly {
             return presenter
         }
         
-        container.register(MealListViewController.self) { (r, listType: MealListType) in
+        container.register(MealListViewController.self) { (resolver, listType: MealListType) in
             let view = MealListViewController()
             
-            guard let presenter = r.resolve(MealListPresenter.self, arguments: view, listType) else {
+            guard let presenter = resolver.resolve(MealListPresenter.self, arguments: view, listType) else {
                 fatalError("MealListPresenter dependency could not be resolved")
             }
             

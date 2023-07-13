@@ -38,8 +38,9 @@ final class MainTabBarRouter {
         case .favorites:
             let favoritesScene: FavoritesViewController = DIContainer.shared.resolve()
             navigationController.setViewControllers([favoritesScene], animated: true)
-        default:
-            break
+        case .profile:
+            let profileScene: ProfileViewController = DIContainer.shared.resolve()
+            navigationController.setViewControllers([profileScene], animated: true)
         }
         
         navigationController.tabBarItem = .init(title: flow.title,

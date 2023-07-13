@@ -40,6 +40,16 @@
 		49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */; };
 		49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */; };
 		49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */; };
+		4949185C2A60576200723E6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185B2A60576200723E6A /* ProfileViewController.swift */; };
+		4949185E2A60577200723E6A /* ProfileViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185D2A60577200723E6A /* ProfileViewInput.swift */; };
+		494918602A60577E00723E6A /* ProfileViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185F2A60577E00723E6A /* ProfileViewOutput.swift */; };
+		494918622A60578C00723E6A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918612A60578C00723E6A /* ProfilePresenter.swift */; };
+		494918642A6057A000723E6A /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918632A6057A000723E6A /* ProfileInteractor.swift */; };
+		494918662A6057A600723E6A /* ProfileInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918652A6057A600723E6A /* ProfileInteractorInput.swift */; };
+		494918682A6057B700723E6A /* ProfileInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918672A6057B700723E6A /* ProfileInteractorOutput.swift */; };
+		4949186A2A6057C100723E6A /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918692A6057C100723E6A /* ProfileRouter.swift */; };
+		4949186C2A6057CB00723E6A /* ProfileRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186B2A6057CB00723E6A /* ProfileRouterInput.swift */; };
+		4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186D2A60595700723E6A /* ProfileAssembly.swift */; };
 		494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */; };
 		494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */; };
 		494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */; };
@@ -161,6 +171,16 @@
 		49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListDataSource.swift; sourceTree = "<group>"; };
 		49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListCompositionalLayout.swift; sourceTree = "<group>"; };
 		49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListAssembly.swift; sourceTree = "<group>"; };
+		4949185B2A60576200723E6A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4949185D2A60577200723E6A /* ProfileViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInput.swift; sourceTree = "<group>"; };
+		4949185F2A60577E00723E6A /* ProfileViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewOutput.swift; sourceTree = "<group>"; };
+		494918612A60578C00723E6A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		494918632A6057A000723E6A /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		494918652A6057A600723E6A /* ProfileInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorInput.swift; sourceTree = "<group>"; };
+		494918672A6057B700723E6A /* ProfileInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorOutput.swift; sourceTree = "<group>"; };
+		494918692A6057C100723E6A /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		4949186B2A6057CB00723E6A /* ProfileRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouterInput.swift; sourceTree = "<group>"; };
+		4949186D2A60595700723E6A /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -496,6 +516,54 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		494918562A60573000723E6A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				494918572A60573A00723E6A /* View */,
+				494918582A60573F00723E6A /* Presenter */,
+				494918592A60574800723E6A /* Interactor */,
+				4949185A2A60575600723E6A /* Router */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		494918572A60573A00723E6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4949185B2A60576200723E6A /* ProfileViewController.swift */,
+				4949185D2A60577200723E6A /* ProfileViewInput.swift */,
+				4949185F2A60577E00723E6A /* ProfileViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		494918582A60573F00723E6A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				494918612A60578C00723E6A /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		494918592A60574800723E6A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				494918632A6057A000723E6A /* ProfileInteractor.swift */,
+				494918652A6057A600723E6A /* ProfileInteractorInput.swift */,
+				494918672A6057B700723E6A /* ProfileInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4949185A2A60575600723E6A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				494918692A6057C100723E6A /* ProfileRouter.swift */,
+				4949186B2A6057CB00723E6A /* ProfileRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		494D000C2A5ED57E00C80E56 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +701,7 @@
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
 				49AC62E12A59D35400FA50CF /* TabBar */,
+				494918562A60573000723E6A /* Profile */,
 				49542D4E2A5DBB95009D4CC6 /* Favorites */,
 				497F4C642A5337420073A86E /* Home */,
 				49381E612A5AA17800F8C6C3 /* Search */,
@@ -741,6 +810,7 @@
 				49381E822A5AB31000F8C6C3 /* SearchAssembly.swift */,
 				49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */,
 				49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */,
+				4949186D2A60595700723E6A /* ProfileAssembly.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1045,6 +1115,8 @@
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
 				49381E962A5AD7A500F8C6C3 /* MealListInteractorOutput.swift in Sources */,
+				4949186A2A6057C100723E6A /* ProfileRouter.swift in Sources */,
+				494918682A6057B700723E6A /* ProfileInteractorOutput.swift in Sources */,
 				49381E7F2A5AA94B00F8C6C3 /* SearchRouterInput.swift in Sources */,
 				49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
@@ -1056,6 +1128,7 @@
 				497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */,
 				494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */,
 				497F4C742A533DDD0073A86E /* HomeRouterInput.swift in Sources */,
+				494918602A60577E00723E6A /* ProfileViewOutput.swift in Sources */,
 				49381E8E2A5AD77800F8C6C3 /* MealListViewOutput.swift in Sources */,
 				497F4C7B2A533EDC0073A86E /* HomeViewInput.swift in Sources */,
 				497F4C8D2A5363A60073A86E /* HeaderView.swift in Sources */,
@@ -1063,12 +1136,14 @@
 				49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */,
 				49381E942A5AD79900F8C6C3 /* MealListInteractorInput.swift in Sources */,
 				494DFFDF2A5E88BF00C80E56 /* FavoritesDataSource.swift in Sources */,
+				4949185C2A60576200723E6A /* ProfileViewController.swift in Sources */,
 				49B4F8822A55668900E91A3A /* NetworkManager.swift in Sources */,
 				49B25AD82A546F4700E9AEF6 /* AreaCellModel.swift in Sources */,
 				49381E7B2A5AA91C00F8C6C3 /* SearchInteractorOutput.swift in Sources */,
 				49381E6D2A5AA34000F8C6C3 /* MealViewCell.swift in Sources */,
 				49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */,
 				49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */,
+				494918622A60578C00723E6A /* ProfilePresenter.swift in Sources */,
 				49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */,
 				4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */,
 				49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */,
@@ -1077,10 +1152,12 @@
 				49381E832A5AB31000F8C6C3 /* SearchAssembly.swift in Sources */,
 				494DFFF02A5EBC7D00C80E56 /* Recipes.xcdatamodeld in Sources */,
 				49381E7D2A5AA94000F8C6C3 /* SearchRouter.swift in Sources */,
+				4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */,
 				49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */,
 				49B4F8922A55B6DA00E91A3A /* CategoryDTO.swift in Sources */,
 				49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */,
 				49E1FBD22A58625700D254C0 /* MealDetailRouter.swift in Sources */,
+				4949185E2A60577200723E6A /* ProfileViewInput.swift in Sources */,
 				49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */,
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
 				49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */,
@@ -1105,6 +1182,7 @@
 				497F4C772A533E340073A86E /* HomeInteractorOutput.swift in Sources */,
 				49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */,
 				49B4F87D2A55628300E91A3A /* HTTPMethod.swift in Sources */,
+				494918642A6057A000723E6A /* ProfileInteractor.swift in Sources */,
 				49381E8C2A5AD77000F8C6C3 /* MealListViewInput.swift in Sources */,
 				49B4F88B2A55774B00E91A3A /* ParameterEncoding.swift in Sources */,
 				49381E752A5AA8B400F8C6C3 /* SearchViewOutput.swift in Sources */,
@@ -1127,9 +1205,11 @@
 				49542D5F2A5DBC58009D4CC6 /* FavoritesPresenter.swift in Sources */,
 				49381E772A5AA8FF00F8C6C3 /* SearchInteractor.swift in Sources */,
 				49381E6F2A5AA37800F8C6C3 /* MealCellModel.swift in Sources */,
+				494918662A6057A600723E6A /* ProfileInteractorInput.swift in Sources */,
 				49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */,
 				49B4F8862A55691600E91A3A /* MealEndPoint.swift in Sources */,
 				49FF07DC2A569BE7007630D0 /* Category.swift in Sources */,
+				4949186C2A6057CB00723E6A /* ProfileRouterInput.swift in Sources */,
 				49542D582A5DBC03009D4CC6 /* FavoritesInteractor.swift in Sources */,
 				49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,

@@ -5,15 +5,14 @@
 //  Created by Ivan Semenov on 11.07.2023.
 //
 
-import Foundation
 import Swinject
 
 final class FavoritesAssembly: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(FavoritesInteractor.self) { r in
-            guard let mealRepository = r.resolve(MealRepository.self) else {
+        container.register(FavoritesInteractor.self) { resolver in
+            guard let mealRepository = resolver.resolve(MealRepository.self) else {
                 fatalError("MealRepository dependency could not be resolved")
             }
             
@@ -24,12 +23,12 @@ final class FavoritesAssembly: Assembly {
             return FavoritesRouter(view: view)
         }
         
-        container.register(FavoritesPresenter.self) { (r, view: FavoritesViewController) in
-            guard let interactor = r.resolve(FavoritesInteractor.self) else {
+        container.register(FavoritesPresenter.self) { (resolver, view: FavoritesViewController) in
+            guard let interactor = resolver.resolve(FavoritesInteractor.self) else {
                 fatalError("FavoritesInteractor dependency could not be resolved")
             }
 
-            guard let router = r.resolve(FavoritesRouter.self, argument: view) else {
+            guard let router = resolver.resolve(FavoritesRouter.self, argument: view) else {
                 fatalError("FavoritesRouter dependency could not be resolved")
             }
             
@@ -38,10 +37,10 @@ final class FavoritesAssembly: Assembly {
             return presenter
         }
         
-        container.register(FavoritesViewController.self) { r in
+        container.register(FavoritesViewController.self) { resolver in
             let view = FavoritesViewController()
             
-            guard let presenter = r.resolve(FavoritesPresenter.self, argument: view) else {
+            guard let presenter = resolver.resolve(FavoritesPresenter.self, argument: view) else {
                 fatalError("FavoritesPresenter dependency could not be resolved")
             }
             
