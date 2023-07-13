@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDMeal {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDMeal> {
@@ -30,6 +29,7 @@ extension CDMeal {
 }
 
 // MARK: Generated accessors for ingredients
+
 extension CDMeal {
 
     @objc(addIngredientsObject:)
@@ -43,9 +43,5 @@ extension CDMeal {
 
     @objc(removeIngredients:)
     @NSManaged public func removeFromIngredients(_ values: NSSet)
-
-}
-
-extension CDMeal : Identifiable {
 
 }

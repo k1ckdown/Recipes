@@ -6,6 +6,9 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isLatest" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPopular" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRandom" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="thumbnailLink" optional="YES" attributeType="String"/>

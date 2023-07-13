@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct NetworkManager {
+final class NetworkManager {
     static let mealApiKey = "9973533"
     static let ingredientImageUrl = "https://www.themealdb.com/images/ingredients/"
     
-    let router = NetworkRouter<MealAPI>()
+    private let mealRouter = NetworkRouter<MealAPI>()
     
     func fetchMealData<T: Decodable>(mealEndPoint: MealAPI, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        router.request(mealEndPoint) { data, response, error in
+        mealRouter.request(mealEndPoint) { data, response, error in
             if let error = error {
                 completion(.failure(.urlSessionError(error.localizedDescription)))
             }

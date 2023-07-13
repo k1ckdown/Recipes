@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension CDMealIngredient {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDMealIngredient> {
@@ -19,9 +18,5 @@ extension CDMealIngredient {
     @NSManaged public var ingredient: String
     @NSManaged public var measure: String
     @NSManaged public var thumbnailLink: String
-
-}
-
-extension CDMealIngredient : Identifiable {
 
 }

@@ -11,18 +11,18 @@ final class MealRepository {
     
     private var favoriteMeals = [Meal]()
     private let networkManager: NetworkManager
+    private let localDataSource: MealLocalDataSource
     
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManager, mealDataSource: MealLocalDataSource) {
         self.networkManager = networkManager
+        self.localDataSource = mealDataSource
         
-        MealLocalDataSource.shared.fetchMealList { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let mealList):
-                    self.favoriteMeals = mealList
-                case .failure(let error):
-                    print(error)
-                }
+        localDataSource.getMealList { result in
+            switch result {
+            case .success(let mealList):
+                self.favoriteMeals = mealList
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -33,14 +33,14 @@ final class MealRepository {
     
     func removeFavoriteMeal(_ meal: Meal) {
         favoriteMeals.removeAll(where: { $0 == meal })
-        MealLocalDataSource.shared.delete(meal)
+        localDataSource.deleteMeal(meal)
     }
     
     func putFavoriteMeal(_ meal: Meal) {
         guard !favoriteMeals.contains(meal) else { return }
         
         favoriteMeals.append(meal)
-        MealLocalDataSource.shared.save(meal)
+        localDataSource.saveMeal(meal)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -102,9 +102,7 @@ final class MealRepository {
     func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
         switch type {
         case .mealById(let id):
-            guard let meal = favoriteMeals.first(where: { $0.id == id }) else {
-                fallthrough
-            }
+            guard let meal = favoriteMeals.first(where: { $0.id == id }) else { fallthrough }
             completion(.success(meal))
         default:
             networkManager.fetchMealData(mealEndPoint: type) {

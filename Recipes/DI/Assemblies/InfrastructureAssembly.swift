@@ -16,12 +16,21 @@ final class InfrastructureAssembly: Assembly {
         }
         .inObjectScope(.container)
         
+        container.register(MealLocalDataSource.self) { _ in
+            return MealLocalDataSource()
+        }
+        .inObjectScope(.container)
+        
         container.register(MealRepository.self) { r in
             guard let networkManager = r.resolve(NetworkManager.self) else {
                 fatalError("NetworkManager dependency could not be resolved")
             }
             
-            return MealRepository(networkManager: networkManager)
+            guard let mealLocalDataSource = r.resolve(MealLocalDataSource.self) else {
+                fatalError("MealLocalDataSource dependency could not be resolved")
+            }
+            
+            return MealRepository(networkManager: networkManager, mealDataSource: mealLocalDataSource)
         }
         .inObjectScope(.container)
 

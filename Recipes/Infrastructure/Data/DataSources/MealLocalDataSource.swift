@@ -10,26 +10,49 @@ import CoreData
 
 final class MealLocalDataSource {
     
-    static let shared = MealLocalDataSource()
-    
-    private let context: NSManagedObjectContext
     private var cdMeals = [CDMeal]()
+    private let context: NSManagedObjectContext
     
-    private init() {
+    init() {
         self.context = CoreDataManager.shared.context
     }
     
-    func save(_ meal: Meal) {
+    func deleteMeal(_ meal: Meal) {
+        guard let cdMealIndex = cdMeals.firstIndex(where: { $0.id == meal.id }) else { return }
+        context.delete(cdMeals[cdMealIndex])
+        cdMeals.remove(at: cdMealIndex)
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getMealList(completion: (Result<[Meal], Error>) -> Void) {
+        let request: NSFetchRequest<CDMeal> = .init(entityName: "CDMeal")
+        
+        do {
+            let mealList = try context.fetch(request)
+            self.cdMeals = mealList
+            completion(.success(mealList.map { $0.toMeal() }))
+        } catch {
+            print(error)
+        }
+    }
+    
+    func saveMeal(_ meal: Meal) {
         let cdMeal = CDMeal(context: context)
+        
         cdMeal.id = meal.id
-        cdMeal.area = meal.area
-        cdMeal.category = meal.category
-        cdMeal.instructions = meal.instructions
-        cdMeal.isFavorite = meal.isFavorite
         cdMeal.name = meal.name
+        cdMeal.area = meal.area
         cdMeal.tags = meal.tags
-        cdMeal.thumbnailLink = meal.thumbnailLink
+        cdMeal.category = meal.category
+        cdMeal.isFavorite = meal.isFavorite
         cdMeal.youtubeLink = meal.youtubeLink
+        cdMeal.instructions = meal.instructions
+        cdMeal.thumbnailLink = meal.thumbnailLink
         cdMeal.ingredients = NSSet(array: meal.ingredients.map { mealIngredient in
             let cdIngredient = CDMealIngredient(context: context)
             
@@ -39,33 +62,10 @@ final class MealLocalDataSource {
             
             return cdIngredient
         })
+        
         cdMeals.append(cdMeal)
-        
         do {
             try context.save()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func delete(_ meal: Meal) {
-        guard let cdMeal = cdMeals.first(where: { $0.id == meal.id }) else { return }
-        context.delete(cdMeal)
-        
-        do {
-            try context.save()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func fetchMealList(completion: (Result<[Meal], Error>) -> Void) {
-        let request: NSFetchRequest<CDMeal> = .init(entityName: "CDMeal")
-        
-        do {
-            let mealList = try context.fetch(request)
-            self.cdMeals = mealList
-            completion(.success(mealList.map { $0.toMeal() }))
         } catch {
             print(error)
         }

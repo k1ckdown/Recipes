@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         CoreDataManager.shared.loadStore()
+        NetworkMonitor.shared.startMonitoring()
         return true
     }
 
