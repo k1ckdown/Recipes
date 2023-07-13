@@ -50,6 +50,8 @@
 		4949186A2A6057C100723E6A /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918692A6057C100723E6A /* ProfileRouter.swift */; };
 		4949186C2A6057CB00723E6A /* ProfileRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186B2A6057CB00723E6A /* ProfileRouterInput.swift */; };
 		4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186D2A60595700723E6A /* ProfileAssembly.swift */; };
+		494918742A606F8A00723E6A /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918732A606F8A00723E6A /* ProfileButton.swift */; };
+		494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918752A606F9400723E6A /* ProfileButtonStyle.swift */; };
 		494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */; };
 		494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */; };
 		494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */; };
@@ -181,6 +183,8 @@
 		494918692A6057C100723E6A /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		4949186B2A6057CB00723E6A /* ProfileRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouterInput.swift; sourceTree = "<group>"; };
 		4949186D2A60595700723E6A /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
+		494918732A606F8A00723E6A /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
+		494918752A606F9400723E6A /* ProfileButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonStyle.swift; sourceTree = "<group>"; };
 		494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -564,6 +568,23 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		4949186F2A606F3500723E6A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				494918722A606F7E00723E6A /* Profile */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		494918722A606F7E00723E6A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				494918732A606F8A00723E6A /* ProfileButton.swift */,
+				494918752A606F9400723E6A /* ProfileButtonStyle.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		494D000C2A5ED57E00C80E56 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +805,7 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4949186F2A606F3500723E6A /* Buttons */,
 				494DFFD72A5E747D00C80E56 /* TableViews */,
 				49B752912A5CE6950029003E /* IndicatorViews */,
 				49BC91EA2A5762CB00575EBF /* ReusableViews */,
@@ -1148,6 +1170,7 @@
 				4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */,
 				49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */,
 				49AC62DD2A59A3D400FA50CF /* ModuleAssembly.swift in Sources */,
+				494918742A606F8A00723E6A /* ProfileButton.swift in Sources */,
 				49381E922A5AD79000F8C6C3 /* MealListInteractor.swift in Sources */,
 				49381E832A5AB31000F8C6C3 /* SearchAssembly.swift in Sources */,
 				494DFFF02A5EBC7D00C80E56 /* Recipes.xcdatamodeld in Sources */,
@@ -1195,6 +1218,7 @@
 				497F4C792A533E3E0073A86E /* HomeViewOutput.swift in Sources */,
 				49B4F88F2A55822900E91A3A /* NetworkRouter.swift in Sources */,
 				49542D622A5DBC88009D4CC6 /* FavoritesRouter.swift in Sources */,
+				494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */,
 				497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */,
 				494D00292A5F23EE00C80E56 /* NetworkMonitor.swift in Sources */,
 				494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */,
