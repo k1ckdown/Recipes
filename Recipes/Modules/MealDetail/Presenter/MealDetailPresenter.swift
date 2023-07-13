@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class MealDetailPresenter {
     
@@ -69,6 +70,15 @@ extension MealDetailPresenter: MealDetailViewOutput {
         selectSegment(segment)
     }
     
+    func didTapOnWatchVideoButton() {
+        guard
+            let youtubeLink = meal?.youtubeLink,
+            let url = URL(string: youtubeLink)
+        else { return }
+        
+        router.openUrl(url)
+    }
+    
     func didTapOnFavoriteButton() {
         meal?.isFavorite.toggle()
         
@@ -95,6 +105,10 @@ private extension MealDetailPresenter {
         view?.updateRecipeText(meal.instructions)
         view?.updateMealImage(imageUrl: meal.thumbnailLink)
         updateFavoriteState()
+        
+        if let youtubeLink = meal.youtubeLink, !youtubeLink.isEmpty {
+            view?.showWatchVideoButton()
+        }
     }
     
     func updateFavoriteState() {
@@ -112,6 +126,7 @@ private extension MealDetailPresenter {
     }
     
     func fetchMeal() {
+        view?.showLoader()
         interactor.getMeal { result in
             switch result {
             case .success(let meal):
@@ -119,6 +134,7 @@ private extension MealDetailPresenter {
             case .failure(let error):
                 print(error.description)
             }
+            self.view?.hideLoader()
         }
     }
     

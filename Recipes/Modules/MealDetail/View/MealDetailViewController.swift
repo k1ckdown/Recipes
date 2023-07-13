@@ -16,6 +16,7 @@ final class MealDetailViewController: UIViewController {
         }
     }
     
+    private(set) var loadingView = LoadingView()
     private let mealNameLabel = UILabel()
     private let mealImageView = UIImageView()
     private let recipeTextView = UITextView()
@@ -99,6 +100,11 @@ final class MealDetailViewController: UIViewController {
         output.didTapOnFavoriteButton()
     }
     
+    @objc
+    private func handleWatchVideoButton() {
+        output.didTapOnWatchVideoButton()
+    }
+    
     private func hideTabBar() {
         guard var frame = tabBarController?.tabBar.frame else { return }
         frame.origin.y = view.frame.height + (frame.height)
@@ -124,6 +130,7 @@ final class MealDetailViewController: UIViewController {
         setupRecipeTextView()
         setupWatchVideoButton()
         setupFavoriteBarButton()
+        setupLoadingView()
     }
     
     private func setupSuperView() {
@@ -220,6 +227,7 @@ final class MealDetailViewController: UIViewController {
         watchVideoButton.tintColor = .appWhite
         watchVideoButton.layer.cornerRadius = Constants.WatchVideoButton.cornerRadius
         watchVideoButton.backgroundColor = .appOrange
+        watchVideoButton.isHidden = true
         watchVideoButton.setTitle("Watch Video", for: .normal)
         watchVideoButton.setTitleColor(.appWhite, for: .normal)
         watchVideoButton.titleEdgeInsets = Constants.WatchVideoButton.titleInsets
@@ -228,6 +236,7 @@ final class MealDetailViewController: UIViewController {
             UIImage(systemName: "play.circle")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch),
             for: .normal
         )
+        watchVideoButton.addTarget(self, action: #selector(handleWatchVideoButton), for: .touchUpInside)
         
         watchVideoButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -265,6 +274,10 @@ extension MealDetailViewController: MealDetailViewInput {
     
     func updateMealImage(imageUrl: String) {
         mealImageView.setImage(imageUrl)
+    }
+    
+    func showWatchVideoButton() {
+        watchVideoButton.isHidden = false
     }
     
     func showRecipeText() {

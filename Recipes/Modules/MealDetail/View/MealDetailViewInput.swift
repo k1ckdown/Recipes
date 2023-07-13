@@ -7,11 +7,12 @@
 
 import Foundation
 
-protocol MealDetailViewInput: AnyObject {
+protocol MealDetailViewInput: AnyObject, LoadingDisplayable {
     func refreshList()
     
     func showRecipeText()
     func showIngredientList()
+    func showWatchVideoButton()
     
     func applyFavoriteAppearance()
     func resetFavoriteAppearance()

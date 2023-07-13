@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MealDetailRouterInput: AnyObject {
-    
+    func openUrl(_ url: URL)
 }

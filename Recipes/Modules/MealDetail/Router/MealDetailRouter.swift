@@ -5,7 +5,7 @@
 //  Created by Ivan Semenov on 07.07.2023.
 //
 
-import Foundation
+import UIKit
 
 final class MealDetailRouter {
     
@@ -18,5 +18,9 @@ final class MealDetailRouter {
 }
 
 extension MealDetailRouter: MealDetailRouterInput {
+    
+    func openUrl(_ url: URL) {
+        UIApplication.shared.open(url)
+    }
     
 }

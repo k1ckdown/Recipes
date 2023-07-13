@@ -12,8 +12,11 @@ protocol MealDetailViewOutput: AnyObject {
     
     func viewDidLoad()
     func numberOfItems() -> Int
+    
     func didTapOnFavoriteButton()
+    func didTapOnWatchVideoButton()
     func didSelectSegment(at index: Int)
+    
     func getSegmentedItems() -> [String]
     func getStartSelectedSegment() -> Int
 }
