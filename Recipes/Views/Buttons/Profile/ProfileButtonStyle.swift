@@ -12,6 +12,15 @@ enum ProfileButtonStyle {
     case myRecipes
     case logout
     
+    var shouldShowChevron: Bool {
+        switch self {
+        case .logout:
+            return false
+        default:
+            return true
+        }
+    }
+    
     var title: String {
         switch self {
         case .personalInfo:
@@ -19,7 +28,7 @@ enum ProfileButtonStyle {
         case .myRecipes:
             return "My Recipes"
         case .logout:
-            return "Logout"
+            return "Log out"
         }
     }
     

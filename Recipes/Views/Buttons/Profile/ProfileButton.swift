@@ -67,6 +67,7 @@ final class ProfileButton: UIButton {
         addSubview(chevronImageView)
         
         chevronImageView.tintColor = .appWhite
+        chevronImageView.isHidden = !style.shouldShowChevron
         chevronImageView.image = UIImage(systemName: "chevron.right",
                                          withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
         

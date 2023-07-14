@@ -102,8 +102,12 @@ final class MealRepository {
     func loadMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
         switch type {
         case .mealById(let id):
-            guard let meal = favoriteMeals.first(where: { $0.id == id }) else { fallthrough }
+            guard
+                !NetworkMonitor.shared.isConnected,
+                let meal = favoriteMeals.first(where: { $0.id == id })
+            else { fallthrough }
             completion(.success(meal))
+            
         default:
             networkManager.fetchMealData(mealEndPoint: type) {
                 (result: Result<MealListResponse, NetworkError>) in

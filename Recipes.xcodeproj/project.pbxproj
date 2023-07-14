@@ -52,6 +52,9 @@
 		4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186D2A60595700723E6A /* ProfileAssembly.swift */; };
 		494918742A606F8A00723E6A /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918732A606F8A00723E6A /* ProfileButton.swift */; };
 		494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918752A606F9400723E6A /* ProfileButtonStyle.swift */; };
+		494918792A60864F00723E6A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 494918782A60864F00723E6A /* FirebaseAuth */; };
+		4949187B2A60864F00723E6A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4949187A2A60864F00723E6A /* FirebaseDatabase */; };
+		4949187D2A60866600723E6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4949187C2A60866600723E6A /* GoogleService-Info.plist */; };
 		494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */; };
 		494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */; };
 		494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */; };
@@ -130,6 +133,18 @@
 		49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD32A58625D00D254C0 /* MealDetailRouterInput.swift */; };
 		49E1FBD82A588B9100D254C0 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */; };
 		49E1FBDB2A58AF2F00D254C0 /* MealDetailSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBDA2A58AF2F00D254C0 /* MealDetailSegment.swift */; };
+		49E291322A612F3900FD73CF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291312A612F3900FD73CF /* LogInViewController.swift */; };
+		49E291342A612F4000FD73CF /* LogInViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291332A612F4000FD73CF /* LogInViewInput.swift */; };
+		49E291362A612F4500FD73CF /* LogInViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291352A612F4500FD73CF /* LogInViewOutput.swift */; };
+		49E291382A612F6D00FD73CF /* LogInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291372A612F6D00FD73CF /* LogInPresenter.swift */; };
+		49E2913A2A612F7900FD73CF /* LogInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291392A612F7900FD73CF /* LogInInteractor.swift */; };
+		49E2913C2A612F7E00FD73CF /* LogInInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2913B2A612F7E00FD73CF /* LogInInteractorInput.swift */; };
+		49E2913E2A612F8400FD73CF /* LogInInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2913D2A612F8400FD73CF /* LogInInteractorOutput.swift */; };
+		49E291402A612FB100FD73CF /* LogInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2913F2A612FB100FD73CF /* LogInRouter.swift */; };
+		49E291422A612FB900FD73CF /* LogInRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291412A612FB900FD73CF /* LogInRouterInput.swift */; };
+		49E291452A6131FE00FD73CF /* LogInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291442A6131FE00FD73CF /* LogInAssembly.swift */; };
+		49E2914B2A6137A700FD73CF /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2914A2A6137A700FD73CF /* LoginTextField.swift */; };
+		49E2914D2A6137AE00FD73CF /* LoginTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2914C2A6137AE00FD73CF /* LoginTextFieldStyle.swift */; };
 		49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6C48A2A5C668D00677D3F /* LoadingView.swift */; };
 		49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D52A56997B007630D0 /* MealRepository.swift */; };
 		49FF07D82A569BD3007630D0 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D72A569BD3007630D0 /* Area.swift */; };
@@ -185,6 +200,7 @@
 		4949186D2A60595700723E6A /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		494918732A606F8A00723E6A /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		494918752A606F9400723E6A /* ProfileButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonStyle.swift; sourceTree = "<group>"; };
+		4949187C2A60866600723E6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -261,6 +277,18 @@
 		49E1FBD32A58625D00D254C0 /* MealDetailRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailRouterInput.swift; sourceTree = "<group>"; };
 		49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		49E1FBDA2A58AF2F00D254C0 /* MealDetailSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailSegment.swift; sourceTree = "<group>"; };
+		49E291312A612F3900FD73CF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		49E291332A612F4000FD73CF /* LogInViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewInput.swift; sourceTree = "<group>"; };
+		49E291352A612F4500FD73CF /* LogInViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewOutput.swift; sourceTree = "<group>"; };
+		49E291372A612F6D00FD73CF /* LogInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInPresenter.swift; sourceTree = "<group>"; };
+		49E291392A612F7900FD73CF /* LogInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInteractor.swift; sourceTree = "<group>"; };
+		49E2913B2A612F7E00FD73CF /* LogInInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInteractorInput.swift; sourceTree = "<group>"; };
+		49E2913D2A612F8400FD73CF /* LogInInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInteractorOutput.swift; sourceTree = "<group>"; };
+		49E2913F2A612FB100FD73CF /* LogInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouter.swift; sourceTree = "<group>"; };
+		49E291412A612FB900FD73CF /* LogInRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInRouterInput.swift; sourceTree = "<group>"; };
+		49E291442A6131FE00FD73CF /* LogInAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInAssembly.swift; sourceTree = "<group>"; };
+		49E2914A2A6137A700FD73CF /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		49E2914C2A6137AE00FD73CF /* LoginTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldStyle.swift; sourceTree = "<group>"; };
 		49F6C48A2A5C668D00677D3F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		49FF07D52A56997B007630D0 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		49FF07D72A569BD3007630D0 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
@@ -274,9 +302,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4949187B2A60864F00723E6A /* FirebaseDatabase in Frameworks */,
 				49BC91E32A57015100575EBF /* Kingfisher in Frameworks */,
 				497F4C602A5336DD0073A86E /* SnapKit in Frameworks */,
 				492055A22A594B6E00C52B9C /* Swinject in Frameworks */,
+				494918792A60864F00723E6A /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +740,7 @@
 		497F4C622A5336FE0073A86E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4949187C2A60866600723E6A /* GoogleService-Info.plist */,
 				4904B3362A52C76600071AC6 /* Info.plist */,
 				4904B3332A52C76600071AC6 /* LaunchScreen.storyboard */,
 				4904B3312A52C76600071AC6 /* Assets.xcassets */,
@@ -721,6 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
+				49E2912C2A612F1100FD73CF /* LogIn */,
 				49AC62E12A59D35400FA50CF /* TabBar */,
 				494918562A60573000723E6A /* Profile */,
 				49542D4E2A5DBB95009D4CC6 /* Favorites */,
@@ -805,6 +837,7 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49E291462A61378C00FD73CF /* TextFields */,
 				4949186F2A606F3500723E6A /* Buttons */,
 				494DFFD72A5E747D00C80E56 /* TableViews */,
 				49B752912A5CE6950029003E /* IndicatorViews */,
@@ -833,6 +866,7 @@
 				49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */,
 				49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */,
 				4949186D2A60595700723E6A /* ProfileAssembly.swift */,
+				49E291442A6131FE00FD73CF /* LogInAssembly.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1025,6 +1059,71 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		49E2912C2A612F1100FD73CF /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				49E2912D2A612F1700FD73CF /* View */,
+				49E2912E2A612F1A00FD73CF /* Presenter */,
+				49E2912F2A612F2000FD73CF /* Interactor */,
+				49E291302A612F2400FD73CF /* Router */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		49E2912D2A612F1700FD73CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49E291312A612F3900FD73CF /* LogInViewController.swift */,
+				49E291332A612F4000FD73CF /* LogInViewInput.swift */,
+				49E291352A612F4500FD73CF /* LogInViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49E2912E2A612F1A00FD73CF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				49E291372A612F6D00FD73CF /* LogInPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		49E2912F2A612F2000FD73CF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				49E291392A612F7900FD73CF /* LogInInteractor.swift */,
+				49E2913B2A612F7E00FD73CF /* LogInInteractorInput.swift */,
+				49E2913D2A612F8400FD73CF /* LogInInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		49E291302A612F2400FD73CF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				49E2913F2A612FB100FD73CF /* LogInRouter.swift */,
+				49E291412A612FB900FD73CF /* LogInRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		49E291462A61378C00FD73CF /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				49E291492A61379C00FD73CF /* Login */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		49E291492A61379C00FD73CF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				49E2914A2A6137A700FD73CF /* LoginTextField.swift */,
+				49E2914C2A6137AE00FD73CF /* LoginTextFieldStyle.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		49FF07D42A56996E007630D0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,6 +1152,8 @@
 				497F4C5F2A5336DD0073A86E /* SnapKit */,
 				49BC91E22A57015100575EBF /* Kingfisher */,
 				492055A12A594B6E00C52B9C /* Swinject */,
+				494918782A60864F00723E6A /* FirebaseAuth */,
+				4949187A2A60864F00723E6A /* FirebaseDatabase */,
 			);
 			productName = Recipes;
 			productReference = 4904B3252A52C76400071AC6 /* Recipes.app */;
@@ -1086,6 +1187,7 @@
 				497F4C5E2A5336DD0073A86E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				49BC91E12A57015100575EBF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				492055A02A594B6E00C52B9C /* XCRemoteSwiftPackageReference "Swinject" */,
+				494918772A60864F00723E6A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4904B3262A52C76400071AC6 /* Products */;
 			projectDirPath = "";
@@ -1103,6 +1205,7 @@
 			files = (
 				4904B3352A52C76600071AC6 /* LaunchScreen.storyboard in Resources */,
 				4904B3322A52C76600071AC6 /* Assets.xcassets in Resources */,
+				4949187D2A60866600723E6A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E291382A612F6D00FD73CF /* LogInPresenter.swift in Sources */,
 				494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */,
 				49381E9A2A5AD7BA00F8C6C3 /* MealListRouterInput.swift in Sources */,
 				49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */,
@@ -1121,8 +1225,10 @@
 				49B4F87F2A55634200E91A3A /* NetworkError.swift in Sources */,
 				49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */,
 				49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */,
+				49E2914B2A6137A700FD73CF /* LoginTextField.swift in Sources */,
 				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
 				49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */,
+				49E291452A6131FE00FD73CF /* LogInAssembly.swift in Sources */,
 				499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */,
 				49E1FBC62A58610100D254C0 /* MealDetailInteractorInput.swift in Sources */,
 				49E1FBC82A58610900D254C0 /* MealDetailInteractorOutput.swift in Sources */,
@@ -1144,6 +1250,7 @@
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
 				49542D5C2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
+				49E2913A2A612F7900FD73CF /* LogInInteractor.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
 				49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */,
@@ -1164,6 +1271,7 @@
 				49381E7B2A5AA91C00F8C6C3 /* SearchInteractorOutput.swift in Sources */,
 				49381E6D2A5AA34000F8C6C3 /* MealViewCell.swift in Sources */,
 				49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */,
+				49E2914D2A6137AE00FD73CF /* LoginTextFieldStyle.swift in Sources */,
 				49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */,
 				494918622A60578C00723E6A /* ProfilePresenter.swift in Sources */,
 				49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */,
@@ -1188,6 +1296,7 @@
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
 				49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */,
 				49E1FBCC2A58616000D254C0 /* MealDetailViewOutput.swift in Sources */,
+				49E2913C2A612F7E00FD73CF /* LogInInteractorInput.swift in Sources */,
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,
@@ -1200,13 +1309,16 @@
 				4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */,
 				49FF07DE2A569BF3007630D0 /* Ingredient.swift in Sources */,
 				49E1FBCA2A58615800D254C0 /* MealDetailViewInput.swift in Sources */,
+				49E291402A612FB100FD73CF /* LogInRouter.swift in Sources */,
 				49E1FBDB2A58AF2F00D254C0 /* MealDetailSegment.swift in Sources */,
+				49E291362A612F4500FD73CF /* LogInViewOutput.swift in Sources */,
 				49FF07D82A569BD3007630D0 /* Area.swift in Sources */,
 				497F4C772A533E340073A86E /* HomeInteractorOutput.swift in Sources */,
 				49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */,
 				49B4F87D2A55628300E91A3A /* HTTPMethod.swift in Sources */,
 				494918642A6057A000723E6A /* ProfileInteractor.swift in Sources */,
 				49381E8C2A5AD77000F8C6C3 /* MealListViewInput.swift in Sources */,
+				49E2913E2A612F8400FD73CF /* LogInInteractorOutput.swift in Sources */,
 				49B4F88B2A55774B00E91A3A /* ParameterEncoding.swift in Sources */,
 				49381E752A5AA8B400F8C6C3 /* SearchViewOutput.swift in Sources */,
 				49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */,
@@ -1218,6 +1330,7 @@
 				497F4C792A533E3E0073A86E /* HomeViewOutput.swift in Sources */,
 				49B4F88F2A55822900E91A3A /* NetworkRouter.swift in Sources */,
 				49542D622A5DBC88009D4CC6 /* FavoritesRouter.swift in Sources */,
+				49E291342A612F4000FD73CF /* LogInViewInput.swift in Sources */,
 				494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */,
 				497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */,
 				494D00292A5F23EE00C80E56 /* NetworkMonitor.swift in Sources */,
@@ -1235,7 +1348,9 @@
 				49FF07DC2A569BE7007630D0 /* Category.swift in Sources */,
 				4949186C2A6057CB00723E6A /* ProfileRouterInput.swift in Sources */,
 				49542D582A5DBC03009D4CC6 /* FavoritesInteractor.swift in Sources */,
+				49E291422A612FB900FD73CF /* LogInRouterInput.swift in Sources */,
 				49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */,
+				49E291322A612F3900FD73CF /* LogInViewController.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1456,6 +1571,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		494918772A60864F00723E6A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		497F4C5E2A5336DD0073A86E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit?ysclid=ldhh9l9d77943341286#installation";
@@ -1479,6 +1602,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 492055A02A594B6E00C52B9C /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		494918782A60864F00723E6A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 494918772A60864F00723E6A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		4949187A2A60864F00723E6A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 494918772A60864F00723E6A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 		497F4C5F2A5336DD0073A86E /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
