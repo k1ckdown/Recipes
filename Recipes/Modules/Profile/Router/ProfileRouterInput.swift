@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProfileRouterInput: AnyObject {
-    
+    func showLogInScene()
 }

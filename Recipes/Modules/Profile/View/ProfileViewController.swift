@@ -6,10 +6,11 @@
 //
 
 import UIKit
-import SwiftUI
+//import SwiftUI
 
 final class ProfileViewController: UIViewController {
     
+    private let contentView = UIView()
     private let noAccountView = NoAccountView()
     
     private let profilePictureImageView = UIImageView()
@@ -30,6 +31,12 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        output.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupBackBarButton()
     }
     
     @objc
@@ -49,23 +56,40 @@ final class ProfileViewController: UIViewController {
     
     private func setup() {
         setupSuperView()
+        setupContentView()
         setupNoAccountView()
-//        setupBackgroundProfileImageView()
-//        setupProfilePictureImageView()
-//        setupUsernameLabel()
-//        setupEditButton()
-//        setupOptionsStackView()
-//        setupPersonalInfoButton()
-//        setupMyRecipesButton()
-//        setupLogoutButton()
+        setupBackgroundProfileImageView()
+        setupProfilePictureImageView()
+        setupUsernameLabel()
+        setupEditButton()
+        setupOptionsStackView()
+        setupPersonalInfoButton()
+        setupMyRecipesButton()
+        setupLogoutButton()
     }
     
     private func setupSuperView() {
         view.backgroundColor = .appBackground
     }
     
+    private func setupContentView() {
+        view.addSubview(contentView)
+        
+        contentView.isHidden = true
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
     private func setupNoAccountView() {
         view.addSubview(noAccountView)
+        
+        noAccountView.isHidden = true
+        
+        noAccountView.completionHandler = { [weak self] in
+            self?.output.didTapOnLogIn()
+        }
         
         noAccountView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -73,7 +97,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupBackgroundProfileImageView() {
-        view.addSubview(backgroundProfileImageView)
+        contentView.addSubview(backgroundProfileImageView)
         
         backgroundProfileImageView.image = UIImage(named: "background-profile")
         
@@ -84,7 +108,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupProfilePictureImageView() {
-        view.addSubview(profilePictureImageView)
+        contentView.addSubview(profilePictureImageView)
         
         profilePictureImageView.contentMode = .scaleToFill
         profilePictureImageView.clipsToBounds = true
@@ -101,7 +125,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupUsernameLabel() {
-        view.addSubview(usernameLabel)
+        contentView.addSubview(usernameLabel)
         
         usernameLabel.text = "John Smith"
         usernameLabel.textAlignment = .center
@@ -115,7 +139,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupEditButton() {
-        view.addSubview(editButton)
+        contentView.addSubview(editButton)
         
         editButton.setTitle("Edit", for: .normal)
         editButton.setTitleColor(.lightGray, for: .normal)
@@ -128,7 +152,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupOptionsStackView() {
-        view.addSubview(optionsStackView)
+        contentView.addSubview(optionsStackView)
         
         optionsStackView.spacing = 20
         optionsStackView.axis = .vertical
@@ -156,27 +180,43 @@ final class ProfileViewController: UIViewController {
         logoutButton.addTarget(self, action: #selector(handleLogoutButton), for: .touchUpInside)
     }
     
+    private func setupBackBarButton() {
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButton.tintColor = .appWhite
+        navigationItem.backBarButtonItem = backBarButton
+    }
+    
 }
 
 // MARK: - ProfileViewInput
 
 extension ProfileViewController: ProfileViewInput {
     
+    func showContent() {
+        contentView.isHidden = false
+        noAccountView.isHidden = true
+    }
+    
+    func hideContent() {
+        contentView.isHidden = true
+        noAccountView.isHidden = false
+    }
+    
 }
 
-struct Profile_Previews: PreviewProvider {
-    static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
-    }
-
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            let vc: ProfileViewController = DIContainer.shared.resolve()
-            return UINavigationController(rootViewController: vc)
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
-    }
-}
+//struct Profile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container: UIViewControllerRepresentable {
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            let vc: ProfileViewController = DIContainer.shared.resolve()
+//            return UINavigationController(rootViewController: vc)
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//    }
+//}

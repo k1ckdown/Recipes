@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class MealDetailViewController: UIViewController {
     
@@ -82,12 +81,12 @@ final class MealDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideTabBar()
+        tabBarController?.hideTabBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        showTabBar()
+        tabBarController?.showTabBar()
     }
     
     @objc
@@ -103,22 +102,6 @@ final class MealDetailViewController: UIViewController {
     @objc
     private func handleWatchVideoButton() {
         output.didTapOnWatchVideoButton()
-    }
-    
-    private func hideTabBar() {
-        guard var frame = tabBarController?.tabBar.frame else { return }
-        frame.origin.y = view.frame.height + (frame.height)
-        UIView.animate(withDuration: 0.3) {
-            self.tabBarController?.tabBar.frame = frame
-        }
-    }
-
-    private func showTabBar() {
-        guard var frame = tabBarController?.tabBar.frame else { return }
-        frame.origin.y = view.frame.height - (frame.height)
-        UIView.animate(withDuration: 0.3) {
-            self.tabBarController?.tabBar.frame = frame
-        }
     }
     
     private func setup() {

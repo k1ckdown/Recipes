@@ -8,5 +8,6 @@
 import Foundation
 
 protocol LogInInteractorInput: AnyObject {
-    
+    func logIn(data: AuthLogInData)
+    func signUp(data: AuthSignUpData)
 }

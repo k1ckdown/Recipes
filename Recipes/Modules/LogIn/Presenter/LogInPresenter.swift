@@ -30,12 +30,29 @@ final class LogInPresenter {
 // MARK: - LogInViewOutput
 
 extension LogInPresenter: LogInViewOutput {
+    
     func viewDidLoad() {
         loginState == .signIn ? view?.applyLoginAppearance() : view?.applySignUpAppearance()
     }
     
     func didTapOnPromptButton() {
         updateLogInState()
+    }
+    
+    func didTapOnLogInButton(username: String?, email: String?, password: String?) {
+        guard
+            let username = username,
+            let email = email,
+            let password = password
+        else { return }
+        
+        switch loginState {
+        case .signIn:
+            interactor.logIn(data: .init(email: email, password: password))
+            
+        case .signUp:
+            interactor.signUp(data: .init(username: username, email: email, password: password))
+        }
     }
     
 }

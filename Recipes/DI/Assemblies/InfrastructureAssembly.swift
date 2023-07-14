@@ -11,6 +11,10 @@ final class InfrastructureAssembly: Assembly {
     
     func assemble(container: Container) {
         
+        container.register(AuthService.self) { resolver in
+            return AuthService()
+        }
+        
         container.register(NetworkManager.self) { _ in
             return NetworkManager()
         }

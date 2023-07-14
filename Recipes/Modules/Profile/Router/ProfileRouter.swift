@@ -21,4 +21,9 @@ final class ProfileRouter {
 
 extension ProfileRouter: ProfileRouterInput {
     
+    func showLogInScene() {
+        let logInScene: LogInViewController = DIContainer.shared.resolve()
+        view?.navigationController?.pushViewController(logInScene, animated: true)
+    }
+    
 }

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProfileViewOutput: AnyObject {
-    
+    func viewDidLoad()
+    func didTapOnLogIn()
 }

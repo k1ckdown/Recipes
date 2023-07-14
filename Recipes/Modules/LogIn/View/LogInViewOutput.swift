@@ -10,4 +10,5 @@ import Foundation
 protocol LogInViewOutput: AnyObject {
     func viewDidLoad()
     func didTapOnPromptButton()
+    func didTapOnLogInButton(username: String?, email: String?, password: String?)
 }

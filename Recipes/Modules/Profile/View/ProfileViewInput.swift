@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProfileViewInput: AnyObject {
-    
+    func showContent()
+    func hideContent()
 }

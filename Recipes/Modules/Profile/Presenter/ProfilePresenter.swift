@@ -29,6 +29,14 @@ final class ProfilePresenter {
 
 extension ProfilePresenter: ProfileViewOutput {
     
+    func viewDidLoad() {
+        view?.hideContent()
+    }
+    
+    func didTapOnLogIn() {
+        router.showLogInScene()
+    }
+    
 }
 
 // MARK: - ProfileInteractorOutput

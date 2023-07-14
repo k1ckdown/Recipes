@@ -11,8 +11,12 @@ final class LogInAssembly: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(LogInInteractor.self) { _ in
-            return LogInInteractor()
+        container.register(LogInInteractor.self) { resolver in
+            guard let authService = resolver.resolve(AuthService.self) else {
+                fatalError("AuthService dependency could not be resolved")
+            }
+            
+            return LogInInteractor(authService: authService)
         }
         
         container.register(LogInRouter.self) { (_, view: LogInViewController) in

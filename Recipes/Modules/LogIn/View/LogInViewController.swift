@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import SwiftUI
+//import SwiftUI
 
 final class LogInViewController: UIViewController {
     
@@ -34,9 +34,26 @@ final class LogInViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.hideTabBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.showTabBar()
+    }
+    
     @objc
-    private func handleSignUpButton() {
+    private func handlePromptButton() {
         output.didTapOnPromptButton()
+    }
+    
+    @objc
+    private func handleLogInButton() {
+        output.didTapOnLogInButton(username: usernameTextField.text,
+                                   email: emailTextField.text,
+                                   password: passwordTextField.text)
     }
     
     private func animate(with option: UIView.AnimationOptions) {
@@ -85,18 +102,19 @@ final class LogInViewController: UIViewController {
         
         textFieldsStackView.snp.makeConstraints { make in
             make.top.equalTo(logInLabel.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(40)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.centerX.equalToSuperview()
             textFieldsStackViewHeightConstaint =  make.height.equalTo(200).constraint
         }
     }
     
     private func setupUsernameTextField() {
         textFieldsStackView.addArrangedSubview(usernameTextField)
+        usernameTextField.isHidden = true
     }
     
     private func setupEmailTextField() {
         textFieldsStackView.addArrangedSubview(emailTextField)
-        emailTextField.isHidden = true
     }
     
     private func setupPasswordTextField() {
@@ -115,6 +133,7 @@ final class LogInViewController: UIViewController {
         logInButton.setTitleColor(.white, for: .normal)
         logInButton.backgroundColor = .appBlack
         logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        logInButton.addTarget(self, action: #selector(handleLogInButton), for: .touchUpInside)
         
         logInButton.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -142,7 +161,7 @@ final class LogInViewController: UIViewController {
         
         promptButton.setTitleColor(.appOrange, for: .normal)
         promptButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        promptButton.addTarget(self, action: #selector(handleSignUpButton), for: .touchUpInside)
+        promptButton.addTarget(self, action: #selector(handlePromptButton), for: .touchUpInside)
         
         promptButton.snp.makeConstraints { make in
             make.leading.equalTo(promptLabel.snp.trailing).offset(5)
@@ -156,7 +175,7 @@ final class LogInViewController: UIViewController {
 
 extension LogInViewController: LogInViewInput {
     func applyLoginAppearance() {
-        emailTextField.isHidden = true
+        usernameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
         textFieldsStackViewHeightConstaint?.update(offset: 200)
         animate(with: .transitionCurlUp)
@@ -168,7 +187,7 @@ extension LogInViewController: LogInViewInput {
     }
     
     func applySignUpAppearance() {
-        emailTextField.isHidden = false
+        usernameTextField.isHidden = false
         confirmPasswordTextField.isHidden = false
         textFieldsStackViewHeightConstaint?.update(offset: 400)
         animate(with: .transitionCurlDown)
@@ -181,19 +200,19 @@ extension LogInViewController: LogInViewInput {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
-    }
-
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            let vc: LogInViewController = DIContainer.shared.resolve()
-            return UINavigationController(rootViewController: vc)
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Container().edgesIgnoringSafeArea(.all)
+//    }
+//
+//    struct Container: UIViewControllerRepresentable {
+//        func makeUIViewController(context: Context) -> some UIViewController {
+//            let vc: LogInViewController = DIContainer.shared.resolve()
+//            return UINavigationController(rootViewController: vc)
+//        }
+//
+//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//
+//        }
+//    }
+//}
