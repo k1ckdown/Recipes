@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class ProfileViewController: UIViewController {
+    
+    private let noAccountView = NoAccountView()
     
     private let profilePictureImageView = UIImageView()
     private let backgroundProfileImageView = UIImageView()
@@ -46,18 +49,27 @@ final class ProfileViewController: UIViewController {
     
     private func setup() {
         setupSuperView()
-        setupBackgroundProfileImageView()
-        setupProfilePictureImageView()
-        setupUsernameLabel()
-        setupEditButton()
-        setupOptionsStackView()
-        setupPersonalInfoButton()
-        setupMyRecipesButton()
-        setupLogoutButton()
+        setupNoAccountView()
+//        setupBackgroundProfileImageView()
+//        setupProfilePictureImageView()
+//        setupUsernameLabel()
+//        setupEditButton()
+//        setupOptionsStackView()
+//        setupPersonalInfoButton()
+//        setupMyRecipesButton()
+//        setupLogoutButton()
     }
     
     private func setupSuperView() {
         view.backgroundColor = .appBackground
+    }
+    
+    private func setupNoAccountView() {
+        view.addSubview(noAccountView)
+        
+        noAccountView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupBackgroundProfileImageView() {
@@ -150,4 +162,21 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewInput {
     
+}
+
+struct Profile_Previews: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
+    }
+
+    struct Container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> some UIViewController {
+            let vc: ProfileViewController = DIContainer.shared.resolve()
+            return UINavigationController(rootViewController: vc)
+        }
+
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
+        }
+    }
 }
