@@ -11,10 +11,28 @@ import FirebaseFirestore
 
 final class AuthService {
     
-    private var db = Firestore.firestore()
+    private let auth = Auth.auth()
+    private let database = Firestore.firestore()
+    
+    private enum UserConstants {
+        static let collecton = "users"
+        
+        enum Keys {
+            static let id = "id"
+            static let email = "email"
+            static let username = "username"
+        }
+    }
+    
+    func getUserId() -> String? {
+        return auth.currentUser?.uid
+    }
+    
+    func userIsSignedIn() -> Bool {
+        return auth.currentUser != nil
+    }
     
     func logIn(data: AuthLogInData, completion: @escaping (Result<User, Error>) -> Void) {
-        let auth = Auth.auth()
         
         auth.signIn(withEmail: data.email, password: data.password) { [weak self] authResult, error in
             
@@ -29,43 +47,47 @@ final class AuthService {
             }
             
             self?.getUser(userId: authUser.uid, completion: completion)
-            
         }
         
     }
     
-    func signUp(data: AuthSignUpData, completion: @escaping (Result<User, Error>) -> Void) {
-        let auth = Auth.auth()
+    func signUp(data: AuthSignUpData, completion: @escaping (Result<User, AuthError>) -> Void) {
         
         auth.createUser(withEmail: data.email, password: data.password) { [weak self] authResult, error in
+            guard let self = self else { return }
             
             if let error = error as? NSError {
-                print(error)
-                completion(.failure(error))
+                completion(.failure(feedback(for: error)))
             }
             
             guard let authUser = authResult?.user else { return }
             
             let user = User(id: authUser.uid, username: data.username, email: data.email)
-            self?.createDataBaseForUser(user: user)
+            addUserToDatabase(user: user)
             completion(.success(user))
         }
+        
     }
     
 }
 
 private extension AuthService {
     
-    func createDataBaseForUser(user: User) {
-        let collectionRef = db.collection("users")
-        let userInfo = ["id": user.id, "username": user.username, "email": user.email]
+    func addUserToDatabase(user: User) {
+        let collectionRef = database.collection(UserConstants.collecton)
+        let userInfo = [
+            UserConstants.Keys.id: user.id,
+            UserConstants.Keys.username: user.username,
+            UserConstants.Keys.email: user.email
+        ]
         collectionRef.document(user.id).setData(userInfo)
     }
     
     func getUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
-        let collectionRef = db.collection("users")
+        let collectionRef = database.collection(UserConstants.collecton)
         
-        collectionRef.document(userId).getDocument { snapshot, error in
+        collectionRef.document(userId).getDocument { [weak self] snapshot, error in
+            guard self != nil else { return }
             
             if let error = error as NSError? {
                 completion(.failure(error))
@@ -73,14 +95,28 @@ private extension AuthService {
             
             guard let data = snapshot?.data() else { return }
             
-            let username = data["username"] as? String
-            let email = data["email"] as? String
-            print("USERNAME = \(username ?? "")")
+            let username = data[UserConstants.Keys.username] as? String
+            let email = data[UserConstants.Keys.email] as? String
             
-            DispatchQueue.main.async {
-                let user = User(id: userId, username: username ?? "Not Found", email: email ?? "Not found")
-                completion(.success(user))
-            }
+            let user = User(id: userId, username: username ?? "Not Found", email: email ?? "Not found")
+            completion(.success(user))
+        }
+    }
+    
+    func feedback(for error: NSError) -> AuthError {
+        switch AuthErrorCode.Code(rawValue: error.code) {
+        case .invalidEmail:
+            return .invalidEmail
+        case .userNotFound:
+            return .userNotFound
+        case .tooManyRequests:
+            return .tooManyRequests
+        case .wrongPassword:
+            return .wrongPassword
+        case .weakPassword:
+            return .weakPassword
+        default:
+            return .requestFailed
         }
     }
     

@@ -15,6 +15,7 @@ extension CDMeal {
         return NSFetchRequest<CDMeal>(entityName: "CDMeal")
     }
 
+    @NSManaged public var uid: String
     @NSManaged public var isFavorite: Bool
     @NSManaged public var tags: [String]?
     @NSManaged public var youtubeLink: String?
