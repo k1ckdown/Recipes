@@ -8,5 +8,6 @@
 import Foundation
 
 protocol LogInViewInput: AnyObject {
-    
+    func applyLoginAppearance()
+    func applySignUpAppearance()
 }

@@ -13,6 +13,8 @@ final class LogInPresenter {
     private let interactor: LogInInteractorInput
     private let router: LogInRouterInput
     
+    private var loginState = LoginState.signIn
+    
     init(
         view: LogInViewInput,
         interactor: LogInInteractorInput,
@@ -28,11 +30,33 @@ final class LogInPresenter {
 // MARK: - LogInViewOutput
 
 extension LogInPresenter: LogInViewOutput {
+    func viewDidLoad() {
+        loginState == .signIn ? view?.applyLoginAppearance() : view?.applySignUpAppearance()
+    }
+    
+    func didTapOnPromptButton() {
+        updateLogInState()
+    }
     
 }
 
 // MARK: - LogInInteractorOutput
 
 extension LogInPresenter: LogInInteractorOutput {
+    
+}
+
+private extension LogInPresenter {
+    
+    func updateLogInState() {
+        switch loginState {
+        case .signIn:
+            loginState = .signUp
+            view?.applySignUpAppearance()
+        case .signUp:
+            loginState = .signIn
+            view?.applyLoginAppearance()
+        }
+    }
     
 }

@@ -9,14 +9,20 @@ import UIKit
 
 enum LoginTextFieldStyle {
     case username
+    case email
     case password
+    case confirmPassword
     
     var placeholder: String {
         switch self {
         case .username:
             return "Username"
+        case .email:
+            return "Email"
         case .password:
             return "Password"
+        case .confirmPassword:
+            return "Confirm Password"
         }
     }
     
@@ -26,7 +32,9 @@ enum LoginTextFieldStyle {
         switch self {
         case .username:
             return UIImage(systemName: "person.fill", withConfiguration: imageConfig)
-        case .password:
+        case .email:
+            return UIImage(systemName: "envelope.fill", withConfiguration: imageConfig)
+        case .password, .confirmPassword:
             return UIImage(systemName: "lock", withConfiguration: imageConfig)
         }
     }

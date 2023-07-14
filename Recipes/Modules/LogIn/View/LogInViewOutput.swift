@@ -8,5 +8,6 @@
 import Foundation
 
 protocol LogInViewOutput: AnyObject {
-    
+    func viewDidLoad()
+    func didTapOnPromptButton()
 }

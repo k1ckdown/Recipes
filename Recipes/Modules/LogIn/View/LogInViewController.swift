@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import SwiftUI
 
 final class LogInViewController: UIViewController {
@@ -14,16 +15,34 @@ final class LogInViewController: UIViewController {
  
     private let logInLabel = UILabel()
     private let logInButton = UIButton(type: .system)
+    
+    private let textFieldsStackView = UIStackView()
     private let usernameTextField = LoginTextField(style: .username)
     private let passwordTextField = LoginTextField(style: .password)
-    private let textFieldsStackView = UIStackView()
+    private let emailTextField = LoginTextField(style: .email)
+    private let confirmPasswordTextField = LoginTextField(style: .confirmPassword)
     
     private let promptLabel = UILabel()
-    private let signUpButton = UIButton(type: .system)
+    private let promptButton = UIButton(type: .system)
+    
+    private var textFieldsStackViewHeightConstaint: Constraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
+        output.viewDidLoad()
+    }
+    
+    @objc
+    private func handleSignUpButton() {
+        output.didTapOnPromptButton()
+    }
+    
+    private func animate(with option: UIView.AnimationOptions) {
+        UIView.animate(withDuration: 0.4, delay: 0,  options: [option]) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func setup() {
@@ -31,10 +50,12 @@ final class LogInViewController: UIViewController {
         setupLogInLabel()
         setupTextFieldsStackView()
         setupUsernameTextField()
+        setupEmailTextField()
         setupPasswordTextField()
+        setupConfirmPasswordTextField()
         setupLogInButton()
         setupPromptLabel()
-        setupSignUpButton()
+        setupPromptButton()
     }
     
     private func setupSuperView() {
@@ -44,7 +65,6 @@ final class LogInViewController: UIViewController {
     private func setupLogInLabel() {
         view.addSubview(logInLabel)
         
-        logInLabel.text = "Login"
         logInLabel.textColor = .appWhite
         logInLabel.textAlignment = .center
         logInLabel.font = UIFont.systemFont(ofSize: 27, weight: .bold)
@@ -58,7 +78,7 @@ final class LogInViewController: UIViewController {
     private func setupTextFieldsStackView() {
         view.addSubview(textFieldsStackView)
         
-        textFieldsStackView.spacing = 20
+        textFieldsStackView.spacing = 15
         textFieldsStackView.backgroundColor = .clear
         textFieldsStackView.axis = .vertical
         textFieldsStackView.distribution = .fillEqually
@@ -66,7 +86,7 @@ final class LogInViewController: UIViewController {
         textFieldsStackView.snp.makeConstraints { make in
             make.top.equalTo(logInLabel.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview().inset(40)
-            make.height.equalTo(200)
+            textFieldsStackViewHeightConstaint =  make.height.equalTo(200).constraint
         }
     }
     
@@ -74,14 +94,23 @@ final class LogInViewController: UIViewController {
         textFieldsStackView.addArrangedSubview(usernameTextField)
     }
     
+    private func setupEmailTextField() {
+        textFieldsStackView.addArrangedSubview(emailTextField)
+        emailTextField.isHidden = true
+    }
+    
     private func setupPasswordTextField() {
         textFieldsStackView.addArrangedSubview(passwordTextField)
+    }
+    
+    private func setupConfirmPasswordTextField() {
+        textFieldsStackView.addArrangedSubview(confirmPasswordTextField)
+        confirmPasswordTextField.isHidden = true
     }
     
     private func setupLogInButton() {
         view.addSubview(logInButton)
         
-        logInButton.setTitle("LOG IN", for: .normal)
         logInButton.layer.cornerRadius = 20
         logInButton.setTitleColor(.white, for: .normal)
         logInButton.backgroundColor = .appBlack
@@ -98,7 +127,6 @@ final class LogInViewController: UIViewController {
     private func setupPromptLabel() {
         view.addSubview(promptLabel)
         
-        promptLabel.text = "Don't have an account?"
         promptLabel.textColor = .appWhite
         promptLabel.textAlignment = .right
         promptLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -109,14 +137,14 @@ final class LogInViewController: UIViewController {
         }
     }
     
-    private func setupSignUpButton() {
-        view.addSubview(signUpButton)
+    private func setupPromptButton() {
+        view.addSubview(promptButton)
         
-        signUpButton.setTitle("Sign Up", for: .normal)
-        signUpButton.setTitleColor(.appOrange, for: .normal)
-        signUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        promptButton.setTitleColor(.appOrange, for: .normal)
+        promptButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        promptButton.addTarget(self, action: #selector(handleSignUpButton), for: .touchUpInside)
         
-        signUpButton.snp.makeConstraints { make in
+        promptButton.snp.makeConstraints { make in
             make.leading.equalTo(promptLabel.snp.trailing).offset(5)
             make.top.equalTo(logInButton.snp.bottom).offset(24)
         }
@@ -127,6 +155,29 @@ final class LogInViewController: UIViewController {
 // MARK: - LogInViewInput
 
 extension LogInViewController: LogInViewInput {
+    func applyLoginAppearance() {
+        emailTextField.isHidden = true
+        confirmPasswordTextField.isHidden = true
+        textFieldsStackViewHeightConstaint?.update(offset: 200)
+        animate(with: .transitionCurlUp)
+        
+        logInLabel.text = "Login"
+        logInButton.setTitle("LOG IN", for: .normal)
+        promptLabel.text = "Don't have an account?"
+        promptButton.setTitle("Sign Up", for: .normal)
+    }
+    
+    func applySignUpAppearance() {
+        emailTextField.isHidden = false
+        confirmPasswordTextField.isHidden = false
+        textFieldsStackViewHeightConstaint?.update(offset: 400)
+        animate(with: .transitionCurlDown)
+        
+        logInLabel.text = "Create Account"
+        logInButton.setTitle("SIGN UP", for: .normal)
+        promptLabel.text = "Have an account?"
+        promptButton.setTitle("Log In", for: .normal)
+    }
     
 }
 
