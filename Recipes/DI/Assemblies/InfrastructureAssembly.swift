@@ -14,6 +14,7 @@ final class InfrastructureAssembly: Assembly {
         container.register(AuthService.self) { resolver in
             return AuthService()
         }
+        .inObjectScope(.container)
         
         container.register(NetworkManager.self) { _ in
             return NetworkManager()
@@ -25,16 +26,22 @@ final class InfrastructureAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(MealRepository.self) { r in
-            guard let networkManager = r.resolve(NetworkManager.self) else {
+        container.register(MealRepository.self) { resolver in
+            guard let networkManager = resolver.resolve(NetworkManager.self) else {
                 fatalError("NetworkManager dependency could not be resolved")
             }
             
-            guard let mealLocalDataSource = r.resolve(MealLocalDataSource.self) else {
+            guard let mealLocalDataSource = resolver.resolve(MealLocalDataSource.self) else {
                 fatalError("MealLocalDataSource dependency could not be resolved")
             }
             
-            return MealRepository(networkManager: networkManager, mealDataSource: mealLocalDataSource)
+            guard let authService = resolver.resolve(AuthService.self) else {
+                fatalError("AuthService dependency could not be resolved")
+            }
+            
+            return MealRepository(networkManager: networkManager,
+                                  mealDataSource: mealLocalDataSource,
+                                  authService: authService)
         }
         .inObjectScope(.container)
 

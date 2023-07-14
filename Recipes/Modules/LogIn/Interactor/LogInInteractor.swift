@@ -22,26 +22,12 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     
-    func logIn(data: AuthLogInData) {
-        authService.logIn(data: data) { result in
-            switch result {
-            case .success(let user):
-                print(user)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    func logIn(data: AuthLogInData, completion: @escaping (Result<User, AuthError>) -> Void) {
+        authService.logIn(data: data, completion: completion)
     }
     
-    func signUp(data: AuthSignUpData) {
-        authService.signUp(data: data) { result in
-            switch result {
-            case .success(let user):
-                print(user)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    func signUp(data: AuthSignUpData, completion: @escaping (Result<User, AuthError>) -> Void) {
+        authService.signUp(data: data, completion: completion)
     }
     
 }

@@ -44,6 +44,10 @@ final class LogInViewController: UIViewController {
         tabBarController?.showTabBar()
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @objc
     private func handlePromptButton() {
         output.didTapOnPromptButton()

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol FavoritesInteractorInput: AnyObject {
+    func userIsSignedIn() -> Bool
     func getFavoriteMeals() -> [Meal]
     func deleteFavoriteMeal(_ meal: Meal) 
 }

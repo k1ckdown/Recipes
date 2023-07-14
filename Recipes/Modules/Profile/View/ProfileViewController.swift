@@ -6,10 +6,10 @@
 //
 
 import UIKit
-//import SwiftUI
 
 final class ProfileViewController: UIViewController {
     
+    private(set) var loadingView = LoadingView()
     private let contentView = UIView()
     private let noAccountView = NoAccountView()
     
@@ -31,7 +31,11 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        output.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewWillAppear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,12 +54,13 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc
-    private func handleLogoutButton() {
-        
+    private func handleLogOutButton() {
+        output.didTapOnLogOutButton()
     }
     
     private func setup() {
         setupSuperView()
+        setupLoadingView()
         setupContentView()
         setupNoAccountView()
         setupBackgroundProfileImageView()
@@ -177,7 +182,7 @@ final class ProfileViewController: UIViewController {
     
     private func setupLogoutButton() {
         optionsStackView.addArrangedSubview(logoutButton)
-        logoutButton.addTarget(self, action: #selector(handleLogoutButton), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(handleLogOutButton), for: .touchUpInside)
     }
     
     private func setupBackBarButton() {
@@ -202,21 +207,8 @@ extension ProfileViewController: ProfileViewInput {
         noAccountView.isHidden = false
     }
     
+    func updateUsername(_ username: String) {
+        usernameLabel.text = username
+    }
+    
 }
-
-//struct Profile_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let vc: ProfileViewController = DIContainer.shared.resolve()
-//            return UINavigationController(rootViewController: vc)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}

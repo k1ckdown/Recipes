@@ -10,21 +10,25 @@ import Foundation
 final class MealRepository {
     
     private var favoriteMeals = [Meal]()
+    
+    private let authService: AuthService
     private let networkManager: NetworkManager
     private let localDataSource: MealLocalDataSource
     
-    init(networkManager: NetworkManager, mealDataSource: MealLocalDataSource) {
+    init(
+        networkManager: NetworkManager,
+        mealDataSource: MealLocalDataSource,
+        authService: AuthService
+    ) {
         self.networkManager = networkManager
         self.localDataSource = mealDataSource
+        self.authService = authService
         
-        localDataSource.getMealList { result in
-            switch result {
-            case .success(let mealList):
-                self.favoriteMeals = mealList
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchMealList()
+    }
+    
+    func updateFavoriteMeals() {
+        fetchMealList()
     }
     
     func getFavoriteMealList() -> [Meal] {
@@ -37,10 +41,13 @@ final class MealRepository {
     }
     
     func putFavoriteMeal(_ meal: Meal) {
-        guard !favoriteMeals.contains(meal) else { return }
+        guard
+            let uid = authService.getUserId(),
+            !favoriteMeals.contains(meal)
+        else { return }
         
         favoriteMeals.append(meal)
-        localDataSource.saveMeal(meal)
+        localDataSource.saveMeal(meal, uid: uid)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -124,6 +131,23 @@ final class MealRepository {
                         completion(.failure(error))
                     }
                 }
+            }
+        }
+    }
+    
+}
+
+private extension MealRepository {
+    
+    func fetchMealList() {
+        guard let uid = authService.getUserId() else { return }
+        
+        localDataSource.getMealList(uid) { result in
+            switch result {
+            case .success(let mealList):
+                self.favoriteMeals = mealList
+            case .failure(let error):
+                print(error)
             }
         }
     }

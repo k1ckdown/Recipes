@@ -16,7 +16,11 @@ final class FavoritesAssembly: Assembly {
                 fatalError("MealRepository dependency could not be resolved")
             }
             
-            return FavoritesInteractor(mealRepository: mealRepository)
+            guard let authService = resolver.resolve(AuthService.self) else {
+                fatalError("AuthService dependency could not be resolved")
+            }
+            
+            return FavoritesInteractor(mealRepository: mealRepository, authService: authService)
         }
         
         container.register(FavoritesRouter.self) { (_, view: FavoritesViewController) in

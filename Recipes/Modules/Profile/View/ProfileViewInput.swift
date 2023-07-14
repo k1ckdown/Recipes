@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol ProfileViewInput: AnyObject {
+protocol ProfileViewInput: AnyObject, LoadingDisplayable {
     func showContent()
     func hideContent()
+    func updateUsername(_ username: String)
 }

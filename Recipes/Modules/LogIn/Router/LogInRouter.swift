@@ -21,4 +21,8 @@ final class LogInRouter {
 
 extension LogInRouter: LogInRouterInput {
     
+    func pop() {
+        view?.navigationController?.popViewController(animated: true)
+    }
+    
 }

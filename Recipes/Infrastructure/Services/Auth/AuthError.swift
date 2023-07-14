@@ -15,6 +15,7 @@ enum AuthError: Error {
     case weakPassword
     case networkError
     case requestFailed
+    case failedToLogOut
     
     var description: String {
         switch self {
@@ -32,6 +33,8 @@ enum AuthError: Error {
             return "WARNING: Network error"
         case .requestFailed:
             return "Request failed. Please, try again later."
+        case .failedToLogOut:
+            return "Failed to log out"
         }
     }
     

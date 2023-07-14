@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LogInRouterInput: AnyObject {
-    
+    func pop()
 }

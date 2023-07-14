@@ -13,6 +13,8 @@ final class ProfilePresenter {
     private let interactor: ProfileInteractorInput
     private let router: ProfileRouterInput
     
+    private var user: User?
+    
     init(
         view: ProfileViewInput,
         interactor: ProfileInteractorInput,
@@ -29,12 +31,21 @@ final class ProfilePresenter {
 
 extension ProfilePresenter: ProfileViewOutput {
     
-    func viewDidLoad() {
-        view?.hideContent()
+    func viewWillAppear() {
+        guard user == nil else { return }
+        
+        view?.showLoader()
+        getUser()
     }
     
     func didTapOnLogIn() {
         router.showLogInScene()
+    }
+    
+    func didTapOnLogOutButton() {
+        user = nil
+        interactor.logOut()
+        view?.hideContent()
     }
     
 }
@@ -42,5 +53,28 @@ extension ProfilePresenter: ProfileViewOutput {
 // MARK: - ProfileInteractorOutput
 
 extension ProfilePresenter: ProfileInteractorOutput {
+    
+}
+
+private extension ProfilePresenter {
+    
+    func updateProfileInfo() {
+        guard let user = user else { return }
+        view?.updateUsername(user.username)
+    }
+    
+    func getUser() {
+        interactor.getLoggedUser { user in
+            if let user = user {
+                self.user = user
+                self.view?.showContent()
+                self.updateProfileInfo()
+                self.interactor.updateFavorites()
+            } else {
+                self.view?.hideContent()
+            }
+            self.view?.hideLoader()
+        }
+    }
     
 }

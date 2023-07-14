@@ -29,8 +29,9 @@ final class MealLocalDataSource {
         }
     }
     
-    func getMealList(completion: (Result<[Meal], Error>) -> Void) {
+    func getMealList(_ uid: String, completion: (Result<[Meal], Error>) -> Void) {
         let request: NSFetchRequest<CDMeal> = .init(entityName: "CDMeal")
+        request.predicate = NSPredicate(format: "uid == %@", uid)
         
         do {
             let mealList = try context.fetch(request)
@@ -41,9 +42,10 @@ final class MealLocalDataSource {
         }
     }
     
-    func saveMeal(_ meal: Meal) {
+    func saveMeal(_ meal: Meal, uid: String) {
         let cdMeal = CDMeal(context: context)
         
+        cdMeal.uid = uid
         cdMeal.id = meal.id
         cdMeal.name = meal.name
         cdMeal.area = meal.area

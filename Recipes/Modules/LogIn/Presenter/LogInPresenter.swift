@@ -48,10 +48,24 @@ extension LogInPresenter: LogInViewOutput {
         
         switch loginState {
         case .signIn:
-            interactor.logIn(data: .init(email: email, password: password))
+            interactor.logIn(data: .init(email: email, password: password)) { result in
+                switch result {
+                case .success:
+                    self.router.pop()
+                case .failure(let error):
+                    print(error.description)
+                }
+            }
             
         case .signUp:
-            interactor.signUp(data: .init(username: username, email: email, password: password))
+            interactor.signUp(data: .init(username: username, email: email, password: password)) { result in
+                switch result {
+                case .success:
+                    self.view?.applyLoginAppearance()
+                case .failure(let error):
+                    print(error.description)
+                }
+            }
         }
     }
     

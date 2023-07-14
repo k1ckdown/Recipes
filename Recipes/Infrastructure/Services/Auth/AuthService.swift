@@ -28,17 +28,44 @@ final class AuthService {
         return auth.currentUser?.uid
     }
     
+    func getCurrentUser(completion: @escaping (User?) -> Void) {
+        guard let uid = auth.currentUser?.uid else {
+            completion(nil)
+            return
+        }
+        
+        getUser(userId: uid) { result in
+            switch result {
+            case .success(let user):
+                completion(user)
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(nil)
+            }
+        }
+    }
+    
     func userIsSignedIn() -> Bool {
         return auth.currentUser != nil
     }
     
-    func logIn(data: AuthLogInData, completion: @escaping (Result<User, Error>) -> Void) {
+    func logOut(completion: (AuthError?) -> Void) {
+        do {
+            try auth.signOut()
+            completion(nil)
+        } catch {
+            completion(.failedToLogOut)
+        }
+        
+    }
+    
+    func logIn(data: AuthLogInData, completion: @escaping (Result<User, AuthError>) -> Void) {
         
         auth.signIn(withEmail: data.email, password: data.password) { [weak self] authResult, error in
+            guard let self = self else { return }
             
             if let error = error as? NSError {
-                print(error)
-                completion(.failure(error))
+                completion(.failure(feedback(for: error)))
             }
             
             guard let authUser = authResult?.user else {
@@ -46,7 +73,7 @@ final class AuthService {
                 return
             }
             
-            self?.getUser(userId: authUser.uid, completion: completion)
+            getUser(userId: authUser.uid, completion: completion)
         }
         
     }
@@ -83,14 +110,14 @@ private extension AuthService {
         collectionRef.document(user.id).setData(userInfo)
     }
     
-    func getUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func getUser(userId: String, completion: @escaping (Result<User, AuthError>) -> Void) {
         let collectionRef = database.collection(UserConstants.collecton)
         
         collectionRef.document(userId).getDocument { [weak self] snapshot, error in
-            guard self != nil else { return }
+            guard let self = self else { return }
             
             if let error = error as NSError? {
-                completion(.failure(error))
+                completion(.failure(feedback(for: error)))
             }
             
             guard let data = snapshot?.data() else { return }

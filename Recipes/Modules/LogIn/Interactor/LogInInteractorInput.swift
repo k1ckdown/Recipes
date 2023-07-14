@@ -8,6 +8,6 @@
 import Foundation
 
 protocol LogInInteractorInput: AnyObject {
-    func logIn(data: AuthLogInData)
-    func signUp(data: AuthSignUpData)
+    func logIn(data: AuthLogInData, completion: @escaping (Result<User, AuthError>) -> Void)
+    func signUp(data: AuthSignUpData, completion: @escaping (Result<User, AuthError>) -> Void)
 }
