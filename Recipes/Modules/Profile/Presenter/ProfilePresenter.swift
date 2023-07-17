@@ -67,6 +67,7 @@ private extension ProfilePresenter {
     
     func getUser() {
         interactor.getLoggedUser { user in
+            self.view?.hideLoader()
             if let user = user {
                 self.user = user
                 self.view?.showContent()
@@ -75,7 +76,6 @@ private extension ProfilePresenter {
             } else {
                 self.view?.hideContent()
             }
-            self.view?.hideLoader()
         }
     }
     

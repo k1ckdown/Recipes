@@ -12,6 +12,10 @@ final class LogInViewController: UIViewController {
     
     var output: LogInViewOutput!
  
+    private(set) var loadingView = LoadingView()
+    
+    private let contentView = UIView()
+    
     private let logInLabel = UILabel()
     private let logInButton = UIButton(type: .system)
     
@@ -102,6 +106,7 @@ final class LogInViewController: UIViewController {
     
     private func setup() {
         setupSuperView()
+        setupContentView()
         setupLogInLabel()
         setupTextFieldsStackView()
         setupUsernameTextField()
@@ -111,14 +116,24 @@ final class LogInViewController: UIViewController {
         setupLogInButton()
         setupPromptLabel()
         setupPromptButton()
+        setupLoadingView()
     }
     
     private func setupSuperView() {
         view.backgroundColor = .appBackground
     }
     
+    private func setupContentView() {
+        view.addSubview(contentView)
+        
+        contentView.backgroundColor = .clear
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
     private func setupLogInLabel() {
-        view.addSubview(logInLabel)
+        contentView.addSubview(logInLabel)
         
         logInLabel.textColor = .appWhite
         logInLabel.textAlignment = .center
@@ -131,7 +146,7 @@ final class LogInViewController: UIViewController {
     }
     
     private func setupTextFieldsStackView() {
-        view.addSubview(textFieldsStackView)
+        contentView.addSubview(textFieldsStackView)
         
         textFieldsStackView.axis = .vertical
         textFieldsStackView.distribution = .fillEqually
@@ -165,7 +180,7 @@ final class LogInViewController: UIViewController {
     }
     
     private func setupLogInButton() {
-        view.addSubview(logInButton)
+        contentView.addSubview(logInButton)
         
         logInButton.setTitleColor(.appWhite, for: .normal)
         logInButton.backgroundColor = .appBlack
@@ -182,7 +197,7 @@ final class LogInViewController: UIViewController {
     }
     
     private func setupPromptLabel() {
-        view.addSubview(promptLabel)
+        contentView.addSubview(promptLabel)
         
         promptLabel.textColor = .appWhite
         promptLabel.textAlignment = .right
@@ -195,7 +210,7 @@ final class LogInViewController: UIViewController {
     }
     
     private func setupPromptButton() {
-        view.addSubview(promptButton)
+        contentView.addSubview(promptButton)
         
         promptButton.setTitleColor(.appOrange, for: .normal)
         promptButton.titleLabel?.font = .promptLabel
@@ -212,6 +227,16 @@ final class LogInViewController: UIViewController {
 // MARK: - LogInViewInput
 
 extension LogInViewController: LogInViewInput {
+    
+    func showLoader() {
+        contentView.isHidden = true
+        loadingView.startAnimating()
+    }
+    
+    func hideLoader() {
+        contentView.isHidden = false
+        loadingView.stopAnimating()
+    }
     
     func applyLoginAppearance() {
         usernameTextField.isHidden = true

@@ -56,6 +56,7 @@ extension LogInPresenter: LogInViewOutput {
             let password = password
         else { return }
         
+        view?.showLoader()
         switch loginState {
         case .signIn:
             interactor.logIn(data: .init(email: email, password: password)) { result in
@@ -65,16 +66,19 @@ extension LogInPresenter: LogInViewOutput {
                 case .failure(let error):
                     print(error.description)
                 }
+                self.view?.hideLoader()
             }
             
         case .signUp:
             interactor.signUp(data: .init(username: username, email: email, password: password)) { result in
                 switch result {
                 case .success:
+                    self.loginState = .signIn
                     self.view?.applyLoginAppearance()
                 case .failure(let error):
                     print(error.description)
                 }
+                self.view?.hideLoader()
             }
         }
     }

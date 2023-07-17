@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LogInViewInput: AnyObject {
+protocol LogInViewInput: AnyObject, LoadingDisplayable {
     func applyLoginAppearance()
     func applySignUpAppearance()
 }

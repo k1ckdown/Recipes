@@ -226,6 +226,12 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewInput {
     
+    func showLoader() {
+        contentView.isHidden = true
+        noAccountView.isHidden = true
+        loadingView.startAnimating()
+    }
+    
     func showContent() {
         contentView.isHidden = false
         noAccountView.isHidden = true
