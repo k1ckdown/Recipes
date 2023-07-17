@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    var output: ProfileViewOutput!
+    
     private(set) var loadingView = LoadingView()
     private let contentView = UIView()
     private let noAccountView = NoAccountView()
@@ -25,7 +27,35 @@ final class ProfileViewController: UIViewController {
     private let myRecipesButton = ProfileButton(style: .myRecipes)
     private let logoutButton = ProfileButton(style: .logout)
     
-    var output: ProfileViewOutput!
+    private enum Constants {
+            
+            enum UsernameLabel {
+                static let insetTop = 10
+            }
+        
+            enum BackgroundProfileImageView {
+                static let multiplierHeight = 0.27
+            }
+            
+            enum EditButton {
+                static let insetTop = 3
+            }
+            
+            enum OptionsStackView {
+                static let insetTop = 20
+                static let insetSide = 15
+                static let insetBottom = 30
+                static let spacing: CGFloat = 20
+            }
+            
+            enum ProfilePictureImageView {
+                static let insetTop = -60
+                static let size: CGFloat = 125
+                static let borderWidth: CGFloat = 15
+                static let cornerRadius: CGFloat = size / 2
+            }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +138,7 @@ final class ProfileViewController: UIViewController {
         
         backgroundProfileImageView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.27)
+            make.height.equalToSuperview().multipliedBy(Constants.BackgroundProfileImageView.multiplierHeight)
         }
     }
     
@@ -117,41 +147,40 @@ final class ProfileViewController: UIViewController {
         
         profilePictureImageView.contentMode = .scaleToFill
         profilePictureImageView.clipsToBounds = true
-        profilePictureImageView.layer.cornerRadius = 125 / 2
-        profilePictureImageView.layer.borderWidth = 15
+        profilePictureImageView.layer.cornerRadius = Constants.ProfilePictureImageView.cornerRadius
+        profilePictureImageView.layer.borderWidth = Constants.ProfilePictureImageView.borderWidth
         profilePictureImageView.layer.borderColor = UIColor.appBackground?.cgColor
         profilePictureImageView.image = UIImage(named: "profile-picture")
         
         profilePictureImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(125)
-            make.top.equalTo(backgroundProfileImageView.snp.bottom).offset(-60)
+            make.width.height.equalTo(Constants.ProfilePictureImageView.size)
+            make.top.equalTo(backgroundProfileImageView.snp.bottom).offset(Constants.ProfilePictureImageView.insetTop)
         }
     }
     
     private func setupUsernameLabel() {
         contentView.addSubview(usernameLabel)
         
-        usernameLabel.text = "John Smith"
         usernameLabel.textAlignment = .center
         usernameLabel.textColor = .appWhite
-        usernameLabel.font = UIFont.systemFont(ofSize: 27, weight: .bold)
+        usernameLabel.font = .usernameLabel
         
         usernameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(profilePictureImageView.snp.bottom).offset(10)
+            make.top.equalTo(profilePictureImageView.snp.bottom).offset(Constants.UsernameLabel.insetTop)
         }
     }
     
     private func setupEditButton() {
         contentView.addSubview(editButton)
         
-        editButton.setTitle("Edit", for: .normal)
+        editButton.setTitle(output.editButtonTitle, for: .normal)
+        editButton.titleLabel?.font = .editProfileButton
         editButton.setTitleColor(.lightGray, for: .normal)
-        editButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         
         editButton.snp.makeConstraints { make in
-            make.top.equalTo(usernameLabel.snp.bottom).offset(3)
+            make.top.equalTo(usernameLabel.snp.bottom).offset(Constants.EditButton.insetTop)
             make.centerX.equalToSuperview()
         }
     }
@@ -159,14 +188,14 @@ final class ProfileViewController: UIViewController {
     private func setupOptionsStackView() {
         contentView.addSubview(optionsStackView)
         
-        optionsStackView.spacing = 20
         optionsStackView.axis = .vertical
         optionsStackView.distribution = .fillEqually
+        optionsStackView.spacing = Constants.OptionsStackView.spacing
         
         optionsStackView.snp.makeConstraints { make in
-            make.top.equalTo(editButton.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
+            make.top.equalTo(editButton.snp.bottom).offset(Constants.OptionsStackView.insetTop)
+            make.leading.trailing.equalToSuperview().inset(Constants.OptionsStackView.insetSide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.OptionsStackView.insetBottom)
         }
     }
     

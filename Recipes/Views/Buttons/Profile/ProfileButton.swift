@@ -15,6 +15,27 @@ final class ProfileButton: UIButton {
     private let iconImageView = UIImageView()
     private let chevronImageView = UIImageView()
     
+    private enum Constants {
+        
+            enum SuperView {
+                static let cornerRadius: CGFloat = 20
+            }
+            
+            enum IconImageView {
+                static let size = 40
+                static let insetLeading = 20
+            }
+            
+            enum OptionLabel {
+                static let insetLeading = 20
+            }
+            
+            enum ChevronImageView {
+                static let insetTrailing = 35
+            }
+        
+    }
+    
     init(style: ProfileButtonStyle) {
         self.style = style
         super.init(frame: .zero)
@@ -34,7 +55,7 @@ final class ProfileButton: UIButton {
     
     private func setupSuperView() {
         backgroundColor = .appBlack
-        layer.cornerRadius = 20
+        layer.cornerRadius = Constants.SuperView.cornerRadius
     }
     
     private func setupIconImageView() {
@@ -45,8 +66,8 @@ final class ProfileButton: UIButton {
         
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.width.height.equalTo(40)
-            make.leading.equalToSuperview().offset(20)
+            make.width.height.equalTo(Constants.IconImageView.size)
+            make.leading.equalToSuperview().offset(Constants.IconImageView.insetLeading)
         }
     }
     
@@ -55,11 +76,11 @@ final class ProfileButton: UIButton {
         
         optionLabel.text = style.title
         optionLabel.textColor = .appWhite
-        optionLabel.font = UIFont.systemFont(ofSize: 18)
+        optionLabel.font = .profileOptionLabel
         
         optionLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(iconImageView.snp.trailing).offset(20)
+            make.leading.equalTo(iconImageView.snp.trailing).offset(Constants.OptionLabel.insetLeading)
         }
     }
     
@@ -73,7 +94,7 @@ final class ProfileButton: UIButton {
         
         chevronImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(35)
+            make.trailing.equalToSuperview().inset(Constants.ChevronImageView.insetTrailing)
         }
     }
     

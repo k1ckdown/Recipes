@@ -12,6 +12,23 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     private let nameLabel = UILabel()
     private let foodImageView = UIImageView()
     
+    private enum Constants {
+        
+            enum FoodImageView {
+                static let capInsets: CGFloat = 5
+                static let cornerRadius: CGFloat = 10
+            }
+            
+            enum NameLabel {
+                static let height = 40
+                static let insetLeading = 10
+                static let insetBottom = -10
+                static let multiplierWidth = 0.8
+                static let cornerRadius: CGFloat = 5
+            }
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -42,7 +59,7 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         nameLabel.font = model.foodType.font
         nameLabel.isHidden = !model.foodType.shouldShowName
         nameLabel.backgroundColor = model.foodType.labelBackgroundColor
-        foodImageView.setImage(model.imageUrl, inset: 5)
+        foodImageView.setImage(model.imageUrl, inset: Constants.FoodImageView.capInsets)
         setupConstraints(for: model.foodType)
     }
     
@@ -59,10 +76,10 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
     private func setupFoodImageView() {
         addSubview(foodImageView)
         
-        foodImageView.contentMode = .scaleToFill
-        foodImageView.layer.cornerRadius = 10
-        foodImageView.layer.masksToBounds = false
         foodImageView.clipsToBounds = true
+        foodImageView.layer.masksToBounds = false
+        foodImageView.contentMode = .scaleToFill
+        foodImageView.layer.cornerRadius = Constants.FoodImageView.cornerRadius
     }
     
     private func setupNameLabel() {
@@ -70,8 +87,8 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         
         nameLabel.textColor = .appWhite
         nameLabel.textAlignment = .center
-        nameLabel.layer.cornerRadius = 5
         nameLabel.layer.masksToBounds = true
+        nameLabel.layer.cornerRadius = Constants.NameLabel.cornerRadius
     }
     
     private func setupConstraints(for type: FoodCellStyle) {
@@ -81,15 +98,15 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalTo(40)
+            make.leading.equalToSuperview().offset(Constants.NameLabel.insetLeading)
+            make.width.equalToSuperview().multipliedBy(Constants.NameLabel.multiplierWidth)
+            make.height.equalTo(Constants.NameLabel.height)
         }
         
         switch type {
         case .latestMeal:
             nameLabel.snp.makeConstraints { make in
-                make.bottom.equalToSuperview().offset(-10)
+                make.bottom.equalToSuperview().offset(Constants.NameLabel.insetBottom)
             }
         case .category, .defaultMeal:
             nameLabel.snp.makeConstraints { make in

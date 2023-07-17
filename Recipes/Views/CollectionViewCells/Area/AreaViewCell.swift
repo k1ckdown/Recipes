@@ -11,6 +11,14 @@ final class AreaViewCell: UICollectionViewCell, ReuseIdentifier {
     
     private let areaNameLabel = UILabel()
     
+    private enum Constants {
+        
+            enum SuperView {
+                static let cornerRadius: CGFloat = 10
+            }
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -35,8 +43,8 @@ final class AreaViewCell: UICollectionViewCell, ReuseIdentifier {
     }
     
     private func setupSuperView() {
-        layer.cornerRadius = 10
         backgroundColor = .appOrange
+        layer.cornerRadius = Constants.SuperView.cornerRadius
     }
     
     private func setupCountryNameLabel() {

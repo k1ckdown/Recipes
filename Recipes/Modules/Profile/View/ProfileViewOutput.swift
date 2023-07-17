@@ -8,6 +8,8 @@
 import Foundation
 
 protocol ProfileViewOutput: AnyObject {
+    var editButtonTitle: String { get }
+    
     func viewWillAppear()
     func didTapOnLogIn()
     func didTapOnLogOutButton()

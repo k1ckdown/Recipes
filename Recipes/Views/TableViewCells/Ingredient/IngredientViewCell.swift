@@ -13,6 +13,33 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     private let measureLabel = UILabel()
     private let ingredientImageView = UIImageView()
     
+    private enum Constants {
+        
+            enum ContentView {
+                static let cornerRadius: CGFloat = 20
+                static let insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            }
+            
+            enum IngredientImageView {
+                static let insetLeading = 15
+                static let insetTopBottom = 10
+                static let multiplierWidth = 0.2
+                static let capInsets: CGFloat = 10
+                static let cornerRadius: CGFloat = 20
+            }
+            
+            enum NameLabel {
+                static let insetLeading = 15
+                static let multiplierWidth = 0.35
+            }
+            
+            enum MeasureLabel {
+                static let insetTrailing = -20
+                static let multiplierWidth = 0.3
+            }
+        
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -27,7 +54,7 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(
-            by: .init(top: 10, left: 10, bottom: 10, right: 10)
+            by: Constants.ContentView.insets
         )
     }
     
@@ -42,7 +69,8 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     func configure(with model: IngredientCellModel) {
         measureLabel.text = model.measure
         nameLabel.text = model.nameIngredient
-        ingredientImageView.setImage(model.imageUrl, inset: 10)
+        ingredientImageView.setImage(model.imageUrl,
+                                     inset: Constants.IngredientImageView.capInsets)
     }
     
     private func setup() {
@@ -58,26 +86,22 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
     }
     
     private func setupContentView() {
-        contentView.layer.cornerRadius = 20
         contentView.backgroundColor = .appBlack
+        contentView.layer.cornerRadius = Constants.ContentView.cornerRadius
     }
     
     private func setupIngredientImageView() {
         contentView.addSubview(ingredientImageView)
         
         ingredientImageView.clipsToBounds = true
-        ingredientImageView.layer.cornerRadius = 20
         ingredientImageView.contentMode = .scaleToFill
         ingredientImageView.backgroundColor = .appBackground
-        ingredientImageView.image?.resizableImage(
-            withCapInsets: .init(top: 10, left: 10, bottom: 10, right: 10),
-            resizingMode: .stretch
-        )
+        ingredientImageView.layer.cornerRadius = Constants.IngredientImageView.cornerRadius
         
         ingredientImageView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(10)
-            make.leading.equalToSuperview().offset(15)
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.top.bottom.equalToSuperview().inset(Constants.IngredientImageView.insetTopBottom)
+            make.leading.equalToSuperview().offset(Constants.IngredientImageView.insetLeading)
+            make.width.equalToSuperview().multipliedBy(Constants.IngredientImageView.multiplierWidth)
         }
     }
     
@@ -90,8 +114,8 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(ingredientImageView.snp.trailing).offset(15)
-            make.width.equalToSuperview().multipliedBy(0.35)
+            make.leading.equalTo(ingredientImageView.snp.trailing).offset(Constants.NameLabel.insetLeading)
+            make.width.equalToSuperview().multipliedBy(Constants.NameLabel.multiplierWidth)
         }
     }
     
@@ -104,8 +128,8 @@ final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
         
         measureLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-20)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.trailing.equalToSuperview().offset(Constants.MeasureLabel.insetTrailing)
+            make.width.equalToSuperview().multipliedBy(Constants.MeasureLabel.multiplierWidth)
         }
     }
     

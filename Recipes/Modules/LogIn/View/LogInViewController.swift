@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-//import SwiftUI
 
 final class LogInViewController: UIViewController {
     
@@ -26,6 +25,41 @@ final class LogInViewController: UIViewController {
     private let promptButton = UIButton(type: .system)
     
     private var textFieldsStackViewHeightConstaint: Constraint?
+    
+    private enum Constants {
+        
+            static let stateAnimateDuration = 0.4
+            
+            enum LogInLabel {
+                static let insetTop = 50
+            }
+            
+            enum TextFieldsStackView {
+                static let insetTop = 30
+                static let primaryHeight = 200
+                static let secondaryHeight = 400
+                static let multiplierWidth = 0.8
+                static let spacing: CGFloat = 15
+            }
+            
+            enum LogInButton {
+                static let height = 50
+                static let width = 130
+                static let insetTop = 30
+                static let cornerRadius: CGFloat = 20
+            }
+            
+            enum PromptLabel {
+                static let insetTop = 30
+                static let insetCenterX = -25
+            }
+            
+            enum PromptButton {
+                static let insetTop = 24
+                static let insetLeading = 5
+            }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +95,7 @@ final class LogInViewController: UIViewController {
     }
     
     private func animate(with option: UIView.AnimationOptions) {
-        UIView.animate(withDuration: 0.4, delay: 0,  options: [option]) {
+        UIView.animate(withDuration: Constants.stateAnimateDuration, delay: 0,  options: [option]) {
             self.view.layoutIfNeeded()
         }
     }
@@ -88,27 +122,27 @@ final class LogInViewController: UIViewController {
         
         logInLabel.textColor = .appWhite
         logInLabel.textAlignment = .center
-        logInLabel.font = UIFont.systemFont(ofSize: 27, weight: .bold)
+        logInLabel.font = .logInLabel
         
         logInLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.LogInLabel.insetTop)
         }
     }
     
     private func setupTextFieldsStackView() {
         view.addSubview(textFieldsStackView)
         
-        textFieldsStackView.spacing = 15
-        textFieldsStackView.backgroundColor = .clear
         textFieldsStackView.axis = .vertical
         textFieldsStackView.distribution = .fillEqually
+        textFieldsStackView.backgroundColor = .clear
+        textFieldsStackView.spacing = textFieldsStackView.spacing
         
         textFieldsStackView.snp.makeConstraints { make in
-            make.top.equalTo(logInLabel.snp.bottom).offset(30)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.top.equalTo(logInLabel.snp.bottom).offset(Constants.TextFieldsStackView.insetTop)
+            make.width.equalToSuperview().multipliedBy(Constants.TextFieldsStackView.multiplierWidth)
             make.centerX.equalToSuperview()
-            textFieldsStackViewHeightConstaint =  make.height.equalTo(200).constraint
+            textFieldsStackViewHeightConstaint =  make.height.equalTo(Constants.TextFieldsStackView.primaryHeight).constraint
         }
     }
     
@@ -133,16 +167,16 @@ final class LogInViewController: UIViewController {
     private func setupLogInButton() {
         view.addSubview(logInButton)
         
-        logInButton.layer.cornerRadius = 20
-        logInButton.setTitleColor(.white, for: .normal)
+        logInButton.setTitleColor(.appWhite, for: .normal)
         logInButton.backgroundColor = .appBlack
-        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        logInButton.titleLabel?.font = .logInButton
+        logInButton.layer.cornerRadius = Constants.LogInButton.cornerRadius
         logInButton.addTarget(self, action: #selector(handleLogInButton), for: .touchUpInside)
         
         logInButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.width.equalTo(130)
-            make.top.equalTo(textFieldsStackView.snp.bottom).offset(30)
+            make.height.equalTo(Constants.LogInButton.height)
+            make.width.equalTo(Constants.LogInButton.width)
+            make.top.equalTo(textFieldsStackView.snp.bottom).offset(Constants.LogInButton.insetTop)
             make.centerX.equalToSuperview()
         }
     }
@@ -152,11 +186,11 @@ final class LogInViewController: UIViewController {
         
         promptLabel.textColor = .appWhite
         promptLabel.textAlignment = .right
-        promptLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        promptLabel.font = .promptLabel
         
         promptLabel.snp.makeConstraints { make in
-            make.top.equalTo(logInButton.snp.bottom).offset(30)
-            make.centerX.equalToSuperview().offset(-25)
+            make.top.equalTo(logInButton.snp.bottom).offset(Constants.PromptLabel.insetTop)
+            make.centerX.equalToSuperview().offset(Constants.PromptLabel.insetCenterX)
         }
     }
     
@@ -164,12 +198,12 @@ final class LogInViewController: UIViewController {
         view.addSubview(promptButton)
         
         promptButton.setTitleColor(.appOrange, for: .normal)
-        promptButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        promptButton.titleLabel?.font = .promptLabel
         promptButton.addTarget(self, action: #selector(handlePromptButton), for: .touchUpInside)
         
         promptButton.snp.makeConstraints { make in
-            make.leading.equalTo(promptLabel.snp.trailing).offset(5)
-            make.top.equalTo(logInButton.snp.bottom).offset(24)
+            make.leading.equalTo(promptLabel.snp.trailing).offset(Constants.PromptButton.insetLeading)
+            make.top.equalTo(logInButton.snp.bottom).offset(Constants.PromptButton.insetTop)
         }
     }
     
@@ -178,45 +212,29 @@ final class LogInViewController: UIViewController {
 // MARK: - LogInViewInput
 
 extension LogInViewController: LogInViewInput {
+    
     func applyLoginAppearance() {
         usernameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
-        textFieldsStackViewHeightConstaint?.update(offset: 200)
+        textFieldsStackViewHeightConstaint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
         animate(with: .transitionCurlUp)
         
-        logInLabel.text = "Login"
-        logInButton.setTitle("LOG IN", for: .normal)
-        promptLabel.text = "Don't have an account?"
-        promptButton.setTitle("Sign Up", for: .normal)
+        logInLabel.text = output.loginLogInLabelText
+        logInButton.setTitle(output.loginLogInButtonTitle, for: .normal)
+        promptLabel.text = output.loginPromptLabelText
+        promptButton.setTitle(output.loginPromptButtonTitle, for: .normal)
     }
     
     func applySignUpAppearance() {
         usernameTextField.isHidden = false
         confirmPasswordTextField.isHidden = false
-        textFieldsStackViewHeightConstaint?.update(offset: 400)
+        textFieldsStackViewHeightConstaint?.update(offset: Constants.TextFieldsStackView.secondaryHeight)
         animate(with: .transitionCurlDown)
         
-        logInLabel.text = "Create Account"
-        logInButton.setTitle("SIGN UP", for: .normal)
-        promptLabel.text = "Have an account?"
-        promptButton.setTitle("Log In", for: .normal)
+        logInLabel.text = output.signUpLogInLabelText
+        logInButton.setTitle(output.signUpLogInButtonTitle, for: .normal)
+        promptLabel.text = output.signUpPromptLabelText
+        promptButton.setTitle(output.signUpPromptButtonTitle, for: .normal)
     }
     
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let vc: LogInViewController = DIContainer.shared.resolve()
-//            return UINavigationController(rootViewController: vc)
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}

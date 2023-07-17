@@ -9,6 +9,8 @@ import Foundation
 
 final class ProfilePresenter {
     
+    private(set) var editButtonTitle = "Edit"
+    
     private weak var view: ProfileViewInput?
     private let interactor: ProfileInteractorInput
     private let router: ProfileRouterInput

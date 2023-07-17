@@ -9,6 +9,16 @@ import Foundation
 
 final class LogInPresenter {
     
+    private(set) var loginLogInLabelText = "Login"
+    private(set) var loginLogInButtonTitle = "LOG IN"
+    private(set) var loginPromptButtonTitle = "Sign Up"
+    private(set) var loginPromptLabelText = "Don't have an account?"
+    
+    private(set) var signUpLogInLabelText = "Create Account"
+    private(set) var signUpLogInButtonTitle = "SIGN UP"
+    private(set) var signUpPromptButtonTitle = "Log In"
+    private(set) var signUpPromptLabelText = "Have an account?"
+    
     private weak var view: LogInViewInput?
     private let interactor: LogInInteractorInput
     private let router: LogInRouterInput

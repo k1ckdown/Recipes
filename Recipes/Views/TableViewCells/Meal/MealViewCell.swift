@@ -15,6 +15,30 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     private let mealImageView = UIImageView()
     private let detailStackView = UIStackView()
     
+    private enum Constants {
+        
+            enum ContentView {
+                static let cornerRadius: CGFloat = 15
+                static let insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            }
+            
+            enum MealImageView {
+                static let insetLeading = 10
+                static let insetTopBottom = 10
+                static let multiplierWidth = 0.3
+                static let capInsets: CGFloat = 10
+                static let cornerRadius: CGFloat = 30
+            }
+            
+            enum DetailStackView {
+                static let insetLeading = 20
+                static let insetTrailing = 10
+                static let insetTopBottom = 15
+                static let spacing: CGFloat = 7
+            }
+        
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -29,7 +53,7 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(
-            by: .init(top: 10, left: 10, bottom: 10, right: 10)
+            by: Constants.ContentView.insets
         )
     }
     
@@ -46,12 +70,12 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
         mealNameLabel.text = model.mealName
         areaNameLabel.text = model.areaName
         categoryNameLabel.text = model.categoryName
-        mealImageView.setImage(model.imageUrl, inset: 10)
+        mealImageView.setImage(model.imageUrl, inset: Constants.MealImageView.capInsets)
     }
     
     private func setup() {
         setupSuperView()
-        setupContainerView()
+        setupContentView()
         setupMealImageView()
         setupDetailStackView()
         setupMealNameLabel()
@@ -63,38 +87,38 @@ final class MealViewCell: UITableViewCell, ReuseIdentifier {
         backgroundColor = .clear
     }
     
-    private func setupContainerView() {
-        contentView.layer.cornerRadius = 15
+    private func setupContentView() {
         contentView.backgroundColor = .appGray
+        contentView.layer.cornerRadius = Constants.ContentView.cornerRadius
     }
     
     private func setupMealImageView() {
         contentView.addSubview(mealImageView)
         
-        mealImageView.contentMode = .scaleToFill
         mealImageView.clipsToBounds = true
-        mealImageView.layer.cornerRadius = 30
+        mealImageView.contentMode = .scaleToFill
+        mealImageView.layer.cornerRadius = Constants.MealImageView.cornerRadius
         
         mealImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.bottom.equalToSuperview().inset(10)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.leading.equalToSuperview().offset(Constants.MealImageView.insetLeading)
+            make.top.bottom.equalToSuperview().inset(Constants.MealImageView.insetTopBottom)
+            make.width.equalToSuperview().multipliedBy(Constants.MealImageView.multiplierWidth)
         }
     }
     
     private func setupDetailStackView() {
         contentView.addSubview(detailStackView)
         
-        detailStackView.spacing = 7
         detailStackView.axis = .vertical
         detailStackView.alignment = .leading
         detailStackView.distribution = .fill
         detailStackView.backgroundColor = .clear
+        detailStackView.spacing = Constants.DetailStackView.spacing
         
         detailStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(15)
-            make.leading.equalTo(mealImageView.snp.trailing).offset(20)
-            make.trailing.equalToSuperview().inset(10)
+            make.top.bottom.equalToSuperview().inset(Constants.DetailStackView.insetTopBottom)
+            make.leading.equalTo(mealImageView.snp.trailing).offset(Constants.DetailStackView.insetLeading)
+            make.trailing.equalToSuperview().inset(Constants.DetailStackView.insetTrailing)
         }
     }
     

@@ -15,6 +15,30 @@ final class NoAccountView: UIView {
     private let logInButton = UIButton()
     private let promptLabel = UILabel()
     
+    private enum Constants {
+        
+            enum ImageView {
+                static let insetTop = 50
+                static let insetSide = 40
+                static let multiplierHeight = 0.5
+            }
+            
+            enum PromptLabel {
+                static let insetTop = 20
+                static let numberOfLines = 0
+                static let text = "You need to log in to your account"
+            }
+            
+            enum LogInButton {
+                static let height = 50
+                static let insetTop = 15
+                static let insetSide = 30
+                static let title = "Log In"
+                static let cornerRadius: CGFloat = 20
+            }
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -43,46 +67,46 @@ final class NoAccountView: UIView {
     private func setupImageView() {
         addSubview(imageView)
         
-        imageView.image = UIImage(named: "no-account")
         imageView.contentMode = .scaleToFill
+        imageView.image = UIImage(named: "no-account")
         
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(40)
-            make.height.equalToSuperview().multipliedBy(0.5)
-            make.top.equalToSuperview().offset(50)
+            make.leading.trailing.equalToSuperview().inset(Constants.ImageView.insetSide)
+            make.height.equalToSuperview().multipliedBy(Constants.ImageView.multiplierHeight)
+            make.top.equalToSuperview().offset(Constants.ImageView.insetTop)
         }
     }
     
     private func setupPromptLabel() {
         addSubview(promptLabel)
         
-        promptLabel.text = "You need to log in to your account"
         promptLabel.textColor = .appWhite
         promptLabel.textAlignment = .center
-        promptLabel.numberOfLines = 0
-        promptLabel.font = UIFont.systemFont(ofSize: 21, weight: .medium)
+        promptLabel.font = .noAccountPromptLabel
+        promptLabel.text = Constants.PromptLabel.text
+        promptLabel.numberOfLines = Constants.PromptLabel.numberOfLines
         
         promptLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(20)
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.PromptLabel.insetTop)
         }
     }
     
     private func setupLogInButton() {
         addSubview(logInButton)
         
-        logInButton.setTitle("Log In", for: .normal)
-        logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         logInButton.backgroundColor = .appOrange
-        logInButton.layer.cornerRadius = 20
         logInButton.setTitleColor(.appBlack, for: .normal)
+        logInButton.titleLabel?.font = .noAccountLogInButton
+        logInButton.setTitle(Constants.LogInButton.title, for: .normal)
+        logInButton.layer.cornerRadius = Constants.LogInButton.cornerRadius
         logInButton.addTarget(self, action: #selector(handleLogInButton), for: .touchUpInside)
         
         logInButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.top.equalTo(promptLabel.snp.bottom).offset(15)
+            make.height.equalTo(Constants.LogInButton.height)
+            make.leading.trailing.equalToSuperview().inset(Constants.LogInButton.insetSide)
+            make.top.equalTo(promptLabel.snp.bottom).offset(Constants.LogInButton.insetTop)
         }
     }
     

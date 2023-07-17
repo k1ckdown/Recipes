@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import SwiftUI
 
 final class MainTabBarController: UITabBarController {
     
@@ -23,22 +22,3 @@ final class MainTabBarController: UITabBarController {
     }
     
 }
-
-//struct Main_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Container().edgesIgnoringSafeArea(.all)
-//    }
-//
-//    struct Container: UIViewControllerRepresentable {
-//        func makeUIViewController(context: Context) -> some UIViewController {
-//            let mainTabBarController: MainTabBarController = .init()
-//            let mainTabBarRouter = MainTabBarRouter(tabBarController: mainTabBarController)
-//            mainTabBarRouter.start()
-//            return mainTabBarController
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//
-//        }
-//    }
-//}
