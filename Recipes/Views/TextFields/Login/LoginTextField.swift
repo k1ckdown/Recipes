@@ -38,6 +38,9 @@ final class LoginTextField: UITextField {
         textColor = .appWhite
         tintColor = .appWhite
         leftViewMode = .always
+        autocapitalizationType = .none
+        keyboardType = style.keyboardType
+        isSecureTextEntry = style.isSecureTextEntry
         attributedPlaceholder = NSAttributedString(
             string: style.placeholder,
             attributes: [.foregroundColor: UIColor.darkGray])

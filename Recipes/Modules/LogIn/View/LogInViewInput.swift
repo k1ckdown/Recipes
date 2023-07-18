@@ -8,6 +8,8 @@
 import Foundation
 
 protocol LogInViewInput: AnyObject, LoadingDisplayable {
+    func hideError()
+    func showError(_ desc: String)
     func applySignUpAppearance()
     func applyLoginAppearance(withAnimation: Bool)
 }

@@ -66,7 +66,7 @@ extension LogInPresenter: LogInViewOutput {
                     self.router.pop()
                     self.interactor.updateFavorites()
                 case .failure(let error):
-                    print(error.description)
+                    self.view?.showError(error.description)
                 }
                 self.view?.hideLoader()
             }
@@ -77,10 +77,9 @@ extension LogInPresenter: LogInViewOutput {
             ) { result in
                 switch result {
                 case .success:
-                    self.loginState = .signIn
-                    self.view?.applyLoginAppearance(withAnimation: true)
+                    self.updateLogInState()
                 case .failure(let error):
-                    print(error.description)
+                    self.view?.showError(error.description)
                 }
                 self.view?.hideLoader()
             }
@@ -98,6 +97,7 @@ extension LogInPresenter: LogInInteractorOutput {
 private extension LogInPresenter {
     
     func updateLogInState() {
+        view?.hideError()
         switch loginState {
         case .signIn:
             loginState = .signUp

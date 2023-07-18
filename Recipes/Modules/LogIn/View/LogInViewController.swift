@@ -13,8 +13,8 @@ final class LogInViewController: UIViewController {
     var output: LogInViewOutput!
  
     private(set) var loadingView = LoadingView()
-    
     private let contentView = UIView()
+    private let errorLabel = UILabel()
     
     private let logInLabel = UILabel()
     private let logInButton = UIButton(type: .system)
@@ -49,7 +49,7 @@ final class LogInViewController: UIViewController {
             enum LogInButton {
                 static let height = 50
                 static let width = 130
-                static let insetTop = 30
+                static let insetTop = 12
                 static let cornerRadius: CGFloat = 20
             }
             
@@ -114,6 +114,7 @@ final class LogInViewController: UIViewController {
         setupEmailTextField()
         setupPasswordTextField()
         setupConfirmPasswordTextField()
+        setupErrorLabel()
         setupLogInButton()
         setupPromptLabel()
         setupPromptButton()
@@ -180,6 +181,19 @@ final class LogInViewController: UIViewController {
         confirmPasswordTextField.isHidden = true
     }
     
+    private func setupErrorLabel() {
+        contentView.addSubview(errorLabel)
+        
+        errorLabel.isHidden = true
+        errorLabel.textColor = .systemRed
+        errorLabel.textAlignment = .center
+        
+        errorLabel.snp.makeConstraints { make in
+            make.top.equalTo(textFieldsStackView.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
     private func setupLogInButton() {
         contentView.addSubview(logInButton)
         
@@ -192,7 +206,7 @@ final class LogInViewController: UIViewController {
         logInButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.LogInButton.height)
             make.width.equalTo(Constants.LogInButton.width)
-            make.top.equalTo(textFieldsStackView.snp.bottom).offset(Constants.LogInButton.insetTop)
+            make.top.equalTo(errorLabel.snp.bottom).offset(Constants.LogInButton.insetTop)
             make.centerX.equalToSuperview()
         }
     }
@@ -228,6 +242,15 @@ final class LogInViewController: UIViewController {
 // MARK: - LogInViewInput
 
 extension LogInViewController: LogInViewInput {
+    
+    func hideError() {
+        errorLabel.isHidden = true
+    }
+    
+    func showError(_ desc: String) {
+        errorLabel.text = desc
+        errorLabel.isHidden = false
+    }
     
     func showLoader() {
         contentView.isHidden = true

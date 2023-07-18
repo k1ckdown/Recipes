@@ -26,6 +26,24 @@ enum LoginTextFieldStyle {
         }
     }
     
+    var keyboardType: UIKeyboardType {
+        switch self {
+        case .email:
+            return .emailAddress
+        default:
+            return .default
+        }
+    }
+    
+    var isSecureTextEntry: Bool {
+        switch self {
+        case .password, .confirmPassword:
+            return true
+        default:
+            return false
+        }
+    }
+    
     var image: UIImage? {
         let imageConfig = UIImage.SymbolConfiguration(weight: .bold)
         
