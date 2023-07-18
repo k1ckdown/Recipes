@@ -95,7 +95,8 @@ final class LogInViewController: UIViewController {
     private func handleLogInButton() {
         output.didTapOnLogInButton(username: usernameTextField.text,
                                    email: emailTextField.text,
-                                   password: passwordTextField.text)
+                                   password: passwordTextField.text,
+                                   confirmPassword: confirmPasswordTextField.text)
     }
     
     private func animate(with option: UIView.AnimationOptions) {

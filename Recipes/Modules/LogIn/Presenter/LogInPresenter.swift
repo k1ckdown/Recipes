@@ -49,11 +49,12 @@ extension LogInPresenter: LogInViewOutput {
         updateLogInState()
     }
     
-    func didTapOnLogInButton(username: String?, email: String?, password: String?) {
+    func didTapOnLogInButton(username: String?, email: String?, password: String?, confirmPassword: String?) {
         guard
             let username = username,
             let email = email,
-            let password = password
+            let password = password,
+            let confirmPassword = confirmPassword
         else { return }
         
         view?.showLoader()
@@ -71,7 +72,9 @@ extension LogInPresenter: LogInViewOutput {
             }
             
         case .signUp:
-            interactor.signUp(data: .init(username: username, email: email, password: password)) { result in
+            interactor.signUp(data:
+                    .init(username: username, email: email, password: password, confirmPassword: confirmPassword)
+            ) { result in
                 switch result {
                 case .success:
                     self.loginState = .signIn

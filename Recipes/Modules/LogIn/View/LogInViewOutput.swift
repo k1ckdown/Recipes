@@ -20,5 +20,5 @@ protocol LogInViewOutput: AnyObject {
     
     func viewDidLoad()
     func didTapOnPromptButton()
-    func didTapOnLogInButton(username: String?, email: String?, password: String?)
+    func didTapOnLogInButton(username: String?, email: String?, password: String?, confirmPassword: String?)
 }

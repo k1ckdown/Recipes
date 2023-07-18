@@ -11,4 +11,5 @@ struct AuthSignUpData {
     let username: String
     let email: String
     let password: String
+    let confirmPassword: String
 }

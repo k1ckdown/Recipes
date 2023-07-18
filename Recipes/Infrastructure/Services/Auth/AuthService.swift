@@ -80,6 +80,11 @@ final class AuthService {
     
     func signUp(data: AuthSignUpData, completion: @escaping (Result<User, AuthError>) -> Void) {
         
+        if data.password != data.confirmPassword {
+            completion(.failure(.passwordsDoNotmatch))
+            return
+        }
+        
         auth.createUser(withEmail: data.email, password: data.password) { [weak self] authResult, error in
             guard let self = self else { return }
             
