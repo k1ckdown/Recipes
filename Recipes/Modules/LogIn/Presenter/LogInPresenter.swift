@@ -63,6 +63,7 @@ extension LogInPresenter: LogInViewOutput {
                 switch result {
                 case .success:
                     self.router.pop()
+                    self.interactor.updateFavorites()
                 case .failure(let error):
                     print(error.description)
                 }

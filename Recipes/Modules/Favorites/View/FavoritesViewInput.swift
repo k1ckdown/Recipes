@@ -9,6 +9,10 @@ import Foundation
 
 protocol FavoritesViewInput: AnyObject {
     func refreshList()
+    
     func showIntro()
     func hideIntro()
+    
+    func showContent()
+    func hideContent()
 }

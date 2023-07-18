@@ -26,4 +26,9 @@ extension FavoritesRouter: FavoritesRouterInput {
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showLogInScene() {
+        let viewController: LogInViewController = DIContainer.shared.resolve()
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

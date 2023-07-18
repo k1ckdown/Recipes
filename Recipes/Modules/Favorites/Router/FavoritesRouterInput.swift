@@ -8,5 +8,6 @@
 import Foundation
 
 protocol FavoritesRouterInput: AnyObject {
+    func showLogInScene()
     func showMealDetail(mealId: String)
 }

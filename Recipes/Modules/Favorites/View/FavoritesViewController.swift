@@ -15,6 +15,9 @@ final class FavoritesViewController: UIViewController {
         }
     }
     
+    private let contentView = UIView()
+    private let noAccountView = NoAccountView()
+    
     private let mealTableView = MealTableView()
     private let dataSource: FavoritesDataSource = .init()
     
@@ -55,6 +58,8 @@ final class FavoritesViewController: UIViewController {
     
     private func setup() {
         setupSuperView()
+        setupContentView()
+        setupNoAccountView()
         setupMealTableView()
         setupIntroView()
         setupIntroImageView()
@@ -63,6 +68,30 @@ final class FavoritesViewController: UIViewController {
     
     private func setupSuperView() {
         view.backgroundColor = .appBackground
+    }
+    
+    private func setupContentView() {
+        view.addSubview(contentView)
+        
+        contentView.isHidden = true
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupNoAccountView() {
+        view.addSubview(noAccountView)
+        
+        noAccountView.isHidden = true
+        
+        noAccountView.completionHandler = { [weak self] in
+            self?.output.didTapOnLogIn()
+        }
+        
+        noAccountView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupMealTableView() {
@@ -138,6 +167,18 @@ extension FavoritesViewController: FavoritesViewInput {
     func hideIntro() {
         introView.isHidden = true
         mealTableView.isHidden = false
+    }
+    
+    func showContent() {
+        contentView.isHidden = false
+        noAccountView.isHidden = true
+    }
+    
+    func hideContent() {
+        introView.isHidden = true
+        mealTableView.isHidden = true
+        contentView.isHidden = true
+        noAccountView.isHidden = false
     }
     
 }

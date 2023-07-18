@@ -33,9 +33,16 @@ final class FavoritesPresenter {
 extension FavoritesPresenter: FavoritesViewOutput {
     
     func viewWillAppear() {
-        favoriteMeals = interactor.getFavoriteMeals()
-        updateIntro()
-        updateMealCellModels()
+        if interactor.userIsSignedIn() {
+            view?.showContent()
+            favoriteMeals = interactor.getFavoriteMeals()
+            updateIntro()
+            updateMealCellModels()
+        } else {
+            view?.hideContent()
+        }
+        
+        
     }
     
     func introTitle() -> String {
@@ -55,6 +62,10 @@ extension FavoritesPresenter: FavoritesViewOutput {
         favoriteMeals.remove(at: index)
         mealCellModels.remove(at: index)
         updateIntro()
+    }
+    
+    func didTapOnLogIn() {
+        router.showLogInScene()
     }
     
 }

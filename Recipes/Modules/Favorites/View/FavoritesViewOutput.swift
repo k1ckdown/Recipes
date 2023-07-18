@@ -10,6 +10,7 @@ import Foundation
 protocol FavoritesViewOutput: AnyObject {
     var mealCellModels: [MealCellModel] { get }
     
+    func didTapOnLogIn()
     func viewWillAppear()
     func numberOfRows() -> Int
     func introTitle() -> String

@@ -72,7 +72,6 @@ private extension ProfilePresenter {
                 self.user = user
                 self.view?.showContent()
                 self.updateProfileInfo()
-                self.interactor.updateFavorites()
             } else {
                 self.view?.hideContent()
             }

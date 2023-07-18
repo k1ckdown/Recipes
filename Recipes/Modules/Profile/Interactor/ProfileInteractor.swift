@@ -24,10 +24,6 @@ final class ProfileInteractor {
 
 extension ProfileInteractor: ProfileInteractorInput {
     
-    func updateFavorites() {
-        mealRepository.updateFavoriteMeals()
-    }
-    
     func userIsSignedIn() -> Bool {
         authService.userIsSignedIn()
     }
