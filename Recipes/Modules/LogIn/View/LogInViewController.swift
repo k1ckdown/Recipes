@@ -238,11 +238,14 @@ extension LogInViewController: LogInViewInput {
         loadingView.stopAnimating()
     }
     
-    func applyLoginAppearance() {
+    func applyLoginAppearance(withAnimation: Bool = true) {
         usernameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
         textFieldsStackViewHeightConstaint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
-        animate(with: .transitionCurlUp)
+        
+        if withAnimation {
+            animate(with: .transitionCurlUp)
+        }
         
         logInLabel.text = output.loginLogInLabelText
         logInButton.setTitle(output.loginLogInButtonTitle, for: .normal)

@@ -77,7 +77,6 @@ final class FoodViewCell: UICollectionViewCell, ReuseIdentifier {
         addSubview(foodImageView)
         
         foodImageView.clipsToBounds = true
-        foodImageView.layer.masksToBounds = false
         foodImageView.contentMode = .scaleToFill
         foodImageView.layer.cornerRadius = Constants.FoodImageView.cornerRadius
     }

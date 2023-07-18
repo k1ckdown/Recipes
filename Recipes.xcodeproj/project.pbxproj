@@ -252,7 +252,7 @@
 		4999B2A12A6194E90099565A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4999B2A32A6195D10099565A /* AuthSignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpData.swift; sourceTree = "<group>"; };
 		4999B2A52A6197DA0099565A /* AuthLogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogInData.swift; sourceTree = "<group>"; };
-		4999B2A72A61A6BA0099565A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4999B2A72A61A6BA0099565A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Recipes/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4999B2B22A61D9AC0099565A /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		499F4C702A544DC300E3446C /* FoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewCell.swift; sourceTree = "<group>"; };
 		49AC62D92A59A01A00FA50CF /* InfrastructureAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureAssembly.swift; sourceTree = "<group>"; };

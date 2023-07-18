@@ -42,7 +42,7 @@ final class LogInPresenter {
 extension LogInPresenter: LogInViewOutput {
     
     func viewDidLoad() {
-        loginState == .signIn ? view?.applyLoginAppearance() : view?.applySignUpAppearance()
+        loginState == .signIn ? view?.applyLoginAppearance(withAnimation: false) : view?.applySignUpAppearance()
     }
     
     func didTapOnPromptButton() {
@@ -74,7 +74,7 @@ extension LogInPresenter: LogInViewOutput {
                 switch result {
                 case .success:
                     self.loginState = .signIn
-                    self.view?.applyLoginAppearance()
+                    self.view?.applyLoginAppearance(withAnimation: true)
                 case .failure(let error):
                     print(error.description)
                 }
@@ -100,7 +100,7 @@ private extension LogInPresenter {
             view?.applySignUpAppearance()
         case .signUp:
             loginState = .signIn
-            view?.applyLoginAppearance()
+            view?.applyLoginAppearance(withAnimation: true)
         }
     }
     
