@@ -28,7 +28,8 @@ final class LogInViewController: UIViewController {
     private let promptLabel = UILabel()
     private let promptButton = UIButton(type: .system)
     
-    private var textFieldsStackViewHeightConstaint: Constraint?
+    private var logInLabelTopConstraint: Constraint?
+    private var textFieldsStackViewHeightConstraint: Constraint?
     
     private enum Constants {
         
@@ -74,12 +75,16 @@ final class LogInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tabBarController?.hideTabBar()
+        registerKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         tabBarController?.showTabBar()
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -97,6 +102,25 @@ final class LogInViewController: UIViewController {
                                    email: emailTextField.text,
                                    password: passwordTextField.text,
                                    confirmPassword: confirmPasswordTextField.text)
+    }
+    
+    @objc private func keyboardWillHide() {
+        view.layoutIfNeeded()
+        logInLabelTopConstraint?.update(offset: Constants.LogInLabel.insetTop)
+        view.layoutIfNeeded()
+    }
+    
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        guard
+            let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            keyboardFrame.minY < textFieldsStackView.frame.maxY
+        else { return }
+        
+        view.layoutIfNeeded()
+        let neededSpace = textFieldsStackView.frame.maxY - keyboardFrame.minY
+        logInLabelTopConstraint?.update(offset: -(logInLabel.frame.maxY - neededSpace))
+        view.layoutIfNeeded()
     }
     
     private func animate(with option: UIView.AnimationOptions) {
@@ -143,7 +167,7 @@ final class LogInViewController: UIViewController {
         
         logInLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.LogInLabel.insetTop)
+            logInLabelTopConstraint = make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.LogInLabel.insetTop).constraint
         }
     }
     
@@ -159,25 +183,29 @@ final class LogInViewController: UIViewController {
             make.top.equalTo(logInLabel.snp.bottom).offset(Constants.TextFieldsStackView.insetTop)
             make.width.equalToSuperview().multipliedBy(Constants.TextFieldsStackView.multiplierWidth)
             make.centerX.equalToSuperview()
-            textFieldsStackViewHeightConstaint =  make.height.equalTo(Constants.TextFieldsStackView.primaryHeight).constraint
+            textFieldsStackViewHeightConstraint =  make.height.equalTo(Constants.TextFieldsStackView.primaryHeight).constraint
         }
     }
     
     private func setupUsernameTextField() {
         textFieldsStackView.addArrangedSubview(usernameTextField)
+        usernameTextField.delegate = self
         usernameTextField.isHidden = true
     }
     
     private func setupEmailTextField() {
         textFieldsStackView.addArrangedSubview(emailTextField)
+        emailTextField.delegate = self
     }
     
     private func setupPasswordTextField() {
         textFieldsStackView.addArrangedSubview(passwordTextField)
+        passwordTextField.delegate = self
     }
     
     private func setupConfirmPasswordTextField() {
         textFieldsStackView.addArrangedSubview(confirmPasswordTextField)
+        confirmPasswordTextField.delegate = self
         confirmPasswordTextField.isHidden = true
     }
     
@@ -237,6 +265,18 @@ final class LogInViewController: UIViewController {
         }
     }
     
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
 }
 
 // MARK: - LogInViewInput
@@ -265,7 +305,7 @@ extension LogInViewController: LogInViewInput {
     func applyLoginAppearance(withAnimation: Bool = true) {
         usernameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
-        textFieldsStackViewHeightConstaint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
+        textFieldsStackViewHeightConstraint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
         
         if withAnimation {
             animate(with: .transitionCurlUp)
@@ -280,13 +320,22 @@ extension LogInViewController: LogInViewInput {
     func applySignUpAppearance() {
         usernameTextField.isHidden = false
         confirmPasswordTextField.isHidden = false
-        textFieldsStackViewHeightConstaint?.update(offset: Constants.TextFieldsStackView.secondaryHeight)
+        textFieldsStackViewHeightConstraint?.update(offset: Constants.TextFieldsStackView.secondaryHeight)
         animate(with: .transitionCurlDown)
         
         logInLabel.text = output.signUpLogInLabelText
         logInButton.setTitle(output.signUpLogInButtonTitle, for: .normal)
         promptLabel.text = output.signUpPromptLabelText
         promptButton.setTitle(output.signUpPromptButtonTitle, for: .normal)
+    }
+    
+}
+
+extension LogInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

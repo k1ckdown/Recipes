@@ -41,6 +41,8 @@ final class LoginTextField: UITextField {
         autocapitalizationType = .none
         keyboardType = style.keyboardType
         isSecureTextEntry = style.isSecureTextEntry
+        autocorrectionType = .no
+        spellCheckingType = .no
         attributedPlaceholder = NSAttributedString(
             string: style.placeholder,
             attributes: [.foregroundColor: UIColor.darkGray])
