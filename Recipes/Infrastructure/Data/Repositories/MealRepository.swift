@@ -13,7 +13,9 @@ final class MealRepository {
     
     private let authService: AuthService
     private let networkManager: NetworkManager
+    
     private let localDataSource: MealLocalDataSource
+    private let remoteDataSource: MealRemoteDataSource
     
     init(
         networkManager: NetworkManager,
@@ -23,12 +25,15 @@ final class MealRepository {
         self.networkManager = networkManager
         self.localDataSource = mealDataSource
         self.authService = authService
+        remoteDataSource = .init()
         
-        fetchMealList()
+//        fetchLocalMealList()
+        fetchRemoteMealList()
     }
     
     func updateFavoriteMeals() {
-        fetchMealList()
+//        fetchLocalMealList()
+        fetchRemoteMealList()
     }
     
     func getFavoriteMealList() -> [Meal] {
@@ -36,8 +41,11 @@ final class MealRepository {
     }
     
     func removeFavoriteMeal(_ meal: Meal) {
+        guard let uid = authService.getUserId() else { return }
+        
         favoriteMeals.removeAll(where: { $0 == meal })
         localDataSource.deleteMeal(meal)
+        remoteDataSource.deleteMeal(meal, uid: uid)
     }
     
     func putFavoriteMeal(_ meal: Meal) {
@@ -48,6 +56,7 @@ final class MealRepository {
         
         favoriteMeals.append(meal)
         localDataSource.saveMeal(meal, uid: uid)
+        remoteDataSource.saveMeal(meal, uid: uid)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -139,13 +148,26 @@ final class MealRepository {
 
 private extension MealRepository {
     
-    func fetchMealList() {
+    func fetchLocalMealList() {
         guard let uid = authService.getUserId() else { return }
         
         localDataSource.getMealList(uid) { result in
             switch result {
             case .success(let mealList):
                 self.favoriteMeals = mealList
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchRemoteMealList() {
+        guard let uid = authService.getUserId() else { return }
+        
+        remoteDataSource.fetchMeal(uid) { result in
+            switch result {
+            case .success(let meals):
+                self.favoriteMeals = meals
             case .failure(let error):
                 print(error)
             }
