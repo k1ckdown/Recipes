@@ -5,13 +5,13 @@
 //  Created by Ivan Semenov on 11.07.2023.
 //
 
-import Foundation
+import UIKit
 
-final class FavoritesRouter {
+final class FavoritesRouter: Router {
     
-    private weak var view: FavoritesViewController?
+    weak var view: UIViewController?
     
-    init(view: FavoritesViewController? = nil) {
+    init(view: UIViewController?) {
         self.view = view
     }
     

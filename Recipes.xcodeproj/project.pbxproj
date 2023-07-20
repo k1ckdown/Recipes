@@ -83,6 +83,7 @@
 		495E80B92A693DD10010AF3A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 495E80B82A693DD10010AF3A /* FirebaseDatabaseSwift */; };
 		495E80BB2A693DD10010AF3A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 495E80BA2A693DD10010AF3A /* FirebaseFirestore */; };
 		495E80BD2A693DD10010AF3A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 495E80BC2A693DD10010AF3A /* FirebaseFirestoreSwift */; };
+		495E80BF2A6970220010AF3A /* MealRepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E80BE2A6970220010AF3A /* MealRepositoryError.swift */; };
 		49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */; };
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
 		49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* AreaViewCell.swift */; };
@@ -241,6 +242,7 @@
 		495E80A92A69236A0010AF3A /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		495E80AB2A6923870010AF3A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		495E80AD2A6936740010AF3A /* MealRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRemoteDataSource.swift; sourceTree = "<group>"; };
+		495E80BE2A6970220010AF3A /* MealRepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryError.swift; sourceTree = "<group>"; };
 		49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		49648FD52A54339400B99DFF /* AreaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewCell.swift; sourceTree = "<group>"; };
@@ -1198,6 +1200,7 @@
 			isa = PBXGroup;
 			children = (
 				49FF07D52A56997B007630D0 /* MealRepository.swift */,
+				495E80BE2A6970220010AF3A /* MealRepositoryError.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1390,6 +1393,7 @@
 				49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */,
 				494D00252A5EE25300C80E56 /* CDMealIngredient+CoreDataProperties.swift in Sources */,
 				49B4F88D2A5578B000E91A3A /* URLParameterEncoder.swift in Sources */,
+				495E80BF2A6970220010AF3A /* MealRepositoryError.swift in Sources */,
 				4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */,
 				49FF07DE2A569BF3007630D0 /* Ingredient.swift in Sources */,
 				49E1FBCA2A58615800D254C0 /* MealDetailViewInput.swift in Sources */,

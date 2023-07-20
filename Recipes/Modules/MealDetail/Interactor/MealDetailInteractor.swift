@@ -25,12 +25,12 @@ final class MealDetailInteractor {
 
 extension MealDetailInteractor: MealDetailInteractorInput {
     
-    func deleteFavoriteMeal(_ meal: Meal) {
-        mealRepository.removeFavoriteMeal(meal)
+    func deleteFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+        mealRepository.removeFavoriteMeal(meal, completion: completion)
     }
     
-    func addFavoriteMeal(_ meal: Meal) {
-        mealRepository.putFavoriteMeal(meal)
+    func addFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+        mealRepository.putFavoriteMeal(meal, completion: completion)
     }
     
     func getMeal(completion: @escaping (Result<Meal, NetworkError>) -> Void) {

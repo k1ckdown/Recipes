@@ -32,8 +32,8 @@ extension FavoritesInteractor: FavoritesInteractorInput {
         mealRepository.getFavoriteMealList()
     }
     
-    func deleteFavoriteMeal(_ meal: Meal) {
-        mealRepository.removeFavoriteMeal(meal)
+    func deleteFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+        mealRepository.removeFavoriteMeal(meal, completion: completion)
     }
     
 }

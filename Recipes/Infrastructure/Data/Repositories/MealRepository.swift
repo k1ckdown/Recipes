@@ -27,12 +27,10 @@ final class MealRepository {
         self.authService = authService
         remoteDataSource = .init()
         
-//        fetchLocalMealList()
-        fetchRemoteMealList()
+        fetchMealList()
     }
     
     func updateFavoriteMeals() {
-//        fetchLocalMealList()
         fetchRemoteMealList()
     }
     
@@ -40,19 +38,29 @@ final class MealRepository {
         favoriteMeals
     }
     
-    func removeFavoriteMeal(_ meal: Meal) {
-        guard let uid = authService.getUserId() else { return }
+    func removeFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+        guard
+            NetworkMonitor.shared.isConnected,
+            let uid = authService.getUserId()
+        else {
+            completion(.noInternet)
+            return
+        }
         
         favoriteMeals.removeAll(where: { $0 == meal })
         localDataSource.deleteMeal(meal)
         remoteDataSource.deleteMeal(meal, uid: uid)
     }
     
-    func putFavoriteMeal(_ meal: Meal) {
+    func putFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
         guard
+            NetworkMonitor.shared.isConnected,
             let uid = authService.getUserId(),
             !favoriteMeals.contains(meal)
-        else { return }
+        else {
+            completion(.noInternet)
+            return
+        }
         
         favoriteMeals.append(meal)
         localDataSource.saveMeal(meal, uid: uid)
@@ -147,6 +155,10 @@ final class MealRepository {
 }
 
 private extension MealRepository {
+    
+    func fetchMealList() {
+        NetworkMonitor.shared.isConnected ? fetchRemoteMealList() : fetchLocalMealList()
+    }
     
     func fetchLocalMealList() {
         guard let uid = authService.getUserId() else { return }

@@ -42,8 +42,6 @@ extension FavoritesPresenter: FavoritesViewOutput {
         } else {
             view?.hideContent()
         }
-        
-        
     }
     
     func introTitle() -> String {
@@ -59,10 +57,15 @@ extension FavoritesPresenter: FavoritesViewOutput {
     }
     
     func removeFavoriteMeal(at index: Int) {
-        interactor.deleteFavoriteMeal(favoriteMeals[index])
-        favoriteMeals.remove(at: index)
-        mealCellModels.remove(at: index)
-        updateIntro()
+        interactor.deleteFavoriteMeal(favoriteMeals[index]) { error in
+            if let error = error {
+                router.presentErrorAlert(with: error.description)
+            }
+            
+            favoriteMeals.remove(at: index)
+            mealCellModels.remove(at: index)
+            updateIntro()
+        }
     }
     
     func didTapOnLogIn() {

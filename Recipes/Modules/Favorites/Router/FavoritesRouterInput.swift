@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FavoritesRouterInput: AnyObject {
+protocol FavoritesRouterInput: AnyObject, AlertPresentable {
     func showLogInScene()
     func showMealDetail(mealId: String)
 }

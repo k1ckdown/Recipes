@@ -80,11 +80,26 @@ extension MealDetailPresenter: MealDetailViewOutput {
     }
     
     func didTapOnFavoriteButton() {
-        meal?.isFavorite.toggle()
-        
         guard let meal = meal else { return }
-        meal.isFavorite ? interactor.addFavoriteMeal(meal) : interactor.deleteFavoriteMeal(meal)
-        updateFavoriteState()
+        
+        if meal.isFavorite {
+            interactor.deleteFavoriteMeal(meal) { error in
+                if let error = error {
+                    router.presentErrorAlert(with: error.description)
+                    return
+                }
+                toggleFavorite()
+            }
+        } else {
+            interactor.addFavoriteMeal(meal) { error in
+                if let error = error {
+                    router.presentErrorAlert(with: error.description)
+                    return
+                }
+                toggleFavorite()
+            }
+        }
+        
     }
     
 }
@@ -109,6 +124,11 @@ private extension MealDetailPresenter {
         if let youtubeLink = meal.youtubeLink, !youtubeLink.isEmpty {
             view?.showWatchVideoButton()
         }
+    }
+    
+    func toggleFavorite() {
+        self.meal?.isFavorite.toggle()
+        updateFavoriteState()
     }
     
     func updateFavoriteState() {
