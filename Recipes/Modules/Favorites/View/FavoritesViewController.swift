@@ -41,6 +41,7 @@ final class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = output.sceneTitle
         
         setup()
         dataSource.configure(with: mealTableView)

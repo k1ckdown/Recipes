@@ -13,6 +13,7 @@ final class FavoritesPresenter {
     private let interactor: FavoritesInteractorInput
     private let router: FavoritesRouterInput
     
+    private(set) var sceneTitle = "Favorites"
     private(set) var mealCellModels = [MealCellModel]()
     private var favoriteMeals = [Meal]()
     

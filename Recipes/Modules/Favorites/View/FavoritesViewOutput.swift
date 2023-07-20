@@ -8,6 +8,7 @@
 import Foundation
 
 protocol FavoritesViewOutput: AnyObject {
+    var sceneTitle: String { get }
     var mealCellModels: [MealCellModel] { get }
     
     func didTapOnLogIn()

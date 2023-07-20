@@ -98,6 +98,7 @@ final class LogInViewController: UIViewController, Keyboardable {
     
     @objc
     private func handleLogInButton() {
+        view.endEditing(true)
         output.didTapOnLogInButton(username: usernameTextField.text,
                                    email: emailTextField.text,
                                    password: passwordTextField.text,
