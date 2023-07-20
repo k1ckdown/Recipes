@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class MealDetailRouter {
+final class MealDetailRouter: Router {
     
-    private weak var view: MealDetailViewController?
+    weak var view: UIViewController?
     
-    init(view: MealDetailViewController? = nil) {
+    init(view: UIViewController?) {
         self.view = view
     }
     

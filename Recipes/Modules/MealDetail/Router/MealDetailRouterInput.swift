@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MealDetailRouterInput: AnyObject {
+protocol MealDetailRouterInput: AnyObject, AlertPresentable {
     func openUrl(_ url: URL)
 }

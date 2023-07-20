@@ -140,7 +140,7 @@ private extension HomePresenter {
             case .success(let areas):
                 self.areas = areas
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
         }
     }
@@ -151,7 +151,7 @@ private extension HomePresenter {
             case .success(let categories):
                 self.categories = categories
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
         }
     }
@@ -162,7 +162,7 @@ private extension HomePresenter {
             case .success(let latestMeals):
                 self.latestMeals = latestMeals
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
         }
     }
@@ -173,7 +173,7 @@ private extension HomePresenter {
             case .success(let popularMeals):
                 self.popularMeals = popularMeals
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
             self.view?.hideLoader()
         }

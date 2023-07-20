@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MealListRouterInput: AnyObject {
+protocol MealListRouterInput: AnyObject, AlertPresentable {
     func showMealDetail(mealId: String)
 }

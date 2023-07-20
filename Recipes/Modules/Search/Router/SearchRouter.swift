@@ -5,13 +5,13 @@
 //  Created by Ivan Semenov on 09.07.2023.
 //
 
-import Foundation
+import UIKit
 
-final class SearchRouter {
+final class SearchRouter: Router {
     
-    private weak var view: SearchViewController?
+    weak var view: UIViewController?
     
-    init(view: SearchViewController? = nil) {
+    init(view: UIViewController?) {
         self.view = view
     }
     

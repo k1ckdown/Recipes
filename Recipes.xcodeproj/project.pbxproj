@@ -73,6 +73,8 @@
 		49542D622A5DBC88009D4CC6 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D612A5DBC88009D4CC6 /* FavoritesRouter.swift */; };
 		49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D632A5DBC90009D4CC6 /* FavoritesRouterInput.swift */; };
 		49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */; };
+		495E80AA2A69236A0010AF3A /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E80A92A69236A0010AF3A /* AlertPresentable.swift */; };
+		495E80AC2A6923870010AF3A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E80AB2A6923870010AF3A /* Router.swift */; };
 		49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */; };
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
 		49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* AreaViewCell.swift */; };
@@ -232,6 +234,8 @@
 		49542D612A5DBC88009D4CC6 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		49542D632A5DBC90009D4CC6 /* FavoritesRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouterInput.swift; sourceTree = "<group>"; };
 		49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		495E80A92A69236A0010AF3A /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		495E80AB2A6923870010AF3A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		49648FD52A54339400B99DFF /* AreaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewCell.swift; sourceTree = "<group>"; };
@@ -878,9 +882,11 @@
 		497F4C8E2A53647B0073A86E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				495E80AB2A6923870010AF3A /* Router.swift */,
 				497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */,
 				49B752992A5CF02C0029003E /* LoadingDisplayable.swift */,
 				494AA7032A68505800586FDF /* Keyboardable.swift */,
+				495E80A92A69236A0010AF3A /* AlertPresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1309,6 +1315,7 @@
 				49381E7F2A5AA94B00F8C6C3 /* SearchRouterInput.swift in Sources */,
 				49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */,
 				49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */,
+				495E80AA2A69236A0010AF3A /* AlertPresentable.swift in Sources */,
 				49542D5C2A5DBC0F009D4CC6 /* FavoritesInteractorOutput.swift in Sources */,
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49E2913A2A612F7900FD73CF /* LogInInteractor.swift in Sources */,
@@ -1408,6 +1415,7 @@
 				49381E772A5AA8FF00F8C6C3 /* SearchInteractor.swift in Sources */,
 				49381E6F2A5AA37800F8C6C3 /* MealCellModel.swift in Sources */,
 				494918662A6057A600723E6A /* ProfileInteractorInput.swift in Sources */,
+				495E80AC2A6923870010AF3A /* Router.swift in Sources */,
 				49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */,
 				49B4F8862A55691600E91A3A /* MealEndPoint.swift in Sources */,
 				49FF07DC2A569BE7007630D0 /* Category.swift in Sources */,

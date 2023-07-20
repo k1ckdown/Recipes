@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class HomeRouter {
+final class HomeRouter: Router {
     
-    private weak var view: HomeViewController?
+    weak var view: UIViewController?
     
-    init(view: HomeViewController) {
+    init(view: UIViewController) {
         self.view = view
     }
     

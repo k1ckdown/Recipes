@@ -132,7 +132,7 @@ private extension MealDetailPresenter {
             case .success(let meal):
                 self.meal = meal
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
             self.view?.hideLoader()
         }

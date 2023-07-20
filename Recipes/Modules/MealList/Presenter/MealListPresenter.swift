@@ -76,7 +76,7 @@ private extension MealListPresenter {
             case .success(let meals):
                 self.meals = meals
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
         }
     }

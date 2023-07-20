@@ -5,13 +5,13 @@
 //  Created by Ivan Semenov on 09.07.2023.
 //
 
-import Foundation
+import UIKit
 
-final class MealListRouter {
+final class MealListRouter: Router {
     
-    private weak var view: MealListViewController?
+    weak var view: UIViewController?
     
-    init(view: MealListViewController) {
+    init(view: UIViewController) {
         self.view = view
     }
 }

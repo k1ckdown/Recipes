@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol SearchRouterInput: AnyObject {
+protocol SearchRouterInput: AnyObject, AlertPresentable {
     func showMealDetail(mealId: String)
 }

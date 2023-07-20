@@ -79,7 +79,7 @@ private extension SearchPresenter {
             case .success(let meals):
                 self.meals = meals
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
             self.view?.hideLoader()
         }
@@ -91,7 +91,7 @@ private extension SearchPresenter {
             case .success(let meals):
                 self.meals = meals
             case .failure(let error):
-                print(error.description)
+                self.router.presentErrorAlert(with: error.description)
             }
         }
     }
