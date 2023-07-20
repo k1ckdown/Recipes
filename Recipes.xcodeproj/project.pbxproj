@@ -52,6 +52,7 @@
 		4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949186D2A60595700723E6A /* ProfileAssembly.swift */; };
 		494918742A606F8A00723E6A /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918732A606F8A00723E6A /* ProfileButton.swift */; };
 		494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494918752A606F9400723E6A /* ProfileButtonStyle.swift */; };
+		494AA7042A68505800586FDF /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494AA7032A68505800586FDF /* Keyboardable.swift */; };
 		494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */; };
 		494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */; };
 		494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */; };
@@ -210,6 +211,7 @@
 		4949186D2A60595700723E6A /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
 		494918732A606F8A00723E6A /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		494918752A606F9400723E6A /* ProfileButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonStyle.swift; sourceTree = "<group>"; };
+		494AA7032A68505800586FDF /* Keyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboardable.swift; sourceTree = "<group>"; };
 		494D00162A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataClass.swift"; sourceTree = "<group>"; };
 		494D00172A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMeal+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		494D001E2A5EDC0600C80E56 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 			children = (
 				497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */,
 				49B752992A5CF02C0029003E /* LoadingDisplayable.swift */,
+				494AA7032A68505800586FDF /* Keyboardable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1277,6 +1280,7 @@
 				49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */,
 				49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */,
 				49381E8A2A5AD76400F8C6C3 /* MealListViewController.swift in Sources */,
+				494AA7042A68505800586FDF /* Keyboardable.swift in Sources */,
 				49B4F87F2A55634200E91A3A /* NetworkError.swift in Sources */,
 				49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */,
 				49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */,

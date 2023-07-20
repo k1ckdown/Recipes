@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class LogInViewController: UIViewController {
+final class LogInViewController: UIViewController, Keyboardable {
     
     var output: LogInViewOutput!
  
@@ -77,7 +77,7 @@ final class LogInViewController: UIViewController {
         super.viewWillAppear(animated)
         
         tabBarController?.hideTabBar()
-        registerKeyboardNotifications()
+        setupObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,25 +102,6 @@ final class LogInViewController: UIViewController {
                                    email: emailTextField.text,
                                    password: passwordTextField.text,
                                    confirmPassword: confirmPasswordTextField.text)
-    }
-    
-    @objc private func keyboardWillHide() {
-        view.layoutIfNeeded()
-        logInLabelTopConstraint?.update(offset: Constants.LogInLabel.insetTop)
-        view.layoutIfNeeded()
-    }
-    
-    @objc
-    private func keyboardWillShow(_ notification: Notification) {
-        guard
-            let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
-            keyboardFrame.minY < textFieldsStackView.frame.maxY
-        else { return }
-        
-        view.layoutIfNeeded()
-        let neededSpace = textFieldsStackView.frame.maxY - keyboardFrame.minY
-        logInLabelTopConstraint?.update(offset: -(logInLabel.frame.maxY - neededSpace))
-        view.layoutIfNeeded()
     }
     
     private func animate(with option: UIView.AnimationOptions) {
@@ -265,16 +246,26 @@ final class LogInViewController: UIViewController {
         }
     }
     
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
+    private func setupObservers() {
+        registerKeyboardWillHideNotification { [weak self] in
+            guard let self = self else { return }
+            
+            view.layoutIfNeeded()
+            logInLabelTopConstraint?.update(offset: Constants.LogInLabel.insetTop)
+            view.layoutIfNeeded()
+        }
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
+        registerKeyboardWillShowNotification { [weak self] keyboardFrame in
+            guard
+                let self = self,
+                keyboardFrame.minY < textFieldsStackView.frame.maxY
+            else { return }
+            
+            view.layoutIfNeeded()
+            let neededSpace = textFieldsStackView.frame.maxY - keyboardFrame.minY
+            logInLabelTopConstraint?.update(inset: -neededSpace)
+            view.layoutIfNeeded()
+        }
     }
     
 }
