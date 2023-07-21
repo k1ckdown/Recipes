@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ProfileRouterInput: AnyObject {
+protocol ProfileRouterInput: AnyObject, AlertPresentable {
     func showLogInScene()
 }

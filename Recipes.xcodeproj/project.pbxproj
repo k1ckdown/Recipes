@@ -589,6 +589,7 @@
 		494918552A60109400723E6A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				494D000C2A5ED57E00C80E56 /* CoreData */,
 				494918542A600CC700723E6A /* DataSources */,
 				49FF07D42A56996E007630D0 /* Repositories */,
 			);
@@ -663,8 +664,8 @@
 		494D000C2A5ED57E00C80E56 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				494DFFEE2A5EBC7D00C80E56 /* Recipes.xcdatamodeld */,
 				494918532A600CBE00723E6A /* Managers */,
+				494DFFEE2A5EBC7D00C80E56 /* Recipes.xcdatamodeld */,
 				494D000D2A5ED94D00C80E56 /* Entities */,
 			);
 			path = CoreData;
@@ -721,6 +722,16 @@
 				494FF68F2A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift */,
 			);
 			path = MealLocal;
+			sourceTree = "<group>";
+		};
+		494FF6912A6AEF68001865F5 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				49FF07D52A56997B007630D0 /* MealRepository.swift */,
+				495E80BE2A6970220010AF3A /* MealRepositoryError.swift */,
+				494FF6872A6ABB58001865F5 /* MealRepositoryProtocol.swift */,
+			);
+			path = Meal;
 			sourceTree = "<group>";
 		};
 		49542D4E2A5DBB95009D4CC6 /* Favorites */ = {
@@ -939,8 +950,8 @@
 		4999B29E2A61912D0099565A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				4999B29F2A6191370099565A /* AuthService.swift */,
 				4999B2B22A61D9AC0099565A /* AuthError.swift */,
+				4999B29F2A6191370099565A /* AuthService.swift */,
 				494FF6892A6AD5E7001865F5 /* AuthServiceProtocol.swift */,
 			);
 			path = Auth;
@@ -975,7 +986,6 @@
 			children = (
 				4999B29D2A61911F0099565A /* Services */,
 				494918552A60109400723E6A /* Data */,
-				494D000C2A5ED57E00C80E56 /* CoreData */,
 				49247E0E2A54A9A400C050FB /* Networking */,
 			);
 			path = Infrastructure;
@@ -1226,9 +1236,7 @@
 		49FF07D42A56996E007630D0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				49FF07D52A56997B007630D0 /* MealRepository.swift */,
-				495E80BE2A6970220010AF3A /* MealRepositoryError.swift */,
-				494FF6872A6ABB58001865F5 /* MealRepositoryProtocol.swift */,
+				494FF6912A6AEF68001865F5 /* Meal */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";

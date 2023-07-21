@@ -60,11 +60,11 @@ extension FavoritesPresenter: FavoritesViewOutput {
         interactor.deleteFavoriteMeal(favoriteMeals[index]) { error in
             if let error = error {
                 router.presentErrorAlert(with: error.description)
+            } else {
+                favoriteMeals.remove(at: index)
+                mealCellModels.remove(at: index)
+                updateIntro()
             }
-            
-            favoriteMeals.remove(at: index)
-            mealCellModels.remove(at: index)
-            updateIntro()
         }
     }
     

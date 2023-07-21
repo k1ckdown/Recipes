@@ -32,12 +32,8 @@ extension ProfileInteractor: ProfileInteractorInput {
         authService.getCurrentUser(completion: completion)
     }
     
-    func logOut() {
-        authService.logOut { error in
-            if let error = error {
-                print(error.description)
-            }
-        }
+    func logOut(completion: (AuthError?) -> Void) {
+        authService.logOut(completion: completion)
     }
     
 }

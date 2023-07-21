@@ -10,5 +10,6 @@ import Foundation
 protocol ProfileViewInput: AnyObject, LoadingDisplayable {
     func showContent()
     func hideContent()
+    func showImagePicker()
     func updateUsername(_ username: String)
 }

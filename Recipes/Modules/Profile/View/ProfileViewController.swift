@@ -12,8 +12,10 @@ final class ProfileViewController: UIViewController {
     var output: ProfileViewOutput!
     
     private(set) var loadingView = LoadingView()
+    
     private let contentView = UIView()
     private let noAccountView = NoAccountView()
+    private let imagePicker = UIImagePickerController()
     
     private let profilePictureImageView = UIImageView()
     private let backgroundProfileImageView = UIImageView()
@@ -64,12 +66,19 @@ final class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupImagePicker()
         output.viewWillAppear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupBackBarButton()
+    }
+    
+    @objc
+    private func handleEditButton() {
+        output.didTapOnEditButton()
     }
     
     @objc
@@ -177,6 +186,7 @@ final class ProfileViewController: UIViewController {
         editButton.setTitle(output.editButtonTitle, for: .normal)
         editButton.titleLabel?.font = .editProfileButton
         editButton.setTitleColor(.lightGray, for: .normal)
+        editButton.addTarget(self, action: #selector(handleEditButton), for: .touchUpInside)
         
         editButton.snp.makeConstraints { make in
             make.top.equalTo(usernameLabel.snp.bottom).offset(Constants.EditButton.insetTop)
@@ -219,6 +229,10 @@ final class ProfileViewController: UIViewController {
         navigationItem.backBarButtonItem = backBarButton
     }
     
+    private func setupImagePicker() {
+        imagePicker.delegate = self
+    }
+    
 }
 
 // MARK: - ProfileViewInput
@@ -243,6 +257,21 @@ extension ProfileViewController: ProfileViewInput {
     
     func updateUsername(_ username: String) {
         usernameLabel.text = username
+    }
+    
+    func showImagePicker() {
+        present(imagePicker, animated: true)
+    }
+    
+}
+
+extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        profilePictureImageView.image = image
     }
     
 }

@@ -44,10 +44,19 @@ extension ProfilePresenter: ProfileViewOutput {
         router.showLogInScene()
     }
     
+    func didTapOnEditButton() {
+        view?.showImagePicker()
+    }
+    
     func didTapOnLogOutButton() {
-        user = nil
-        interactor.logOut()
-        view?.hideContent()
+        interactor.logOut { error in
+            if let error = error {
+                router.presentErrorAlert(with: error.description)
+            } else {
+                user = nil
+                view?.hideContent()
+            }
+        }
     }
     
 }
