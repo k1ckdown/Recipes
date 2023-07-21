@@ -11,31 +11,37 @@ final class MealRepository {
     
     private var favoriteMeals = [Meal]()
     
-    private let authService: AuthService
     private let networkManager: NetworkManager
+    private let authService: AuthServiceProtocol
     
-    private let localDataSource: MealLocalDataSource
-    private let remoteDataSource: MealRemoteDataSource
+    private let localDataSource: MealLocalDataSourceProtocol
+    private let remoteDataSource: MealRemoteDataSourceProtocol
     
     init(
         networkManager: NetworkManager,
-        mealDataSource: MealLocalDataSource,
-        authService: AuthService
+        localDataSource: MealLocalDataSourceProtocol,
+        remoteDataSource: MealRemoteDataSourceProtocol,
+        authService: AuthServiceProtocol
     ) {
         self.networkManager = networkManager
-        self.localDataSource = mealDataSource
+        self.localDataSource = localDataSource
         self.authService = authService
-        remoteDataSource = .init()
+        self.remoteDataSource = remoteDataSource
         
         fetchMealList()
     }
     
-    func updateFavoriteMeals() {
-        fetchRemoteMealList()
-    }
+}
+
+extension MealRepository: MealRepositoryProtocol {
     
     func getFavoriteMealList() -> [Meal] {
         favoriteMeals
+    }
+    
+    func updateFavoriteMeals() {
+        guard let uid = authService.getUserId() else { return }
+        fetchRemoteMealList(uid)
     }
     
     func removeFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
@@ -50,6 +56,7 @@ final class MealRepository {
         favoriteMeals.removeAll(where: { $0 == meal })
         localDataSource.deleteMeal(meal)
         remoteDataSource.deleteMeal(meal, uid: uid)
+        completion(nil)
     }
     
     func putFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
@@ -65,6 +72,7 @@ final class MealRepository {
         favoriteMeals.append(meal)
         localDataSource.saveMeal(meal, uid: uid)
         remoteDataSource.saveMeal(meal, uid: uid)
+        completion(nil)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -157,12 +165,11 @@ final class MealRepository {
 private extension MealRepository {
     
     func fetchMealList() {
-        NetworkMonitor.shared.isConnected ? fetchRemoteMealList() : fetchLocalMealList()
+        guard let uid = authService.getUserId() else { return }
+        NetworkMonitor.shared.isConnected ? fetchRemoteMealList(uid) : fetchLocalMealList(uid)
     }
     
-    func fetchLocalMealList() {
-        guard let uid = authService.getUserId() else { return }
-        
+    func fetchLocalMealList(_ uid: String) {
         localDataSource.getMealList(uid) { result in
             switch result {
             case .success(let mealList):
@@ -173,9 +180,7 @@ private extension MealRepository {
         }
     }
     
-    func fetchRemoteMealList() {
-        guard let uid = authService.getUserId() else { return }
-        
+    func fetchRemoteMealList(_ uid: String) {
         remoteDataSource.fetchMeal(uid) { result in
             switch result {
             case .success(let meals):

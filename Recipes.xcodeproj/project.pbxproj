@@ -63,6 +63,10 @@
 		494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFD92A5E74A400C80E56 /* MealTableView.swift */; };
 		494DFFDF2A5E88BF00C80E56 /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */; };
 		494DFFF02A5EBC7D00C80E56 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 494DFFEE2A5EBC7D00C80E56 /* Recipes.xcdatamodeld */; };
+		494FF6882A6ABB58001865F5 /* MealRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FF6872A6ABB58001865F5 /* MealRepositoryProtocol.swift */; };
+		494FF68A2A6AD5E7001865F5 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FF6892A6AD5E7001865F5 /* AuthServiceProtocol.swift */; };
+		494FF68D2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FF68C2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift */; };
+		494FF6902A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FF68F2A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift */; };
 		49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */; };
 		49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */; };
 		49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */; };
@@ -229,6 +233,10 @@
 		494DFFD92A5E74A400C80E56 /* MealTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableView.swift; sourceTree = "<group>"; };
 		494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 		494DFFEF2A5EBC7D00C80E56 /* Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipes.xcdatamodel; sourceTree = "<group>"; };
+		494FF6872A6ABB58001865F5 /* MealRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepositoryProtocol.swift; sourceTree = "<group>"; };
+		494FF6892A6AD5E7001865F5 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		494FF68C2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		494FF68F2A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
 		49542D502A5DBBAB009D4CC6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		49542D522A5DBBC1009D4CC6 /* FavoritesViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewInput.swift; sourceTree = "<group>"; };
 		49542D542A5DBBC7009D4CC6 /* FavoritesViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewOutput.swift; sourceTree = "<group>"; };
@@ -572,8 +580,8 @@
 		494918542A600CC700723E6A /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				494D00202A5EDF1600C80E56 /* MealLocalDataSource.swift */,
-				495E80AD2A6936740010AF3A /* MealRemoteDataSource.swift */,
+				494FF68E2A6AE899001865F5 /* MealLocal */,
+				494FF68B2A6AE822001865F5 /* MealRemote */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -695,6 +703,24 @@
 				494DFFDE2A5E88BF00C80E56 /* FavoritesDataSource.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		494FF68B2A6AE822001865F5 /* MealRemote */ = {
+			isa = PBXGroup;
+			children = (
+				495E80AD2A6936740010AF3A /* MealRemoteDataSource.swift */,
+				494FF68C2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift */,
+			);
+			path = MealRemote;
+			sourceTree = "<group>";
+		};
+		494FF68E2A6AE899001865F5 /* MealLocal */ = {
+			isa = PBXGroup;
+			children = (
+				494D00202A5EDF1600C80E56 /* MealLocalDataSource.swift */,
+				494FF68F2A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift */,
+			);
+			path = MealLocal;
 			sourceTree = "<group>";
 		};
 		49542D4E2A5DBB95009D4CC6 /* Favorites */ = {
@@ -915,6 +941,7 @@
 			children = (
 				4999B29F2A6191370099565A /* AuthService.swift */,
 				4999B2B22A61D9AC0099565A /* AuthError.swift */,
+				494FF6892A6AD5E7001865F5 /* AuthServiceProtocol.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1201,6 +1228,7 @@
 			children = (
 				49FF07D52A56997B007630D0 /* MealRepository.swift */,
 				495E80BE2A6970220010AF3A /* MealRepositoryError.swift */,
+				494FF6872A6ABB58001865F5 /* MealRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1335,6 +1363,7 @@
 				497F4C7F2A533F540073A86E /* HomeInteractorInput.swift in Sources */,
 				49E2913A2A612F7900FD73CF /* LogInInteractor.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
+				494FF68D2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
 				49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */,
 				497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */,
@@ -1376,8 +1405,10 @@
 				49542D552A5DBBC7009D4CC6 /* FavoritesViewOutput.swift in Sources */,
 				49E1FBD22A58625700D254C0 /* MealDetailRouter.swift in Sources */,
 				4949185E2A60577200723E6A /* ProfileViewInput.swift in Sources */,
+				494FF6882A6ABB58001865F5 /* MealRepositoryProtocol.swift in Sources */,
 				49AC62E82A59D83C00FA50CF /* MainTabBarRouter.swift in Sources */,
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
+				494FF68A2A6AD5E7001865F5 /* AuthServiceProtocol.swift in Sources */,
 				49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */,
 				49381E982A5AD7B000F8C6C3 /* MealListRouter.swift in Sources */,
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
@@ -1426,6 +1457,7 @@
 				494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */,
 				494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */,
 				494D00242A5EE25300C80E56 /* CDMealIngredient+CoreDataClass.swift in Sources */,
+				494FF6902A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift in Sources */,
 				49E1FBCF2A5861F900D254C0 /* MealDetailPresenter.swift in Sources */,
 				494D00212A5EDF1600C80E56 /* MealLocalDataSource.swift in Sources */,
 				49542D5F2A5DBC58009D4CC6 /* FavoritesPresenter.swift in Sources */,

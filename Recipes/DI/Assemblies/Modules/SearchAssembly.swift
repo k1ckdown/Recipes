@@ -12,8 +12,8 @@ final class SearchAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(SearchInteractor.self) { resolver in
-            guard let mealRepository = resolver.resolve(MealRepository.self) else {
-                fatalError("MealRepository dependency could not be resolved")
+            guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
+                fatalError("MealRepositoryProtocol dependency could not be resolved")
             }
             
             return SearchInteractor(mealRepository: mealRepository)

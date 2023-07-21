@@ -18,6 +18,10 @@ final class MealRemoteDataSource {
     
     private let database = Firestore.firestore()
     
+}
+
+extension MealRemoteDataSource: MealRemoteDataSourceProtocol {
+    
     func deleteMeal(_ meal: Meal, uid: String) {
         guard
             let mealIndex = favoriteMealDtos.firstIndex(where: { $0.id == meal.id }),

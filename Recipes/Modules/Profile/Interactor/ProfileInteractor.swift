@@ -11,10 +11,10 @@ final class ProfileInteractor {
     
     weak var output: ProfileInteractorOutput?
     
-    private let authService: AuthService
-    private let mealRepository: MealRepository
+    private let authService: AuthServiceProtocol
+    private let mealRepository: MealRepositoryProtocol
     
-    init(authService: AuthService, mealRepository: MealRepository) {
+    init(authService: AuthServiceProtocol, mealRepository: MealRepositoryProtocol) {
         self.authService = authService
         self.mealRepository = mealRepository
     }

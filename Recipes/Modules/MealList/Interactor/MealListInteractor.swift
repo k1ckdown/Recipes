@@ -12,9 +12,9 @@ final class MealListInteractor {
     weak var output: MealListInteractorOutput?
     
     private let listType: MealListType
-    private let mealRepository: MealRepository
+    private let mealRepository: MealRepositoryProtocol
     
-    init(mealRepository: MealRepository, listType: MealListType) {
+    init(mealRepository: MealRepositoryProtocol, listType: MealListType) {
         self.listType = listType
         self.mealRepository = mealRepository
     }

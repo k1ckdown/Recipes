@@ -11,10 +11,10 @@ final class FavoritesInteractor {
     
     weak var output: FavoritesInteractorOutput?
     
-    private let authService: AuthService
-    private let mealRepository: MealRepository
+    private let authService: AuthServiceProtocol
+    private let mealRepository: MealRepositoryProtocol
     
-    init(mealRepository: MealRepository, authService: AuthService) {
+    init(mealRepository: MealRepositoryProtocol, authService: AuthServiceProtocol) {
         self.authService = authService
         self.mealRepository = mealRepository
     }

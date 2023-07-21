@@ -12,8 +12,8 @@ final class MealListAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(MealListInteractor.self) { (resolver, listType: MealListType) in
-            guard let mealRepository = resolver.resolve(MealRepository.self) else {
-                fatalError("MealRepository dependency could not be resolved")
+            guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
+                fatalError("MealRepositoryProtocol dependency could not be resolved")
             }
             
             return MealListInteractor(mealRepository: mealRepository, listType: listType)

@@ -11,9 +11,9 @@ final class HomeInteractor {
     
     weak var output: HomeInteractorOutput?
     
-    private let mealRepository: MealRepository
+    private let mealRepository: MealRepositoryProtocol
     
-    init(mealRepository: MealRepository) {
+    init(mealRepository: MealRepositoryProtocol) {
         self.mealRepository = mealRepository
     }
     

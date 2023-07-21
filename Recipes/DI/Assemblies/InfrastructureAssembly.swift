@@ -11,7 +11,7 @@ final class InfrastructureAssembly: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(AuthService.self) { resolver in
+        container.register(AuthServiceProtocol.self) { resolver in
             return AuthService()
         }
         .inObjectScope(.container)
@@ -21,26 +21,36 @@ final class InfrastructureAssembly: Assembly {
         }
         .inObjectScope(.container)
         
-        container.register(MealLocalDataSource.self) { _ in
+        container.register(MealLocalDataSourceProtocol.self) { _ in
             return MealLocalDataSource()
         }
         .inObjectScope(.container)
         
-        container.register(MealRepository.self) { resolver in
+        container.register(MealRemoteDataSourceProtocol.self) { resolver in
+            return MealRemoteDataSource()
+        }
+        .inObjectScope(.container)
+        
+        container.register(MealRepositoryProtocol.self) { resolver in
             guard let networkManager = resolver.resolve(NetworkManager.self) else {
                 fatalError("NetworkManager dependency could not be resolved")
             }
             
-            guard let mealLocalDataSource = resolver.resolve(MealLocalDataSource.self) else {
-                fatalError("MealLocalDataSource dependency could not be resolved")
+            guard let mealLocalDataSource = resolver.resolve(MealLocalDataSourceProtocol.self) else {
+                fatalError("MealLocalDataSourceProtocol dependency could not be resolved")
             }
             
-            guard let authService = resolver.resolve(AuthService.self) else {
-                fatalError("AuthService dependency could not be resolved")
+            guard let mealRemoteDataSource = resolver.resolve(MealRemoteDataSourceProtocol.self) else {
+                fatalError("MealRemoteDataSourceProtocol dependency could not be resolved")
+            }
+            
+            guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
+                fatalError("AuthServiceProtocol dependency could not be resolved")
             }
             
             return MealRepository(networkManager: networkManager,
-                                  mealDataSource: mealLocalDataSource,
+                                  localDataSource: mealLocalDataSource,
+                                  remoteDataSource: mealRemoteDataSource,
                                   authService: authService)
         }
         .inObjectScope(.container)

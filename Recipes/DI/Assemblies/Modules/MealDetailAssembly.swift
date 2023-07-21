@@ -12,8 +12,8 @@ final class MealDetailAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(MealDetailInteractor.self) { (resolver, mealId: String) in
-            guard let mealRepository = resolver.resolve(MealRepository.self) else {
-                fatalError("MealRepository dependency could not be resolved")
+            guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
+                fatalError("MealRepositoryProtocol dependency could not be resolved")
             }
             
             return MealDetailInteractor(mealRepository: mealRepository, mealId: mealId)

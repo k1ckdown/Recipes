@@ -17,6 +17,10 @@ final class MealLocalDataSource {
         self.context = CoreDataManager.shared.context
     }
     
+}
+
+extension MealLocalDataSource: MealLocalDataSourceProtocol {
+    
     func deleteMeal(_ meal: Meal) {
         guard let cdMealIndex = cdMeals.firstIndex(where: { $0.id == meal.id }) else { return }
         context.delete(cdMeals[cdMealIndex])

@@ -12,9 +12,9 @@ final class MealDetailInteractor {
     weak var output: MealDetailInteractorOutput?
     
     private let mealId: String
-    private let mealRepository: MealRepository
+    private let mealRepository: MealRepositoryProtocol
     
-    init(mealRepository: MealRepository, mealId: String) {
+    init(mealRepository: MealRepositoryProtocol, mealId: String) {
         self.mealId = mealId
         self.mealRepository = mealRepository
     }

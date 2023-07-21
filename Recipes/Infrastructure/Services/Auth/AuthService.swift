@@ -24,6 +24,10 @@ final class AuthService {
         }
     }
     
+}
+
+extension AuthService: AuthServiceProtocol {
+    
     func getUserId() -> String? {
         return auth.currentUser?.uid
     }
