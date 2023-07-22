@@ -12,6 +12,6 @@ protocol ProfileViewOutput: AnyObject {
     
     func viewWillAppear()
     func didTapOnLogIn()
-    func didTapOnEditButton()
     func didTapOnLogOutButton()
+    func didTapOnEditProfilePictureButton()
 }

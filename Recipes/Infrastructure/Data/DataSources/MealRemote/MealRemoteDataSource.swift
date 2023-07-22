@@ -29,6 +29,7 @@ extension MealRemoteDataSource: MealRemoteDataSourceProtocol {
         else { return }
         
         documentRef.delete()
+        favoriteMealDtos.remove(at: mealIndex)
     }
     
     func saveMeal(_ meal: Meal, uid: String) {

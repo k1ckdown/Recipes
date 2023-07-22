@@ -14,21 +14,29 @@ final class LogInViewController: UIViewController, Keyboardable {
  
     private(set) var loadingView = LoadingView()
     private let contentView = UIView()
+    
+    private let divider = Divider()
+    private let logInLabel = UILabel()
     private let errorLabel = UILabel()
     
-    private let logInLabel = UILabel()
-    private let logInButton = UIButton(type: .system)
-    
     private let textFieldsStackView = UIStackView()
+    private let loginButtonsStackView = UIStackView()
+    private let loginProviderButtonsStackView = UIStackView()
+    
+    private let logInButton = UIButton(type: .system)
+    private let logInAppleButton = LoginProviderButton(style: .apple)
+    private let logInGoogleButton = LoginProviderButton(style: .google)
+    
+    private let emailTextField = LoginTextField(style: .email)
     private let usernameTextField = LoginTextField(style: .username)
     private let passwordTextField = LoginTextField(style: .password)
-    private let emailTextField = LoginTextField(style: .email)
     private let confirmPasswordTextField = LoginTextField(style: .confirmPassword)
     
     private let promptLabel = UILabel()
     private let promptButton = UIButton(type: .system)
     
     private var logInLabelTopConstraint: Constraint?
+    private var loginButtonsStackViewConstraint: Constraint?
     private var textFieldsStackViewHeightConstraint: Constraint?
     
     private enum Constants {
@@ -42,16 +50,25 @@ final class LogInViewController: UIViewController, Keyboardable {
             enum TextFieldsStackView {
                 static let insetTop = 30
                 static let primaryHeight = 200
-                static let secondaryHeight = 400
+                static let secondaryHeight = 350
                 static let multiplierWidth = 0.8
                 static let spacing: CGFloat = 15
             }
             
-            enum LogInButton {
-                static let height = 50
-                static let width = 130
+            enum LoginButtonsStackView {
                 static let insetTop = 12
-                static let cornerRadius: CGFloat = 20
+                static let insetSide = 30
+                static let primaryHeight = 180
+                static let secondaryHeight = 50
+                static let spacing: CGFloat = 10
+            }
+        
+            enum LoginProviderButtonsStackView {
+                static let spacing: CGFloat = 20
+            }
+            
+            enum LogInButton {
+                static let cornerRadius: CGFloat = 10
             }
             
             enum PromptLabel {
@@ -92,6 +109,16 @@ final class LogInViewController: UIViewController, Keyboardable {
     }
     
     @objc
+    private func handleLogInAppleButton() {
+        
+    }
+    
+    @objc
+    private func handleLogInGoogleButton() {
+        
+    }
+    
+    @objc
     private func handlePromptButton() {
         output.didTapOnPromptButton()
     }
@@ -121,7 +148,12 @@ final class LogInViewController: UIViewController, Keyboardable {
         setupPasswordTextField()
         setupConfirmPasswordTextField()
         setupErrorLabel()
+        setupLoginButtonsStackView()
         setupLogInButton()
+        setupDivider()
+        setupLoginProviderButtonsStackView()
+        setupLogInAppleButton()
+        setupLogInGoogleButton()
         setupPromptLabel()
         setupPromptButton()
         setupLoadingView()
@@ -204,32 +236,63 @@ final class LogInViewController: UIViewController, Keyboardable {
         }
     }
     
+    private func setupLoginButtonsStackView() {
+        contentView.addSubview(loginButtonsStackView)
+        
+        loginButtonsStackView.axis = .vertical
+        loginButtonsStackView.distribution = .fillEqually
+        loginButtonsStackView.backgroundColor = .clear
+        loginButtonsStackView.spacing = Constants.LoginButtonsStackView.spacing
+        
+        loginButtonsStackView.snp.makeConstraints { make in
+            loginButtonsStackViewConstraint = make.height.equalTo(Constants.LoginButtonsStackView.primaryHeight).constraint
+            make.leading.trailing.equalToSuperview().inset(Constants.LoginButtonsStackView.insetSide)
+            make.top.equalTo(errorLabel.snp.bottom).offset(Constants.LoginButtonsStackView.insetTop)
+        }
+    }
+    
     private func setupLogInButton() {
-        contentView.addSubview(logInButton)
+        loginButtonsStackView.addArrangedSubview(logInButton)
         
         logInButton.setTitleColor(.appWhite, for: .normal)
         logInButton.backgroundColor = .appBlack
         logInButton.titleLabel?.font = .logInButton
         logInButton.layer.cornerRadius = Constants.LogInButton.cornerRadius
         logInButton.addTarget(self, action: #selector(handleLogInButton), for: .touchUpInside)
+    }
+    
+    private func setupDivider() {
+        loginButtonsStackView.addArrangedSubview(divider)
+        divider.titleLabel = output.dividerTitle
+    }
+    
+    private func setupLoginProviderButtonsStackView() {
+        loginButtonsStackView.addArrangedSubview(loginProviderButtonsStackView)
         
-        logInButton.snp.makeConstraints { make in
-            make.height.equalTo(Constants.LogInButton.height)
-            make.width.equalTo(Constants.LogInButton.width)
-            make.top.equalTo(errorLabel.snp.bottom).offset(Constants.LogInButton.insetTop)
-            make.centerX.equalToSuperview()
-        }
+        loginProviderButtonsStackView.axis = .horizontal
+        loginProviderButtonsStackView.distribution = .fillEqually
+        loginProviderButtonsStackView.spacing = Constants.LoginProviderButtonsStackView.spacing
+    }
+    
+    private func setupLogInAppleButton() {
+        loginProviderButtonsStackView.addArrangedSubview(logInAppleButton)
+        logInAppleButton.addTarget(self, action: #selector(handleLogInAppleButton), for: .touchUpInside)
+    }
+    
+    private func setupLogInGoogleButton() {
+        loginProviderButtonsStackView.addArrangedSubview(logInGoogleButton)
+        logInGoogleButton.addTarget(self, action: #selector(handleLogInGoogleButton), for: .touchUpInside)
     }
     
     private func setupPromptLabel() {
         contentView.addSubview(promptLabel)
         
         promptLabel.textColor = .appWhite
-        promptLabel.textAlignment = .right
         promptLabel.font = .promptLabel
+        promptLabel.textAlignment = .right
         
         promptLabel.snp.makeConstraints { make in
-            make.top.equalTo(logInButton.snp.bottom).offset(Constants.PromptLabel.insetTop)
+            make.top.equalTo(loginButtonsStackView.snp.bottom).offset(Constants.PromptLabel.insetTop)
             make.centerX.equalToSuperview().offset(Constants.PromptLabel.insetCenterX)
         }
     }
@@ -243,7 +306,7 @@ final class LogInViewController: UIViewController, Keyboardable {
         
         promptButton.snp.makeConstraints { make in
             make.leading.equalTo(promptLabel.snp.trailing).offset(Constants.PromptButton.insetLeading)
-            make.top.equalTo(logInButton.snp.bottom).offset(Constants.PromptButton.insetTop)
+            make.top.equalTo(loginButtonsStackView.snp.bottom).offset(Constants.PromptButton.insetTop)
         }
     }
     
@@ -297,8 +360,11 @@ extension LogInViewController: LogInViewInput {
     func applyLoginAppearance(withAnimation: Bool = true) {
         usernameTextField.isHidden = true
         confirmPasswordTextField.isHidden = true
-        textFieldsStackViewHeightConstraint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
+        divider.isHidden = false
+        loginProviderButtonsStackView.isHidden = false
         
+        textFieldsStackViewHeightConstraint?.update(offset: Constants.TextFieldsStackView.primaryHeight)
+        loginButtonsStackViewConstraint?.update(offset: Constants.LoginButtonsStackView.primaryHeight)
         if withAnimation {
             animate(with: .transitionCurlUp)
         }
@@ -312,7 +378,11 @@ extension LogInViewController: LogInViewInput {
     func applySignUpAppearance() {
         usernameTextField.isHidden = false
         confirmPasswordTextField.isHidden = false
+        divider.isHidden = true
+        loginProviderButtonsStackView.isHidden = true
+        
         textFieldsStackViewHeightConstraint?.update(offset: Constants.TextFieldsStackView.secondaryHeight)
+        loginButtonsStackViewConstraint?.update(offset: Constants.LoginButtonsStackView.secondaryHeight)
         animate(with: .transitionCurlDown)
         
         logInLabel.text = output.signUpLogInLabelText

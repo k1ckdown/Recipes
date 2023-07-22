@@ -21,7 +21,7 @@ final class ProfileViewController: UIViewController {
     private let backgroundProfileImageView = UIImageView()
     
     private let usernameLabel = UILabel()
-    private let editButton = UIButton(type: .system)
+    private let editProfilePictureButton = UIButton(type: .system)
     
     private let optionsStackView = UIStackView()
     
@@ -77,11 +77,6 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc
-    private func handleEditButton() {
-        output.didTapOnEditButton()
-    }
-    
-    @objc
     private func handlePersonalInfoButton() {
         
     }
@@ -96,6 +91,11 @@ final class ProfileViewController: UIViewController {
         output.didTapOnLogOutButton()
     }
     
+    @objc
+    private func handleEditProfilePictureButton() {
+        output.didTapOnEditProfilePictureButton()
+    }
+    
     private func setup() {
         setupSuperView()
         setupLoadingView()
@@ -104,7 +104,7 @@ final class ProfileViewController: UIViewController {
         setupBackgroundProfileImageView()
         setupProfilePictureImageView()
         setupUsernameLabel()
-        setupEditButton()
+        setupEditProfilePictureButton()
         setupOptionsStackView()
         setupPersonalInfoButton()
         setupMyRecipesButton()
@@ -153,7 +153,7 @@ final class ProfileViewController: UIViewController {
     private func setupProfilePictureImageView() {
         contentView.addSubview(profilePictureImageView)
         
-        profilePictureImageView.contentMode = .scaleToFill
+        profilePictureImageView.contentMode = .scaleAspectFit
         profilePictureImageView.clipsToBounds = true
         profilePictureImageView.layer.cornerRadius = Constants.ProfilePictureImageView.cornerRadius
         profilePictureImageView.layer.borderWidth = Constants.ProfilePictureImageView.borderWidth
@@ -180,15 +180,15 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    private func setupEditButton() {
-        contentView.addSubview(editButton)
+    private func setupEditProfilePictureButton() {
+        contentView.addSubview(editProfilePictureButton)
         
-        editButton.setTitle(output.editButtonTitle, for: .normal)
-        editButton.titleLabel?.font = .editProfileButton
-        editButton.setTitleColor(.lightGray, for: .normal)
-        editButton.addTarget(self, action: #selector(handleEditButton), for: .touchUpInside)
+        editProfilePictureButton.setTitle(output.editButtonTitle, for: .normal)
+        editProfilePictureButton.titleLabel?.font = .editProfileButton
+        editProfilePictureButton.setTitleColor(.lightGray, for: .normal)
+        editProfilePictureButton.addTarget(self, action: #selector(handleEditProfilePictureButton), for: .touchUpInside)
         
-        editButton.snp.makeConstraints { make in
+        editProfilePictureButton.snp.makeConstraints { make in
             make.top.equalTo(usernameLabel.snp.bottom).offset(Constants.EditButton.insetTop)
             make.centerX.equalToSuperview()
         }
@@ -202,7 +202,7 @@ final class ProfileViewController: UIViewController {
         optionsStackView.spacing = Constants.OptionsStackView.spacing
         
         optionsStackView.snp.makeConstraints { make in
-            make.top.equalTo(editButton.snp.bottom).offset(Constants.OptionsStackView.insetTop)
+            make.top.equalTo(editProfilePictureButton.snp.bottom).offset(Constants.OptionsStackView.insetTop)
             make.leading.trailing.equalToSuperview().inset(Constants.OptionsStackView.insetSide)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.OptionsStackView.insetBottom)
         }

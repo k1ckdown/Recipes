@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LogInViewOutput: AnyObject {
+    var dividerTitle: String { get }
     var loginLogInLabelText: String { get }
     var loginLogInButtonTitle: String { get }
     var loginPromptLabelText: String { get }

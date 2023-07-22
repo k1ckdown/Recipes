@@ -9,6 +9,7 @@ import Foundation
 
 final class LogInPresenter {
     
+    private(set) var dividerTitle = "Or login with"
     private(set) var loginLogInLabelText = "Login"
     private(set) var loginLogInButtonTitle = "LOG IN"
     private(set) var loginPromptButtonTitle = "Sign Up"
