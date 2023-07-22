@@ -21,5 +21,7 @@ protocol LogInViewOutput: AnyObject {
     
     func viewDidLoad()
     func didTapOnPromptButton()
+    func didTapOnLogInAppleButton()
+    func didTapOnLogInGoogleButton()
     func didTapOnLogInButton(username: String?, email: String?, password: String?, confirmPassword: String?)
 }

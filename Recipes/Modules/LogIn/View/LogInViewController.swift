@@ -110,12 +110,12 @@ final class LogInViewController: UIViewController, Keyboardable {
     
     @objc
     private func handleLogInAppleButton() {
-        
+        output.didTapOnLogInAppleButton()
     }
     
     @objc
     private func handleLogInGoogleButton() {
-        
+        output.didTapOnLogInGoogleButton()
     }
     
     @objc

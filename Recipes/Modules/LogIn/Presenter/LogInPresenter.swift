@@ -50,6 +50,14 @@ extension LogInPresenter: LogInViewOutput {
         updateLogInState()
     }
     
+    func didTapOnLogInAppleButton() {
+        
+    }
+    
+    func didTapOnLogInGoogleButton() {
+        
+    }
+    
     func didTapOnLogInButton(username: String?, email: String?, password: String?, confirmPassword: String?) {
         guard
             let username = username,

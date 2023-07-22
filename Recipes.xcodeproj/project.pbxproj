@@ -110,6 +110,15 @@
 		499018AB2A6BBE7C003E27F7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 499018AA2A6BBE7C003E27F7 /* FirebaseFirestoreSwift */; };
 		499018B02A6BBF04003E27F7 /* LoginProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */; };
 		499018B22A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */; };
+		499018B92A6C041D003E27F7 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018B82A6C041D003E27F7 /* PersonalInfoViewController.swift */; };
+		499018BB2A6C0437003E27F7 /* PersonalInfoViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018BA2A6C0437003E27F7 /* PersonalInfoViewInput.swift */; };
+		499018BD2A6C043D003E27F7 /* PersonalInfoViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018BC2A6C043D003E27F7 /* PersonalInfoViewOutput.swift */; };
+		499018BF2A6C049C003E27F7 /* PersonalInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018BE2A6C049C003E27F7 /* PersonalInfoPresenter.swift */; };
+		499018C12A6C04BC003E27F7 /* PersonalInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018C02A6C04BC003E27F7 /* PersonalInfoInteractor.swift */; };
+		499018C32A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018C22A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift */; };
+		499018C52A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018C42A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift */; };
+		499018C72A6C0516003E27F7 /* PersonalInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018C62A6C0516003E27F7 /* PersonalInfoRouter.swift */; };
+		499018C92A6C0521003E27F7 /* PersonalInfoRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018C82A6C0521003E27F7 /* PersonalInfoRouterInput.swift */; };
 		4999B2A02A6191370099565A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999B29F2A6191370099565A /* AuthService.swift */; };
 		4999B2A22A6194E90099565A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999B2A12A6194E90099565A /* User.swift */; };
 		4999B2A42A6195D10099565A /* AuthSignUpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999B2A32A6195D10099565A /* AuthSignUpData.swift */; };
@@ -275,6 +284,15 @@
 		499018962A6BABBB003E27F7 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProviderButton.swift; sourceTree = "<group>"; };
 		499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderButtonStyle.swift; sourceTree = "<group>"; };
+		499018B82A6C041D003E27F7 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		499018BA2A6C0437003E27F7 /* PersonalInfoViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewInput.swift; sourceTree = "<group>"; };
+		499018BC2A6C043D003E27F7 /* PersonalInfoViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewOutput.swift; sourceTree = "<group>"; };
+		499018BE2A6C049C003E27F7 /* PersonalInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoPresenter.swift; sourceTree = "<group>"; };
+		499018C02A6C04BC003E27F7 /* PersonalInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoInteractor.swift; sourceTree = "<group>"; };
+		499018C22A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoInteractorInput.swift; sourceTree = "<group>"; };
+		499018C42A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoInteractorOutput.swift; sourceTree = "<group>"; };
+		499018C62A6C0516003E27F7 /* PersonalInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoRouter.swift; sourceTree = "<group>"; };
+		499018C82A6C0521003E27F7 /* PersonalInfoRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoRouterInput.swift; sourceTree = "<group>"; };
 		4999B29F2A6191370099565A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		4999B2A12A6194E90099565A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4999B2A32A6195D10099565A /* AuthSignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpData.swift; sourceTree = "<group>"; };
@@ -834,6 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
+				499018B32A6C030D003E27F7 /* PersonalInfo */,
 				49AC62E12A59D35400FA50CF /* TabBar */,
 				49E2912C2A612F1100FD73CF /* LogIn */,
 				494918562A60573000723E6A /* Profile */,
@@ -953,6 +972,54 @@
 				499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */,
 			);
 			path = LoginProviderButton;
+			sourceTree = "<group>";
+		};
+		499018B32A6C030D003E27F7 /* PersonalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				499018B72A6C035C003E27F7 /* View */,
+				499018B62A6C0356003E27F7 /* Presenter */,
+				499018B52A6C0342003E27F7 /* Interactor */,
+				499018B42A6C033A003E27F7 /* Router */,
+			);
+			path = PersonalInfo;
+			sourceTree = "<group>";
+		};
+		499018B42A6C033A003E27F7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				499018C62A6C0516003E27F7 /* PersonalInfoRouter.swift */,
+				499018C82A6C0521003E27F7 /* PersonalInfoRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		499018B52A6C0342003E27F7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				499018C02A6C04BC003E27F7 /* PersonalInfoInteractor.swift */,
+				499018C22A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift */,
+				499018C42A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		499018B62A6C0356003E27F7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				499018BE2A6C049C003E27F7 /* PersonalInfoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		499018B72A6C035C003E27F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				499018B82A6C041D003E27F7 /* PersonalInfoViewController.swift */,
+				499018BA2A6C0437003E27F7 /* PersonalInfoViewInput.swift */,
+				499018BC2A6C043D003E27F7 /* PersonalInfoViewOutput.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4999B29D2A61911F0099565A /* Services */ = {
@@ -1244,8 +1311,8 @@
 		49E291522A6167EE00FD73CF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				49E291502A6167E900FD73CF /* NoAccountView.swift */,
 				499018962A6BABBB003E27F7 /* Divider.swift */,
+				49E291502A6167E900FD73CF /* NoAccountView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1358,6 +1425,7 @@
 				49B4F87F2A55634200E91A3A /* NetworkError.swift in Sources */,
 				49E1FBD42A58625D00D254C0 /* MealDetailRouterInput.swift in Sources */,
 				49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */,
+				499018B92A6C041D003E27F7 /* PersonalInfoViewController.swift in Sources */,
 				49E2914B2A6137A700FD73CF /* LoginTextField.swift in Sources */,
 				49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */,
 				49AC62E42A59D37300FA50CF /* TabFlow.swift in Sources */,
@@ -1401,6 +1469,7 @@
 				494918602A60577E00723E6A /* ProfileViewOutput.swift in Sources */,
 				49381E8E2A5AD77800F8C6C3 /* MealListViewOutput.swift in Sources */,
 				497F4C7B2A533EDC0073A86E /* HomeViewInput.swift in Sources */,
+				499018C52A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift in Sources */,
 				497F4C8D2A5363A60073A86E /* HeaderView.swift in Sources */,
 				497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */,
 				49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */,
@@ -1421,6 +1490,7 @@
 				49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */,
 				4999B2A42A6195D10099565A /* AuthSignUpData.swift in Sources */,
 				49AC62DD2A59A3D400FA50CF /* ModuleAssembly.swift in Sources */,
+				499018C92A6C0521003E27F7 /* PersonalInfoRouterInput.swift in Sources */,
 				494918742A606F8A00723E6A /* ProfileButton.swift in Sources */,
 				49381E922A5AD79000F8C6C3 /* MealListInteractor.swift in Sources */,
 				49381E832A5AB31000F8C6C3 /* SearchAssembly.swift in Sources */,
@@ -1447,11 +1517,13 @@
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,
 				49542D5A2A5DBC08009D4CC6 /* FavoritesInteractorInput.swift in Sources */,
+				499018BD2A6C043D003E27F7 /* PersonalInfoViewOutput.swift in Sources */,
 				497F4C6D2A5337A40073A86E /* HomeRouter.swift in Sources */,
 				49381E692A5AA2D400F8C6C3 /* SearchDataSource.swift in Sources */,
 				49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */,
 				494D00252A5EE25300C80E56 /* CDMealIngredient+CoreDataProperties.swift in Sources */,
 				49B4F88D2A5578B000E91A3A /* URLParameterEncoder.swift in Sources */,
+				499018C72A6C0516003E27F7 /* PersonalInfoRouter.swift in Sources */,
 				495E80BF2A6970220010AF3A /* MealRepositoryError.swift in Sources */,
 				4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */,
 				49FF07DE2A569BF3007630D0 /* Ingredient.swift in Sources */,
@@ -1459,6 +1531,7 @@
 				49E291402A612FB100FD73CF /* LogInRouter.swift in Sources */,
 				495E80AE2A6936740010AF3A /* MealRemoteDataSource.swift in Sources */,
 				49E1FBDB2A58AF2F00D254C0 /* MealDetailSegment.swift in Sources */,
+				499018C12A6C04BC003E27F7 /* PersonalInfoInteractor.swift in Sources */,
 				49E291362A612F4500FD73CF /* LogInViewOutput.swift in Sources */,
 				49FF07D82A569BD3007630D0 /* Area.swift in Sources */,
 				497F4C772A533E340073A86E /* HomeInteractorOutput.swift in Sources */,
@@ -1469,8 +1542,10 @@
 				49E2913E2A612F8400FD73CF /* LogInInteractorOutput.swift in Sources */,
 				49B4F88B2A55774B00E91A3A /* ParameterEncoding.swift in Sources */,
 				49381E752A5AA8B400F8C6C3 /* SearchViewOutput.swift in Sources */,
+				499018C32A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift in Sources */,
 				49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */,
 				49B4F8882A5573CB00E91A3A /* HTTPTask.swift in Sources */,
+				499018BF2A6C049C003E27F7 /* PersonalInfoPresenter.swift in Sources */,
 				49381E792A5AA91400F8C6C3 /* SearchInteractorInput.swift in Sources */,
 				497F4C812A5348D80073A86E /* AppRouter.swift in Sources */,
 				49AC62DF2A59A42B00FA50CF /* MealDetailAssembly.swift in Sources */,
@@ -1503,6 +1578,7 @@
 				49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */,
 				49E291322A612F3900FD73CF /* LogInViewController.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,
+				499018BB2A6C0437003E27F7 /* PersonalInfoViewInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
