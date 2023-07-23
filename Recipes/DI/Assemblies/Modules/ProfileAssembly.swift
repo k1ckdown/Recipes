@@ -12,15 +12,15 @@ final class ProfileAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(ProfileInteractor.self) { resolver in
-            guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
-                fatalError("MealRepositoryProtocol dependency could not be resolved")
+            guard let userRepository = resolver.resolve(UserRepository.self) else {
+                fatalError("UserRepository dependency could not be resolved")
             }
             
             guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
                 fatalError("AuthServiceProtocol dependency could not be resolved")
             }
             
-            return ProfileInteractor(authService: authService, mealRepository: mealRepository)
+            return ProfileInteractor(authService: authService, userRepository: userRepository)
         }
         
         container.register(ProfileRouter.self) { (_, view: ProfileViewController) in

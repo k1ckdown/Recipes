@@ -1,21 +1,21 @@
 //
-//  User.swift
+//  UserDTO.swift
 //  Recipes
 //
-//  Created by Ivan Semenov on 14.07.2023.
+//  Created by Ivan Semenov on 24.07.2023.
 //
 
 import Foundation
 
-struct User {
+struct UserDTO: Codable {
     var id: String
     var username: String
     var email: String
     var dateOfBirth: Date?
-    var sex: Sex?
+    var sex: SexDTO?
 }
 
-enum Sex: CaseIterable {
+enum SexDTO: Codable {
     case male
     case female
 }

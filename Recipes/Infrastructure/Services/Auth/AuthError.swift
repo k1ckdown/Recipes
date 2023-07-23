@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum AuthError: Error {
     case invalidEmail
@@ -38,6 +39,23 @@ enum AuthError: Error {
             return "Failed to log out"
         case .passwordsDoNotmatch:
             return "Passwords don't match"
+        }
+    }
+    
+    static func feedback(for error: NSError) -> AuthError {
+        switch AuthErrorCode.Code(rawValue: error.code) {
+        case .invalidEmail:
+            return .invalidEmail
+        case .userNotFound:
+            return .userNotFound
+        case .tooManyRequests:
+            return .tooManyRequests
+        case .wrongPassword:
+            return .wrongPassword
+        case .weakPassword:
+            return .weakPassword
+        default:
+            return .requestFailed
         }
     }
     

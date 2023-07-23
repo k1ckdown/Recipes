@@ -85,6 +85,8 @@
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
 		49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* AreaViewCell.swift */; };
 		4972C9F52A6DB0D500D9CF40 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */; };
+		4972C9F92A6DB3CE00D9CF40 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972C9F82A6DB3CE00D9CF40 /* UserDTO.swift */; };
+		4972C9FC2A6DB47C00D9CF40 /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972C9FB2A6DB47C00D9CF40 /* UserRemoteDataSource.swift */; };
 		497F4C602A5336DD0073A86E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 497F4C5F2A5336DD0073A86E /* SnapKit */; };
 		497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C652A53374F0073A86E /* HomeViewController.swift */; };
 		497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C672A5337710073A86E /* HomeInteractor.swift */; };
@@ -278,6 +280,8 @@
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		49648FD52A54339400B99DFF /* AreaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewCell.swift; sourceTree = "<group>"; };
 		4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		4972C9F82A6DB3CE00D9CF40 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		4972C9FB2A6DB47C00D9CF40 /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
 		497F4C652A53374F0073A86E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		497F4C672A5337710073A86E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		497F4C692A5337890073A86E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -448,7 +452,6 @@
 		49247E0E2A54A9A400C050FB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				49B4F8902A55B69A00E91A3A /* DTOs */,
 				49B4F8842A55690900E91A3A /* EndPoints */,
 				49B4F8892A55773500E91A3A /* Encoding */,
 				49B4F8832A55668D00E91A3A /* Service */,
@@ -626,6 +629,7 @@
 		494918542A600CC700723E6A /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				4972C9FA2A6DB46C00D9CF40 /* UserRemote */,
 				494FF68E2A6AE899001865F5 /* MealLocal */,
 				494FF68B2A6AE822001865F5 /* MealRemote */,
 			);
@@ -635,6 +639,7 @@
 		494918552A60109400723E6A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				49B4F8902A55B69A00E91A3A /* DTOs */,
 				494D000C2A5ED57E00C80E56 /* CoreData */,
 				494918542A600CC700723E6A /* DataSources */,
 				49FF07D42A56996E007630D0 /* Repositories */,
@@ -856,6 +861,14 @@
 				4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		4972C9FA2A6DB46C00D9CF40 /* UserRemote */ = {
+			isa = PBXGroup;
+			children = (
+				4972C9FB2A6DB47C00D9CF40 /* UserRemoteDataSource.swift */,
+			);
+			path = UserRemote;
 			sourceTree = "<group>";
 		};
 		497F4C612A5336EF0073A86E /* Application */ = {
@@ -1189,6 +1202,7 @@
 				49B4F8932A55BEE500E91A3A /* MealDTO.swift */,
 				49B4F8912A55B6DA00E91A3A /* CategoryDTO.swift */,
 				49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */,
+				4972C9F82A6DB3CE00D9CF40 /* UserDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -1543,6 +1557,7 @@
 				49E2913A2A612F7900FD73CF /* LogInInteractor.swift in Sources */,
 				49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */,
 				494FF68D2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift in Sources */,
+				4972C9F92A6DB3CE00D9CF40 /* UserDTO.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
 				49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */,
 				497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */,
@@ -1625,6 +1640,7 @@
 				49E291362A612F4500FD73CF /* LogInViewOutput.swift in Sources */,
 				49FF07D82A569BD3007630D0 /* Area.swift in Sources */,
 				497F4C772A533E340073A86E /* HomeInteractorOutput.swift in Sources */,
+				4972C9FC2A6DB47C00D9CF40 /* UserRemoteDataSource.swift in Sources */,
 				49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */,
 				49B4F87D2A55628300E91A3A /* HTTPMethod.swift in Sources */,
 				494918642A6057A000723E6A /* ProfileInteractor.swift in Sources */,

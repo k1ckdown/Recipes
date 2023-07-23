@@ -83,13 +83,13 @@ private extension ProfilePresenter {
     }
     
     func getUser() {
-        interactor.getLoggedUser { user in
-            self.view?.hideLoader()
-            if let user = user {
+        interactor.getLoggedUser { result in
+            switch result {
+            case .success(let user):
                 self.user = user
                 self.view?.showContent()
                 self.updateProfileInfo()
-            } else {
+            case .failure:
                 self.view?.hideContent()
             }
         }

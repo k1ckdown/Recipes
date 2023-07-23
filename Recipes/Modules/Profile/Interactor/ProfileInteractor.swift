@@ -12,11 +12,11 @@ final class ProfileInteractor {
     weak var output: ProfileInteractorOutput?
     
     private let authService: AuthServiceProtocol
-    private let mealRepository: MealRepositoryProtocol
+    private let userRepository: UserRepository
     
-    init(authService: AuthServiceProtocol, mealRepository: MealRepositoryProtocol) {
+    init(authService: AuthServiceProtocol, userRepository: UserRepository) {
         self.authService = authService
-        self.mealRepository = mealRepository
+        self.userRepository = userRepository
     }
 }
 
@@ -28,8 +28,12 @@ extension ProfileInteractor: ProfileInteractorInput {
         authService.userIsSignedIn()
     }
     
-    func getLoggedUser(completion: @escaping (User?) -> Void) {
-        authService.getCurrentUser(completion: completion)
+    func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void) {
+        guard let uid = authService.getUserId() else {
+            completion(.failure(.requestFailed))
+            return
+        }
+        userRepository.getUser(uid: uid, completion: completion)
     }
     
     func logOut(completion: (AuthError?) -> Void) {

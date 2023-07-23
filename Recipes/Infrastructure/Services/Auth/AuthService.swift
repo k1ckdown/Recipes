@@ -13,17 +13,14 @@ final class AuthService {
     
     private let auth = Auth.auth()
     private let database = Firestore.firestore()
+    private let usersCollectionName = "users"
     
-    private enum UserConstants {
-        static let collecton = "users"
-        
-        enum Keys {
-            static let id = "id"
-            static let email = "email"
-            static let username = "username"
-        }
+    private let userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
     }
-    
+
 }
 
 extension AuthService: AuthServiceProtocol {
@@ -32,22 +29,22 @@ extension AuthService: AuthServiceProtocol {
         return auth.currentUser?.uid
     }
     
-    func getCurrentUser(completion: @escaping (User?) -> Void) {
-        guard let uid = auth.currentUser?.uid else {
-            completion(nil)
-            return
-        }
-        
-        getUser(userId: uid) { result in
-            switch result {
-            case .success(let user):
-                completion(user)
-            case .failure(let error):
-                print(error.localizedDescription)
-                completion(nil)
-            }
-        }
-    }
+//    func getCurrentUser(completion: @escaping (User?) -> Void) {
+//        guard let uid = auth.currentUser?.uid else {
+//            completion(nil)
+//            return
+//        }
+//
+//        getUser(userId: uid) { result in
+//            switch result {
+//            case .success(let user):
+//                completion(user)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                completion(nil)
+//            }
+//        }
+//    }
     
     func userIsSignedIn() -> Bool {
         return auth.currentUser != nil
@@ -69,7 +66,7 @@ extension AuthService: AuthServiceProtocol {
             guard let self = self else { return }
             
             if let error = error as? NSError {
-                completion(.failure(feedback(for: error)))
+                completion(.failure(AuthError.feedback(for: error)))
             }
             
             guard let authUser = authResult?.user else {
@@ -77,7 +74,7 @@ extension AuthService: AuthServiceProtocol {
                 return
             }
             
-            getUser(userId: authUser.uid, completion: completion)
+            userRepository.getUser(uid: authUser.uid, completion: completion)
         }
         
     }
@@ -93,13 +90,13 @@ extension AuthService: AuthServiceProtocol {
             guard let self = self else { return }
             
             if let error = error as? NSError {
-                completion(.failure(feedback(for: error)))
+                completion(.failure(AuthError.feedback(for: error)))
             }
             
             guard let authUser = authResult?.user else { return }
             
             let user = User(id: authUser.uid, username: data.username, email: data.email)
-            addUserToDatabase(user: user)
+            userRepository.saveUser(user)
             completion(.success(user))
         }
         
@@ -109,52 +106,52 @@ extension AuthService: AuthServiceProtocol {
 
 private extension AuthService {
     
-    func addUserToDatabase(user: User) {
-        let collectionRef = database.collection(UserConstants.collecton)
-        let userInfo = [
-            UserConstants.Keys.id: user.id,
-            UserConstants.Keys.username: user.username,
-            UserConstants.Keys.email: user.email
-        ]
-        collectionRef.document(user.id).setData(userInfo)
-    }
+//    func addUserToDatabase(user: User) {
+//        let collectionRef = database.collection(UserConstants.collecton)
+//        let userInfo = [
+//            UserConstants.Keys.id: user.id,
+//            UserConstants.Keys.username: user.username,
+//            UserConstants.Keys.email: user.email
+//        ]
+//        collectionRef.document(user.id).setData(userInfo)
+//    }
     
-    func getUser(userId: String, completion: @escaping (Result<User, AuthError>) -> Void) {
-        let collectionRef = database.collection(UserConstants.collecton)
-        
-        collectionRef.document(userId).getDocument { [weak self] snapshot, error in
-            guard let self = self else { return }
-            
-            if let error = error as NSError? {
-                completion(.failure(feedback(for: error)))
-            }
-            
-            guard let data = snapshot?.data() else { return }
-            
-            let username = data[UserConstants.Keys.username] as? String
-            let email = data[UserConstants.Keys.email] as? String
-            
-            let user = User(id: userId, username: username ?? "Not Found", email: email ?? "Not found")
-            completion(.success(user))
-        }
-    }
-    
-    func feedback(for error: NSError) -> AuthError {
-        switch AuthErrorCode.Code(rawValue: error.code) {
-        case .invalidEmail:
-            return .invalidEmail
-        case .userNotFound:
-            return .userNotFound
-        case .tooManyRequests:
-            return .tooManyRequests
-        case .wrongPassword:
-            return .wrongPassword
-        case .weakPassword:
-            return .weakPassword
-        default:
-            return .requestFailed
-        }
-    }
+//    func getUser(userId: String, completion: @escaping (Result<User, AuthError>) -> Void) {
+//        let collectionRef = database.collection(UserConstants.collecton)
+//
+//        collectionRef.document(userId).getDocument { [weak self] snapshot, error in
+//            guard let self = self else { return }
+//
+//            if let error = error as NSError? {
+//                completion(.failure(feedback(for: error)))
+//            }
+//
+//            guard let data = snapshot?.data() else { return }
+//
+//            let username = data[UserConstants.Keys.username] as? String
+//            let email = data[UserConstants.Keys.email] as? String
+//
+//            let user = User(id: userId, username: username ?? "Not Found", email: email ?? "Not found")
+//            completion(.success(user))
+//        }
+//    }
+//    
+//    func feedback(for error: NSError) -> AuthError {
+//        switch AuthErrorCode.Code(rawValue: error.code) {
+//        case .invalidEmail:
+//            return .invalidEmail
+//        case .userNotFound:
+//            return .userNotFound
+//        case .tooManyRequests:
+//            return .tooManyRequests
+//        case .wrongPassword:
+//            return .wrongPassword
+//        case .weakPassword:
+//            return .weakPassword
+//        default:
+//            return .requestFailed
+//        }
+//    }
     
 }
 

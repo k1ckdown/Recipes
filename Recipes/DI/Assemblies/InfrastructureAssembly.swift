@@ -11,8 +11,24 @@ final class InfrastructureAssembly: Assembly {
     
     func assemble(container: Container) {
         
+        container.register(UserRemoteDataSource.self) { _ in
+            return UserRemoteDataSource()
+        }
+        
+        container.register(UserRepository.self) { resolver in
+            guard let userRemoteDataSource = resolver.resolve(UserRemoteDataSource.self) else {
+                fatalError("UserRemoteDataSource dependency could not be resolved")
+            }
+            
+            return UserRepository(remoteDataSource: userRemoteDataSource)
+        }
+        
         container.register(AuthServiceProtocol.self) { resolver in
-            return AuthService()
+            guard let userRepository = resolver.resolve(UserRepository.self) else {
+                fatalError("UserRepository dependency could not be resolved")
+            }
+            
+            return AuthService(userRepository: userRepository)
         }
         .inObjectScope(.container)
         

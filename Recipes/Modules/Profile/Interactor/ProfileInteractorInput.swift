@@ -10,5 +10,5 @@ import Foundation
 protocol ProfileInteractorInput: AnyObject {
     func userIsSignedIn() -> Bool
     func logOut(completion: (AuthError?) -> Void)
-    func getLoggedUser(completion: @escaping (User?) -> Void)
+    func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void)
 }

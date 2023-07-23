@@ -251,6 +251,7 @@ extension ProfileViewController: ProfileViewInput {
     }
     
     func hideContent() {
+        loadingView.stopAnimating()
         contentView.isHidden = true
         noAccountView.isHidden = false
     }
