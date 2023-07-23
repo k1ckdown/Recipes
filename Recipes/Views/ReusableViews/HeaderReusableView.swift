@@ -1,5 +1,5 @@
 //
-//  HeaderView.swift
+//  HeaderReusableView.swift
 //  Recipes
 //
 //  Created by Ivan Semenov on 04.07.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HeaderView: UICollectionReusableView, ReuseIdentifier {
+final class HeaderReusableView: UICollectionReusableView, ReuseIdentifier {
     
     var headerText: String? {
         didSet {

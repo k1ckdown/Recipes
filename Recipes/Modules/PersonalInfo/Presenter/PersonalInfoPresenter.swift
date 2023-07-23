@@ -8,10 +8,19 @@
 import Foundation
 
 final class PersonalInfoPresenter {
+    
+    private(set) var cellModels: [PersonalInfoCellModel] = [
+        TextFieldCellModel(placeholder: "Username"),
+        TextFieldCellModel(placeholder: "Email"),
+        SegmentedControlCellModel(items: ["Mole", "Female"]),
+        TextFieldCellModel(placeholder: "Email")
+    ]
  
     private weak var view: PersonalInfoViewInput?
     private let interactor: PersonalInfoInteractorInput
     private let router: PersonalInfoRouterInput
+    
+    private(set) var sections = PersonalInfoSection.allCases
     
     init(
         view: PersonalInfoViewInput,
@@ -22,4 +31,32 @@ final class PersonalInfoPresenter {
         self.interactor = interactor
         self.router = router
     }
+}
+
+// MARK: - PersonalInfoViewOutput
+
+extension PersonalInfoPresenter: PersonalInfoViewOutput {
+    
+    func numberOfSections() -> Int {
+        sections.count
+    }
+    
+    func numberOfRowsInSection() -> Int {
+        1
+    }
+    
+    func headerTitle(at section: Int) -> String {
+        return sections[section].headerTitle
+    }
+    
+    func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].heightForRow
+    }
+    
+}
+
+// MARK: - PersonalInfoInteractorOutput
+
+extension PersonalInfoPresenter: PersonalInfoInteractorOutput {
+    
 }

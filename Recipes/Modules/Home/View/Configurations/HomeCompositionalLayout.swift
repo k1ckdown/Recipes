@@ -33,7 +33,7 @@ enum HomeCompositionalLayout {
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .absolute(60)
             ),
-            elementKind: HeaderView.reuseIdentifier,
+            elementKind: HeaderReusableView.reuseIdentifier,
             alignment: .topLeading,
             absoluteOffset: .init(x: absoluteOffset.x, y: absoluteOffset.y)
         )

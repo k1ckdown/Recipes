@@ -24,9 +24,9 @@ final class HomeDataSource: NSObject {
         )
         
         collectionView.register(
-            HeaderView.self,
-            forSupplementaryViewOfKind: HeaderView.reuseIdentifier,
-            withReuseIdentifier: HeaderView.reuseIdentifier
+            HeaderReusableView.self,
+            forSupplementaryViewOfKind: HeaderReusableView.reuseIdentifier,
+            withReuseIdentifier: HeaderReusableView.reuseIdentifier
         )
     }
 }
@@ -101,9 +101,9 @@ extension HomeDataSource: UICollectionViewDataSource {
         guard
             let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
-                withReuseIdentifier: HeaderView.reuseIdentifier,
+                withReuseIdentifier: HeaderReusableView.reuseIdentifier,
                 for: indexPath
-            ) as? HeaderView
+            ) as? HeaderReusableView
         else { return .init() }
 
         header.headerText = section.header

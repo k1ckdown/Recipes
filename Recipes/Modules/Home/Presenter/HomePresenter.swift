@@ -9,14 +9,14 @@ import Foundation
 
 final class HomePresenter {
     
-    private weak var view: HomeViewInput?
-    private let interactor: HomeInteractorInput
-    private let router: HomeRouterInput
-    
     private(set) var areaCellModels = [AreaCellModel]()
     private(set) var categoryCellModels = [FoodCellModel]()
     private(set) var latestMealCellModels = [FoodCellModel]()
     private(set) var popularMealCellModels = [FoodCellModel]()
+    
+    private weak var view: HomeViewInput?
+    private let interactor: HomeInteractorInput
+    private let router: HomeRouterInput
     
     private let sections = HomeSection.allCases
     

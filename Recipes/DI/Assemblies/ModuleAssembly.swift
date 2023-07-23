@@ -17,6 +17,7 @@ final class ModuleAssembly: Assembly {
             SearchAssembly(),
             FavoritesAssembly(),
             ProfileAssembly(),
+            PersonalInfoAssembly(),
             MealListAssembly(),
             MealDetailAssembly()
         ]

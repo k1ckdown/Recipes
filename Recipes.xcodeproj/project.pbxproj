@@ -98,7 +98,7 @@
 		497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C832A5355A50073A86E /* HomeCompositionalLayout.swift */; };
 		497F4C862A53581E0073A86E /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C852A53581E0073A86E /* HomeSection.swift */; };
 		497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C892A535E290073A86E /* HomeDataSource.swift */; };
-		497F4C8D2A5363A60073A86E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8C2A5363A60073A86E /* HeaderView.swift */; };
+		497F4C8D2A5363A60073A86E /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */; };
 		497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */; };
 		499018972A6BABBB003E27F7 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018962A6BABBB003E27F7 /* Divider.swift */; };
 		4990189F2A6BBE7C003E27F7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4990189E2A6BBE7C003E27F7 /* FirebaseAnalytics */; };
@@ -148,6 +148,16 @@
 		49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8932A55BEE500E91A3A /* MealDTO.swift */; };
 		49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */; };
 		49B4F8992A55F8AE00E91A3A /* AreaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */; };
+		49B752682A6D346A005E320A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752672A6D346A005E320A /* HeaderView.swift */; };
+		49B752702A6D58AD005E320A /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7526F2A6D58AD005E320A /* TextFieldCell.swift */; };
+		49B752722A6D58B7005E320A /* TextFieldCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752712A6D58B7005E320A /* TextFieldCellModel.swift */; };
+		49B752752A6D5AFD005E320A /* PersonalInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752742A6D5AFD005E320A /* PersonalInfoDataSource.swift */; };
+		49B752772A6D6010005E320A /* PersonalInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752762A6D6010005E320A /* PersonalInfoAssembly.swift */; };
+		49B7527C2A6D6570005E320A /* PersonalInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7527B2A6D6570005E320A /* PersonalInfoSection.swift */; };
+		49B7527F2A6D6A05005E320A /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7527E2A6D6A05005E320A /* SegmentedControlCell.swift */; };
+		49B752812A6D6A1B005E320A /* SegmentedControlCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752802A6D6A1B005E320A /* SegmentedControlCellModel.swift */; };
+		49B752832A6D6C25005E320A /* PersonalInfoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752822A6D6C25005E320A /* PersonalInfoCellModel.swift */; };
+		49B752862A6D73B2005E320A /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752852A6D73B2005E320A /* DatePickerCell.swift */; };
 		49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B752992A5CF02C0029003E /* LoadingDisplayable.swift */; };
 		49BC91E32A57015100575EBF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 49BC91E22A57015100575EBF /* Kingfisher */; };
 		49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E62A575CC300575EBF /* MealDetailViewController.swift */; };
@@ -279,7 +289,7 @@
 		497F4C832A5355A50073A86E /* HomeCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompositionalLayout.swift; sourceTree = "<group>"; };
 		497F4C852A53581E0073A86E /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		497F4C892A535E290073A86E /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
-		497F4C8C2A5363A60073A86E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		499018962A6BABBB003E27F7 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProviderButton.swift; sourceTree = "<group>"; };
@@ -322,6 +332,16 @@
 		49B4F8932A55BEE500E91A3A /* MealDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDTO.swift; sourceTree = "<group>"; };
 		49B4F8952A55F2B000E91A3A /* IngredientDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDTO.swift; sourceTree = "<group>"; };
 		49B4F8982A55F8AE00E91A3A /* AreaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDTO.swift; sourceTree = "<group>"; };
+		49B752672A6D346A005E320A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		49B7526F2A6D58AD005E320A /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		49B752712A6D58B7005E320A /* TextFieldCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellModel.swift; sourceTree = "<group>"; };
+		49B752742A6D5AFD005E320A /* PersonalInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoDataSource.swift; sourceTree = "<group>"; };
+		49B752762A6D6010005E320A /* PersonalInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoAssembly.swift; sourceTree = "<group>"; };
+		49B7527B2A6D6570005E320A /* PersonalInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoSection.swift; sourceTree = "<group>"; };
+		49B7527E2A6D6A05005E320A /* SegmentedControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
+		49B752802A6D6A1B005E320A /* SegmentedControlCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlCellModel.swift; sourceTree = "<group>"; };
+		49B752822A6D6C25005E320A /* PersonalInfoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoCellModel.swift; sourceTree = "<group>"; };
+		49B752852A6D73B2005E320A /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		49B752992A5CF02C0029003E /* LoadingDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDisplayable.swift; sourceTree = "<group>"; };
 		49BC91E62A575CC300575EBF /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		49BC91E82A57624700575EBF /* MealDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataSource.swift; sourceTree = "<group>"; };
@@ -961,6 +981,7 @@
 				49B752992A5CF02C0029003E /* LoadingDisplayable.swift */,
 				494AA7032A68505800586FDF /* Keyboardable.swift */,
 				495E80A92A69236A0010AF3A /* AlertPresentable.swift */,
+				49B752822A6D6C25005E320A /* PersonalInfoCellModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1015,6 +1036,8 @@
 		499018B72A6C035C003E27F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49B7527A2A6D6567005E320A /* Configurations */,
+				49B752732A6D5AEB005E320A /* DataSources */,
 				499018B82A6C041D003E27F7 /* PersonalInfoViewController.swift */,
 				499018BA2A6C0437003E27F7 /* PersonalInfoViewInput.swift */,
 				499018BC2A6C043D003E27F7 /* PersonalInfoViewOutput.swift */,
@@ -1050,6 +1073,7 @@
 				49542D652A5DBE98009D4CC6 /* FavoritesAssembly.swift */,
 				4949186D2A60595700723E6A /* ProfileAssembly.swift */,
 				49E291442A6131FE00FD73CF /* LogInAssembly.swift */,
+				49B752762A6D6010005E320A /* PersonalInfoAssembly.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1159,6 +1183,48 @@
 			path = DTOs;
 			sourceTree = "<group>";
 		};
+		49B7526E2A6D588F005E320A /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				49B7526F2A6D58AD005E320A /* TextFieldCell.swift */,
+				49B752712A6D58B7005E320A /* TextFieldCellModel.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		49B752732A6D5AEB005E320A /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				49B752742A6D5AFD005E320A /* PersonalInfoDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		49B7527A2A6D6567005E320A /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				49B7527B2A6D6570005E320A /* PersonalInfoSection.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		49B7527D2A6D69EF005E320A /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				49B7527E2A6D6A05005E320A /* SegmentedControlCell.swift */,
+				49B752802A6D6A1B005E320A /* SegmentedControlCellModel.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		49B752842A6D739F005E320A /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				49B752852A6D73B2005E320A /* DatePickerCell.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
 		49B752912A5CE6950029003E /* IndicatorViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1193,7 +1259,7 @@
 		49BC91EA2A5762CB00575EBF /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				497F4C8C2A5363A60073A86E /* HeaderView.swift */,
+				497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1201,6 +1267,9 @@
 		49BC91EB2A5762D600575EBF /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				49B752842A6D739F005E320A /* DatePicker */,
+				49B7527D2A6D69EF005E320A /* SegmentedControl */,
+				49B7526E2A6D588F005E320A /* TextField */,
 				49381E6B2A5AA33500F8C6C3 /* Meal */,
 				49381E6A2A5AA32900F8C6C3 /* Ingredient */,
 			);
@@ -1313,6 +1382,7 @@
 			children = (
 				499018962A6BABBB003E27F7 /* Divider.swift */,
 				49E291502A6167E900FD73CF /* NoAccountView.swift */,
+				49B752672A6D346A005E320A /* HeaderView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1440,8 +1510,10 @@
 				4920559D2A594B4300C52B9C /* DIContainer.swift in Sources */,
 				49381E812A5AAE8C00F8C6C3 /* MealListType.swift in Sources */,
 				499018B22A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift in Sources */,
+				49B7527C2A6D6570005E320A /* PersonalInfoSection.swift in Sources */,
 				49B4F8962A55F2B100E91A3A /* IngredientDTO.swift in Sources */,
 				49381E672A5AA20600F8C6C3 /* SearchViewController.swift in Sources */,
+				49B7527F2A6D6A05005E320A /* SegmentedControlCell.swift in Sources */,
 				49E1FBD82A588B9100D254C0 /* UIImageView+Kingfisher.swift in Sources */,
 				49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */,
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
@@ -1470,8 +1542,9 @@
 				49381E8E2A5AD77800F8C6C3 /* MealListViewOutput.swift in Sources */,
 				497F4C7B2A533EDC0073A86E /* HomeViewInput.swift in Sources */,
 				499018C52A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift in Sources */,
-				497F4C8D2A5363A60073A86E /* HeaderView.swift in Sources */,
+				497F4C8D2A5363A60073A86E /* HeaderReusableView.swift in Sources */,
 				497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */,
+				49B752702A6D58AD005E320A /* TextFieldCell.swift in Sources */,
 				49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */,
 				49381E942A5AD79900F8C6C3 /* MealListInteractorInput.swift in Sources */,
 				494DFFDF2A5E88BF00C80E56 /* FavoritesDataSource.swift in Sources */,
@@ -1496,6 +1569,7 @@
 				49381E832A5AB31000F8C6C3 /* SearchAssembly.swift in Sources */,
 				494DFFF02A5EBC7D00C80E56 /* Recipes.xcdatamodeld in Sources */,
 				4999B2A62A6197DA0099565A /* AuthLogInData.swift in Sources */,
+				49B752682A6D346A005E320A /* HeaderView.swift in Sources */,
 				49381E7D2A5AA94000F8C6C3 /* SearchRouter.swift in Sources */,
 				4949186E2A60595700723E6A /* ProfileAssembly.swift in Sources */,
 				49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */,
@@ -1508,10 +1582,13 @@
 				497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */,
 				494FF68A2A6AD5E7001865F5 /* AuthServiceProtocol.swift in Sources */,
 				49B25ADC2A54711500E9AEF6 /* FoodCellStyle.swift in Sources */,
+				49B752812A6D6A1B005E320A /* SegmentedControlCellModel.swift in Sources */,
 				49381E982A5AD7B000F8C6C3 /* MealListRouter.swift in Sources */,
 				49B25ADA2A546F5F00E9AEF6 /* FoodCellModel.swift in Sources */,
 				49AC62E62A59D7BF00FA50CF /* MainTabBarController.swift in Sources */,
 				49E1FBCC2A58616000D254C0 /* MealDetailViewOutput.swift in Sources */,
+				49B752772A6D6010005E320A /* PersonalInfoAssembly.swift in Sources */,
+				49B752862A6D73B2005E320A /* DatePickerCell.swift in Sources */,
 				49E2913C2A612F7E00FD73CF /* LogInInteractorInput.swift in Sources */,
 				497F4C842A5355A50073A86E /* HomeCompositionalLayout.swift in Sources */,
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
@@ -1520,6 +1597,7 @@
 				499018BD2A6C043D003E27F7 /* PersonalInfoViewOutput.swift in Sources */,
 				497F4C6D2A5337A40073A86E /* HomeRouter.swift in Sources */,
 				49381E692A5AA2D400F8C6C3 /* SearchDataSource.swift in Sources */,
+				49B752752A6D5AFD005E320A /* PersonalInfoDataSource.swift in Sources */,
 				49542D512A5DBBAB009D4CC6 /* FavoritesViewController.swift in Sources */,
 				494D00252A5EE25300C80E56 /* CDMealIngredient+CoreDataProperties.swift in Sources */,
 				49B4F88D2A5578B000E91A3A /* URLParameterEncoder.swift in Sources */,
@@ -1556,6 +1634,7 @@
 				49E291342A612F4000FD73CF /* LogInViewInput.swift in Sources */,
 				494918762A606F9400723E6A /* ProfileButtonStyle.swift in Sources */,
 				497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */,
+				49B752832A6D6C25005E320A /* PersonalInfoCellModel.swift in Sources */,
 				494D00292A5F23EE00C80E56 /* NetworkMonitor.swift in Sources */,
 				494D001F2A5EDC0600C80E56 /* CoreDataManager.swift in Sources */,
 				494D001A2A5EDB7C00C80E56 /* CDMeal+CoreDataClass.swift in Sources */,
@@ -1567,6 +1646,7 @@
 				49381E772A5AA8FF00F8C6C3 /* SearchInteractor.swift in Sources */,
 				49381E6F2A5AA37800F8C6C3 /* MealCellModel.swift in Sources */,
 				494918662A6057A600723E6A /* ProfileInteractorInput.swift in Sources */,
+				49B752722A6D58B7005E320A /* TextFieldCellModel.swift in Sources */,
 				495E80AC2A6923870010AF3A /* Router.swift in Sources */,
 				49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */,
 				49B4F8862A55691600E91A3A /* MealEndPoint.swift in Sources */,
