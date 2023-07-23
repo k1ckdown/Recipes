@@ -27,7 +27,7 @@ final class DatePickerCell: UITableViewCell, ReuseIdentifier {
     }
     
     private func setupDatePicker() {
-        addSubview(datePicker)
+        contentView.addSubview(datePicker)
         
         datePicker.datePickerMode = .date
 
@@ -42,7 +42,8 @@ final class DatePickerCell: UITableViewCell, ReuseIdentifier {
         
         datePicker.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview().inset(20)
+            make.centerX.equalToSuperview()
         }
     }
     

@@ -84,6 +84,7 @@
 		49648FD12A5432B700B99DFF /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */; };
 		49648FD32A5432D700B99DFF /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */; };
 		49648FD62A54339400B99DFF /* AreaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49648FD52A54339400B99DFF /* AreaViewCell.swift */; };
+		4972C9F52A6DB0D500D9CF40 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */; };
 		497F4C602A5336DD0073A86E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 497F4C5F2A5336DD0073A86E /* SnapKit */; };
 		497F4C662A53374F0073A86E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C652A53374F0073A86E /* HomeViewController.swift */; };
 		497F4C682A5337710073A86E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C672A5337710073A86E /* HomeInteractor.swift */; };
@@ -276,6 +277,7 @@
 		49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		49648FD22A5432D700B99DFF /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		49648FD52A54339400B99DFF /* AreaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaViewCell.swift; sourceTree = "<group>"; };
+		4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		497F4C652A53374F0073A86E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		497F4C672A5337710073A86E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		497F4C692A5337890073A86E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -848,6 +850,14 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		4972C9F32A6DB0C400D9CF40 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		497F4C612A5336EF0073A86E /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -1390,6 +1400,7 @@
 		49FF07D42A56996E007630D0 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				4972C9F32A6DB0C400D9CF40 /* User */,
 				494FF6912A6AEF68001865F5 /* Meal */,
 			);
 			path = Repositories;
@@ -1594,6 +1605,7 @@
 				49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */,
 				497F4C6A2A5337890073A86E /* HomePresenter.swift in Sources */,
 				49542D5A2A5DBC08009D4CC6 /* FavoritesInteractorInput.swift in Sources */,
+				4972C9F52A6DB0D500D9CF40 /* UserRepository.swift in Sources */,
 				499018BD2A6C043D003E27F7 /* PersonalInfoViewOutput.swift in Sources */,
 				497F4C6D2A5337A40073A86E /* HomeRouter.swift in Sources */,
 				49381E692A5AA2D400F8C6C3 /* SearchDataSource.swift in Sources */,

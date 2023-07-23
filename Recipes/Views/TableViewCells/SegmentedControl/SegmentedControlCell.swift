@@ -28,7 +28,7 @@ final class SegmentedControlCell: UITableViewCell, ReuseIdentifier {
     private func setupSegmentedControl() {
         guard let segmentedControl = segmentedControl else { return }
         
-        addSubview(segmentedControl)
+        contentView.addSubview(segmentedControl)
         
         segmentedControl.backgroundColor = .appGray
         segmentedControl.selectedSegmentTintColor = .darkGray

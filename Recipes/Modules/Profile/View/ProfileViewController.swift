@@ -78,12 +78,12 @@ final class ProfileViewController: UIViewController {
     
     @objc
     private func handlePersonalInfoButton() {
-        
+        output.didTapOnPersonalInfoButton()
     }
     
     @objc
     private func handleMyRecipesButton() {
-        
+        output.didTapOnMyRecipesButton()
     }
     
     @objc

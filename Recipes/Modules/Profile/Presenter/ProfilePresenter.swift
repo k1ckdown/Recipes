@@ -44,6 +44,14 @@ extension ProfilePresenter: ProfileViewOutput {
         router.showLogInScene()
     }
     
+    func didTapOnMyRecipesButton() {
+        
+    }
+    
+    func didTapOnPersonalInfoButton() {
+        router.showPersonalInfoScene()
+    }
+    
     func didTapOnEditProfilePictureButton() {
         view?.showImagePicker()
     }

@@ -6,31 +6,40 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class PersonalInfoViewController: UIViewController {
 
     var output: PersonalInfoViewOutput!
     
+    private let saveChangesButton = UIButton(type: .system)
     private let infoTableView = UITableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Personal Info"
+        
         setup()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @objc
     private func handleDateOfBirthPicker(sender: UIDatePicker) {
-        
+        output.didUpdateDateOfBirth(date: sender.date)
     }
     
     @objc
     private func handleSexSegmentedControl(sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
+        output.didSelectSexSegment(segment: sender.selectedSegmentIndex)
     }
     
     private func setup() {
         setupSuperView()
+        setupSaveChangesButton()
         setupInfoTableView()
     }
     
@@ -45,7 +54,7 @@ final class PersonalInfoViewController: UIViewController {
         infoTableView.dataSource = self
         infoTableView.separatorStyle = .none
         infoTableView.backgroundColor = .clear
-        infoTableView.isScrollEnabled = false
+        infoTableView.showsVerticalScrollIndicator = false
         
         infoTableView.register(
             TextFieldCell.self,
@@ -63,9 +72,19 @@ final class PersonalInfoViewController: UIViewController {
         )
         
         infoTableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func setupSaveChangesButton() {
+        view.addSubview(saveChangesButton)
+        
+        saveChangesButton.layer.cornerRadius = 10
+        saveChangesButton.backgroundColor = .appGray
+        saveChangesButton.setTitle("Save Changes", for: .normal)
+        saveChangesButton.titleLabel?.font = .saveChangesButton
+        saveChangesButton.setTitleColor(.appWhite, for: .normal)
     }
     
 }
@@ -98,6 +117,7 @@ extension PersonalInfoViewController: UITableViewDataSource {
                 ) as? TextFieldCell
             else { return .init() }
             
+            cell.textField.delegate = self
             cell.configure(with: model)
             return cell
             
@@ -137,8 +157,43 @@ extension PersonalInfoViewController: UITableViewDelegate {
         return headerView
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        output.heightForFooter(at: section)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return saveChangesButton
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return output.heightForRowAt(at: indexPath)
     }
 
+}
+
+extension PersonalInfoViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Container().edgesIgnoringSafeArea(.all)
+    }
+
+    struct Container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> some UIViewController {
+            let vc: PersonalInfoViewController = DIContainer.shared.resolve()
+            vc.overrideUserInterfaceStyle = .dark
+            return vc
+        }
+
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
+        }
+    }
 }

@@ -12,7 +12,7 @@ final class PersonalInfoPresenter {
     private(set) var cellModels: [PersonalInfoCellModel] = [
         TextFieldCellModel(placeholder: "Username"),
         TextFieldCellModel(placeholder: "Email"),
-        SegmentedControlCellModel(items: ["Mole", "Female"]),
+        SegmentedControlCellModel(items: ["Male", "Female"]),
         TextFieldCellModel(placeholder: "Email")
     ]
  
@@ -51,6 +51,18 @@ extension PersonalInfoPresenter: PersonalInfoViewOutput {
     
     func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].heightForRow
+    }
+    
+    func heightForFooter(at section: Int) -> CGFloat {
+        return sections[section].heightForFooter
+    }
+    
+    func didUpdateDateOfBirth(date: Date) {
+        print(date)
+    }
+    
+    func didSelectSexSegment(segment: Int) {
+        print(segment)
     }
     
 }

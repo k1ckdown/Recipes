@@ -9,7 +9,7 @@ import UIKit
 
 final class TextFieldCell: UITableViewCell, ReuseIdentifier {
     
-    private let textField = UITextField()
+    private(set) var textField = UITextField()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,11 +31,12 @@ final class TextFieldCell: UITableViewCell, ReuseIdentifier {
     }
     
     private func setupTextField() {
-        addSubview(textField)
+        contentView.addSubview(textField)
         
         textField.textColor = .appWhite
         textField.tintColor = .appOrange
         textField.backgroundColor = .clear
+        textField.isEnabled = true
         
         textField.snp.makeConstraints { make in
             make.edges.equalToSuperview()

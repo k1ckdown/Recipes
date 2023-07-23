@@ -26,4 +26,9 @@ extension ProfileRouter: ProfileRouterInput {
         view?.navigationController?.pushViewController(logInScene, animated: true)
     }
     
+    func showPersonalInfoScene() {
+        let personalInfoScene: PersonalInfoViewController = DIContainer.shared.resolve()
+        view?.navigationController?.pushViewController(personalInfoScene, animated: true)
+    }
+    
 }

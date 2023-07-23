@@ -31,7 +31,16 @@ enum PersonalInfoSection: Int, CaseIterable {
         case .name, .email, .sex:
             return 60
         case .birthday:
-            return 180
+            return 230
+        }
+    }
+    
+    var heightForFooter: CGFloat {
+        switch self {
+        case .birthday:
+            return 55
+        default:
+            return 25
         }
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 protocol ProfileRouterInput: AnyObject, AlertPresentable {
     func showLogInScene()
+    func showPersonalInfoScene()
 }

@@ -29,8 +29,9 @@ final class HeaderView: UIView {
     private func setup() {
         addSubview(headerTitleLabel)
         
+        headerTitleLabel.font = .headerTitle
         headerTitleLabel.textAlignment = .left
-        headerTitleLabel.textColor = .darkGray
+        headerTitleLabel.textColor = .lightGray
     
         headerTitleLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
