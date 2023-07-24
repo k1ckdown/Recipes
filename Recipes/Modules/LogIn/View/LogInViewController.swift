@@ -393,6 +393,8 @@ extension LogInViewController: LogInViewInput {
     
 }
 
+// MARK: - UITextFieldDelegate
+
 extension LogInViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

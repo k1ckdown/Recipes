@@ -266,6 +266,8 @@ extension ProfileViewController: ProfileViewInput {
     
 }
 
+// MARK: - UIImagePickerControllerDelegate
+
 extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

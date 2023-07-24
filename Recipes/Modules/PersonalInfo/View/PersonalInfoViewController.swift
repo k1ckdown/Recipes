@@ -108,6 +108,8 @@ final class PersonalInfoViewController: UIViewController {
     
 }
 
+// MARK: - PersonalInfoViewInput
+
 extension PersonalInfoViewController: PersonalInfoViewInput {
     
     func refreshList() {
@@ -115,6 +117,8 @@ extension PersonalInfoViewController: PersonalInfoViewInput {
     }
     
 }
+
+// MARK: - UITableViewDataSource
 
 extension PersonalInfoViewController: UITableViewDataSource {
     
@@ -174,6 +178,8 @@ extension PersonalInfoViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
+
 extension PersonalInfoViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -195,6 +201,8 @@ extension PersonalInfoViewController: UITableViewDelegate {
     }
 
 }
+
+// MARK: - UITextFieldDelegate
 
 extension PersonalInfoViewController: UITextFieldDelegate {
     
