@@ -28,7 +28,6 @@
 <p align="center">
     <img src="IMG/details-demo1.png" width=200 height=433>
     <img src="IMG/details-demo2.png" width=200 height=433>
-    <img src="IMG/details-demo3.png" width=200 height=433>
 </p>
 
 ## Search
@@ -44,7 +43,6 @@
 <p align="center">
     <img src="IMG/favorites-demo1.png" width=200 height=433>
     <img src="IMG/favorites-demo2.png" width=200 height=433>
-    <img src="IMG/favorites-demo3.png" width=200 height=433>
 </p>
 
 ## Login
@@ -60,5 +58,8 @@
 <p align="center">
     <img src="IMG/profile-demo1.png" width=200 height=433>
     <img src="IMG/profile-demo2.png" width=200 height=433>
-    <img src="IMG/profile-demo3.png" width=200 height=433>
 </p>
+
+## Author
+
+Ivan Semenov, devsemtsk@gmail.com
