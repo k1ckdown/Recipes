@@ -23,9 +23,9 @@ enum LoginProviderButtonStyle {
     var logo: UIImage? {
         switch self {
         case .apple:
-            return UIImage(named: "apple-logo")
+            return UIImage(.appleLogo)
         case .google:
-            return UIImage(named: "google-logo")
+            return UIImage(.googleLogo)
         }
     }
 }

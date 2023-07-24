@@ -120,7 +120,7 @@ final class FavoritesViewController: UIViewController {
     private func setupIntroImageView() {
         introView.addSubview(introImageView)
         
-        introImageView.image = UIImage(named: "heart")
+        introImageView.image = UIImage(.heart)
         introImageView.contentMode = .scaleToFill
         
         introImageView.snp.makeConstraints { make in

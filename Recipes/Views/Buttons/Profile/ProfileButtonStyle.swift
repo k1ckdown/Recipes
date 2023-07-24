@@ -35,11 +35,11 @@ enum ProfileButtonStyle {
     var image: UIImage? {
         switch self {
         case .personalInfo:
-            return UIImage(systemName: "person.crop.circle")
+            return UIImage(.personCropCircle)
         case .myRecipes:
-            return UIImage(systemName: "fork.knife.circle")
+            return UIImage(.forkKnifeCircle)
         case .logout:
-            return UIImage(systemName: "door.left.hand.open")
+            return UIImage(.doorLeftHandOpen)
         }
     }
 }

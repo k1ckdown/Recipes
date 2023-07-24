@@ -139,7 +139,7 @@ final class MealDetailViewController: UIViewController {
         
         mealImageView.clipsToBounds = true
         mealImageView.contentMode = .scaleToFill
-        mealImageView.image = UIImage(named: "placeholder")
+        mealImageView.image = UIImage(.placeholder)
         mealImageView.layer.cornerRadius = Constants.MealImageView.cornerRadius
         
         mealImageView.snp.makeConstraints { make in
@@ -217,7 +217,7 @@ final class MealDetailViewController: UIViewController {
         watchVideoButton.titleEdgeInsets = Constants.WatchVideoButton.titleInsets
         watchVideoButton.titleLabel?.font = .watchVideoTitle
         watchVideoButton.setImage(
-            UIImage(systemName: "play.circle")?.resizableImage(withCapInsets: .zero, resizingMode: .stretch),
+            UIImage(.playCircle)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch),
             for: .normal
         )
         watchVideoButton.addTarget(self, action: #selector(handleWatchVideoButton), for: .touchUpInside)
@@ -276,12 +276,12 @@ extension MealDetailViewController: MealDetailViewInput {
     
     func applyFavoriteAppearance() {
         favoriteBarButton.tintColor = .systemRed
-        favoriteBarButton.image = UIImage(systemName: "heart.fill")
+        favoriteBarButton.image = UIImage(.heartFill)
     }
     
     func resetFavoriteAppearance() {
         favoriteBarButton.tintColor = .systemGray
-        favoriteBarButton.image = UIImage(systemName: "heart")
+        favoriteBarButton.image = UIImage(.systemHeart)
     }
     
 }

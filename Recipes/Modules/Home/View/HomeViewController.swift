@@ -73,7 +73,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupBackBarButton() {
-        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ""), style: .plain, target: self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(image: .init(), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .appWhite
         navigationItem.backBarButtonItem = backBarButtonItem
     }

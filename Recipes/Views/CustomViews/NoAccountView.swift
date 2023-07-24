@@ -68,7 +68,7 @@ final class NoAccountView: UIView {
         addSubview(imageView)
         
         imageView.contentMode = .scaleToFill
-        imageView.image = UIImage(named: "no-account")
+        imageView.image = UIImage(.noAccount)
         
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

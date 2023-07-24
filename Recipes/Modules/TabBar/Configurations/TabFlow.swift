@@ -33,13 +33,13 @@ enum TabFlow: Int, CaseIterable {
     var image: UIImage? {
         switch self {
         case .home:
-            return UIImage(systemName: "house")
+            return UIImage(.house)
         case .search:
-            return UIImage(systemName: "magnifyingglass")
+            return UIImage(.magnifyingglass)
         case .favorites:
-            return UIImage(systemName: "heart")
+            return UIImage(.systemHeart)
         case .profile:
-            return UIImage(systemName: "person")
+            return UIImage(.person)
         }
     }
 }

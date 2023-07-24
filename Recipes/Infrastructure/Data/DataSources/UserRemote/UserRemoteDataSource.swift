@@ -75,11 +75,6 @@ extension UserRemoteDataSource: UserRemoteDataSourceProtocol {
         }
     }
     
-    func updateUserPicture(uid: String, imageUrl: String) {
-        let documentRef = database.collection(usersCollectionName).document(uid)
-        documentRef.updateData([UserKeys.imageUrl: imageUrl])
-    }
-    
     func saveUserPictureToStorage(imageData: Data) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -127,6 +122,15 @@ extension UserRemoteDataSource: UserRemoteDataSourceProtocol {
             }
         }
 
+    }
+    
+}
+
+private extension UserRemoteDataSource {
+    
+    func updateUserPicture(uid: String, imageUrl: String) {
+        let documentRef = database.collection(usersCollectionName).document(uid)
+        documentRef.updateData([UserKeys.imageUrl: imageUrl])
     }
     
 }

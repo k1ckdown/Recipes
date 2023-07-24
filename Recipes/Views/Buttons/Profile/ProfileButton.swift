@@ -89,7 +89,7 @@ final class ProfileButton: UIButton {
         
         chevronImageView.tintColor = .appWhite
         chevronImageView.isHidden = !style.shouldShowChevron
-        chevronImageView.image = UIImage(systemName: "chevron.right",
+        chevronImageView.image = UIImage(.chevronRight,
                                          withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
         
         chevronImageView.snp.makeConstraints { make in

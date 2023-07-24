@@ -142,7 +142,7 @@ final class ProfileViewController: UIViewController {
     private func setupBackgroundProfileImageView() {
         contentView.addSubview(backgroundProfileImageView)
         
-        backgroundProfileImageView.image = UIImage(named: "background-profile")
+        backgroundProfileImageView.image = UIImage(.backgroundProfile)
         
         backgroundProfileImageView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
@@ -158,7 +158,7 @@ final class ProfileViewController: UIViewController {
         profilePictureImageView.layer.cornerRadius = Constants.ProfilePictureImageView.cornerRadius
         profilePictureImageView.layer.borderWidth = Constants.ProfilePictureImageView.borderWidth
         profilePictureImageView.layer.borderColor = UIColor.appBackground?.cgColor
-        profilePictureImageView.image = UIImage(named: "profile-picture")
+        profilePictureImageView.image = UIImage(.profilePicture)
         
         profilePictureImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -239,6 +239,22 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewInput {
     
+    func updateUsername(_ username: String) {
+        usernameLabel.text = username
+    }
+    
+    func showImagePicker() {
+        present(imagePicker, animated: true)
+    }
+    
+    func updateProfilePicture(_ url: String) {
+        profilePictureImageView.setImage(url, placeholder: profilePictureImageView.image)
+    }
+    
+    func resetProfilePicture() {
+        profilePictureImageView.image = UIImage(.profilePicture)
+    }
+    
     func showLoader() {
         contentView.isHidden = true
         noAccountView.isHidden = true
@@ -254,22 +270,6 @@ extension ProfileViewController: ProfileViewInput {
         loadingView.stopAnimating()
         contentView.isHidden = true
         noAccountView.isHidden = false
-    }
-    
-    func updateUsername(_ username: String) {
-        usernameLabel.text = username
-    }
-    
-    func showImagePicker() {
-        present(imagePicker, animated: true)
-    }
-    
-    func updateProfilePicture(_ url: String) {
-        profilePictureImageView.setImage(url, placeholder: profilePictureImageView.image)
-    }
-    
-    func resetProfilePicture() {
-        profilePictureImageView.image = UIImage(named: "profile-picture")
     }
     
 }

@@ -49,11 +49,11 @@ enum LoginTextFieldStyle {
         
         switch self {
         case .username:
-            return UIImage(systemName: "person.fill", withConfiguration: imageConfig)
+            return UIImage(.personFill, withConfiguration: imageConfig)
         case .email:
-            return UIImage(systemName: "envelope.fill", withConfiguration: imageConfig)
+            return UIImage(.envelopeFill, withConfiguration: imageConfig)
         case .password, .confirmPassword:
-            return UIImage(systemName: "lock", withConfiguration: imageConfig)
+            return UIImage(.lock, withConfiguration: imageConfig)
         }
     }
 }

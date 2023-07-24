@@ -103,3 +103,4 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 .DS_Store
+Recipes/Resources/GoogleService-Info.plist

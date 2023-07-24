@@ -157,6 +157,7 @@
 		49BC91E72A575CC300575EBF /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E62A575CC300575EBF /* MealDetailViewController.swift */; };
 		49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E82A57624700575EBF /* MealDetailDataSource.swift */; };
 		49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */; };
+		49DCD7782A6EBA7400E003D4 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */; };
 		49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC02A585E8A00D254C0 /* IngredientCellModel.swift */; };
 		49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC32A5860EF00D254C0 /* MealDetailInteractor.swift */; };
 		49E1FBC62A58610100D254C0 /* MealDetailInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC52A58610100D254C0 /* MealDetailInteractorInput.swift */; };
@@ -353,6 +354,7 @@
 		49BC91E62A575CC300575EBF /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		49BC91E82A57624700575EBF /* MealDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataSource.swift; sourceTree = "<group>"; };
 		49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewCell.swift; sourceTree = "<group>"; };
+		49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
 		49E1FBC02A585E8A00D254C0 /* IngredientCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCellModel.swift; sourceTree = "<group>"; };
 		49E1FBC32A5860EF00D254C0 /* MealDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInteractor.swift; sourceTree = "<group>"; };
 		49E1FBC52A58610100D254C0 /* MealDetailInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInteractorInput.swift; sourceTree = "<group>"; };
@@ -384,7 +386,7 @@
 		49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellModel.swift; sourceTree = "<group>"; };
 		49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
-		49F73B6D2A6EAFD900FA3C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49F73B6D2A6EAFD900FA3C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Recipes/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		49FF07D52A56997B007630D0 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		49FF07D72A569BD3007630D0 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		49FF07D92A569BDB007630D0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -848,6 +850,7 @@
 				49648FD02A5432B700B99DFF /* UIColor+AppColors.swift */,
 				49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */,
 				49E291532A6174CA00FD73CF /* UITabBarController+TabBar.swift */,
+				49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1706,6 +1709,7 @@
 				49F73B5B2A6E989300FA3C79 /* UserRepositoryProtocol.swift in Sources */,
 				49E291322A612F3900FD73CF /* LogInViewController.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,
+				49DCD7782A6EBA7400E003D4 /* UIImage+AppImages.swift in Sources */,
 				499018BB2A6C0437003E27F7 /* PersonalInfoViewInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
