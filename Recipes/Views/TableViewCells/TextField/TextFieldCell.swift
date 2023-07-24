@@ -20,7 +20,17 @@ final class TextFieldCell: UITableViewCell, ReuseIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        textField.tag = 0
+        textField.text = nil
+        textField.placeholder = nil
+    }
+    
     func configure(with model: TextFieldCellModel) {
+        textField.tag = model.tag
+        textField.text = model.value
         textField.placeholder = model.placeholder
     }
     

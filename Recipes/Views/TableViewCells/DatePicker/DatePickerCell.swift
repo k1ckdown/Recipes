@@ -20,6 +20,11 @@ final class DatePickerCell: UITableViewCell, ReuseIdentifier {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(with model: DatePickerCellModel) {
+        guard let date = model.date else { return }
+        datePicker.date = date
+    }
+    
     private func setup() {
         backgroundColor = .clear
         selectionStyle = .none

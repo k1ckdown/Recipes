@@ -29,11 +29,7 @@ extension ProfileInteractor: ProfileInteractorInput {
     }
     
     func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void) {
-        guard let uid = authService.getUserId() else {
-            completion(.failure(.requestFailed))
-            return
-        }
-        userRepository.getUser(uid: uid, completion: completion)
+        userRepository.getUser(completion: completion)
     }
     
     func logOut(completion: (AuthError?) -> Void) {

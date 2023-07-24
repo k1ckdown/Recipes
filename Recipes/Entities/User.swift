@@ -15,7 +15,16 @@ struct User {
     var sex: Sex?
 }
 
-enum Sex: CaseIterable {
+enum Sex: Int, CaseIterable {
     case male
     case female
+    
+    var name: String {
+        switch self {
+        case .male:
+            return "Male"
+        case .female:
+            return "Female"
+        }
+    }
 }

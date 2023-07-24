@@ -9,6 +9,7 @@ import Foundation
 
 final class SegmentedControlCellModel: PersonalInfoCellModel {
     
+    var selectedIndex: Int?
     private(set) var items: [Any]?
     
     init(items: [Any]?) {

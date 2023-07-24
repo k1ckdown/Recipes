@@ -35,8 +35,6 @@ extension ProfilePresenter: ProfileViewOutput {
     
     func viewWillAppear() {
         guard user == nil else { return }
-        
-        view?.showLoader()
         getUser()
     }
     
@@ -49,6 +47,7 @@ extension ProfilePresenter: ProfileViewOutput {
     }
     
     func didTapOnPersonalInfoButton() {
+        user = nil
         router.showPersonalInfoScene()
     }
     
@@ -83,6 +82,7 @@ private extension ProfilePresenter {
     }
     
     func getUser() {
+        view?.showLoader()
         interactor.getLoggedUser { result in
             switch result {
             case .success(let user):
@@ -92,6 +92,7 @@ private extension ProfilePresenter {
             case .failure:
                 self.view?.hideContent()
             }
+            self.view?.hideLoader()
         }
     }
     

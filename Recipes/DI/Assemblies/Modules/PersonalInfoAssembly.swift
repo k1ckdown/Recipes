@@ -12,7 +12,11 @@ final class PersonalInfoAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(PersonalInfoInteractor.self) { resolver in
-            return PersonalInfoInteractor()
+            guard let userRepository = resolver.resolve(UserRepository.self) else {
+                fatalError("UserRepository dependency could not be resolved")
+            }
+            
+            return PersonalInfoInteractor(userRepository: userRepository)
         }
         
         container.register(PersonalInfoRouter.self) { (_, view: PersonalInfoViewController) in

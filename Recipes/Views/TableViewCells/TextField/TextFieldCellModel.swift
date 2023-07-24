@@ -9,9 +9,20 @@ import Foundation
 
 final class TextFieldCellModel: PersonalInfoCellModel {
     
-    private(set) var placeholder: String
+    var value: String?
     
-    init(placeholder: String) {
-        self.placeholder = placeholder
+    var tag: Int {
+        type.rawValue
+    }
+    
+    var placeholder: String {
+        type.placeholder
+    }
+    
+    private(set) var type: TextFieldType
+    
+    init(type: TextFieldType, value: String? = nil) {
+        self.type = type
+        self.value = value
     }
 }

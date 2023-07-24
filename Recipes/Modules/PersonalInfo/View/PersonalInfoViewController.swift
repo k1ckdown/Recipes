@@ -17,14 +17,21 @@ final class PersonalInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Personal Info"
+        navigationItem.title = output.sceneTitle
         
         setup()
+        output.viewDidLoad()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    @objc
+    private func handleSaveChangesButton() {
+        view.endEditing(true)
+        output.didTapOnSaveChangesButton()
     }
     
     @objc
@@ -85,11 +92,16 @@ final class PersonalInfoViewController: UIViewController {
         saveChangesButton.setTitle("Save Changes", for: .normal)
         saveChangesButton.titleLabel?.font = .saveChangesButton
         saveChangesButton.setTitleColor(.appWhite, for: .normal)
+        saveChangesButton.addTarget(self, action: #selector(handleSaveChangesButton), for: .touchUpInside)
     }
     
 }
 
 extension PersonalInfoViewController: PersonalInfoViewInput {
+    
+    func refreshList() {
+        infoTableView.reloadData()
+    }
     
 }
 
@@ -136,12 +148,14 @@ extension PersonalInfoViewController: UITableViewDataSource {
             
         case .birthday:
             guard
+                let model = model as? DatePickerCellModel,
                 let cell = tableView.dequeueReusableCell(
                     withIdentifier: DatePickerCell.reuseIdentifier,
                     for: indexPath
                 ) as? DatePickerCell
             else { return .init() }
             
+            cell.configure(with: model)
             cell.datePicker.addTarget(self, action: #selector(handleDateOfBirthPicker), for: .valueChanged)
             return cell
         }
@@ -176,6 +190,20 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let value = textField.text
+        let type = TextFieldType(rawValue: textField.tag)
+        
+        switch type {
+        case .email:
+            output.didEndEditingEmail(value)
+        case .username:
+            output.didEndEditingName(value)
+        default:
+            return
+        }
     }
     
 }

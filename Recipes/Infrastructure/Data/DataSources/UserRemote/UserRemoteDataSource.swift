@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
@@ -31,7 +32,7 @@ extension UserRemoteDataSource {
         let userInfo = [
             UserKeys.id: user.id,
             UserKeys.username: user.username,
-            UserKeys.email: user.email
+            UserKeys.email: user.email,
         ]
         collectionRef.document(user.id).setData(userInfo)
     }
@@ -44,39 +45,52 @@ extension UserRemoteDataSource {
 
             if let error = error as NSError? {
                 completion(.failure(AuthError.feedback(for: error)))
+                return
             }
 
             guard let data = snapshot?.data() else { return }
 
             let username = data[UserKeys.username] as? String
             let email = data[UserKeys.email] as? String
-            let sex = data[UserKeys.sex] as? Sex
-            let dateOfBirth = data[UserKeys.dateOfBirth] as? Date
+            let dateOfBirth = data[UserKeys.dateOfBirth] as? Timestamp
+            var sex: Sex?
+            if let sexValue = data[UserKeys.sex] as? Int {
+                sex = Sex(rawValue: sexValue)
+            }
 
             let user = User(id: uid,
                             username: username ?? "Not Found",
                             email: email ?? "Not found",
-                            dateOfBirth: dateOfBirth,
+                            dateOfBirth: dateOfBirth?.dateValue(),
                             sex: sex)
             completion(.success(user))
         }
     }
     
-    func updateUser(user: User, completion: @escaping (AuthError) -> Void) {
+    func updateUser(_ user: User, completion: @escaping (AuthError?) -> Void) {
         let documentRef = database.collection(usersCollectionName).document(user.id)
         
-        documentRef.updateData([
-            UserKeys.username: user.username,
-            UserKeys.email: user.email,
-        ])
-        
-        if let dateOfBirth = user.dateOfBirth {
-            documentRef.updateData([UserKeys.dateOfBirth: dateOfBirth])
+        Auth.auth().currentUser?.updateEmail(to: user.email) { error in
+            if let error = error as? NSError {
+                print(error.localizedDescription)
+                completion(AuthError.feedback(for: error))
+                return
+            }
+            
+            documentRef.updateData([
+                UserKeys.username: user.username,
+                UserKeys.email: user.email,
+            ])
+            
+            if let dateOfBirth = user.dateOfBirth {
+                documentRef.updateData([UserKeys.dateOfBirth: Timestamp(date: dateOfBirth)])
+            }
+            
+            if let sex = user.sex {
+                documentRef.updateData([UserKeys.sex: sex.rawValue])
+            }
         }
-        
-        if let sex = user.sex {
-            documentRef.updateData([UserKeys.sex: sex])
-        }
+
     }
     
 }

@@ -11,9 +11,23 @@ final class PersonalInfoInteractor {
     
     weak var output: PersonalInfoInteractorOutput?
     
+    private let userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+    }
+    
 }
 
 extension PersonalInfoInteractor: PersonalInfoInteractorInput {
+    
+    func getUser(completion: @escaping (Result<User, AuthError>) -> Void) {
+        userRepository.getUser(completion: completion)
+    }
+    
+    func updateUserInfo(_ user: User, completion: @escaping (AuthError?) -> Void) {
+        userRepository.updateUser(user, completion: completion)
+    }
     
 }
 

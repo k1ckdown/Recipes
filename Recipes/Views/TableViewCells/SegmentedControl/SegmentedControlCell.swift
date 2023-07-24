@@ -17,6 +17,7 @@ final class SegmentedControlCell: UITableViewCell, ReuseIdentifier {
     
     func configure(with model: SegmentedControlCellModel) {
         segmentedControl = .init(items: model.items)
+        segmentedControl?.selectedSegmentIndex = model.selectedIndex ?? -1
     }
     
     private func setup() {

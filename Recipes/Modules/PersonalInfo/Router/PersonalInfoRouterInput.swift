@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PersonalInfoRouterInput: AnyObject {
+protocol PersonalInfoRouterInput: AnyObject, AlertPresentable {
     
 }
