@@ -11,5 +11,7 @@ protocol ProfileViewInput: AnyObject, LoadingDisplayable {
     func showContent()
     func hideContent()
     func showImagePicker()
+    func resetProfilePicture()
     func updateUsername(_ username: String)
+    func updateProfilePicture(_ url: String)
 }

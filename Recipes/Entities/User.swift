@@ -13,6 +13,7 @@ struct User {
     var email: String
     var dateOfBirth: Date?
     var sex: Sex?
+    var pictureUrl: String?
 }
 
 enum Sex: Int, CaseIterable {

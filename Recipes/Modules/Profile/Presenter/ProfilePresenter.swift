@@ -61,9 +61,14 @@ extension ProfilePresenter: ProfileViewOutput {
                 router.presentErrorAlert(with: error.description)
             } else {
                 user = nil
+                view?.resetProfilePicture()
                 view?.hideContent()
             }
         }
+    }
+    
+    func didUpdateProfilePicture(_ data: Data) {
+        interactor.updateProfilePicture(data: data)
     }
     
 }
@@ -79,6 +84,10 @@ private extension ProfilePresenter {
     func updateProfileInfo() {
         guard let user = user else { return }
         view?.updateUsername(user.username)
+        
+        if let pictureUrl = user.pictureUrl {
+            view?.updateProfilePicture(pictureUrl)
+        }
     }
     
     func getUser() {

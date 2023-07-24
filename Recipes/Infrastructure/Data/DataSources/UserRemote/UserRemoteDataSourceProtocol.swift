@@ -9,6 +9,7 @@ import Foundation
 
 protocol UserRemoteDataSourceProtocol {
     func saveUser(_ user: User)
-    func getUser(uid: String, completion: @escaping (Result<User, AuthError>) -> Void)
+    func saveUserPictureToStorage(imageData: Data)
+    func getUser(completion: @escaping (Result<User, AuthError>) -> Void)
     func updateUser(_ user: User, completion: @escaping (AuthError?) -> Void)
 }

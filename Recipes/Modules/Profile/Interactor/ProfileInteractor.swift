@@ -28,6 +28,10 @@ extension ProfileInteractor: ProfileInteractorInput {
         authService.userIsSignedIn()
     }
     
+    func updateProfilePicture(data: Data) {
+        userRepository.updateProfilePicture(imageData: data)
+    }
+    
     func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void) {
         userRepository.getUser(completion: completion)
     }

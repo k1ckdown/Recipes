@@ -16,4 +16,5 @@ protocol ProfileViewOutput: AnyObject {
     func didTapOnMyRecipesButton()
     func didTapOnPersonalInfoButton()
     func didTapOnEditProfilePictureButton()
+    func didUpdateProfilePicture(_ data: Data)
 }

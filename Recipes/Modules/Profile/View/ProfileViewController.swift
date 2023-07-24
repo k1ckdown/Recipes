@@ -264,6 +264,14 @@ extension ProfileViewController: ProfileViewInput {
         present(imagePicker, animated: true)
     }
     
+    func updateProfilePicture(_ url: String) {
+        profilePictureImageView.setImage(url, placeholder: profilePictureImageView.image)
+    }
+    
+    func resetProfilePicture() {
+        profilePictureImageView.image = UIImage(named: "profile-picture")
+    }
+    
 }
 
 // MARK: - UIImagePickerControllerDelegate
@@ -273,7 +281,12 @@ extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         
-        guard let image = info[.originalImage] as? UIImage else { return }
+        guard
+            let image = info[.originalImage] as? UIImage,
+            let data = image.jpegData(compressionQuality: 0.5)
+        else { return }
+        
+        output.didUpdateProfilePicture(data)
         profilePictureImageView.image = image
     }
     
