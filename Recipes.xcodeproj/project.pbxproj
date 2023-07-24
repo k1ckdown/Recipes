@@ -194,6 +194,8 @@
 		49F73B522A6E68E200FA3C79 /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B512A6E68E200FA3C79 /* TextFieldType.swift */; };
 		49F73B552A6E731800FA3C79 /* DatePickerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */; };
 		49F73B592A6E89D100FA3C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49F73B582A6E89D100FA3C79 /* GoogleService-Info.plist */; };
+		49F73B5B2A6E989300FA3C79 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */; };
+		49F73B5D2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */; };
 		49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D52A56997B007630D0 /* MealRepository.swift */; };
 		49FF07D82A569BD3007630D0 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D72A569BD3007630D0 /* Area.swift */; };
 		49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D92A569BDB007630D0 /* Meal.swift */; };
@@ -381,6 +383,8 @@
 		49F73B512A6E68E200FA3C79 /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellModel.swift; sourceTree = "<group>"; };
 		49F73B582A6E89D100FA3C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		49FF07D52A56997B007630D0 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		49FF07D72A569BD3007630D0 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		49FF07D92A569BDB007630D0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -861,6 +865,7 @@
 			isa = PBXGroup;
 			children = (
 				4972C9F42A6DB0D500D9CF40 /* UserRepository.swift */,
+				49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 			isa = PBXGroup;
 			children = (
 				4972C9FB2A6DB47C00D9CF40 /* UserRemoteDataSource.swift */,
+				49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */,
 			);
 			path = UserRemote;
 			sourceTree = "<group>";
@@ -1559,6 +1565,7 @@
 				4999B2A02A6191370099565A /* AuthService.swift in Sources */,
 				4949186A2A6057C100723E6A /* ProfileRouter.swift in Sources */,
 				4999B2B32A61D9AC0099565A /* AuthError.swift in Sources */,
+				49F73B5D2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift in Sources */,
 				494918682A6057B700723E6A /* ProfileInteractorOutput.swift in Sources */,
 				49381E7F2A5AA94B00F8C6C3 /* SearchRouterInput.swift in Sources */,
 				49542D662A5DBE98009D4CC6 /* FavoritesAssembly.swift in Sources */,
@@ -1696,6 +1703,7 @@
 				49E291512A6167EA00FD73CF /* NoAccountView.swift in Sources */,
 				49E291422A612FB900FD73CF /* LogInRouterInput.swift in Sources */,
 				49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */,
+				49F73B5B2A6E989300FA3C79 /* UserRepositoryProtocol.swift in Sources */,
 				49E291322A612F3900FD73CF /* LogInViewController.swift in Sources */,
 				49381E732A5AA8AC00F8C6C3 /* SearchViewInput.swift in Sources */,
 				499018BB2A6C0437003E27F7 /* PersonalInfoViewInput.swift in Sources */,

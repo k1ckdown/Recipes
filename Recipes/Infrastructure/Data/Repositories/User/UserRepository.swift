@@ -10,15 +10,15 @@ import FirebaseAuth
 
 final class UserRepository {
     
-    private let remoteDataSource: UserRemoteDataSource
+    private let remoteDataSource: UserRemoteDataSourceProtocol
     
-    init(remoteDataSource: UserRemoteDataSource) {
+    init(remoteDataSource: UserRemoteDataSourceProtocol) {
         self.remoteDataSource = remoteDataSource
     }
     
 }
 
-extension UserRepository {
+extension UserRepository: UserRepositoryProtocol {
     
     func saveUser(_ user: User) {
         remoteDataSource.saveUser(user)

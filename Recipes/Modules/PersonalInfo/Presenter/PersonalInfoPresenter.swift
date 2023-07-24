@@ -10,6 +10,7 @@ import Foundation
 final class PersonalInfoPresenter {
     
     private(set) var sceneTitle = "Personal Info"
+    private(set) var saveChangesButtonTitle = "Save Changes"
     private(set) var sections = PersonalInfoSection.allCases
     private(set) var cellModels: [PersonalInfoCellModel] = [
         TextFieldCellModel(type: .username),

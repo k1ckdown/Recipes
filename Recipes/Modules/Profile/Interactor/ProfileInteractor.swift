@@ -12,9 +12,9 @@ final class ProfileInteractor {
     weak var output: ProfileInteractorOutput?
     
     private let authService: AuthServiceProtocol
-    private let userRepository: UserRepository
+    private let userRepository: UserRepositoryProtocol
     
-    init(authService: AuthServiceProtocol, userRepository: UserRepository) {
+    init(authService: AuthServiceProtocol, userRepository: UserRepositoryProtocol) {
         self.authService = authService
         self.userRepository = userRepository
     }

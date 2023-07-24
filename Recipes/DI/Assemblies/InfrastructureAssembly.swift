@@ -11,14 +11,14 @@ final class InfrastructureAssembly: Assembly {
     
     func assemble(container: Container) {
         
-        container.register(UserRemoteDataSource.self) { _ in
+        container.register(UserRemoteDataSourceProtocol.self) { _ in
             return UserRemoteDataSource()
         }
         .inObjectScope(.container)
         
-        container.register(UserRepository.self) { resolver in
-            guard let userRemoteDataSource = resolver.resolve(UserRemoteDataSource.self) else {
-                fatalError("UserRemoteDataSource dependency could not be resolved")
+        container.register(UserRepositoryProtocol.self) { resolver in
+            guard let userRemoteDataSource = resolver.resolve(UserRemoteDataSourceProtocol.self) else {
+                fatalError("UserRemoteDataSourceProtocol dependency could not be resolved")
             }
             
             return UserRepository(remoteDataSource: userRemoteDataSource)
@@ -26,8 +26,8 @@ final class InfrastructureAssembly: Assembly {
         .inObjectScope(.container)
         
         container.register(AuthServiceProtocol.self) { resolver in
-            guard let userRepository = resolver.resolve(UserRepository.self) else {
-                fatalError("UserRepository dependency could not be resolved")
+            guard let userRepository = resolver.resolve(UserRepositoryProtocol.self) else {
+                fatalError("UserRepositoryProtocol dependency could not be resolved")
             }
             
             return  AuthService(userRepository: userRepository)

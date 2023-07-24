@@ -12,8 +12,8 @@ final class PersonalInfoAssembly: Assembly {
     func assemble(container: Container) {
         
         container.register(PersonalInfoInteractor.self) { resolver in
-            guard let userRepository = resolver.resolve(UserRepository.self) else {
-                fatalError("UserRepository dependency could not be resolved")
+            guard let userRepository = resolver.resolve(UserRepositoryProtocol.self) else {
+                fatalError("UserRepositoryProtocol dependency could not be resolved")
             }
             
             return PersonalInfoInteractor(userRepository: userRepository)

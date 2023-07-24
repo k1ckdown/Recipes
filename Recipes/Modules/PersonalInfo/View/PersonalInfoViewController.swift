@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 final class PersonalInfoViewController: UIViewController {
 
@@ -14,6 +13,18 @@ final class PersonalInfoViewController: UIViewController {
     
     private let saveChangesButton = UIButton(type: .system)
     private let infoTableView = UITableView(frame: .zero, style: .insetGrouped)
+    
+    private enum Constants {
+        
+            enum InfoTableView {
+                static let insetTop = 10
+            }
+            
+            enum SaveChangesButton {
+                static let cornerRadius: CGFloat = 10
+            }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +90,7 @@ final class PersonalInfoViewController: UIViewController {
         )
         
         infoTableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.InfoTableView.insetTop)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -87,9 +98,9 @@ final class PersonalInfoViewController: UIViewController {
     private func setupSaveChangesButton() {
         view.addSubview(saveChangesButton)
         
-        saveChangesButton.layer.cornerRadius = 10
+        saveChangesButton.layer.cornerRadius = Constants.SaveChangesButton.cornerRadius
         saveChangesButton.backgroundColor = .appGray
-        saveChangesButton.setTitle("Save Changes", for: .normal)
+        saveChangesButton.setTitle(output.saveChangesButtonTitle, for: .normal)
         saveChangesButton.titleLabel?.font = .saveChangesButton
         saveChangesButton.setTitleColor(.appWhite, for: .normal)
         saveChangesButton.addTarget(self, action: #selector(handleSaveChangesButton), for: .touchUpInside)
@@ -206,22 +217,4 @@ extension PersonalInfoViewController: UITextFieldDelegate {
         }
     }
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
-    }
-
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            let vc: PersonalInfoViewController = DIContainer.shared.resolve()
-            vc.overrideUserInterfaceStyle = .dark
-            return vc
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
-    }
 }

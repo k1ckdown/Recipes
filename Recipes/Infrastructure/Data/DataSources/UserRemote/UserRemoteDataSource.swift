@@ -25,7 +25,7 @@ final class UserRemoteDataSource {
     
 }
 
-extension UserRemoteDataSource {
+extension UserRemoteDataSource: UserRemoteDataSourceProtocol {
     
     func saveUser(_ user: User) {
         let collectionRef = database.collection(usersCollectionName)

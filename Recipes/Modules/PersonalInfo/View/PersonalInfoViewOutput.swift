@@ -11,6 +11,7 @@ protocol PersonalInfoViewOutput: AnyObject {
     var sceneTitle: String { get }
     var sections: [PersonalInfoSection] { get }
     var cellModels: [PersonalInfoCellModel] { get }
+    var saveChangesButtonTitle: String { get }
     
     func viewDidLoad()
     
