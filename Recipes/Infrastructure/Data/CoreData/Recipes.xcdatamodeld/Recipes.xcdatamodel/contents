@@ -10,7 +10,7 @@
         <attribute name="isPopular" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isRandom" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
         <attribute name="thumbnailLink" optional="YES" attributeType="String"/>
         <attribute name="uid" optional="YES" attributeType="String"/>
         <attribute name="youtubeLink" optional="YES" attributeType="String"/>

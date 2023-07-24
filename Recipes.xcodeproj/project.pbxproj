@@ -158,6 +158,7 @@
 		49BC91E92A57624700575EBF /* MealDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91E82A57624700575EBF /* MealDetailDataSource.swift */; };
 		49BC91ED2A5762F200575EBF /* IngredientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */; };
 		49DCD7782A6EBA7400E003D4 /* UIImage+AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */; };
+		49DCD77A2A6ED3CF00E003D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49DCD7792A6ED3CF00E003D4 /* GoogleService-Info.plist */; };
 		49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC02A585E8A00D254C0 /* IngredientCellModel.swift */; };
 		49E1FBC42A5860EF00D254C0 /* MealDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC32A5860EF00D254C0 /* MealDetailInteractor.swift */; };
 		49E1FBC62A58610100D254C0 /* MealDetailInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1FBC52A58610100D254C0 /* MealDetailInteractorInput.swift */; };
@@ -196,7 +197,6 @@
 		49F73B682A6EAABC00FA3C79 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 49F73B672A6EAABC00FA3C79 /* FirebaseFirestoreSwift */; };
 		49F73B6A2A6EAABC00FA3C79 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 49F73B692A6EAABC00FA3C79 /* FirebaseStorage */; };
 		49F73B6C2A6EAABC00FA3C79 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 49F73B6B2A6EAABC00FA3C79 /* FirebaseStorageCombine-Community */; };
-		49F73B6E2A6EAFD900FA3C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49F73B6D2A6EAFD900FA3C79 /* GoogleService-Info.plist */; };
 		49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D52A56997B007630D0 /* MealRepository.swift */; };
 		49FF07D82A569BD3007630D0 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D72A569BD3007630D0 /* Area.swift */; };
 		49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF07D92A569BDB007630D0 /* Meal.swift */; };
@@ -355,6 +355,7 @@
 		49BC91E82A57624700575EBF /* MealDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailDataSource.swift; sourceTree = "<group>"; };
 		49BC91EC2A5762F200575EBF /* IngredientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewCell.swift; sourceTree = "<group>"; };
 		49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AppImages.swift"; sourceTree = "<group>"; };
+		49DCD7792A6ED3CF00E003D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49E1FBC02A585E8A00D254C0 /* IngredientCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCellModel.swift; sourceTree = "<group>"; };
 		49E1FBC32A5860EF00D254C0 /* MealDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInteractor.swift; sourceTree = "<group>"; };
 		49E1FBC52A58610100D254C0 /* MealDetailInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInteractorInput.swift; sourceTree = "<group>"; };
@@ -386,7 +387,6 @@
 		49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellModel.swift; sourceTree = "<group>"; };
 		49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
-		49F73B6D2A6EAFD900FA3C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Recipes/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		49FF07D52A56997B007630D0 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		49FF07D72A569BD3007630D0 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		49FF07D92A569BDB007630D0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -894,7 +894,7 @@
 		497F4C622A5336FE0073A86E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				49F73B6D2A6EAFD900FA3C79 /* GoogleService-Info.plist */,
+				49DCD7792A6ED3CF00E003D4 /* GoogleService-Info.plist */,
 				4904B3362A52C76600071AC6 /* Info.plist */,
 				4904B3332A52C76600071AC6 /* LaunchScreen.storyboard */,
 				4904B3312A52C76600071AC6 /* Assets.xcassets */,
@@ -1518,7 +1518,7 @@
 			files = (
 				4904B3352A52C76600071AC6 /* LaunchScreen.storyboard in Resources */,
 				4904B3322A52C76600071AC6 /* Assets.xcassets in Resources */,
-				49F73B6E2A6EAFD900FA3C79 /* GoogleService-Info.plist in Resources */,
+				49DCD77A2A6ED3CF00E003D4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1779,6 +1779,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1833,6 +1834,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
