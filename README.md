@@ -1,6 +1,7 @@
 # 🍪 Recipes App
 
-[![iOS](https://img.shields.io/badge/platform-iOS-green.svg)](https://github.com/k1ckdown/Recipes)
+[![License](https://img.shields.io/cocoapods/l/DLAutoSlidePageViewController.svg?style=flat)]()
+[![iOS](https://img.shields.io/badge/platform-iOS-green.svg)]()
 [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## 🛠 Used Tech
