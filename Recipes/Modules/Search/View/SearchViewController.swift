@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: BaseViewController {
     
     var output: SearchViewOutput! {
         didSet {
@@ -63,7 +63,6 @@ final class SearchViewController: UIViewController {
     
     private func setup() {
         setupNavigationItem()
-        setupSuperView()
         setupMealSearchBar()
         setupMealTableView()
         setupLoadingView()
@@ -72,11 +71,6 @@ final class SearchViewController: UIViewController {
     private func setupNavigationItem() {
         navigationItem.searchController = mealSearchController
         navigationItem.largeTitleDisplayMode = .automatic
-    }
-    
-    private func setupSuperView() {
-        view.isUserInteractionEnabled = true
-        view.backgroundColor = .appBackground
     }
     
     private func setupMealSearchBar() {
@@ -118,6 +112,16 @@ extension SearchViewController: SearchViewInput {
     
 }
 
+// MARK: - UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectRow(at: indexPath)
+    }
+    
+}
+
 // MARK: UISearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
@@ -129,16 +133,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-    }
-    
-}
-
-// MARK: - UITableViewDelegate
-
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output.didSelectRow(at: indexPath)
     }
     
 }

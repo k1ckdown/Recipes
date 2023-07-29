@@ -110,6 +110,8 @@ extension MealDetailPresenter: MealDetailInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension MealDetailPresenter {
     
     func updateMealDetail() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MealListViewController: UIViewController {
+final class MealListViewController: BaseViewController {
     
     var output: MealListViewOutput! {
         didSet {
@@ -34,12 +34,7 @@ final class MealListViewController: UIViewController {
     }
     
     private func setup() {
-        setupSuperView()
         setupMealCollectionView()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupMealCollectionView() {

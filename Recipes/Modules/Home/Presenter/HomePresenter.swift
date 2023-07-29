@@ -121,6 +121,8 @@ extension HomePresenter: HomeInteractorOutput {
     }
 }
 
+// MARK: - Private methods
+
 private extension HomePresenter {
     
     func selectMeal(meal: Meal) {

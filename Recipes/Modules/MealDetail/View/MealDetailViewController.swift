@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MealDetailViewController: UIViewController {
+final class MealDetailViewController: BaseViewController {
     
     var output: MealDetailViewOutput! {
         didSet {
@@ -107,7 +107,6 @@ final class MealDetailViewController: UIViewController {
     
     private func setup() {
         setupMealNameLabel()
-        setupSuperView()
         setupMealImageView()
         setupDetailsSegmentedControl()
         setupIngredientsTableView()
@@ -115,10 +114,6 @@ final class MealDetailViewController: UIViewController {
         setupWatchVideoButton()
         setupFavoriteBarButton()
         setupLoadingView()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupMealNameLabel() {

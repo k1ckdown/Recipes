@@ -17,6 +17,8 @@ final class SearchRouter: Router {
     
 }
 
+// MARK: - SearchRouterInput
+
 extension SearchRouter: SearchRouterInput {
     
     func showMealDetail(mealId: String) {

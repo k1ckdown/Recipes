@@ -80,6 +80,8 @@ extension FavoritesPresenter: FavoritesInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension FavoritesPresenter {
     
     func updateIntro() {

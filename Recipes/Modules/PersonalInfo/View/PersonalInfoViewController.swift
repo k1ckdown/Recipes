@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PersonalInfoViewController: UIViewController {
+final class PersonalInfoViewController: BaseViewController {
 
     var output: PersonalInfoViewOutput!
     
@@ -56,13 +56,8 @@ final class PersonalInfoViewController: UIViewController {
     }
     
     private func setup() {
-        setupSuperView()
         setupSaveChangesButton()
         setupInfoTableView()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupInfoTableView() {

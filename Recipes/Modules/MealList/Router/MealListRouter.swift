@@ -16,6 +16,8 @@ final class MealListRouter: Router {
     }
 }
 
+// MARK: - MealListRouterInput
+
 extension MealListRouter: MealListRouterInput {
     
     func showMealDetail(mealId: String) {

@@ -71,7 +71,20 @@ extension SearchPresenter: SearchInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension SearchPresenter {
+    
+    func fetchMealListByName(_ name: String) {
+        interactor.getMealListByName(name) { result in
+            switch result {
+            case .success(let meals):
+                self.meals = meals
+            case .failure(let error):
+                self.router.presentErrorAlert(with: error.description)
+            }
+        }
+    }
     
     func fetchRandomMeals() {
         interactor.getRandomMealList { result in
@@ -82,17 +95,6 @@ private extension SearchPresenter {
                 self.router.presentErrorAlert(with: error.description)
             }
             self.view?.hideLoader()
-        }
-    }
-    
-    func fetchMealListByName(_ name: String) {
-        interactor.getMealListByName(name) { result in
-            switch result {
-            case .success(let meals):
-                self.meals = meals
-            case .failure(let error):
-                self.router.presentErrorAlert(with: error.description)
-            }
         }
     }
     

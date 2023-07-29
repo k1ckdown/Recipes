@@ -79,6 +79,8 @@ extension ProfilePresenter: ProfileInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension ProfilePresenter {
     
     func updateProfileInfo() {

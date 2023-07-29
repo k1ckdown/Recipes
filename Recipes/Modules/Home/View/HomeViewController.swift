@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController {
     
     var output: HomeViewOutput? {
         didSet {
@@ -50,13 +50,8 @@ final class HomeViewController: UIViewController {
     }
     
     private func setup() {
-        setupSuperView()
         setupFoodCollectionView()
         setupLoadingView()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupFoodCollectionView() {

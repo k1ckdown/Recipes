@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class LogInViewController: UIViewController, Keyboardable {
+final class LogInViewController: BaseViewController, Keyboardable {
     
     var output: LogInViewOutput!
  
@@ -139,7 +139,6 @@ final class LogInViewController: UIViewController, Keyboardable {
     }
     
     private func setup() {
-        setupSuperView()
         setupContentView()
         setupLogInLabel()
         setupTextFieldsStackView()
@@ -157,10 +156,6 @@ final class LogInViewController: UIViewController, Keyboardable {
         setupPromptLabel()
         setupPromptButton()
         setupLoadingView()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupContentView() {

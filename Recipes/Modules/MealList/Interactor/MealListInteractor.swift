@@ -21,10 +21,10 @@ final class MealListInteractor {
     
 }
 
-
 // MARK: - MealListInteractorInput
 
 extension MealListInteractor: MealListInteractorInput {
+    
     func getFilterName() -> String {
         switch listType {
         case .byArea(let area):

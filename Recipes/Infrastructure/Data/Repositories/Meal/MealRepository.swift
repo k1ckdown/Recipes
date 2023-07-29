@@ -60,12 +60,13 @@ extension MealRepository: MealRepositoryProtocol {
     }
     
     func putFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
-        guard
-            NetworkMonitor.shared.isConnected,
-            let uid = authService.getUserId(),
-            !favoriteMeals.contains(meal)
-        else {
+        guard NetworkMonitor.shared.isConnected else {
             completion(.noInternet)
+            return
+        }
+        
+        guard let uid = authService.getUserId() else {
+            completion(.needToLogIn)
             return
         }
         
@@ -161,6 +162,8 @@ extension MealRepository: MealRepositoryProtocol {
     }
     
 }
+
+// MARK: - Private methods
 
 private extension MealRepository {
     

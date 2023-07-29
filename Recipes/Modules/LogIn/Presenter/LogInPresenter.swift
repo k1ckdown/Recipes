@@ -103,6 +103,8 @@ extension LogInPresenter: LogInInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension LogInPresenter {
     
     func updateLogInState() {

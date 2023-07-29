@@ -17,6 +17,8 @@ final class MealDetailRouter: Router {
     
 }
 
+// MARK: - MealDetailRouterInput
+
 extension MealDetailRouter: MealDetailRouterInput {
     
     func openUrl(_ url: URL) {

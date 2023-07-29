@@ -17,6 +17,8 @@ final class PersonalInfoRouter: Router {
     
 }
 
+// MARK: - PersonalInfoRouterInput
+
 extension PersonalInfoRouter: PersonalInfoRouterInput {
     
 }

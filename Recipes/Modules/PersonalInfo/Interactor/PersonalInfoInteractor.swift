@@ -19,6 +19,8 @@ final class PersonalInfoInteractor {
     
 }
 
+// MARK: - PersonalInfoInteractorInput
+
 extension PersonalInfoInteractor: PersonalInfoInteractorInput {
     
     func getUser(completion: @escaping (Result<User, AuthError>) -> Void) {

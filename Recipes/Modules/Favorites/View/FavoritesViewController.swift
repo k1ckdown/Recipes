@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FavoritesViewController: UIViewController {
+final class FavoritesViewController: BaseViewController {
     
     var output: FavoritesViewOutput! {
         didSet {
@@ -58,17 +58,12 @@ final class FavoritesViewController: UIViewController {
     }
     
     private func setup() {
-        setupSuperView()
         setupContentView()
         setupNoAccountView()
         setupMealTableView()
         setupIntroView()
         setupIntroImageView()
         setupIntroLabel()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupContentView() {
@@ -183,6 +178,8 @@ extension FavoritesViewController: FavoritesViewInput {
     }
     
 }
+
+// MARK: - UITableViewDelegate
 
 extension FavoritesViewController: UITableViewDelegate {
     

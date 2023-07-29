@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: BaseViewController {
     
     var output: ProfileViewOutput!
     
@@ -97,7 +97,6 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setup() {
-        setupSuperView()
         setupLoadingView()
         setupContentView()
         setupNoAccountView()
@@ -109,10 +108,6 @@ final class ProfileViewController: UIViewController {
         setupPersonalInfoButton()
         setupMyRecipesButton()
         setupLogoutButton()
-    }
-    
-    private func setupSuperView() {
-        view.backgroundColor = .appBackground
     }
     
     private func setupContentView() {

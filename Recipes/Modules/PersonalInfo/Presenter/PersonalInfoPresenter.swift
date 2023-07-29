@@ -106,6 +106,8 @@ extension PersonalInfoPresenter: PersonalInfoInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension PersonalInfoPresenter {
     
     func updatePersonalInfo() {

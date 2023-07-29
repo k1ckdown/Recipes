@@ -63,6 +63,8 @@ extension MealListPresenter: MealListInteractorOutput {
     
 }
 
+// MARK: - Private methods
+
 private extension MealListPresenter {
     
     func updateView() {

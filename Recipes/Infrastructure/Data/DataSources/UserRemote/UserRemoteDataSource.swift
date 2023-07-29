@@ -126,6 +126,8 @@ extension UserRemoteDataSource: UserRemoteDataSourceProtocol {
     
 }
 
+// MARK: - Private methods
+
 private extension UserRemoteDataSource {
     
     func updateUserPicture(uid: String, imageUrl: String) {
