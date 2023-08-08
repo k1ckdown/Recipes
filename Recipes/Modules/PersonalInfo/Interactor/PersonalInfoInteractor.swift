@@ -11,6 +11,8 @@ final class PersonalInfoInteractor {
     
     weak var output: PersonalInfoInteractorOutput?
     
+    private var user: User?
+    private var draftUser: User?
     private let userRepository: UserRepositoryProtocol
     
     init(userRepository: UserRepositoryProtocol) {
@@ -23,12 +25,49 @@ final class PersonalInfoInteractor {
 
 extension PersonalInfoInteractor: PersonalInfoInteractorInput {
     
-    func getUser(completion: @escaping (Result<User, AuthError>) -> Void) {
-        userRepository.getUser(completion: completion)
+    func updateSex(_ sex: Sex?) {
+        draftUser?.sex = sex
     }
     
-    func updateUserInfo(_ user: User, completion: @escaping (AuthError?) -> Void) {
-        userRepository.updateUser(user, completion: completion)
+    func updateEmail(_ email: String) {
+        draftUser?.email = email
+    }
+    
+    func updateUsername(_ name: String) {
+        draftUser?.username = name
+    }
+    
+    func updateDateOfBirth(_ date: Date) {
+        draftUser?.dateOfBirth = date
+    }
+    
+    func retrieveUser() {
+        userRepository.getUser { result in
+            switch result {
+            case .success(let user):
+                self.user = user
+                self.draftUser = user
+                self.output?.didRetrieveUser(user)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
+    }
+    
+    func saveUserChanges() {
+        guard let draftUser = draftUser else { return }
+        
+        userRepository.updateUser(draftUser) { error in
+            if let error = error {
+                self.draftUser = self.user
+                self.output?.onError(message: error.description)
+            } else {
+                self.user = self.draftUser
+            }
+            
+            guard let user = self.user else { return }
+            self.output?.didRetrieveUser(user)
+        }
     }
     
 }

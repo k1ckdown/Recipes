@@ -8,6 +8,6 @@
 import Foundation
 
 protocol MealListInteractorInput: AnyObject {
-    func getFilterName() -> String
-    func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void)
+    func retrieveMeals()
+    func getMealId(at index: Int) -> String
 }

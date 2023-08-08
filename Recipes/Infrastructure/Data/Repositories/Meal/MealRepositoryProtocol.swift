@@ -9,10 +9,10 @@ import Foundation
 
 protocol MealRepositoryProtocol {
     func updateFavoriteMeals()
-    func getFavoriteMealList() -> [Meal]
+    func getFavoriteMealList() throws -> [Meal]
     
-    func putFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void)
-    func removeFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void)
+    func putFavoriteMeal(_ meal: Meal) throws
+    func removeFavoriteMeal(_ meal: Meal) throws
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void)
     func loadCategoryList(completion: @escaping (Result<[Category], NetworkError>) -> Void)

@@ -11,6 +11,7 @@ final class SearchInteractor {
     
     weak var output: SearchInteractorOutput?
     
+    private var meals = [Meal]()
     private let mealRepository: MealRepositoryProtocol
 
     init(mealRepository: MealRepositoryProtocol) {
@@ -22,13 +23,33 @@ final class SearchInteractor {
 // MARK: - SearchInteractorInput
 
 extension SearchInteractor: SearchInteractorInput {
-
-    func getRandomMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
-        mealRepository.loadMealList(.randomMeals, completion: completion)
+    
+    func getMealId(at index: Int) -> String {
+        meals[index].id
     }
     
-    func getMealListByName(_ name: String, completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
-        mealRepository.loadMealList(.mealsByName(name: name), completion: completion)
+    func retrieveRandomMeals() {
+        mealRepository.loadMealList(.randomMeals) { result in
+            switch result {
+            case .success(let meals):
+                self.meals = meals
+                self.output?.didRetrieveRandomMeals(meals)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
+    }
+    
+    func retrieveMealListByName(_ name: String) {
+        mealRepository.loadMealList(.mealsByName(name: name)) { result in
+            switch result {
+            case .success(let meals):
+                self.meals = meals
+                self.output?.didRetrieveMealListByName(meals)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
     }
     
 }

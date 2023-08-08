@@ -8,6 +8,11 @@
 import Foundation
 
 protocol PersonalInfoInteractorInput: AnyObject {
-    func updateUserInfo(_ user: User, completion: @escaping (AuthError?) -> Void)
-    func getUser(completion: @escaping (Result<User, AuthError>) -> Void)
+    func retrieveUser()
+    func saveUserChanges()
+    
+    func updateSex(_ sex: Sex?)
+    func updateEmail(_ email: String)
+    func updateUsername(_ name: String)
+    func updateDateOfBirth(_ date: Date)
 }

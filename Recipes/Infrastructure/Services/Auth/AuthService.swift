@@ -33,14 +33,12 @@ extension AuthService: AuthServiceProtocol {
         return auth.currentUser != nil
     }
     
-    func logOut(completion: (AuthError?) -> Void) {
+    func logOut() throws {
         do {
             try auth.signOut()
-            completion(nil)
         } catch {
-            completion(.failedToLogOut)
+            throw AuthError.failedToLogOut
         }
-        
     }
     
     func logIn(data: AuthLogInData, completion: @escaping (Result<User, AuthError>) -> Void) {

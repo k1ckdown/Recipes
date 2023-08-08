@@ -8,5 +8,8 @@
 import Foundation
 
 protocol ProfileInteractorOutput: AnyObject {
-    
+    func loginFailure()
+    func logoutSuccess()
+    func logoutFailure(errorMessage: String)
+    func didRetrieveLoggedUser(_ user: User)
 }

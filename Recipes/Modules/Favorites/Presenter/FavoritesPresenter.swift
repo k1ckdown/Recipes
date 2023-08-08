@@ -9,13 +9,17 @@ import Foundation
 
 final class FavoritesPresenter {
     
+    private(set) var sceneTitle = "Favorites"
+    private(set) var introTitle = "You don't have favorites"
+    private(set) var mealCellModels = [MealCellModel]() {
+        didSet {
+            updateIntro()
+        }
+    }
+    
     private weak var view: FavoritesViewInput?
     private let interactor: FavoritesInteractorInput
     private let router: FavoritesRouterInput
-    
-    private(set) var sceneTitle = "Favorites"
-    private(set) var mealCellModels = [MealCellModel]()
-    private var favoriteMeals = [Meal]()
     
     init(
         view: FavoritesViewInput,
@@ -34,42 +38,23 @@ final class FavoritesPresenter {
 extension FavoritesPresenter: FavoritesViewOutput {
     
     func viewWillAppear() {
-        if interactor.userIsSignedIn() {
-            view?.showContent()
-            favoriteMeals = interactor.getFavoriteMeals()
-            updateIntro()
-            updateMealCellModels()
-        } else {
-            view?.hideContent()
-        }
-    }
-    
-    func introTitle() -> String {
-        "You don't have favorites"
+        interactor.retrieveFavoriteMeals()
     }
     
     func numberOfRows() -> Int {
         mealCellModels.count
     }
     
+    func didTapOnLogIn() {
+        router.showLogInScene()
+    }
+    
     func didSelectRow(at indexPath: IndexPath) {
-        router.showMealDetail(mealId: favoriteMeals[indexPath.row].id)
+        router.showMealDetail(mealId: interactor.getMealId(at: indexPath.row))
     }
     
     func removeFavoriteMeal(at index: Int) {
-        interactor.deleteFavoriteMeal(favoriteMeals[index]) { error in
-            if let error = error {
-                router.presentErrorAlert(with: error.description)
-            } else {
-                favoriteMeals.remove(at: index)
-                mealCellModels.remove(at: index)
-                updateIntro()
-            }
-        }
-    }
-    
-    func didTapOnLogIn() {
-        router.showLogInScene()
+        interactor.deleteFavoriteMeal(at: index)
     }
     
 }
@@ -78,6 +63,23 @@ extension FavoritesPresenter: FavoritesViewOutput {
 
 extension FavoritesPresenter: FavoritesInteractorOutput {
     
+    func loginFailure() {
+        view?.hideContent()
+    }
+    
+    func onError(message: String) {
+        router.presentErrorAlert(with: message)
+    }
+    
+    func didRemoveMealFromFavorites(at index: Int) {
+        mealCellModels.remove(at: index)
+    }
+    
+    func didRetrieveFavoriteMeals(_ meals: [Meal]) {
+        view?.showContent()
+        updateMealCellModels(meals)
+    }
+    
 }
 
 // MARK: - Private methods
@@ -85,11 +87,11 @@ extension FavoritesPresenter: FavoritesInteractorOutput {
 private extension FavoritesPresenter {
     
     func updateIntro() {
-        favoriteMeals.count == 0 ? view?.showIntro() : view?.hideIntro()
+        mealCellModels.count == 0 ? view?.showIntro() : view?.hideIntro()
     }
     
-    func updateMealCellModels() {
-        mealCellModels = favoriteMeals.map {
+    func updateMealCellModels(_ meals: [Meal]) {
+        mealCellModels = meals.map {
             .init(mealName: $0.name,
                   areaName: $0.area ?? "N/A",
                   imageUrl: $0.thumbnailLink,
@@ -97,4 +99,5 @@ private extension FavoritesPresenter {
         }
         view?.refreshList()
     }
+    
 }

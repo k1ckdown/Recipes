@@ -25,16 +25,27 @@ final class LogInInteractor {
 
 extension LogInInteractor: LogInInteractorInput {
     
-    func updateFavorites() {
-        mealRepository.updateFavoriteMeals()
+    func logIn(data: AuthLogInData) {
+        authService.logIn(data: data) { result in
+            switch result {
+            case .success:
+                self.output?.loginSuccess()
+                self.mealRepository.updateFavoriteMeals()
+            case .failure(let error):
+                self.output?.loginFailure(errorMessage: error.description)
+            }
+        }
     }
     
-    func logIn(data: AuthLogInData, completion: @escaping (Result<User, AuthError>) -> Void) {
-        authService.logIn(data: data, completion: completion)
-    }
-    
-    func signUp(data: AuthSignUpData, completion: @escaping (Result<User, AuthError>) -> Void) {
-        authService.signUp(data: data, completion: completion)
+    func signUp(data: AuthSignUpData) {
+        authService.signUp(data: data) { result in
+            switch result {
+            case .success:
+                self.output?.signUpSuccess()
+            case .failure(let error):
+                self.output?.signUpFailure(errorMessage: error.description)
+            }
+        }
     }
     
 }

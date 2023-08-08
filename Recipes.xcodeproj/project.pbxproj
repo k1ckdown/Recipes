@@ -102,7 +102,7 @@
 		497F4C862A53581E0073A86E /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C852A53581E0073A86E /* HomeSection.swift */; };
 		497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C892A535E290073A86E /* HomeDataSource.swift */; };
 		497F4C8D2A5363A60073A86E /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */; };
-		497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */; };
+		497F4C902A5364930073A86E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8F2A5364930073A86E /* ReusableView.swift */; };
 		499018972A6BABBB003E27F7 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018962A6BABBB003E27F7 /* Divider.swift */; };
 		499018B02A6BBF04003E27F7 /* LoginProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */; };
 		499018B22A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */; };
@@ -300,7 +300,7 @@
 		497F4C852A53581E0073A86E /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		497F4C892A535E290073A86E /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
-		497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		497F4C8F2A5364930073A86E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		499018962A6BABBB003E27F7 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProviderButton.swift; sourceTree = "<group>"; };
 		499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderButtonStyle.swift; sourceTree = "<group>"; };
@@ -452,17 +452,13 @@
 		4904B3272A52C76400071AC6 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				4952BCE42A74F773000338B9 /* Base */,
-				494D00272A5F23CB00C80E56 /* Utilities */,
+				499DE5E22A7F9A31003C74C8 /* Common */,
 				4920559B2A594B3600C52B9C /* DI */,
 				497F4C8B2A5363790073A86E /* Views */,
 				497F4C632A5337380073A86E /* Modules */,
 				497F4C6B2A5337940073A86E /* Entities */,
-				497F4C8E2A53647B0073A86E /* Protocols */,
-				49648FCF2A5429B800B99DFF /* Extensions */,
 				49AC62E02A59AEDE00FA50CF /* Infrastructure */,
 				497F4C612A5336EF0073A86E /* Application */,
-				497F4C622A5336FE0073A86E /* Resources */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -588,7 +584,6 @@
 		49381E872A5AD73F00F8C6C3 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				49381E802A5AAE8C00F8C6C3 /* MealListType.swift */,
 				49381E912A5AD79000F8C6C3 /* MealListInteractor.swift */,
 				49381E932A5AD79900F8C6C3 /* MealListInteractorInput.swift */,
 				49381E952A5AD7A500F8C6C3 /* MealListInteractorOutput.swift */,
@@ -960,11 +955,13 @@
 		497F4C6B2A5337940073A86E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				49E2914E2A6162C000FD73CF /* LoginState.swift */,
 				49FF07D72A569BD3007630D0 /* Area.swift */,
 				49FF07D92A569BDB007630D0 /* Meal.swift */,
 				49FF07DB2A569BE7007630D0 /* Category.swift */,
 				49FF07DD2A569BF3007630D0 /* Ingredient.swift */,
 				4999B2A12A6194E90099565A /* User.swift */,
+				49381E802A5AAE8C00F8C6C3 /* MealListType.swift */,
 				4999B2A32A6195D10099565A /* AuthSignUpData.swift */,
 				4999B2A52A6197DA0099565A /* AuthLogInData.swift */,
 			);
@@ -1038,7 +1035,7 @@
 			isa = PBXGroup;
 			children = (
 				495E80AB2A6923870010AF3A /* Router.swift */,
-				497F4C8F2A5364930073A86E /* ReuseIdentifier.swift */,
+				497F4C8F2A5364930073A86E /* ReusableView.swift */,
 				49B752992A5CF02C0029003E /* LoadingDisplayable.swift */,
 				494AA7032A68505800586FDF /* Keyboardable.swift */,
 				495E80A92A69236A0010AF3A /* AlertPresentable.swift */,
@@ -1121,6 +1118,18 @@
 				494FF6892A6AD5E7001865F5 /* AuthServiceProtocol.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		499DE5E22A7F9A31003C74C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4952BCE42A74F773000338B9 /* Base */,
+				494D00272A5F23CB00C80E56 /* Utilities */,
+				497F4C8E2A53647B0073A86E /* Protocols */,
+				497F4C622A5336FE0073A86E /* Resources */,
+				49648FCF2A5429B800B99DFF /* Extensions */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		49AC62D82A599C2D00FA50CF /* Modules */ = {
@@ -1412,7 +1421,6 @@
 			isa = PBXGroup;
 			children = (
 				49E291372A612F6D00FD73CF /* LogInPresenter.swift */,
-				49E2914E2A6162C000FD73CF /* LoginState.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1630,7 +1638,7 @@
 				497F4C7B2A533EDC0073A86E /* HomeViewInput.swift in Sources */,
 				499018C52A6C04D2003E27F7 /* PersonalInfoInteractorOutput.swift in Sources */,
 				497F4C8D2A5363A60073A86E /* HeaderReusableView.swift in Sources */,
-				497F4C902A5364930073A86E /* ReuseIdentifier.swift in Sources */,
+				497F4C902A5364930073A86E /* ReusableView.swift in Sources */,
 				49B752702A6D58AD005E320A /* TextFieldCell.swift in Sources */,
 				49B4F8942A55BEE500E91A3A /* MealDTO.swift in Sources */,
 				49381E942A5AD79900F8C6C3 /* MealListInteractorInput.swift in Sources */,
@@ -1893,7 +1901,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Recipes/Resources/Info.plist;
+				INFOPLIST_FILE = Recipes/Common/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1921,7 +1929,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KT4MKX52L;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Recipes/Resources/Info.plist;
+				INFOPLIST_FILE = Recipes/Common/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

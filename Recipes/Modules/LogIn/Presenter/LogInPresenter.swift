@@ -23,7 +23,6 @@ final class LogInPresenter {
     private weak var view: LogInViewInput?
     private let interactor: LogInInteractorInput
     private let router: LogInRouterInput
-    
     private var loginState = LoginState.signIn
     
     init(
@@ -47,7 +46,7 @@ extension LogInPresenter: LogInViewOutput {
     }
     
     func didTapOnPromptButton() {
-        updateLogInState()
+        updateLoginState()
     }
     
     func didTapOnLogInAppleButton() {
@@ -69,29 +68,9 @@ extension LogInPresenter: LogInViewOutput {
         view?.showLoader()
         switch loginState {
         case .signIn:
-            interactor.logIn(data: .init(email: email, password: password)) { result in
-                switch result {
-                case .success:
-                    self.router.pop()
-                    self.interactor.updateFavorites()
-                case .failure(let error):
-                    self.view?.showError(error.description)
-                }
-                self.view?.hideLoader()
-            }
-            
+            interactor.logIn(data: .init(email: email, password: password))
         case .signUp:
-            interactor.signUp(data:
-                    .init(username: username, email: email, password: password, confirmPassword: confirmPassword)
-            ) { result in
-                switch result {
-                case .success:
-                    self.updateLogInState()
-                case .failure(let error):
-                    self.view?.showError(error.description)
-                }
-                self.view?.hideLoader()
-            }
+            interactor.signUp(data: .init(username: username, email: email, password: password, confirmPassword: confirmPassword))
         }
     }
     
@@ -101,13 +80,32 @@ extension LogInPresenter: LogInViewOutput {
 
 extension LogInPresenter: LogInInteractorOutput {
     
+    func loginSuccess() {
+        view?.hideLoader()
+        router.pop()
+    }
+    
+    func loginFailure(errorMessage: String) {
+        view?.hideLoader()
+        view?.showError(errorMessage)
+    }
+    
+    func signUpSuccess() {
+        view?.hideLoader()
+        updateLoginState()
+    }
+    
+    func signUpFailure(errorMessage: String) {
+        view?.hideLoader()
+        view?.showError(errorMessage)
+    }
 }
 
 // MARK: - Private methods
 
 private extension LogInPresenter {
     
-    func updateLogInState() {
+    func updateLoginState() {
         view?.hideError()
         switch loginState {
         case .signIn:

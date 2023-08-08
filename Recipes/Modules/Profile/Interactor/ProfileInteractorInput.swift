@@ -8,8 +8,7 @@
 import Foundation
 
 protocol ProfileInteractorInput: AnyObject {
-    func userIsSignedIn() -> Bool
+    func logOut()
+    func retrieveLoggedUser()
     func updateProfilePicture(data: Data)
-    func logOut(completion: (AuthError?) -> Void)
-    func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void)
 }

@@ -24,7 +24,7 @@ final class HomeViewController: BaseViewController {
         return collectionView
     }()
     
-    private let dataSource: HomeDataSource = HomeDataSource()
+    private let dataSource = HomeDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()

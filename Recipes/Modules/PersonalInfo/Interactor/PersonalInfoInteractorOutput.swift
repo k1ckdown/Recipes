@@ -8,5 +8,6 @@
 import Foundation
 
 protocol PersonalInfoInteractorOutput: AnyObject {
-    
+    func onError(message: String)
+    func didRetrieveUser(_ user: User)
 }

@@ -10,12 +10,9 @@ import Foundation
 final class ProfilePresenter {
     
     private(set) var editButtonTitle = "Edit"
-    
     private weak var view: ProfileViewInput?
     private let interactor: ProfileInteractorInput
     private let router: ProfileRouterInput
-    
-    private var user: User?
     
     init(
         view: ProfileViewInput,
@@ -34,37 +31,29 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfileViewOutput {
     
     func viewWillAppear() {
-        guard user == nil else { return }
-        getUser()
+        view?.showLoader()
+        interactor.retrieveLoggedUser()
     }
     
     func didTapOnLogIn() {
         router.showLogInScene()
     }
     
+    func didTapOnLogOutButton() {
+        interactor.logOut()
+    }
+    
+    
     func didTapOnMyRecipesButton() {
         
     }
     
     func didTapOnPersonalInfoButton() {
-        user = nil
         router.showPersonalInfoScene()
     }
     
     func didTapOnEditProfilePictureButton() {
         view?.showImagePicker()
-    }
-    
-    func didTapOnLogOutButton() {
-        interactor.logOut { error in
-            if let error = error {
-                router.presentErrorAlert(with: error.description)
-            } else {
-                user = nil
-                view?.resetProfilePicture()
-                view?.hideContent()
-            }
-        }
     }
     
     func didUpdateProfilePicture(_ data: Data) {
@@ -77,33 +66,25 @@ extension ProfilePresenter: ProfileViewOutput {
 
 extension ProfilePresenter: ProfileInteractorOutput {
     
-}
-
-// MARK: - Private methods
-
-private extension ProfilePresenter {
-    
-    func updateProfileInfo() {
-        guard let user = user else { return }
-        view?.updateUsername(user.username)
-        
-        if let pictureUrl = user.pictureUrl {
-            view?.updateProfilePicture(pictureUrl)
-        }
+    func loginFailure() {
+        view?.hideContent()
     }
     
-    func getUser() {
-        view?.showLoader()
-        interactor.getLoggedUser { result in
-            switch result {
-            case .success(let user):
-                self.user = user
-                self.view?.showContent()
-                self.updateProfileInfo()
-            case .failure:
-                self.view?.hideContent()
-            }
-            self.view?.hideLoader()
+    func logoutFailure(errorMessage: String) {
+        router.presentErrorAlert(with: errorMessage)
+    }
+    
+    func logoutSuccess() {
+        view?.hideContent()
+        view?.resetProfilePicture()
+    }
+    
+    func didRetrieveLoggedUser(_ user: User) {
+        view?.hideLoader()
+        view?.showContent()
+        view?.updateUsername(user.username)
+        if let pictureUrl = user.pictureUrl {
+            view?.updateProfilePicture(pictureUrl)
         }
     }
     

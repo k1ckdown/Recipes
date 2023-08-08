@@ -8,5 +8,9 @@
 import Foundation
 
 protocol FavoritesInteractorOutput: AnyObject {
+    func loginFailure()
+    func onError(message: String)
     
+    func didRemoveMealFromFavorites(at index: Int)
+    func didRetrieveFavoriteMeals(_ meals: [Meal])
 }

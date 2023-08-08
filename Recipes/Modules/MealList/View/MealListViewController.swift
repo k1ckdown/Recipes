@@ -22,7 +22,7 @@ final class MealListViewController: BaseViewController {
         return collectionView
     }()
     
-    private let dataSource: MealListDataSource = .init()
+    private let dataSource = MealListDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,9 @@ extension MealListViewController: MealListViewInput {
 // MARK: - UICollectionViewDelegate
 
 extension MealListViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output.didSelectItem(at: indexPath)
     }
+    
 }

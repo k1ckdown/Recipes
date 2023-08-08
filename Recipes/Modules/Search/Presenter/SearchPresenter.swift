@@ -9,25 +9,13 @@ import Foundation
 
 final class SearchPresenter {
     
-    private weak var view: SearchViewInput?
-    private let interactor: SearchInteractorInput
-    private let router: SearchRouterInput
-    
     private(set) var sceneTitle = "Search"
     private(set) var searchPlaceholder = "Recipes"
     private(set) var mealCellModels = [MealCellModel]()
     
-    private var meals = [Meal]() {
-        didSet {
-            mealCellModels = meals.map {
-                .init(mealName: $0.name,
-                      areaName: $0.area ?? "N/A",
-                      imageUrl: $0.thumbnailLink,
-                      categoryName: $0.category ?? "N/A")
-            }
-            view?.refreshList()
-        }
-    }
+    private weak var view: SearchViewInput?
+    private let interactor: SearchInteractorInput
+    private let router: SearchRouterInput
     
     init(
         view: SearchViewInput,
@@ -45,22 +33,22 @@ final class SearchPresenter {
 
 extension SearchPresenter: SearchViewOutput {
     
-    func viewDidLoad() {
-        view?.showLoader()
-        fetchRandomMeals()
-    }
-    
     func numberOfItems() -> Int {
         mealCellModels.count
     }
     
+    func viewDidLoad() {
+        view?.showLoader()
+        interactor.retrieveRandomMeals()
+    }
+    
     func didSelectRow(at indexPath: IndexPath) {
-        router.showMealDetail(mealId: meals[indexPath.row].id)
+        router.showMealDetail(mealId: interactor.getMealId(at: indexPath.row))
     }
     
     func didPerformSearch(_ value: String?) {
         guard let value = value else { return }
-        fetchMealListByName(value)
+        interactor.retrieveMealListByName(value)
     }
     
 }
@@ -69,33 +57,33 @@ extension SearchPresenter: SearchViewOutput {
 
 extension SearchPresenter: SearchInteractorOutput {
     
+    func onError(message: String) {
+        router.presentErrorAlert(with: message)
+    }
+    
+    func didRetrieveRandomMeals(_ meals: [Meal]) {
+        updateMealCellModels(meals)
+    }
+    
+    func didRetrieveMealListByName(_ meals: [Meal]) {
+        updateMealCellModels(meals)
+    }
+    
 }
 
 // MARK: - Private methods
 
 private extension SearchPresenter {
     
-    func fetchMealListByName(_ name: String) {
-        interactor.getMealListByName(name) { result in
-            switch result {
-            case .success(let meals):
-                self.meals = meals
-            case .failure(let error):
-                self.router.presentErrorAlert(with: error.description)
-            }
+    func updateMealCellModels(_ meals: [Meal]) {
+        mealCellModels = meals.map {
+            .init(mealName: $0.name,
+                  areaName: $0.area ?? "N/A",
+                  imageUrl: $0.thumbnailLink,
+                  categoryName: $0.category ?? "N/A")
         }
-    }
-    
-    func fetchRandomMeals() {
-        interactor.getRandomMealList { result in
-            switch result {
-            case .success(let meals):
-                self.meals = meals
-            case .failure(let error):
-                self.router.presentErrorAlert(with: error.description)
-            }
-            self.view?.hideLoader()
-        }
+        view?.hideLoader()
+        view?.refreshList()
     }
     
 }

@@ -9,23 +9,11 @@ import Foundation
 
 final class MealListPresenter {
     
+    private(set) var mealCellModels = [FoodCellModel]()
+    
     private weak var view: MealListViewInput?
     private let interactor: MealListInteractorInput
     private let router: MealListRouterInput
-    
-    private(set) var mealCellModels = [FoodCellModel]()
-    
-    private var meals = [Meal]() {
-        didSet {
-            mealCellModels = meals.map {
-                .init(
-                    foodName: $0.name,
-                    imageUrl: $0.thumbnailLink,
-                    foodType: .defaultMeal)
-            }
-           updateView()
-        }
-    }
     
     init(
         view: MealListViewInput,
@@ -44,7 +32,7 @@ final class MealListPresenter {
 extension MealListPresenter: MealListViewOutput {
     
     func viewDidLoad() {
-        fetchMeals()
+        interactor.retrieveMeals()
     }
     
     func numberOfItems() -> Int {
@@ -52,7 +40,7 @@ extension MealListPresenter: MealListViewOutput {
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        router.showMealDetail(mealId: meals[indexPath.item].id)
+        router.showMealDetail(mealId: interactor.getMealId(at: indexPath.item))
     }
     
 }
@@ -61,26 +49,29 @@ extension MealListPresenter: MealListViewOutput {
 
 extension MealListPresenter: MealListInteractorOutput {
     
+    func onError(message: String) {
+        router.presentErrorAlert(with: message)
+    }
+    
+    func didRetrieveMeals(_ meals: [Meal], filterName: String) {
+        updateMealCellModels(meals)
+        view?.updateNavigationTitle(filterName)
+    }
+    
 }
 
 // MARK: - Private methods
 
 private extension MealListPresenter {
     
-    func updateView() {
-        view?.refreshList()
-        view?.updateNavigationTitle(interactor.getFilterName())
-    }
-    
-    func fetchMeals() {
-        interactor.getMealList { result in
-            switch result {
-            case .success(let meals):
-                self.meals = meals
-            case .failure(let error):
-                self.router.presentErrorAlert(with: error.description)
-            }
+    func updateMealCellModels(_ meals: [Meal]) {
+        mealCellModels = meals.map {
+            .init(
+                foodName: $0.name,
+                imageUrl: $0.thumbnailLink,
+                foodType: .defaultMeal)
         }
+        view?.refreshList()
     }
     
 }

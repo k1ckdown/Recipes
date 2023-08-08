@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MealDetailViewOutput: AnyObject {
+    var watchVideoTitle: String { get }
     var ingredientCellModels: [IngredientCellModel] { get }
     
     func viewDidLoad()

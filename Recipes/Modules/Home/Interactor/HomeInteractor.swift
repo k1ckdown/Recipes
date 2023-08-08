@@ -11,6 +11,11 @@ final class HomeInteractor {
     
     weak var output: HomeInteractorOutput?
     
+    private var areas = [Area]()
+    private var latestMeals = [Meal]()
+    private var popularMeals = [Meal]()
+    private var categories = [Category]()
+    
     private let mealRepository: MealRepositoryProtocol
     
     init(mealRepository: MealRepositoryProtocol) {
@@ -23,24 +28,68 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeInteractorInput {
     
-    func getAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
-        mealRepository.loadAreaList(completion: completion)
+    func getAreaName(at index: Int) -> String {
+        areas[index].name
     }
     
-    func getCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void) {
-        mealRepository.loadCategoryList(completion: completion)
+    func getCategoryName(at index: Int) -> String {
+        categories[index].name
     }
     
-    func getMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void) {
-        mealRepository.loadMeal(type, completion: completion)
+    func getLatestMealId(at index: Int) -> String {
+        latestMeals[index].id
     }
     
-    func getPopularMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
-        mealRepository.loadMealList(.popularMeals, completion: completion)
+    func getPopularMealId(at index: Int) -> String {
+        popularMeals[index].id
     }
     
-    func getLatestMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
-        mealRepository.loadMealList(.latestMeals, completion: completion)
+    func retrieveAreaList() {
+        mealRepository.loadAreaList { result in
+            switch result {
+            case .success(let areas):
+                self.areas = areas
+                self.output?.didRetrieveAreas(areas)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
     }
-
+    
+    func retrieveCategories() {
+        mealRepository.loadCategoryList { result in
+            switch result {
+            case .success(let categories):
+                self.categories = categories
+                self.output?.didRetrieveCategories(categories)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
+    }
+    
+    func retrieveLatestMealList() {
+        mealRepository.loadMealList(.latestMeals) { result in
+            switch result {
+            case .success(let meals):
+                self.latestMeals = meals
+                self.output?.didRetrieveLatestMeals(meals)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
+    }
+    
+    func retrievePopularMealList() {
+        mealRepository.loadMealList(.popularMeals) { result in
+            switch result {
+            case .success(let meals):
+                self.popularMeals = meals
+                self.output?.didRetrievePopularMeals(meals)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
+    }
+    
 }

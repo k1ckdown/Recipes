@@ -8,5 +8,9 @@
 import Foundation
 
 protocol MealDetailInteractorOutput: AnyObject {
+    func onError(message: String)
     
+    func didAddMealToFavorites()
+    func didRemoveMealFromFavorites()
+    func didRetrieveMeal(_ meal: Meal)
 }

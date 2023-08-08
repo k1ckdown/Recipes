@@ -23,11 +23,6 @@ final class PersonalInfoPresenter {
     private let interactor: PersonalInfoInteractorInput
     private let router: PersonalInfoRouterInput
     
-    private var sex: Sex?
-    private var dateOfBirth: Date?
-    private var draftUser: User?
-    private var user: User?
-    
     init(
         view: PersonalInfoViewInput,
         interactor: PersonalInfoInteractorInput,
@@ -44,7 +39,7 @@ final class PersonalInfoPresenter {
 extension PersonalInfoPresenter: PersonalInfoViewOutput {
     
     func viewDidLoad() {
-        fetchUser()
+        interactor.retrieveUser()
     }
     
     func numberOfSections() -> Int {
@@ -56,46 +51,37 @@ extension PersonalInfoPresenter: PersonalInfoViewOutput {
     }
     
     func headerTitle(at section: Int) -> String {
-        return sections[section].headerTitle
+        sections[section].headerTitle
     }
     
     func heightForRowAt(at indexPath: IndexPath) -> CGFloat {
-        return sections[indexPath.section].heightForRow
+        sections[indexPath.section].heightForRow
     }
     
     func heightForFooter(at section: Int) -> CGFloat {
-        return sections[section].heightForFooter
+        sections[section].heightForFooter
+    }
+    
+    func didTapOnSaveChangesButton() {
+        interactor.saveUserChanges()
     }
     
     func didUpdateDateOfBirth(date: Date) {
-        draftUser?.dateOfBirth = date
+        interactor.updateDateOfBirth(date)
     }
     
     func didSelectSexSegment(segment: Int) {
-        draftUser?.sex = Sex(rawValue: segment)
+        interactor.updateSex(Sex(rawValue: segment))
     }
     
     func didEndEditingName(_ value: String?) {
         guard let username = value else { return }
-        draftUser?.username = username
+        interactor.updateUsername(username)
     }
     
     func didEndEditingEmail(_ value: String?) {
         guard let email = value else { return }
-        draftUser?.email = email
-    }
-    
-    func didTapOnSaveChangesButton() {
-        guard let draftUser = draftUser else { return }
-        interactor.updateUserInfo(draftUser) { error in
-            if let error = error {
-                self.router.presentErrorAlert(with: error.description)
-                self.draftUser = self.user
-                self.updatePersonalInfo()
-            } else {
-                self.user = draftUser
-            }
-        }
+        interactor.updateEmail(email)
     }
     
 }
@@ -104,40 +90,34 @@ extension PersonalInfoPresenter: PersonalInfoViewOutput {
 
 extension PersonalInfoPresenter: PersonalInfoInteractorOutput {
     
+    func onError(message: String) {
+        router.presentErrorAlert(with: message)
+    }
+    
+    func didRetrieveUser(_ user: User) {
+        updatePersonalInfo(user: user)
+    }
+    
 }
 
 // MARK: - Private methods
 
 private extension PersonalInfoPresenter {
     
-    func updatePersonalInfo() {
+    func updatePersonalInfo(user: User) {
         for model in cellModels {
             switch model {
             case let textFieldModel as TextFieldCellModel:
-                textFieldModel.value = textFieldModel.type == .email ?  user?.email : user?.username
+                textFieldModel.value = textFieldModel.type == .email ?  user.email : user.username
             case let segmentedControlModel as SegmentedControlCellModel:
-                segmentedControlModel.selectedIndex = user?.sex?.rawValue
+                segmentedControlModel.selectedIndex = user.sex?.rawValue
             case let datePickerModel as DatePickerCellModel:
-                datePickerModel.date = user?.dateOfBirth
+                datePickerModel.date = user.dateOfBirth
             default:
                 return
             }
         }
-        
         view?.refreshList()
-    }
-    
-    func fetchUser() {
-        interactor.getUser { result in
-            switch result {
-            case .success(let user):
-                self.user = user
-                self.draftUser = user
-                self.updatePersonalInfo()
-            case .failure(let error):
-                self.router.presentErrorAlert(with: error.description)
-            }
-        }
     }
     
 }

@@ -11,6 +11,7 @@ final class MealListInteractor {
     
     weak var output: MealListInteractorOutput?
     
+    private var meals = [Meal]()
     private let listType: MealListType
     private let mealRepository: MealRepositoryProtocol
     
@@ -25,16 +26,11 @@ final class MealListInteractor {
 
 extension MealListInteractor: MealListInteractorInput {
     
-    func getFilterName() -> String {
-        switch listType {
-        case .byArea(let area):
-            return area
-        case .byCategory(let category):
-            return category
-        }
+    func getMealId(at index: Int) -> String {
+        meals[index].id
     }
     
-    func getMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void) {
+    func retrieveMeals() {
         let mealApi: MealAPI
         
         switch listType {
@@ -44,7 +40,15 @@ extension MealListInteractor: MealListInteractorInput {
             mealApi = .mealsByCategory(category: category)
         }
         
-        mealRepository.loadMealList(mealApi, completion: completion)
+        mealRepository.loadMealList(mealApi) { result in
+            switch result {
+            case .success(let meals):
+                self.meals = meals
+                self.output?.didRetrieveMeals(meals, filterName: self.listType.name)
+            case .failure(let error):
+                self.output?.onError(message: error.description)
+            }
+        }
     }
     
 }

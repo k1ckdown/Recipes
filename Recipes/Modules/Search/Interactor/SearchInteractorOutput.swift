@@ -8,5 +8,8 @@
 import Foundation
 
 protocol SearchInteractorOutput: AnyObject {
+    func onError(message: String)
     
+    func didRetrieveRandomMeals(_ meals: [Meal])
+    func didRetrieveMealListByName(_ meals: [Meal])
 }

@@ -28,7 +28,7 @@ final class MealDetailViewController: BaseViewController {
         return segmentedControl
     }()
     
-    private let dataSource: MealDetailDataSource = .init()
+    private let dataSource = MealDetailDataSource()
     
     private enum Constants {
         
@@ -64,7 +64,6 @@ final class MealDetailViewController: BaseViewController {
             enum WatchVideoButton {
                 static let height = 47
                 static let insetBottom = 25
-                static let title = "Watch Video"
                 static let multiplierWidth = 0.5
                 static let cornerRadius: CGFloat = 15
                 static let titleInsets: UIEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
@@ -207,7 +206,7 @@ final class MealDetailViewController: BaseViewController {
         watchVideoButton.layer.cornerRadius = Constants.WatchVideoButton.cornerRadius
         watchVideoButton.backgroundColor = .appOrange
         watchVideoButton.isHidden = true
-        watchVideoButton.setTitle(Constants.WatchVideoButton.title, for: .normal)
+        watchVideoButton.setTitle(output.watchVideoTitle, for: .normal)
         watchVideoButton.setTitleColor(.appWhite, for: .normal)
         watchVideoButton.titleEdgeInsets = Constants.WatchVideoButton.titleInsets
         watchVideoButton.titleLabel?.font = .watchVideoTitle

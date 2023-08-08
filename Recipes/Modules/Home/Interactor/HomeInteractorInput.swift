@@ -8,9 +8,13 @@
 import Foundation
 
 protocol HomeInteractorInput: AnyObject {
-    func getAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void)
-    func getCategories(completion: @escaping (Result<[Category], NetworkError>) -> Void)
-    func getMeal(_ type: MealAPI, completion: @escaping (Result<Meal, NetworkError>) -> Void)
-    func getPopularMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void)
-    func getLatestMealList(completion: @escaping (Result<[Meal], NetworkError>) -> Void)
+    func retrieveAreaList()
+    func retrieveCategories()
+    func retrieveLatestMealList()
+    func retrievePopularMealList()
+    
+    func getAreaName(at index: Int) -> String
+    func getCategoryName(at index: Int) -> String
+    func getLatestMealId(at index: Int) -> String
+    func getPopularMealId(at index: Int) -> String
 }

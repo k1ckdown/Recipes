@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HeaderReusableView: UICollectionReusableView, ReuseIdentifier {
+final class HeaderReusableView: UICollectionReusableView, ReusableView {
     
     var headerText: String? {
         didSet {

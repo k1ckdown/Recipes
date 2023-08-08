@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class IngredientViewCell: UITableViewCell, ReuseIdentifier {
+final class IngredientViewCell: UITableViewCell, ReusableView {
     
     private let nameLabel = UILabel()
     private let measureLabel = UILabel()

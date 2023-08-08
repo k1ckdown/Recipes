@@ -19,7 +19,7 @@ final class FavoritesViewController: BaseViewController {
     private let noAccountView = NoAccountView()
     
     private let mealTableView = MealTableView()
-    private let dataSource: FavoritesDataSource = .init()
+    private let dataSource = FavoritesDataSource()
     
     private let introView = UIView()
     private let introImageView = UIImageView()
@@ -27,14 +27,14 @@ final class FavoritesViewController: BaseViewController {
     
     private enum Constants {
         
+            enum IntroLabel {
+                static let insetTop: CGFloat = 22
+            }
+        
             enum IntroImageView {
                 static let insetTop: CGFloat = 200
                 static let multiplierWidth: CGFloat = 0.7
                 static let multiplierHeight: CGFloat = 0.35
-            }
-            
-            enum IntroLabel {
-                static let insetTop: CGFloat = 22
             }
         
     }
@@ -80,7 +80,6 @@ final class FavoritesViewController: BaseViewController {
         view.addSubview(noAccountView)
         
         noAccountView.isHidden = true
-        
         noAccountView.completionHandler = { [weak self] in
             self?.output.didTapOnLogIn()
         }
@@ -130,7 +129,7 @@ final class FavoritesViewController: BaseViewController {
         introView.addSubview(introLabel)
         
         introLabel.textColor = .appWhite
-        introLabel.text = output.introTitle()
+        introLabel.text = output.introTitle
         introLabel.font = .favoritesIntroTitle
         
         introLabel.snp.makeConstraints { make in

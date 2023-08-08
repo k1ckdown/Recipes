@@ -11,6 +11,7 @@ final class FavoritesInteractor {
     
     weak var output: FavoritesInteractorOutput?
     
+    private var favoriteMeals = [Meal]()
     private let authService: AuthServiceProtocol
     private let mealRepository: MealRepositoryProtocol
     
@@ -24,16 +25,33 @@ final class FavoritesInteractor {
 
 extension FavoritesInteractor: FavoritesInteractorInput {
     
-    func userIsSignedIn() -> Bool {
-        authService.userIsSignedIn()
+    func getMealId(at index: Int) -> String {
+        favoriteMeals[index].id
     }
     
-    func getFavoriteMeals() -> [Meal] {
-        mealRepository.getFavoriteMealList()
+    func deleteFavoriteMeal(at index: Int) {
+        do {
+            try mealRepository.removeFavoriteMeal(favoriteMeals[index])
+            favoriteMeals.remove(at: index)
+            output?.didRemoveMealFromFavorites(at: index)
+        } catch {
+            if let error = error as? MealRepositoryError {
+                output?.onError(message: error.description)
+            }
+        }
     }
     
-    func deleteFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
-        mealRepository.removeFavoriteMeal(meal, completion: completion)
+    func retrieveFavoriteMeals() {
+        do {
+            favoriteMeals = try mealRepository.getFavoriteMealList()
+            output?.didRetrieveFavoriteMeals(favoriteMeals)
+        } catch let error as MealRepositoryError {
+            if case .needToLogIn = error {
+                output?.loginFailure()
+            }
+        } catch {
+            output?.onError(message: error.localizedDescription)
+        }
     }
     
 }

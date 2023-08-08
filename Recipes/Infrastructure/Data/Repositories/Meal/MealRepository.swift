@@ -35,45 +35,43 @@ final class MealRepository {
 
 extension MealRepository: MealRepositoryProtocol {
     
-    func getFavoriteMealList() -> [Meal] {
-        favoriteMeals
-    }
-    
     func updateFavoriteMeals() {
         guard let uid = authService.getUserId() else { return }
         fetchRemoteMealList(uid)
     }
     
-    func removeFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+    func getFavoriteMealList() throws -> [Meal] {
+        guard authService.userIsSignedIn() else {
+            throw MealRepositoryError.needToLogIn
+        }
+        return favoriteMeals
+    }
+    
+    func removeFavoriteMeal(_ meal: Meal) throws {
         guard
             NetworkMonitor.shared.isConnected,
             let uid = authService.getUserId()
         else {
-            completion(.noInternet)
-            return
+            throw MealRepositoryError.noInternet
         }
         
         favoriteMeals.removeAll(where: { $0 == meal })
         localDataSource.deleteMeal(meal)
         remoteDataSource.deleteMeal(meal, uid: uid)
-        completion(nil)
     }
     
-    func putFavoriteMeal(_ meal: Meal, completion: (MealRepositoryError?) -> Void) {
+    func putFavoriteMeal(_ meal: Meal) throws {
         guard NetworkMonitor.shared.isConnected else {
-            completion(.noInternet)
-            return
+            throw MealRepositoryError.noInternet
         }
         
         guard let uid = authService.getUserId() else {
-            completion(.needToLogIn)
-            return
+            throw MealRepositoryError.needToLogIn
         }
         
         favoriteMeals.append(meal)
         localDataSource.saveMeal(meal, uid: uid)
         remoteDataSource.saveMeal(meal, uid: uid)
-        completion(nil)
     }
     
     func loadAreaList(completion: @escaping (Result<[Area], NetworkError>) -> Void) {
@@ -137,8 +135,9 @@ extension MealRepository: MealRepositoryProtocol {
         case .mealById(let id):
             guard
                 !NetworkMonitor.shared.isConnected,
-                let meal = favoriteMeals.first(where: { $0.id == id })
+                var meal = favoriteMeals.first(where: { $0.id == id })
             else { fallthrough }
+            meal.isFavorite = true
             completion(.success(meal))
             
         default:

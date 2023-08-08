@@ -8,5 +8,6 @@
 import Foundation
 
 protocol MealListInteractorOutput: AnyObject {
-    
+    func onError(message: String)
+    func didRetrieveMeals(_ meals: [Meal], filterName: String)
 }

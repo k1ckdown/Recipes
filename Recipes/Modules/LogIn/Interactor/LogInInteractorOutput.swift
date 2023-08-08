@@ -8,5 +8,9 @@
 import Foundation
 
 protocol LogInInteractorOutput: AnyObject {
+    func loginSuccess()
+    func loginFailure(errorMessage: String)
     
+    func signUpSuccess()
+    func signUpFailure(errorMessage: String)
 }

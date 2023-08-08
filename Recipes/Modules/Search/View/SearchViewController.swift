@@ -19,14 +19,12 @@ final class SearchViewController: BaseViewController {
     private let mealSearchController = UISearchController()
     private let mealTableView = MealTableView()
     
-    private let dataSource: SearchDataSource = .init()
+    private let dataSource = SearchDataSource()
     
     private enum Constants {
-        
             enum MealSearchBar {
                 static let insetSide = 10
             }
-        
     }
     
     override func viewDidLoad() {
@@ -70,7 +68,6 @@ final class SearchViewController: BaseViewController {
     
     private func setupNavigationItem() {
         navigationItem.searchController = mealSearchController
-        navigationItem.largeTitleDisplayMode = .automatic
     }
     
     private func setupMealSearchBar() {

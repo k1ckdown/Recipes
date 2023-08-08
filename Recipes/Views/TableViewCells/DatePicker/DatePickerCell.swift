@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DatePickerCell: UITableViewCell, ReuseIdentifier {
+final class DatePickerCell: UITableViewCell, ReusableView {
     
     private(set) var datePicker = UIDatePicker()
     

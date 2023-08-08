@@ -24,20 +24,30 @@ final class ProfileInteractor {
 
 extension ProfileInteractor: ProfileInteractorInput {
     
-    func userIsSignedIn() -> Bool {
-        authService.userIsSignedIn()
-    }
-    
     func updateProfilePicture(data: Data) {
         userRepository.updateProfilePicture(imageData: data)
     }
     
-    func getLoggedUser(completion: @escaping (Result<User, AuthError>) -> Void) {
-        userRepository.getUser(completion: completion)
+    func logOut() {
+        do {
+            try authService.logOut()
+            output?.logoutSuccess()
+        } catch let error as AuthError {
+            output?.logoutFailure(errorMessage: error.description)
+        } catch {
+            
+        }
     }
     
-    func logOut(completion: (AuthError?) -> Void) {
-        authService.logOut(completion: completion)
+    func retrieveLoggedUser() {
+        userRepository.getUser { result in
+            switch result {
+            case .success(let user):
+                self.output?.didRetrieveLoggedUser(user)
+            case .failure:
+                self.output?.loginFailure()
+            }
+        }
     }
     
 }

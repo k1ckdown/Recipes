@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol ReuseIdentifier: AnyObject {
+protocol ReusableView: AnyObject {
     
 }
 
-extension ReuseIdentifier {
+extension ReusableView {
     static var reuseIdentifier: String {
         String(describing: self)
     }
