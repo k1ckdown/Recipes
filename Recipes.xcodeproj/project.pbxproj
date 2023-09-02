@@ -11,6 +11,7 @@
 		4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4904B32A2A52C76400071AC6 /* SceneDelegate.swift */; };
 		4904B3322A52C76600071AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4904B3312A52C76600071AC6 /* Assets.xcassets */; };
 		4904B3352A52C76600071AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4904B3332A52C76600071AC6 /* LaunchScreen.storyboard */; };
+		490949672AA2FA5E00EEEEC4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490949662AA2FA5E00EEEEC4 /* CustomTabBar.swift */; };
 		4920559D2A594B4300C52B9C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920559C2A594B4300C52B9C /* DIContainer.swift */; };
 		4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920559E2A594B5200C52B9C /* HomeAssembly.swift */; };
 		492055A22A594B6E00C52B9C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 492055A12A594B6E00C52B9C /* Swinject */; };
@@ -211,6 +212,7 @@
 		4904B3312A52C76600071AC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4904B3342A52C76600071AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4904B3362A52C76600071AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		490949662AA2FA5E00EEEEC4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		4920559C2A594B4300C52B9C /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		4920559E2A594B5200C52B9C /* HomeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		49381E662A5AA20600F8C6C3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -1189,6 +1191,7 @@
 				49AC62E22A59D35F00FA50CF /* Configurations */,
 				49AC62E52A59D7BF00FA50CF /* MainTabBarController.swift */,
 				49AC62E72A59D83C00FA50CF /* MainTabBarRouter.swift */,
+				490949662AA2FA5E00EEEEC4 /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -1594,6 +1597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E291382A612F6D00FD73CF /* LogInPresenter.swift in Sources */,
+				490949672AA2FA5E00EEEEC4 /* CustomTabBar.swift in Sources */,
 				494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */,
 				4999B2A22A6194E90099565A /* User.swift in Sources */,
 				49381E9A2A5AD7BA00F8C6C3 /* MealListRouterInput.swift in Sources */,

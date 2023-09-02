@@ -21,6 +21,7 @@ extension UIImage {
     
     enum SystemImage: String {
         case lock
+        case plus
         case house
         case person
         case magnifyingglass

@@ -30,8 +30,8 @@ final class MainTabBarRouter {
         
         switch flow {
         case .home:
-            let home: HomeViewController = DIContainer.shared.resolve()
-            navigationController.setViewControllers([home], animated: true)
+            let homeScene: HomeViewController = DIContainer.shared.resolve()
+            navigationController.setViewControllers([homeScene], animated: true)
         case .search:
             let searchScene: SearchViewController = DIContainer.shared.resolve()
             navigationController.setViewControllers([searchScene], animated: true)
