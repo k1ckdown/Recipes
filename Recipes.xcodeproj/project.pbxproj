@@ -651,9 +651,8 @@
 		494918542A600CC700723E6A /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				4972C9FA2A6DB46C00D9CF40 /* UserRemote */,
-				494FF68E2A6AE899001865F5 /* MealLocal */,
-				494FF68B2A6AE822001865F5 /* MealRemote */,
+				4978E4F22A99E164008E1531 /* MealDataSources */,
+				4978E4F32A99E175008E1531 /* UserDataSources */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -902,6 +901,23 @@
 				49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */,
 			);
 			path = UserRemote;
+			sourceTree = "<group>";
+		};
+		4978E4F22A99E164008E1531 /* MealDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				494FF68B2A6AE822001865F5 /* MealRemote */,
+				494FF68E2A6AE899001865F5 /* MealLocal */,
+			);
+			path = MealDataSources;
+			sourceTree = "<group>";
+		};
+		4978E4F32A99E175008E1531 /* UserDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				4972C9FA2A6DB46C00D9CF40 /* UserRemote */,
+			);
+			path = UserDataSources;
 			sourceTree = "<group>";
 		};
 		497F4C612A5336EF0073A86E /* Application */ = {
