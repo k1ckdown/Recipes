@@ -18,10 +18,13 @@ final class AppRouter {
     }
     
     func start() {
-        window.overrideUserInterfaceStyle = .dark
-        window.rootViewController = mainTabBarController
-        window.makeKeyAndVisible()
-        
+        setupWindow()
+
+        let showCreateRecipeHandler: (() -> Void) = { [weak self] in
+            self?.showCreateRecipe()
+        }
+        mainTabBarController.showCreateRecipeHandler = showCreateRecipeHandler
+
         showMainTabBar()
     }
 }
@@ -32,5 +35,16 @@ private extension AppRouter {
         let mainTabBarRouter = MainTabBarRouter(tabBarController: mainTabBarController)
         mainTabBarRouter.start()
     }
-    
+
+    func showCreateRecipe() {
+        let createRecipeScene: CreateRecipeViewController = DIContainer.shared.resolve()
+        mainTabBarController.present(createRecipeScene, animated: true)
+    }
+
+    func setupWindow() {
+        window.overrideUserInterfaceStyle = .dark
+        window.rootViewController = mainTabBarController
+        window.makeKeyAndVisible()
+    }
+
 }

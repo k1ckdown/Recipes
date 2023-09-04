@@ -15,6 +15,7 @@ final class ModuleAssembly: Assembly {
             LogInAssembly(),
             HomeAssembly(),
             SearchAssembly(),
+            CreateRecipeAssembly(),
             FavoritesAssembly(),
             ProfileAssembly(),
             PersonalInfoAssembly(),

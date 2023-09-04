@@ -8,10 +8,17 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-    
+
+    var showCreateRecipeHandler: (() -> Void)? {
+        didSet {
+            customTabBar.middleButtonHandler = showCreateRecipeHandler
+        }
+    }
+    private let customTabBar = CustomTabBar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setValue(CustomTabBar(), forKey: "tabBar")
+        setValue(customTabBar, forKey: "tabBar")
     }
     
 }

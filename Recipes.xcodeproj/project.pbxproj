@@ -104,6 +104,16 @@
 		497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C892A535E290073A86E /* HomeDataSource.swift */; };
 		497F4C8D2A5363A60073A86E /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */; };
 		497F4C902A5364930073A86E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F4C8F2A5364930073A86E /* ReusableView.swift */; };
+		498645592AA586A30027FC77 /* CreateRecipeRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645582AA586A30027FC77 /* CreateRecipeRouterInput.swift */; };
+		4986455B2AA586A90027FC77 /* CreateRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986455A2AA586A90027FC77 /* CreateRecipeRouter.swift */; };
+		4986455D2AA592E40027FC77 /* CreateRecipeInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986455C2AA592E40027FC77 /* CreateRecipeInteractorInput.swift */; };
+		4986455F2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986455E2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift */; };
+		498645612AA59DE10027FC77 /* CreateRecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645602AA59DE10027FC77 /* CreateRecipeInteractor.swift */; };
+		498645632AA59E790027FC77 /* CreateRecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645622AA59E790027FC77 /* CreateRecipePresenter.swift */; };
+		498645652AA59E860027FC77 /* CreateRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645642AA59E860027FC77 /* CreateRecipeViewController.swift */; };
+		498645672AA59E910027FC77 /* CreateRecipeViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645662AA59E910027FC77 /* CreateRecipeViewInput.swift */; };
+		498645692AA59E970027FC77 /* CreateRecipeViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498645682AA59E970027FC77 /* CreateRecipeViewOutput.swift */; };
+		4986456B2AA5A0F70027FC77 /* CreateRecipeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986456A2AA5A0F70027FC77 /* CreateRecipeAssembly.swift */; };
 		499018972A6BABBB003E27F7 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018962A6BABBB003E27F7 /* Divider.swift */; };
 		499018B02A6BBF04003E27F7 /* LoginProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */; };
 		499018B22A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */; };
@@ -303,6 +313,16 @@
 		497F4C892A535E290073A86E /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		497F4C8F2A5364930073A86E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		498645582AA586A30027FC77 /* CreateRecipeRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeRouterInput.swift; sourceTree = "<group>"; };
+		4986455A2AA586A90027FC77 /* CreateRecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeRouter.swift; sourceTree = "<group>"; };
+		4986455C2AA592E40027FC77 /* CreateRecipeInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeInteractorInput.swift; sourceTree = "<group>"; };
+		4986455E2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeInteractorOutput.swift; sourceTree = "<group>"; };
+		498645602AA59DE10027FC77 /* CreateRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeInteractor.swift; sourceTree = "<group>"; };
+		498645622AA59E790027FC77 /* CreateRecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipePresenter.swift; sourceTree = "<group>"; };
+		498645642AA59E860027FC77 /* CreateRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewController.swift; sourceTree = "<group>"; };
+		498645662AA59E910027FC77 /* CreateRecipeViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewInput.swift; sourceTree = "<group>"; };
+		498645682AA59E970027FC77 /* CreateRecipeViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeViewOutput.swift; sourceTree = "<group>"; };
+		4986456A2AA5A0F70027FC77 /* CreateRecipeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeAssembly.swift; sourceTree = "<group>"; };
 		499018962A6BABBB003E27F7 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		499018AD2A6BBF04003E27F7 /* LoginProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProviderButton.swift; sourceTree = "<group>"; };
 		499018B12A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderButtonStyle.swift; sourceTree = "<group>"; };
@@ -947,6 +967,7 @@
 			children = (
 				497F4C802A5348D80073A86E /* AppRouter.swift */,
 				49AC62E12A59D35400FA50CF /* TabBar */,
+				498645512AA586260027FC77 /* CreateRecipe */,
 				499018B32A6C030D003E27F7 /* PersonalInfo */,
 				49E2912C2A612F1100FD73CF /* LogIn */,
 				494918562A60573000723E6A /* Profile */,
@@ -1062,6 +1083,54 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		498645512AA586260027FC77 /* CreateRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				498645552AA586500027FC77 /* View */,
+				498645542AA586460027FC77 /* Presenter */,
+				498645532AA5863F0027FC77 /* Interactor */,
+				498645522AA5863A0027FC77 /* Router */,
+			);
+			path = CreateRecipe;
+			sourceTree = "<group>";
+		};
+		498645522AA5863A0027FC77 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4986455A2AA586A90027FC77 /* CreateRecipeRouter.swift */,
+				498645582AA586A30027FC77 /* CreateRecipeRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		498645532AA5863F0027FC77 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				498645602AA59DE10027FC77 /* CreateRecipeInteractor.swift */,
+				4986455C2AA592E40027FC77 /* CreateRecipeInteractorInput.swift */,
+				4986455E2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		498645542AA586460027FC77 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				498645622AA59E790027FC77 /* CreateRecipePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		498645552AA586500027FC77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				498645642AA59E860027FC77 /* CreateRecipeViewController.swift */,
+				498645662AA59E910027FC77 /* CreateRecipeViewInput.swift */,
+				498645682AA59E970027FC77 /* CreateRecipeViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		499018AE2A6BBF04003E27F7 /* LoginProviderButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,6 +1230,7 @@
 				4949186D2A60595700723E6A /* ProfileAssembly.swift */,
 				49E291442A6131FE00FD73CF /* LogInAssembly.swift */,
 				49B752762A6D6010005E320A /* PersonalInfoAssembly.swift */,
+				4986456A2AA5A0F70027FC77 /* CreateRecipeAssembly.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1596,6 +1666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498645672AA59E910027FC77 /* CreateRecipeViewInput.swift in Sources */,
 				49E291382A612F6D00FD73CF /* LogInPresenter.swift in Sources */,
 				490949672AA2FA5E00EEEEC4 /* CustomTabBar.swift in Sources */,
 				494DFFDA2A5E74A400C80E56 /* MealTableView.swift in Sources */,
@@ -1620,6 +1691,7 @@
 				49E1FBC82A58610900D254C0 /* MealDetailInteractorOutput.swift in Sources */,
 				49381E902A5AD78400F8C6C3 /* MealListPresenter.swift in Sources */,
 				49AC62DA2A59A01A00FA50CF /* InfrastructureAssembly.swift in Sources */,
+				4986456B2AA5A0F70027FC77 /* CreateRecipeAssembly.swift in Sources */,
 				4920559D2A594B4300C52B9C /* DIContainer.swift in Sources */,
 				49381E812A5AAE8C00F8C6C3 /* MealListType.swift in Sources */,
 				499018B22A6BBF2C003E27F7 /* LoginProviderButtonStyle.swift in Sources */,
@@ -1649,9 +1721,11 @@
 				494FF68D2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
 				49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */,
+				498645592AA586A30027FC77 /* CreateRecipeRouterInput.swift in Sources */,
 				497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */,
 				49E2914F2A6162C000FD73CF /* LoginState.swift in Sources */,
 				494D001B2A5EDB7C00C80E56 /* CDMeal+CoreDataProperties.swift in Sources */,
+				4986455D2AA592E40027FC77 /* CreateRecipeInteractorInput.swift in Sources */,
 				497F4C742A533DDD0073A86E /* HomeRouterInput.swift in Sources */,
 				494918602A60577E00723E6A /* ProfileViewOutput.swift in Sources */,
 				49381E8E2A5AD77800F8C6C3 /* MealListViewOutput.swift in Sources */,
@@ -1672,10 +1746,12 @@
 				49FF07D62A56997B007630D0 /* MealRepository.swift in Sources */,
 				49E2914D2A6137AE00FD73CF /* LoginTextFieldStyle.swift in Sources */,
 				49542D642A5DBC90009D4CC6 /* FavoritesRouterInput.swift in Sources */,
+				498645692AA59E970027FC77 /* CreateRecipeViewOutput.swift in Sources */,
 				494918622A60578C00723E6A /* ProfilePresenter.swift in Sources */,
 				49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */,
 				4904B32B2A52C76400071AC6 /* SceneDelegate.swift in Sources */,
 				49B7529A2A5CF02C0029003E /* LoadingDisplayable.swift in Sources */,
+				498645632AA59E790027FC77 /* CreateRecipePresenter.swift in Sources */,
 				4999B2A42A6195D10099565A /* AuthSignUpData.swift in Sources */,
 				49AC62DD2A59A3D400FA50CF /* ModuleAssembly.swift in Sources */,
 				499018C92A6C0521003E27F7 /* PersonalInfoRouterInput.swift in Sources */,
@@ -1683,6 +1759,7 @@
 				49381E922A5AD79000F8C6C3 /* MealListInteractor.swift in Sources */,
 				49381E832A5AB31000F8C6C3 /* SearchAssembly.swift in Sources */,
 				494DFFF02A5EBC7D00C80E56 /* Recipes.xcdatamodeld in Sources */,
+				498645652AA59E860027FC77 /* CreateRecipeViewController.swift in Sources */,
 				4999B2A62A6197DA0099565A /* AuthLogInData.swift in Sources */,
 				49B752682A6D346A005E320A /* HeaderView.swift in Sources */,
 				49381E7D2A5AA94000F8C6C3 /* SearchRouter.swift in Sources */,
@@ -1724,10 +1801,12 @@
 				49E291402A612FB100FD73CF /* LogInRouter.swift in Sources */,
 				495E80AE2A6936740010AF3A /* MealRemoteDataSource.swift in Sources */,
 				49E1FBDB2A58AF2F00D254C0 /* MealDetailSegment.swift in Sources */,
+				498645612AA59DE10027FC77 /* CreateRecipeInteractor.swift in Sources */,
 				499018C12A6C04BC003E27F7 /* PersonalInfoInteractor.swift in Sources */,
 				49E291362A612F4500FD73CF /* LogInViewOutput.swift in Sources */,
 				49FF07D82A569BD3007630D0 /* Area.swift in Sources */,
 				497F4C772A533E340073A86E /* HomeInteractorOutput.swift in Sources */,
+				4986455B2AA586A90027FC77 /* CreateRecipeRouter.swift in Sources */,
 				4972C9FC2A6DB47C00D9CF40 /* UserRemoteDataSource.swift in Sources */,
 				49FF07DA2A569BDB007630D0 /* Meal.swift in Sources */,
 				49B4F87D2A55628300E91A3A /* HTTPMethod.swift in Sources */,
@@ -1759,6 +1838,7 @@
 				49E1FBCF2A5861F900D254C0 /* MealDetailPresenter.swift in Sources */,
 				4952BCE62A74F784000338B9 /* BaseViewController.swift in Sources */,
 				494D00212A5EDF1600C80E56 /* MealLocalDataSource.swift in Sources */,
+				4986455F2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift in Sources */,
 				49542D5F2A5DBC58009D4CC6 /* FavoritesPresenter.swift in Sources */,
 				49381E772A5AA8FF00F8C6C3 /* SearchInteractor.swift in Sources */,
 				49381E6F2A5AA37800F8C6C3 /* MealCellModel.swift in Sources */,
