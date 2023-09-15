@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CreateRecipeInteractorInput {
-
+protocol CreateRecipeInteractorInput: AnyObject {
+	func retrieveIngredients()
 }

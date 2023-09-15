@@ -38,7 +38,8 @@ private extension AppRouter {
 
     func showCreateRecipe() {
         let createRecipeScene: CreateRecipeViewController = DIContainer.shared.resolve()
-        mainTabBarController.present(createRecipeScene, animated: true)
+        let navController = UINavigationController(rootViewController: createRecipeScene)
+        mainTabBarController.present(navController, animated: true)
     }
 
     func setupWindow() {

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CreateRecipeViewInput: AnyObject {
-    
+	func refreshList(numberOfRows: Int)
 }

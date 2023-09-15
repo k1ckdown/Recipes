@@ -12,7 +12,11 @@ final class CreateRecipeAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(CreateRecipeInteractor.self) { resolver in
-            CreateRecipeInteractor()
+			guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
+				fatalError("MealRepositoryProtocol dependency could not be resolved")
+			}
+
+            return CreateRecipeInteractor(mealRepository: mealRepository)
         }
 
         container.register(CreateRecipeRouter.self) { (_, view: CreateRecipeViewController) in

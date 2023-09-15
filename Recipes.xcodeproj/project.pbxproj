@@ -15,6 +15,8 @@
 		4920559D2A594B4300C52B9C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920559C2A594B4300C52B9C /* DIContainer.swift */; };
 		4920559F2A594B5200C52B9C /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4920559E2A594B5200C52B9C /* HomeAssembly.swift */; };
 		492055A22A594B6E00C52B9C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 492055A12A594B6E00C52B9C /* Swinject */; };
+		4927D5702AB40E5400A9EAE8 /* AddIngredientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927D56F2AB40E5400A9EAE8 /* AddIngredientButton.swift */; };
+		4927D5722AB42EDF00A9EAE8 /* UITextField+FlexibleSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927D5712AB42EDF00A9EAE8 /* UITextField+FlexibleSpace.swift */; };
 		49381E672A5AA20600F8C6C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E662A5AA20600F8C6C3 /* SearchViewController.swift */; };
 		49381E692A5AA2D400F8C6C3 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E682A5AA2D400F8C6C3 /* SearchDataSource.swift */; };
 		49381E6D2A5AA34000F8C6C3 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E6C2A5AA34000F8C6C3 /* MealViewCell.swift */; };
@@ -41,6 +43,7 @@
 		49381E9C2A5ADAD000F8C6C3 /* MealListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */; };
 		49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */; };
 		49381EA12A5ADE4E00F8C6C3 /* MealListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */; };
+		493984172AADE0C000752D74 /* RecipeCreatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493984162AADE0C000752D74 /* RecipeCreatingLabel.swift */; };
 		4949185C2A60576200723E6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185B2A60576200723E6A /* ProfileViewController.swift */; };
 		4949185E2A60577200723E6A /* ProfileViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185D2A60577200723E6A /* ProfileViewInput.swift */; };
 		494918602A60577E00723E6A /* ProfileViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949185F2A60577E00723E6A /* ProfileViewOutput.swift */; };
@@ -132,6 +135,7 @@
 		4999B2A62A6197DA0099565A /* AuthLogInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999B2A52A6197DA0099565A /* AuthLogInData.swift */; };
 		4999B2B32A61D9AC0099565A /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999B2B22A61D9AC0099565A /* AuthError.swift */; };
 		499F4C712A544DC300E3446C /* FoodViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499F4C702A544DC300E3446C /* FoodViewCell.swift */; };
+		49ABCBD12AB3468100A63540 /* CreateRecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCBD02AB3468100A63540 /* CreateRecipeDataSource.swift */; };
 		49AC62DA2A59A01A00FA50CF /* InfrastructureAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62D92A59A01A00FA50CF /* InfrastructureAssembly.swift */; };
 		49AC62DD2A59A3D400FA50CF /* ModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62DC2A59A3D400FA50CF /* ModuleAssembly.swift */; };
 		49AC62DF2A59A42B00FA50CF /* MealDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC62DE2A59A42B00FA50CF /* MealDetailAssembly.swift */; };
@@ -225,6 +229,8 @@
 		490949662AA2FA5E00EEEEC4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		4920559C2A594B4300C52B9C /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		4920559E2A594B5200C52B9C /* HomeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		4927D56F2AB40E5400A9EAE8 /* AddIngredientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientButton.swift; sourceTree = "<group>"; };
+		4927D5712AB42EDF00A9EAE8 /* UITextField+FlexibleSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+FlexibleSpace.swift"; sourceTree = "<group>"; };
 		49381E662A5AA20600F8C6C3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		49381E682A5AA2D400F8C6C3 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		49381E6C2A5AA34000F8C6C3 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		49381E9B2A5ADAD000F8C6C3 /* MealListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListDataSource.swift; sourceTree = "<group>"; };
 		49381E9E2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListCompositionalLayout.swift; sourceTree = "<group>"; };
 		49381EA02A5ADE4E00F8C6C3 /* MealListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListAssembly.swift; sourceTree = "<group>"; };
+		493984162AADE0C000752D74 /* RecipeCreatingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCreatingLabel.swift; sourceTree = "<group>"; };
 		4949185B2A60576200723E6A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4949185D2A60577200723E6A /* ProfileViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInput.swift; sourceTree = "<group>"; };
 		4949185F2A60577E00723E6A /* ProfileViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewOutput.swift; sourceTree = "<group>"; };
@@ -341,6 +348,7 @@
 		4999B2A52A6197DA0099565A /* AuthLogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogInData.swift; sourceTree = "<group>"; };
 		4999B2B22A61D9AC0099565A /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		499F4C702A544DC300E3446C /* FoodViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewCell.swift; sourceTree = "<group>"; };
+		49ABCBD02AB3468100A63540 /* CreateRecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeDataSource.swift; sourceTree = "<group>"; };
 		49AC62D92A59A01A00FA50CF /* InfrastructureAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureAssembly.swift; sourceTree = "<group>"; };
 		49AC62DC2A59A3D400FA50CF /* ModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleAssembly.swift; sourceTree = "<group>"; };
 		49AC62DE2A59A42B00FA50CF /* MealDetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailAssembly.swift; sourceTree = "<group>"; };
@@ -662,6 +670,14 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		493984152AADE0AD00752D74 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				493984162AADE0C000752D74 /* RecipeCreatingLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		494918532A600CBE00723E6A /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +910,7 @@
 				49E1FBD72A588B9100D254C0 /* UIImageView+Kingfisher.swift */,
 				49E291532A6174CA00FD73CF /* UITabBarController+TabBar.swift */,
 				49DCD7772A6EBA7400E003D4 /* UIImage+AppImages.swift */,
+				4927D5712AB42EDF00A9EAE8 /* UITextField+FlexibleSpace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1058,6 +1075,7 @@
 		497F4C8B2A5363790073A86E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				493984152AADE0AD00752D74 /* Labels */,
 				49E291522A6167EE00FD73CF /* CustomViews */,
 				49E291462A61378C00FD73CF /* TextFields */,
 				4949186F2A606F3500723E6A /* Buttons */,
@@ -1124,6 +1142,7 @@
 		498645552AA586500027FC77 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49ABCBCF2AB344D900A63540 /* DataSources */,
 				498645642AA59E860027FC77 /* CreateRecipeViewController.swift */,
 				498645662AA59E910027FC77 /* CreateRecipeViewInput.swift */,
 				498645682AA59E970027FC77 /* CreateRecipeViewOutput.swift */,
@@ -1217,6 +1236,14 @@
 				49648FCF2A5429B800B99DFF /* Extensions */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		49ABCBCF2AB344D900A63540 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				49ABCBD02AB3468100A63540 /* CreateRecipeDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		49AC62D82A599C2D00FA50CF /* Modules */ = {
@@ -1412,6 +1439,7 @@
 			isa = PBXGroup;
 			children = (
 				497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */,
+				4927D56F2AB40E5400A9EAE8 /* AddIngredientButton.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1704,6 +1732,7 @@
 				49B4F87B2A55621A00E91A3A /* EndPointType.swift in Sources */,
 				49F73B552A6E731800FA3C79 /* DatePickerCellModel.swift in Sources */,
 				497F4C862A53581E0073A86E /* HomeSection.swift in Sources */,
+				493984172AADE0C000752D74 /* RecipeCreatingLabel.swift in Sources */,
 				49381E962A5AD7A500F8C6C3 /* MealListInteractorOutput.swift in Sources */,
 				4999B2A02A6191370099565A /* AuthService.swift in Sources */,
 				4949186A2A6057C100723E6A /* ProfileRouter.swift in Sources */,
@@ -1721,6 +1750,7 @@
 				494FF68D2A6AE836001865F5 /* MealRemoteDataSourceProtocol.swift in Sources */,
 				4904B3292A52C76400071AC6 /* AppDelegate.swift in Sources */,
 				49E1FBC12A585E8A00D254C0 /* IngredientCellModel.swift in Sources */,
+				4927D5722AB42EDF00A9EAE8 /* UITextField+FlexibleSpace.swift in Sources */,
 				498645592AA586A30027FC77 /* CreateRecipeRouterInput.swift in Sources */,
 				497F4C8A2A535E290073A86E /* HomeDataSource.swift in Sources */,
 				49E2914F2A6162C000FD73CF /* LoginState.swift in Sources */,
@@ -1814,6 +1844,7 @@
 				49381E8C2A5AD77000F8C6C3 /* MealListViewInput.swift in Sources */,
 				49E2913E2A612F8400FD73CF /* LogInInteractorOutput.swift in Sources */,
 				49B4F88B2A55774B00E91A3A /* ParameterEncoding.swift in Sources */,
+				4927D5702AB40E5400A9EAE8 /* AddIngredientButton.swift in Sources */,
 				49381E752A5AA8B400F8C6C3 /* SearchViewOutput.swift in Sources */,
 				499018C32A6C04CB003E27F7 /* PersonalInfoInteractorInput.swift in Sources */,
 				49542D532A5DBBC1009D4CC6 /* FavoritesViewInput.swift in Sources */,
@@ -1836,6 +1867,7 @@
 				494D00242A5EE25300C80E56 /* CDMealIngredient+CoreDataClass.swift in Sources */,
 				494FF6902A6AE8A5001865F5 /* MealLocalDataSourceProtocol.swift in Sources */,
 				49E1FBCF2A5861F900D254C0 /* MealDetailPresenter.swift in Sources */,
+				49ABCBD12AB3468100A63540 /* CreateRecipeDataSource.swift in Sources */,
 				4952BCE62A74F784000338B9 /* BaseViewController.swift in Sources */,
 				494D00212A5EDF1600C80E56 /* MealLocalDataSource.swift in Sources */,
 				4986455F2AA592FE0027FC77 /* CreateRecipeInteractorOutput.swift in Sources */,

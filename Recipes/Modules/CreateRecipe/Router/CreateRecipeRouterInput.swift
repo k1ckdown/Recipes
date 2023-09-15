@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CreateRecipeRouterInput {
+protocol CreateRecipeRouterInput: AnyObject, AlertPresentable {
     
 }

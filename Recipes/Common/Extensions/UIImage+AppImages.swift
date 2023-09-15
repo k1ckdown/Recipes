@@ -29,6 +29,7 @@ extension UIImage {
         case heartFill = "heart.fill"
         case personFill = "person.fill"
         case playCircle = "play.circle"
+		case plusCircle = "plus.circle"
         case envelopeFill = "envelope.fill"
         case chevronRight = "chevron.right"
         case personCropCircle = "person.crop.circle"
