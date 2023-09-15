@@ -8,13 +8,13 @@
 import UIKit
 
 final class CreateRecipeRouter: Router {
-
+    
     weak var view: UIViewController?
-
+    
     init(view: UIViewController) {
         self.view = view
     }
-
+    
 }
 
 // MARK: - CreateRecipeRouterInput

@@ -9,19 +9,19 @@ import Foundation
 
 protocol CreateRecipeViewOutput: AnyObject {
     var sceneTitle: String { get }
-
-	var nameRecipeTitle: String { get }
-	var nameRecipePlaceholder: String { get }
-
-	var descRecipeTitle: String { get }
-	var descRecipePlaceholder: String { get }
-
-	var ingredientsTilte: String { get }
-	var addIngredientTitle: String { get }
-
-	var ingredientCellModels: [IngredientCellModel] { get }
-
-	func viewDidLoad()
-	func numberOfRows() -> Int
-	func didTapOnAddIngredientButton()
+    
+    var nameRecipeTitle: String { get }
+    var nameRecipePlaceholder: String { get }
+    
+    var descRecipeTitle: String { get }
+    var descRecipePlaceholder: String { get }
+    
+    var ingredientsTilte: String { get }
+    var addIngredientTitle: String { get }
+    
+    var ingredientCellModels: [IngredientCellModel] { get }
+    
+    func viewDidLoad()
+    func numberOfRows() -> Int
+    func didTapOnAddIngredientButton()
 }

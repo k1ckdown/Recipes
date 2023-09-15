@@ -12,9 +12,9 @@ final class CreateRecipeAssembly: Assembly {
     func assemble(container: Container) {
 
         container.register(CreateRecipeInteractor.self) { resolver in
-			guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
-				fatalError("MealRepositoryProtocol dependency could not be resolved")
-			}
+            guard let mealRepository = resolver.resolve(MealRepositoryProtocol.self) else {
+                fatalError("MealRepositoryProtocol dependency could not be resolved")
+            }
 
             return CreateRecipeInteractor(mealRepository: mealRepository)
         }
@@ -31,7 +31,7 @@ final class CreateRecipeAssembly: Assembly {
             guard let router = resolver.resolve(CreateRecipeRouter.self, argument: view) else {
                 fatalError("CreateRecipeRouter dependency could not be resolved")
             }
-
+            
             let presenter = CreateRecipePresenter(view: view, interactor: interactor, router: router)
             interactor.output = presenter
             return presenter

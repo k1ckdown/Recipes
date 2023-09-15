@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CreateRecipeInteractorInput: AnyObject {
-	func retrieveIngredients()
+    func retrieveIngredients()
 }

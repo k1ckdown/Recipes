@@ -9,19 +9,19 @@ import UIKit
 
 final class RecipeCreatingLabel: UILabel {
 
-	init() {
-		super.init(frame: .zero)
-		setup()
-	}
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
 
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-	private func setup() {
-		textColor = .appWhite
-		textAlignment = .left
-		font = .recipeCreatingLabel
-	}
+    private func setup() {
+        textColor = .appWhite
+        textAlignment = .left
+        font = .recipeCreatingLabel
+    }
 
 }

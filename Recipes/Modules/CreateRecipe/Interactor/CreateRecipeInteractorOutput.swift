@@ -8,6 +8,6 @@
 import Foundation
 
 protocol CreateRecipeInteractorOutput: AnyObject {
-	func onError(message: String)
-	func didRetrieveIngredients(_ ingredients: [MealIngredient])
+    func onError(message: String)
+    func didRetrieveIngredients(_ ingredients: [MealIngredient])
 }
