@@ -75,6 +75,17 @@ final class CreateRecipeViewController: BaseViewController {
 
 }
 
+// MARK: - Actions
+
+private extension CreateRecipeViewController {
+
+    @objc
+    func handleTapOnScroll() {
+        view.endEditing(true)
+    }
+
+}
+
 // MARK: - Setup
 
 private extension CreateRecipeViewController {
@@ -100,7 +111,12 @@ private extension CreateRecipeViewController {
     func setupScrollView() {
         view.addSubview(scrollView)
 
+        scrollView.keyboardDismissMode = .onDrag
         scrollView.showsVerticalScrollIndicator = false
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnScroll))
+        scrollView.addGestureRecognizer(tapGesture)
+
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -128,6 +144,7 @@ private extension CreateRecipeViewController {
     func setupNameRecipeTextField() {
         contentView.addSubview(nameRecipeTextField)
 
+        nameRecipeTextField.delegate = self
         nameRecipeTextField.font = .nameRecipeTextField
         nameRecipeTextField.borderStyle = .none
         nameRecipeTextField.textColor = .appWhite
@@ -162,6 +179,7 @@ private extension CreateRecipeViewController {
     func setupDescRecipeTextView() {
         contentView.addSubview(descRecipeTextView)
 
+        descRecipeTextView.delegate = self
         descRecipeTextView.font = .recipeText
         descRecipeTextView.textColor = .appWhite
         descRecipeTextView.tintColor = .appOrange
@@ -191,11 +209,11 @@ private extension CreateRecipeViewController {
     func setupIngredientsTableView() {
         contentView.addSubview(ingredientsTableView)
 
+        ingredientsTableView.delegate = self
         ingredientsTableView.rowHeight = Constants.IngredientsTableView.rowHeight
         ingredientsTableView.separatorStyle = .none
         ingredientsTableView.showsVerticalScrollIndicator = false
         ingredientsTableView.sectionFooterHeight = Constants.IngredientsTableView.sectionFooterHeight
-        ingredientsTableView.delegate = self
         dataSource.configure(with: ingredientsTableView)
 
         ingredientsTableView.snp.makeConstraints { make in
@@ -216,6 +234,24 @@ private extension CreateRecipeViewController {
 // MARK: - UITextFieldDelegate
 
 extension CreateRecipeViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        output.didEndEditingNameRecipe(textField.text)
+    }
+
+}
+
+extension CreateRecipeViewController: UITextViewDelegate {
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        output.didEndEditingDescRecipe(textView.text)
+    }
 
 }
 

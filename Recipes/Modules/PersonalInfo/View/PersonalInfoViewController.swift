@@ -16,13 +16,13 @@ final class PersonalInfoViewController: BaseViewController {
     
     private enum Constants {
         
-            enum InfoTableView {
-                static let insetTop = 10
-            }
-            
-            enum SaveChangesButton {
-                static let cornerRadius: CGFloat = 10
-            }
+        enum InfoTableView {
+            static let insetTop = 10
+        }
+
+        enum SaveChangesButton {
+            static let cornerRadius: CGFloat = 10
+        }
         
     }
     
@@ -208,7 +208,7 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let value = textField.text
-        let type = TextFieldType(rawValue: textField.tag)
+        let type = PersonalInfoTextFieldType(rawValue: textField.tag)
         
         switch type {
         case .email:

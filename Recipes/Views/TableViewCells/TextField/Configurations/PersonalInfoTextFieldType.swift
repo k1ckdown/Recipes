@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TextFieldType: Int {
+enum PersonalInfoTextFieldType: Int {
     case username
     case email
     

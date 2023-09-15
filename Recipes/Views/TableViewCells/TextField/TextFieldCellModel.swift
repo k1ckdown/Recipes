@@ -19,9 +19,9 @@ final class TextFieldCellModel: PersonalInfoCellModel {
         type.placeholder
     }
     
-    private(set) var type: TextFieldType
+    private(set) var type: PersonalInfoTextFieldType
     
-    init(type: TextFieldType, value: String? = nil) {
+    init(type: PersonalInfoTextFieldType, value: String? = nil) {
         self.type = type
         self.value = value
     }

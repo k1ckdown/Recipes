@@ -24,4 +24,6 @@ protocol CreateRecipeViewOutput: AnyObject {
     func viewDidLoad()
     func numberOfRows() -> Int
     func didTapOnAddIngredientButton()
+    func didEndEditingNameRecipe(_ name: String?)
+    func didEndEditingDescRecipe(_ desc: String?)
 }

@@ -22,6 +22,9 @@ final class CreateRecipePresenter {
 
     private(set) var ingredientCellModels = [IngredientCellModel]()
 
+    private var nameRecipe = ""
+    private var descRecipe = ""
+
     private weak var view: CreateRecipeViewInput?
     private let interactor: CreateRecipeInteractorInput
     private let router: CreateRecipeRouterInput
@@ -71,7 +74,17 @@ extension CreateRecipePresenter: CreateRecipeViewOutput {
 extension CreateRecipePresenter: CreateRecipeInteractorOutput {
 
     func didTapOnAddIngredientButton() {
+        
+    }
 
+    func didEndEditingNameRecipe(_ name: String?) {
+        guard let name = name else { return }
+        nameRecipe = name
+    }
+
+    func didEndEditingDescRecipe(_ desc: String?) {
+        guard let desc = desc else { return }
+        descRecipe = desc
     }
 
 }

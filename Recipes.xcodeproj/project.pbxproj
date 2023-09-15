@@ -201,7 +201,7 @@
 		49E291512A6167EA00FD73CF /* NoAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291502A6167E900FD73CF /* NoAccountView.swift */; };
 		49E291542A6174CA00FD73CF /* UITabBarController+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E291532A6174CA00FD73CF /* UITabBarController+TabBar.swift */; };
 		49F6C48B2A5C668D00677D3F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6C48A2A5C668D00677D3F /* LoadingView.swift */; };
-		49F73B522A6E68E200FA3C79 /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B512A6E68E200FA3C79 /* TextFieldType.swift */; };
+		49F73B522A6E68E200FA3C79 /* PersonalInfoTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B512A6E68E200FA3C79 /* PersonalInfoTextFieldType.swift */; };
 		49F73B552A6E731800FA3C79 /* DatePickerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */; };
 		49F73B5B2A6E989300FA3C79 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */; };
 		49F73B5D2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */; };
@@ -429,7 +429,7 @@
 		49E291502A6167E900FD73CF /* NoAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccountView.swift; sourceTree = "<group>"; };
 		49E291532A6174CA00FD73CF /* UITabBarController+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+TabBar.swift"; sourceTree = "<group>"; };
 		49F6C48A2A5C668D00677D3F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		49F73B512A6E68E200FA3C79 /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
+		49F73B512A6E68E200FA3C79 /* PersonalInfoTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoTextFieldType.swift; sourceTree = "<group>"; };
 		49F73B542A6E731800FA3C79 /* DatePickerCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellModel.swift; sourceTree = "<group>"; };
 		49F73B5A2A6E989300FA3C79 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		49F73B5C2A6E996B00FA3C79 /* UserRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
@@ -1591,7 +1591,7 @@
 		49F73B532A6E691B00FA3C79 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				49F73B512A6E68E200FA3C79 /* TextFieldType.swift */,
+				49F73B512A6E68E200FA3C79 /* PersonalInfoTextFieldType.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1877,7 +1877,7 @@
 				494918662A6057A600723E6A /* ProfileInteractorInput.swift in Sources */,
 				49B752722A6D58B7005E320A /* TextFieldCellModel.swift in Sources */,
 				495E80AC2A6923870010AF3A /* Router.swift in Sources */,
-				49F73B522A6E68E200FA3C79 /* TextFieldType.swift in Sources */,
+				49F73B522A6E68E200FA3C79 /* PersonalInfoTextFieldType.swift in Sources */,
 				49381E9F2A5ADBF400F8C6C3 /* MealListCompositionalLayout.swift in Sources */,
 				49B4F8862A55691600E91A3A /* MealEndPoint.swift in Sources */,
 				49FF07DC2A569BE7007630D0 /* Category.swift in Sources */,
