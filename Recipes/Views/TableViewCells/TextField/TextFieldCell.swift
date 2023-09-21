@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextFieldCell: UITableViewCell, ReusableView {
+final class TextFieldCell: UITableViewCell {
     
     private(set) var textField = UITextField()
     

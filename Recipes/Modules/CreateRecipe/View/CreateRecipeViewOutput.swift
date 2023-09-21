@@ -19,11 +19,8 @@ protocol CreateRecipeViewOutput: AnyObject {
     var ingredientsTilte: String { get }
     var addIngredientTitle: String { get }
     
-    var ingredientCellModels: [IngredientCellModel] { get }
-    
     func viewDidLoad()
-    func numberOfRows() -> Int
-    func didTapOnAddIngredientButton()
+    func addIngredientButtonTapped()
     func didEndEditingNameRecipe(_ name: String?)
     func didEndEditingDescRecipe(_ desc: String?)
 }

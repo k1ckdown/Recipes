@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AreaViewCell: UICollectionViewCell, ReusableView {
+final class AreaViewCell: UICollectionViewCell {
     
     private let areaNameLabel = UILabel()
     

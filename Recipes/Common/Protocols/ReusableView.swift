@@ -1,11 +1,11 @@
 //
-//  ReuseIdentifier.swift
+//  ReusableView.swift
 //  Recipes
 //
 //  Created by Ivan Semenov on 04.07.2023.
 //
 
-import Foundation
+import UIKit
 
 protocol ReusableView: AnyObject {
     
@@ -16,3 +16,6 @@ extension ReusableView {
         String(describing: self)
     }
 }
+
+extension UITableViewCell: ReusableView {}
+extension UICollectionReusableView: ReusableView {}

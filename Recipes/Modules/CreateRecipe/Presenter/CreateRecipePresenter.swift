@@ -20,8 +20,6 @@ final class CreateRecipePresenter {
     private(set) var ingredientsTilte = "Ingredients"
     private(set) var addIngredientTitle = "Add Ingredient"
 
-    private(set) var ingredientCellModels = [IngredientCellModel]()
-
     private var nameRecipe = ""
     private var descRecipe = ""
 
@@ -49,32 +47,8 @@ extension CreateRecipePresenter: CreateRecipeViewOutput {
         interactor.retrieveIngredients()
     }
 
-    func numberOfRows() -> Int {
-        ingredientCellModels.count
-    }
+    func addIngredientButtonTapped() {
 
-    func onError(message: String) {
-        router.presentErrorAlert(with: message)
-    }
-
-    func didRetrieveIngredients(_ ingredients: [MealIngredient]) {
-        ingredientCellModels = ingredients.map {
-            .init(imageUrl: $0.thumbnailLink,
-                  nameIngredient: $0.ingredient,
-                  measure: $0.measure
-            )
-        }
-        view?.refreshList(numberOfRows: ingredientCellModels.count)
-    }
-
-}
-
-// MARK: - CreateRecipeInteractorOutput
-
-extension CreateRecipePresenter: CreateRecipeInteractorOutput {
-
-    func didTapOnAddIngredientButton() {
-        
     }
 
     func didEndEditingNameRecipe(_ name: String?) {
@@ -85,6 +59,26 @@ extension CreateRecipePresenter: CreateRecipeInteractorOutput {
     func didEndEditingDescRecipe(_ desc: String?) {
         guard let desc = desc else { return }
         descRecipe = desc
+    }
+
+}
+
+// MARK: - CreateRecipeInteractorOutput
+
+extension CreateRecipePresenter: CreateRecipeInteractorOutput {
+
+    func onError(message: String) {
+        router.presentErrorAlert(with: message)
+    }
+
+    func didRetrieveIngredients(_ ingredients: [MealIngredient]) {
+        let ingredientCellModels = ingredients.map {
+            IngredientCellModel(imageUrl: $0.thumbnailLink,
+                                nameIngredient: $0.ingredient,
+                                measure: $0.measure
+            )
+        }
+        view?.refreshList(items: ingredientCellModels)
     }
 
 }

@@ -1439,7 +1439,6 @@
 			isa = PBXGroup;
 			children = (
 				497F4C8C2A5363A60073A86E /* HeaderReusableView.swift */,
-				4927D56F2AB40E5400A9EAE8 /* AddIngredientButton.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -1581,6 +1580,7 @@
 		49E291522A6167EE00FD73CF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4927D56F2AB40E5400A9EAE8 /* AddIngredientButton.swift */,
 				499018962A6BABBB003E27F7 /* Divider.swift */,
 				49E291502A6167E900FD73CF /* NoAccountView.swift */,
 				49B752672A6D346A005E320A /* HeaderView.swift */,

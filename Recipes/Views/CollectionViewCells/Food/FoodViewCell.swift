@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FoodViewCell: UICollectionViewCell, ReusableView {
+final class FoodViewCell: UICollectionViewCell {
     
     private let nameLabel = UILabel()
     private let foodImageView = UIImageView()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddIngredientButton: UITableViewHeaderFooterView, ReusableView {
+final class AddIngredientButton: UIView {
 
     var buttonHandler: (() -> Void)?
 
@@ -26,8 +26,8 @@ final class AddIngredientButton: UITableViewHeaderFooterView, ReusableView {
         static let titleInsetLeft: CGFloat = 18
     }
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    init() {
+        super.init(frame: .zero)
         setup()
     }
 
@@ -41,16 +41,9 @@ final class AddIngredientButton: UITableViewHeaderFooterView, ReusableView {
     }
 
     private func setup() {
-        setupSuperView()
         setupButton()
     }
-
-    private func setupSuperView() {
-        if #available(iOS 14.0, *) {
-            backgroundConfiguration = .clear()
-        }
-    }
-
+    
     private func setupButton() {
         addSubview(button)
         button.titleLabel?.font = .addIngredientButton
@@ -63,7 +56,6 @@ final class AddIngredientButton: UITableViewHeaderFooterView, ReusableView {
             UIImage(.plusCircle)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch),
             for: .normal
         )
-
         button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
 
         button.snp.makeConstraints { make in

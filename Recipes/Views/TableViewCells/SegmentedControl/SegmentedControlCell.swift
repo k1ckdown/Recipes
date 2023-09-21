@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SegmentedControlCell: UITableViewCell, ReusableView {
+final class SegmentedControlCell: UITableViewCell {
     
     private(set) var segmentedControl: UISegmentedControl? {
         didSet {
